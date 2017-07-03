@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright 2016 Huawei Technologies Co., Ltd.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.openo.nfvo.resmanagement.service.mapper.PortMapper">
+    <resultMap id="BaseResultMap"
+        type="org.openo.nfvo.resmanagement.service.entity.PortEntity">
+        <id column="ID" property="id" jdbcType="VARCHAR" />
+        <result column="NAME" property="name" jdbcType="VARCHAR" />
+        <result column="NWTWORK_ID" property="networkId" jdbcType="VARCHAR" />
+        <result column="STATUS" property="status" jdbcType="VARCHAR" />
+        <result column="TENANT_ID" property="tenantId" jdbcType="VARCHAR" />
+        <result column="VIM_ID" property="vimId" jdbcType="VARCHAR" />
+        <result column="VIM_NAME" property="vimName" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        ID, NAME, NWTWORK_ID, STATUS, TENANT_ID, VIM_ID, VIM_NAME
+    </sql>
+    <select id="getPort" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from port
+        where ID = #{id,jdbcType=VARCHAR}
+    </select>
+    <select id="getPorts" resultMap="BaseResultMap" parameterType="java.util.Map">
+        select
+        <include refid="Base_Column_List" />
+        from port
+        <where>
+            <if test="id != null">
+                AND ID = #{id,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+    <delete id="deletePort" parameterType="java.lang.String">
+        delete from port
+        where ID = #{id,jdbcType=VARCHAR}
+    </delete>
+    <delete id="deletePortByVimId" parameterType="java.lang.String">
+        delete from port
+    where VIM_ID = #{vimId,jdbcType=VARCHAR}
+    </delete>
+    <insert id="addPort"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.PortEntity">
+        insert into port (ID, NAME, NWTWORK_ID, STATUS, TENANT_ID, VIM_ID,
+        VIM_NAME)
+        values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+        #{networkId,jdbcType=VARCHAR},
+        #{status,jdbcType=VARCHAR}, #{tenantId,jdbcType=VARCHAR}, #{vimId,jdbcType=VARCHAR}
+        , #{vimName,jdbcType=VARCHAR})
+    </insert>
+    <insert id="addPortSelective"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.PortEntity">
+        insert into port
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="name != null">
+                NAME,
+            </if>
+            <if test="networkId != null">
+                NWTWORK_ID,
+            </if>
+            <if test="status != null">
+                STATUS,
+            </if>
+            <if test="tenantId != null">
+                TENANT_ID,
+            </if>
+            <if test="vimId != null">
+                VIM_ID,
+            </if>
+            <if test="vimName != null">
+                VIM_NAME,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="networkId != null">
+                #{networkId,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="tenantId != null">
+                #{tenantId,jdbcType=VARCHAR},
+            </if>
+            <if test="vimId != null">
+                #{vimId,jdbcType=VARCHAR},
+            </if>
+            <if test="vimName != null">
+                #{vimName,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updatePortSelective"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.PortEntity">
+        update port
+        <set>
+            <if test="name != null">
+                NAME = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="networkId != null">
+                NWTWORK_ID = #{networkId,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                STATUS = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="tenantId != null">
+                TENANT_ID = #{tenantId,jdbcType=VARCHAR},
+            </if>
+            <if test="vimId != null">
+                VIM_ID = #{vimId,jdbcType=VARCHAR},
+            </if>
+            <if test="vimName != null">
+                VIM_NAME = #{vimName,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updatePort"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.PortEntity">
+        update port
+        set NAME = #{name,jdbcType=VARCHAR},
+        NWTWORK_ID = #{networkId,jdbcType=VARCHAR},
+        STATUS = #{status,jdbcType=VARCHAR},
+        TENANT_ID = #{tenantId,jdbcType=VARCHAR},
+        VIM_ID = #{vimId,jdbcType=VARCHAR},
+        VIM_NAME = #{vimName,jdbcType=VARCHAR}
+        where ID = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updatePortByVimId"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.PortEntity">
+        update port
+        <set>
+            <if test="id != null">
+                ID = #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                NAME = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="networkId != null">
+                NWTWORK_ID = #{networkId,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                STATUS = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="tenantId != null">
+                TENANT_ID = #{tenantId,jdbcType=VARCHAR},
+            </if>
+            <if test="vimId != null">
+                VIM_ID = #{vimId,jdbcType=VARCHAR},
+            </if>
+            <if test="vimName != null">
+                VIM_NAME = #{vimName,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=VARCHAR}
+    </update>
+</mapper>

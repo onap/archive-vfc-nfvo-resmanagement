@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2016-2017, Huawei Technologies Co., Ltd.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+ -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.openo.nfvo.resmanagement.service.mapper.VnfStatusMapper" >
+  <resultMap id="BaseResultMap" type="org.openo.nfvo.resmanagement.service.entity.VnfStatusEntity" >
+    <id column="vnf_instance_id" property="vnfInstanceId" jdbcType="VARCHAR" />
+    <result column="job_id" property="jobId" jdbcType="VARCHAR" />
+    <result column="ns_id" property="nsId" jdbcType="VARCHAR" />
+    <result column="vnfm_id" property="vnfmId" jdbcType="VARCHAR" />
+    <result column="response_descriptor" property="responseDescriptor" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="progress" property="progress" jdbcType="VARCHAR" />
+    <result column="status_description" property="statusDescription" jdbcType="VARCHAR" />
+    <result column="error_code" property="errorCode" jdbcType="VARCHAR" />
+    <result column="response_id" property="responseId" jdbcType="VARCHAR" />
+    <result column="response_history_list" property="responseHistoryList" jdbcType="VARCHAR" />
+    <result column="add_vm" property="addVm" jdbcType="VARCHAR" />
+    <result column="del_vm" property="delVm" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    vnf_instance_id, job_id, ns_id, vnfm_id, response_descriptor, status, progress, status_description, 
+    error_code, response_id, response_history_list, add_vm, del_vm
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from vnfstatus
+    where vnf_instance_id = #{vnfInstanceId,jdbcType=VARCHAR}
+  </select>
+  <select id="getVnfStatuss" resultMap="BaseResultMap" parameterType="java.util.Map">
+        select
+        <include refid="Base_Column_List" />
+        from vnfstatus
+        <where>
+            <if test="vnfInstanceId != null">
+                AND vnf_instance_id = #{vnfInstanceId,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from vnfstatus
+    where vnf_instance_id = #{vnfInstanceId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="org.openo.nfvo.resmanagement.service.entity.VnfStatusEntity" >
+    insert into vnfstatus (vnf_instance_id, job_id, ns_id, 
+      vnfm_id, response_descriptor, status, 
+      progress, status_description, error_code, 
+      response_id, response_history_list, add_vm, 
+      del_vm)
+    values (#{vnfInstanceId,jdbcType=VARCHAR}, #{jobId,jdbcType=VARCHAR}, #{nsId,jdbcType=VARCHAR}, 
+      #{vnfmId,jdbcType=VARCHAR}, #{responseDescriptor,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{progress,jdbcType=VARCHAR}, #{statusDescription,jdbcType=VARCHAR}, #{errorCode,jdbcType=VARCHAR}, 
+      #{responseId,jdbcType=VARCHAR}, #{responseHistoryList,jdbcType=VARCHAR}, #{addVm,jdbcType=VARCHAR}, 
+      #{delVm,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.openo.nfvo.resmanagement.service.entity.VnfStatusEntity" >
+    insert into vnfstatus
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="vnfInstanceId != null" >
+        vnf_instance_id,
+      </if>
+      <if test="jobId != null" >
+        job_id,
+      </if>
+      <if test="nsId != null" >
+        ns_id,
+      </if>
+      <if test="vnfmId != null" >
+        vnfm_id,
+      </if>
+      <if test="responseDescriptor != null" >
+        response_descriptor,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="progress != null" >
+        progress,
+      </if>
+      <if test="statusDescription != null" >
+        status_description,
+      </if>
+      <if test="errorCode != null" >
+        error_code,
+      </if>
+      <if test="responseId != null" >
+        response_id,
+      </if>
+      <if test="responseHistoryList != null" >
+        response_history_list,
+      </if>
+      <if test="addVm != null" >
+        add_vm,
+      </if>
+      <if test="delVm != null" >
+        del_vm,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="vnfInstanceId != null" >
+        #{vnfInstanceId,jdbcType=VARCHAR},
+      </if>
+      <if test="jobId != null" >
+        #{jobId,jdbcType=VARCHAR},
+      </if>
+      <if test="nsId != null" >
+        #{nsId,jdbcType=VARCHAR},
+      </if>
+      <if test="vnfmId != null" >
+        #{vnfmId,jdbcType=VARCHAR},
+      </if>
+      <if test="responseDescriptor != null" >
+        #{responseDescriptor,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="progress != null" >
+        #{progress,jdbcType=VARCHAR},
+      </if>
+      <if test="statusDescription != null" >
+        #{statusDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="errorCode != null" >
+        #{errorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="responseId != null" >
+        #{responseId,jdbcType=VARCHAR},
+      </if>
+      <if test="responseHistoryList != null" >
+        #{responseHistoryList,jdbcType=VARCHAR},
+      </if>
+      <if test="addVm != null" >
+        #{addVm,jdbcType=VARCHAR},
+      </if>
+      <if test="delVm != null" >
+        #{delVm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.openo.nfvo.resmanagement.service.entity.VnfStatusEntity" >
+    update vnfstatus
+    <set >
+      <if test="jobId != null" >
+        job_id = #{jobId,jdbcType=VARCHAR},
+      </if>
+      <if test="nsId != null" >
+        ns_id = #{nsId,jdbcType=VARCHAR},
+      </if>
+      <if test="vnfmId != null" >
+        vnfm_id = #{vnfmId,jdbcType=VARCHAR},
+      </if>
+      <if test="responseDescriptor != null" >
+        response_descriptor = #{responseDescriptor,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="progress != null" >
+        progress = #{progress,jdbcType=VARCHAR},
+      </if>
+      <if test="statusDescription != null" >
+        status_description = #{statusDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="errorCode != null" >
+        error_code = #{errorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="responseId != null" >
+        response_id = #{responseId,jdbcType=VARCHAR},
+      </if>
+      <if test="responseHistoryList != null" >
+        response_history_list = #{responseHistoryList,jdbcType=VARCHAR},
+      </if>
+      <if test="addVm != null" >
+        add_vm = #{addVm,jdbcType=VARCHAR},
+      </if>
+      <if test="delVm != null" >
+        del_vm = #{delVm,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where vnf_instance_id = #{vnfInstanceId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.openo.nfvo.resmanagement.service.entity.VnfStatusEntity" >
+    update vnfstatus
+    set job_id = #{jobId,jdbcType=VARCHAR},
+      ns_id = #{nsId,jdbcType=VARCHAR},
+      vnfm_id = #{vnfmId,jdbcType=VARCHAR},
+      response_descriptor = #{responseDescriptor,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      progress = #{progress,jdbcType=VARCHAR},
+      status_description = #{statusDescription,jdbcType=VARCHAR},
+      error_code = #{errorCode,jdbcType=VARCHAR},
+      response_id = #{responseId,jdbcType=VARCHAR},
+      response_history_list = #{responseHistoryList,jdbcType=VARCHAR},
+      add_vm = #{addVm,jdbcType=VARCHAR},
+      del_vm = #{delVm,jdbcType=VARCHAR}
+    where vnf_instance_id = #{vnfInstanceId,jdbcType=VARCHAR}
+  </update>
+</mapper>

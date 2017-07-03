@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2016-2017, Huawei Technologies Co., Ltd.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+ -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.openo.nfvo.resmanagement.service.mapper.VnfMapper" >
+  <resultMap id="BaseResultMap" type="org.openo.nfvo.resmanagement.service.entity.VnfEntity" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="vnf_instance_id" property="vnfInstanceId" jdbcType="VARCHAR" />
+    <result column="vnf_instance_name" property="vnfInstanceName" jdbcType="VARCHAR" />
+    <result column="ns_id" property="nsId" jdbcType="VARCHAR" />
+    <result column="ns_name" property="nsName" jdbcType="VARCHAR" />
+    <result column="vnfm_id" property="vnfmId" jdbcType="VARCHAR" />
+    <result column="vnfm_name" property="vnfmName" jdbcType="VARCHAR" />
+    <result column="vnf_package_name" property="vnfPackageName" jdbcType="VARCHAR" />
+    <result column="vnf_descriptor_name" property="vnfDescriptorName" jdbcType="VARCHAR" />
+    <result column="vim_id" property="vimId" jdbcType="VARCHAR" />
+    <result column="vim_name" property="vimName" jdbcType="VARCHAR" />
+    <result column="vim_tenant" property="vimTenant" jdbcType="VARCHAR" />
+    <result column="job_id" property="jobId" jdbcType="VARCHAR" />
+    <result column="vnf_status" property="vnfStatus" jdbcType="VARCHAR" />
+    <result column="vnf_type" property="vnfType" jdbcType="VARCHAR" />
+    <result column="max_vm" property="maxVm" jdbcType="INTEGER" />
+    <result column="max_cpu" property="maxCpu" jdbcType="INTEGER" />
+    <result column="max_disk" property="maxDisk" jdbcType="INTEGER" />
+    <result column="max_ram" property="maxRam" jdbcType="INTEGER" />
+    <result column="max_shd" property="maxShd" jdbcType="INTEGER" />
+    <result column="max_net" property="maxNet" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, vnf_instance_id, vnf_instance_name, ns_id, ns_name, vnfm_id, vnfm_name, vnf_package_name, 
+    vnf_descriptor_name, vim_id, vim_name, vim_tenant, job_id, vnf_status, vnf_type, 
+    max_vm, max_cpu, max_disk, max_ram, max_shd, max_net, name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from vnf
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="getVnfs" resultMap="BaseResultMap" parameterType="java.util.Map">
+        select
+        <include refid="Base_Column_List" />
+        from vnf
+        <where>
+            <if test="id != null">
+                AND ID = #{id,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from vnf
+    where vnf_instance_id = #{vnfInstanceId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="org.openo.nfvo.resmanagement.service.entity.VnfEntity" >
+    insert into vnf (id, vnf_instance_id, vnf_instance_name, 
+      ns_id, ns_name, vnfm_id, 
+      vnfm_name, vnf_package_name, vnf_descriptor_name, 
+      vim_id, vim_name, vim_tenant, 
+      job_id, vnf_status, vnf_type, 
+      max_vm, max_cpu, max_disk, 
+      max_ram, max_shd, max_net, 
+      name)
+    values (#{id,jdbcType=VARCHAR}, #{vnfInstanceId,jdbcType=VARCHAR}, #{vnfInstanceName,jdbcType=VARCHAR}, 
+      #{nsId,jdbcType=VARCHAR}, #{nsName,jdbcType=VARCHAR}, #{vnfmId,jdbcType=VARCHAR}, 
+      #{vnfmName,jdbcType=VARCHAR}, #{vnfPackageName,jdbcType=VARCHAR}, #{vnfDescriptorName,jdbcType=VARCHAR}, 
+      #{vimId,jdbcType=VARCHAR}, #{vimName,jdbcType=VARCHAR}, #{vimTenant,jdbcType=VARCHAR}, 
+      #{jobId,jdbcType=VARCHAR}, #{vnfStatus,jdbcType=VARCHAR}, #{vnfType,jdbcType=VARCHAR}, 
+      #{maxVm,jdbcType=INTEGER}, #{maxCpu,jdbcType=INTEGER}, #{maxDisk,jdbcType=INTEGER}, 
+      #{maxRam,jdbcType=INTEGER}, #{maxShd,jdbcType=INTEGER}, #{maxNet,jdbcType=INTEGER}, 
+      #{name,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.openo.nfvo.resmanagement.service.entity.VnfEntity" >
+    insert into vnf
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="vnfInstanceId != null" >
+        vnf_instance_id,
+      </if>
+      <if test="vnfInstanceName != null" >
+        vnf_instance_name,
+      </if>
+      <if test="nsId != null" >
+        ns_id,
+      </if>
+      <if test="nsName != null" >
+        ns_name,
+      </if>
+      <if test="vnfmId != null" >
+        vnfm_id,
+      </if>
+      <if test="vnfmName != null" >
+        vnfm_name,
+      </if>
+      <if test="vnfPackageName != null" >
+        vnf_package_name,
+      </if>
+      <if test="vnfDescriptorName != null" >
+        vnf_descriptor_name,
+      </if>
+      <if test="vimId != null" >
+        vim_id,
+      </if>
+      <if test="vimName != null" >
+        vim_name,
+      </if>
+      <if test="vimTenant != null" >
+        vim_tenant,
+      </if>
+      <if test="jobId != null" >
+        job_id,
+      </if>
+      <if test="vnfStatus != null" >
+        vnf_status,
+      </if>
+      <if test="vnfType != null" >
+        vnf_type,
+      </if>
+      <if test="maxVm != null" >
+        max_vm,
+      </if>
+      <if test="maxCpu != null" >
+        max_cpu,
+      </if>
+      <if test="maxDisk != null" >
+        max_disk,
+      </if>
+      <if test="maxRam != null" >
+        max_ram,
+      </if>
+      <if test="maxShd != null" >
+        max_shd,
+      </if>
+      <if test="maxNet != null" >
+        max_net,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="vnfInstanceId != null" >
+        #{vnfInstanceId,jdbcType=VARCHAR},
+      </if>
+      <if test="vnfInstanceName != null" >
+        #{vnfInstanceName,jdbcType=VARCHAR},
+      </if>
+      <if test="nsId != null" >
+        #{nsId,jdbcType=VARCHAR},
+      </if>
+      <if test="nsName != null" >
+        #{nsName,jdbcType=VARCHAR},
+      </if>
+      <if test="vnfmId != null" >
+        #{vnfmId,jdbcType=VARCHAR},
+      </if>
+      <if test="vnfmName != null" >
+        #{vnfmName,jdbcType=VARCHAR},
+      </if>
+      <if test="vnfPackageName != null" >
+        #{vnfPackageName,jdbcType=VARCHAR},
+      </if>
+      <if test="vnfDescriptorName != null" >
+        #{vnfDescriptorName,jdbcType=VARCHAR},
+      </if>
+      <if test="vimId != null" >
+        #{vimId,jdbcType=VARCHAR},
+      </if>
+      <if test="vimName != null" >
+        #{vimName,jdbcType=VARCHAR},
+      </if>
+      <if test="vimTenant != null" >
+        #{vimTenant,jdbcType=VARCHAR},
+      </if>
+      <if test="jobId != null" >
+        #{jobId,jdbcType=VARCHAR},
+      </if>
+      <if test="vnfStatus != null" >
+        #{vnfStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="vnfType != null" >
+        #{vnfType,jdbcType=VARCHAR},
+      </if>
+      <if test="maxVm != null" >
+        #{maxVm,jdbcType=INTEGER},
+      </if>
+      <if test="maxCpu != null" >
+        #{maxCpu,jdbcType=INTEGER},
+      </if>
+      <if test="maxDisk != null" >
+        #{maxDisk,jdbcType=INTEGER},
+      </if>
+      <if test="maxRam != null" >
+        #{maxRam,jdbcType=INTEGER},
+      </if>
+      <if test="maxShd != null" >
+        #{maxShd,jdbcType=INTEGER},
+      </if>
+      <if test="maxNet != null" >
+        #{maxNet,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.openo.nfvo.resmanagement.service.entity.VnfEntity" >
+    update vnf
+    <set >
+      <if test="vnfInstanceId != null" >
+        vnf_instance_id = #{vnfInstanceId,jdbcType=VARCHAR},
+      </if>
+      <if test="vnfInstanceName != null" >
+        vnf_instance_name = #{vnfInstanceName,jdbcType=VARCHAR},
+      </if>
+      <if test="nsId != null" >
+        ns_id = #{nsId,jdbcType=VARCHAR},
+      </if>
+      <if test="nsName != null" >
+        ns_name = #{nsName,jdbcType=VARCHAR},
+      </if>
+      <if test="vnfmId != null" >
+        vnfm_id = #{vnfmId,jdbcType=VARCHAR},
+      </if>
+      <if test="vnfmName != null" >
+        vnfm_name = #{vnfmName,jdbcType=VARCHAR},
+      </if>
+      <if test="vnfPackageName != null" >
+        vnf_package_name = #{vnfPackageName,jdbcType=VARCHAR},
+      </if>
+      <if test="vnfDescriptorName != null" >
+        vnf_descriptor_name = #{vnfDescriptorName,jdbcType=VARCHAR},
+      </if>
+      <if test="vimId != null" >
+        vim_id = #{vimId,jdbcType=VARCHAR},
+      </if>
+      <if test="vimName != null" >
+        vim_name = #{vimName,jdbcType=VARCHAR},
+      </if>
+      <if test="vimTenant != null" >
+        vim_tenant = #{vimTenant,jdbcType=VARCHAR},
+      </if>
+      <if test="jobId != null" >
+        job_id = #{jobId,jdbcType=VARCHAR},
+      </if>
+      <if test="vnfStatus != null" >
+        vnf_status = #{vnfStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="vnfType != null" >
+        vnf_type = #{vnfType,jdbcType=VARCHAR},
+      </if>
+      <if test="maxVm != null" >
+        max_vm = #{maxVm,jdbcType=INTEGER},
+      </if>
+      <if test="maxCpu != null" >
+        max_cpu = #{maxCpu,jdbcType=INTEGER},
+      </if>
+      <if test="maxDisk != null" >
+        max_disk = #{maxDisk,jdbcType=INTEGER},
+      </if>
+      <if test="maxRam != null" >
+        max_ram = #{maxRam,jdbcType=INTEGER},
+      </if>
+      <if test="maxShd != null" >
+        max_shd = #{maxShd,jdbcType=INTEGER},
+      </if>
+      <if test="maxNet != null" >
+        max_net = #{maxNet,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.openo.nfvo.resmanagement.service.entity.VnfEntity" >
+    update vnf
+    set vnf_instance_id = #{vnfInstanceId,jdbcType=VARCHAR},
+      vnf_instance_name = #{vnfInstanceName,jdbcType=VARCHAR},
+      ns_id = #{nsId,jdbcType=VARCHAR},
+      ns_name = #{nsName,jdbcType=VARCHAR},
+      vnfm_id = #{vnfmId,jdbcType=VARCHAR},
+      vnfm_name = #{vnfmName,jdbcType=VARCHAR},
+      vnf_package_name = #{vnfPackageName,jdbcType=VARCHAR},
+      vnf_descriptor_name = #{vnfDescriptorName,jdbcType=VARCHAR},
+      vim_id = #{vimId,jdbcType=VARCHAR},
+      vim_name = #{vimName,jdbcType=VARCHAR},
+      vim_tenant = #{vimTenant,jdbcType=VARCHAR},
+      job_id = #{jobId,jdbcType=VARCHAR},
+      vnf_status = #{vnfStatus,jdbcType=VARCHAR},
+      vnf_type = #{vnfType,jdbcType=VARCHAR},
+      max_vm = #{maxVm,jdbcType=INTEGER},
+      max_cpu = #{maxCpu,jdbcType=INTEGER},
+      max_disk = #{maxDisk,jdbcType=INTEGER},
+      max_ram = #{maxRam,jdbcType=INTEGER},
+      max_shd = #{maxShd,jdbcType=INTEGER},
+      max_net = #{maxNet,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

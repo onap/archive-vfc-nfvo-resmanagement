@@ -1,0 +1,23 @@
+{
+    "request": {
+        "uri": "/openoapi/resmgr/v1/limits/1234/cpu?vimId=123",
+        "method": "get",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "limits": {
+                "rate": [],
+                "absolute": {
+                    "maxTotalVolumes": 1000,
+                    "totalVolumesUsed": 14,
+                    "maxTotalVolumeGigabytes": 42000,
+                    "totalGigabytesUsed":1054
+                }
+            }
+        }
+    }
+}

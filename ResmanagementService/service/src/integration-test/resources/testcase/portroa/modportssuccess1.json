@@ -1,0 +1,24 @@
+{
+    "request": {
+        "uri": "/openoapi/resmgr/v1/ports",
+        "method": "put",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+        },
+        "json": {
+            "id": "12345678",
+            "name": "newName",
+            "networkId": "1111",
+            "status": "ACTIVE",
+            "tenantId": "123456",
+            "vimId": "11",
+            "vimName": "22"
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "msg": "org.openo.nfvo.resmanage.common.update.success"
+        }
+    }
+}

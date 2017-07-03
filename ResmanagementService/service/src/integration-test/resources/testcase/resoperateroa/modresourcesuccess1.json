@@ -1,0 +1,17 @@
+{
+    "request": {
+        "uri": "/openoapi/resmgr/v1/resoperate/updateres?tenantId=1234&vimId=123",
+        "method": "put",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+        },
+        "json": {
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "msg": "org.openo.nfvo.resmanage.common.update.success"
+        }
+    }
+}

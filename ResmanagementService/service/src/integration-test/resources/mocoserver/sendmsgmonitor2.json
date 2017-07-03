@@ -1,0 +1,31 @@
+{
+    "request": {
+        "uri": "/openoapi/umcres/v1/resinfo",
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+        },
+        "json": {
+            "operationType": "update",
+            "resourceType": "HOST",
+            "label": "09c025b0efc64211bd23fc50fa974cdf",
+            "data": [{
+                "cpu": "20",
+                "disk": "100",
+                "id": "12345678",
+                "memory": "8",
+                "name": "09c025b0efc64211bd23fc50fa974cdf",
+                "vimId": "123",
+                "vimName": "456"
+            }]
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "result":"SUCCESS",
+            "info":"resource monitor info update ok",
+            "oid":["12345678"]
+        }
+    }
+}

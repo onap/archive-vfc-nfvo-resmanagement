@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright 2016 Huawei Technologies Co., Ltd.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.openo.nfvo.resmanagement.service.mapper.NetworkMapper">
+    <resultMap id="BaseResultMap"
+        type="org.openo.nfvo.resmanagement.service.entity.NetworkEntity">
+        <id column="ID" property="id" jdbcType="VARCHAR" />
+        <result column="NAME" property="name" jdbcType="VARCHAR" />
+        <result column="TENANT_ID" property="tenantId" jdbcType="VARCHAR" />
+        <result column="VIM_ID" property="vimId" jdbcType="VARCHAR" />
+        <result column="VIM_NAME" property="vimName" jdbcType="VARCHAR" />
+        <result column="STATUS" property="status" jdbcType="VARCHAR" />
+        <result column="PHYSICAL_NETWORK" property="physicalNetwork"
+            jdbcType="VARCHAR" />
+        <result column="NETWORK_TYPE" property="networkType" jdbcType="VARCHAR" />
+        <result column="SEGMENTATION_ID" property="segmentationId"
+            jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        ID, NAME, TENANT_ID, VIM_ID, VIM_NAME, STATUS,
+        PHYSICAL_NETWORK, NETWORK_TYPE, SEGMENTATION_ID
+    </sql>
+    <select id="getNetwork" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from network
+        where ID = #{id,jdbcType=VARCHAR}
+    </select>
+    <select id="getNetworks" resultMap="BaseResultMap"
+        parameterType="java.util.Map">
+        select
+        <include refid="Base_Column_List" />
+        from network
+        <where>
+            <if test="id != null">
+                AND ID = #{id,jdbcType=VARCHAR}
+            </if>
+            <if test="vimId != null">
+                AND VIM_ID = #{vimId,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+    <delete id="deleteNetwork" parameterType="java.lang.String">
+        delete from network
+        where ID = #{id,jdbcType=VARCHAR}
+    </delete>
+    <delete id="deleteNetworkByVimId" parameterType="java.lang.String">
+        delete from network
+        where VIM_ID = #{vimId,jdbcType=VARCHAR}
+    </delete>
+    <insert id="addNetwork"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.NetworkEntity">
+        insert into network (ID, NAME, TENANT_ID,
+        VIM_ID, VIM_NAME, STATUS,
+        PHYSICAL_NETWORK, NETWORK_TYPE, SEGMENTATION_ID
+        )
+        values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+        #{tenantId,jdbcType=VARCHAR},
+        #{vimId,jdbcType=VARCHAR}, #{vimName,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR},
+        #{physicalNetwork,jdbcType=VARCHAR}, #{networkType,jdbcType=VARCHAR},
+        #{segmentationId,jdbcType=VARCHAR}
+        )
+    </insert>
+    <insert id="addNetworkSelective"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.NetworkEntity">
+        insert into network
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="name != null">
+                NAME,
+            </if>
+            <if test="tenantId != null">
+                TENANT_ID,
+            </if>
+            <if test="vimId != null">
+                VIM_ID,
+            </if>
+            <if test="vimName != null">
+                VIM_NAME,
+            </if>
+            <if test="status != null">
+                STATUS,
+            </if>
+            <if test="physicalNetwork != null">
+                PHYSICAL_NETWORK,
+            </if>
+            <if test="networkType != null">
+                NETWORK_TYPE,
+            </if>
+            <if test="segmentationId != null">
+                SEGMENTATION_ID,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="tenantId != null">
+                #{tenantId,jdbcType=VARCHAR},
+            </if>
+            <if test="vimId != null">
+                #{vimId,jdbcType=VARCHAR},
+            </if>
+            <if test="vimName != null">
+                #{vimName,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="physicalNetwork != null">
+                #{physicalNetwork,jdbcType=VARCHAR},
+            </if>
+            <if test="networkType != null">
+                #{networkType,jdbcType=VARCHAR},
+            </if>
+            <if test="segmentationId != null">
+                #{segmentationId,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateNetworkSelective"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.NetworkEntity">
+        update network
+        <set>
+            <if test="name != null">
+                NAME = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="tenantId != null">
+                TENANT_ID = #{tenantId,jdbcType=VARCHAR},
+            </if>
+            <if test="vimId != null">
+                VIM_ID = #{vimId,jdbcType=VARCHAR},
+            </if>
+            <if test="vimName != null">
+                VIM_NAME = #{vimName,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                STATUS = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="physicalNetwork != null">
+                PHYSICAL_NETWORK = #{physicalNetwork,jdbcType=VARCHAR},
+            </if>
+            <if test="networkType != null">
+                NETWORK_TYPE = #{networkType,jdbcType=VARCHAR},
+            </if>
+            <if test="segmentationId != null">
+                SEGMENTATION_ID = #{segmentationId,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateNetwork"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.NetworkEntity">
+        update network
+        set NAME = #{name,jdbcType=VARCHAR},
+        TENANT_ID = #{tenantId,jdbcType=VARCHAR},
+        VIM_ID = #{vimId,jdbcType=VARCHAR},
+        VIM_NAME = #{vimName,jdbcType=VARCHAR},
+        STATUS = #{status,jdbcType=VARCHAR},
+        PHYSICAL_NETWORK = #{physicalNetwork,jdbcType=VARCHAR},
+        NETWORK_TYPE = #{networkType,jdbcType=VARCHAR},
+        SEGMENTATION_ID = #{segmentationId,jdbcType=VARCHAR}
+        where ID = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateNetworkByVimId"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.NetworkEntity">
+        update network
+        <set>
+            <if test="id != null">
+                ID = #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                NAME = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="tenantId != null">
+                TENANT_ID = #{tenantId,jdbcType=VARCHAR},
+            </if>
+            <if test="vimName != null">
+                VIM_NAME = #{vimName,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                STATUS = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="physicalNetwork != null">
+                PHYSICAL_NETWORK = #{physicalNetwork,jdbcType=VARCHAR},
+            </if>
+            <if test="networkType != null">
+                NETWORK_TYPE = #{networkType,jdbcType=VARCHAR},
+            </if>
+            <if test="segmentationId != null">
+                SEGMENTATION_ID = #{segmentationId,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where VIM_ID = #{vimId,jdbcType=VARCHAR}
+    </update>
+</mapper>

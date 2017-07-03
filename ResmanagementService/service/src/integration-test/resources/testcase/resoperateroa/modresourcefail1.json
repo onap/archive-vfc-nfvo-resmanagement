@@ -1,0 +1,17 @@
+{
+    "request": {
+        "uri": "/openoapi/resmgr/v1/resoperate/updateres?tenantId=1234",
+        "method": "put",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+        },
+        "json": {
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "msg": "org.openo.nfvo.resmanage.service.group.resoperate.add.res.no.result"
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "request": {
+        "uri": "/openoapi/resmgr/v1/networks/aaaa",
+        "method": "get",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "networks": []
+        }
+    }
+}

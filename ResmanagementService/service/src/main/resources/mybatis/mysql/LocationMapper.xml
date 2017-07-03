@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright 2016 Huawei Technologies Co., Ltd.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.openo.nfvo.resmanagement.service.mapper.LocationMapper">
+    <resultMap id="BaseResultMap"
+        type="org.openo.nfvo.resmanagement.service.entity.LocationEntity">
+
+        <id column="ID" property="id" jdbcType="VARCHAR" />
+        <result column="COUNTRY" property="country" jdbcType="VARCHAR" />
+        <result column="LOCATION" property="location" jdbcType="VARCHAR" />
+        <result column="LATITUDE" property="latitude" jdbcType="VARCHAR" />
+        <result column="LONGITUDE" property="longitude" jdbcType="VARCHAR" />
+        <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        ID, COUNTRY, LOCATION, LATITUDE, LONGITUDE, DESCRIPTION
+    </sql>
+    <select id="getLocation" resultMap="BaseResultMap"
+        parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from location
+        where ID = #{id,jdbcType=VARCHAR}
+    </select>
+    <select id="getCountry" resultType="java.lang.String">
+        select distinct COUNTRY from location
+    </select>
+    <select id="getLocationByCountry" resultType="java.lang.String"
+        parameterType="java.util.Map">
+        select distinct LOCATION from location
+        <where>
+            <if test="country != null">
+                AND COUNTRY = #{country,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+    <select id="getLocations" resultMap="BaseResultMap"
+        parameterType="java.util.Map">
+        select
+        <include refid="Base_Column_List" />
+        from location
+        <where>
+            <if test="id != null">
+                AND ID = #{id,jdbcType=VARCHAR}
+            </if>
+            <if test="location !=null">
+                AND LOCATION = #{location,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+    <delete id="deleteLocation" parameterType="java.lang.String">
+        delete from location
+        where ID = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="addLocation"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.LocationEntity">
+
+        insert into location (ID, COUNTRY, LOCATION,
+        LATITUDE, LONGITUDE, DESCRIPTION)
+        values (#{id,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR},
+        #{location,jdbcType=VARCHAR},
+        #{latitude,jdbcType=VARCHAR}, #{longitude,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR})
+    </insert>
+    <insert id="addLocationSelective"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.LocationEntity">
+
+        insert into location
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="country != null">
+                COUNTRY,
+            </if>
+            <if test="location != null">
+                LOCATION,
+            </if>
+            <if test="latitude != null">
+                LATITUDE,
+            </if>
+            <if test="longitude != null">
+                LONGITUDE,
+            </if>
+            <if test="description != null">
+                DESCRIPTION,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="country != null">
+                #{country,jdbcType=VARCHAR},
+            </if>
+            <if test="location != null">
+                #{location,jdbcType=VARCHAR},
+            </if>
+            <if test="latitude != null">
+                #{latitude,jdbcType=VARCHAR},
+            </if>
+            <if test="longitude != null">
+                #{longitude,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                #{description,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateLocationSelective"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.LocationEntity">
+
+        update location
+        <set>
+            <if test="country != null">
+                COUNTRY = #{country,jdbcType=VARCHAR},
+            </if>
+            <if test="location != null">
+                LOCATION = #{location,jdbcType=VARCHAR},
+            </if>
+            <if test="latitude != null">
+                LATITUDE = #{latitude,jdbcType=VARCHAR},
+            </if>
+            <if test="longitude != null">
+                LONGITUDE = #{longitude,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                DESCRIPTION = #{description,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateLocation"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.LocationEntity">
+
+        update location
+        set COUNTRY = #{country,jdbcType=VARCHAR},
+        LOCATION = #{location,jdbcType=VARCHAR},
+        LATITUDE = #{latitude,jdbcType=VARCHAR},
+        LONGITUDE = #{longitude,jdbcType=VARCHAR},
+        DESCRIPTION = #{description,jdbcType=VARCHAR}
+        where ID = #{id,jdbcType=VARCHAR}
+    </update>
+</mapper>

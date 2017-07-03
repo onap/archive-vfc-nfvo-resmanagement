@@ -1,0 +1,15 @@
+{
+    "request": {
+        "uri": "/openoapi/resmgr/v1/ports?id=aaaa",
+        "method": "delete",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "msg": "org.openo.nfvo.resmanage.common.del.error"
+        }
+    }
+}

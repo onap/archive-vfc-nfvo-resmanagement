@@ -1,0 +1,24 @@
+{
+    "request": {
+        "uri": "/openoapi/resmgr/v1/hosts",
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+        },
+        "json": {
+        "id":"12345678",
+        "name": "hostName",
+        "cpu": "20",
+        "memory": "8",
+        "disk": "100",
+        "vimId": "123",
+        "vimName": "456"
+    }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "msg": "org.openo.nfvo.resmanage.common.add.success"
+        }
+    }
+}

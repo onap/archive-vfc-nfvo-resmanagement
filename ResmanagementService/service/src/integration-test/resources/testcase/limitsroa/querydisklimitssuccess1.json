@@ -1,0 +1,21 @@
+{
+    "request": {
+        "uri": "/openoapi/resmgr/v1/limits/1234/disk?vimId=123",
+        "method": "get",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "vimId": "123",
+            "vimName": "vim1",
+            "limits": {
+                "volumes": 1000,
+                "gigabytes": 42000,
+                "snapshots": 100
+            }
+        }
+    }
+}

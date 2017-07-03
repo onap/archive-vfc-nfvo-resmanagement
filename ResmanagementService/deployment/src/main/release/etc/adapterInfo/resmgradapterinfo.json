@@ -1,0 +1,12 @@
+{
+    "serviceName": "resmgr",
+    "version": "v1",
+    "url": "/openoapi/resmgr/v1",
+    "protocol": "REST",
+    "visualRange": "1",
+    "nodes": [{
+        "ip": "127.0.0.1",
+        "port": "8480",
+        "ttl": 0
+    }]
+}

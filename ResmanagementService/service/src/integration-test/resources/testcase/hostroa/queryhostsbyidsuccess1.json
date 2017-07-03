@@ -1,0 +1,23 @@
+{
+    "request": {
+        "uri": "/openoapi/resmgr/v1/hosts/12345678",
+        "method": "get",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "hosts": [{
+                "cpu": "20",
+                "disk": "100",
+                "id": "12345678",
+                "memory": "8",
+                "name": "hostName",
+                "vimId": "123",
+                "vimName": "456"
+            }]
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "request": {
+        "uri": "/openoapi/resmgr/v1/locations/12345678",
+        "method": "get",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "locations": [{
+            "country": "china",
+            "description": "",
+            "id": "12345678",
+            "latitude": "11",
+            "location": "shenzhen",
+            "longitude": "22.2"
+        }]
+        }
+    }
+}

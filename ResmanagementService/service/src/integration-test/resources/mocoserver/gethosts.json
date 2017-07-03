@@ -1,0 +1,26 @@
+{
+    "request": {
+        "uri": "/openoapi/vimdriver/v1/[a-zA-Z0-9\\-\\_]{1,36}/hosts",
+        "method": "get",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+        },
+        "query": {
+            "vimId": "123",
+            "tenantId": "1234"
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+        "hosts": [
+    {
+        "host_name": "09c025b0efc64211bd23fc50fa974cdf",
+        "service": "compute",
+        "zone": "nova",
+        "vimId": "123",
+        "vimName": "vim"
+    }]
+        }
+    }
+}

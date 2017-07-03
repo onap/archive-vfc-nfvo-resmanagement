@@ -1,0 +1,26 @@
+{
+    "request": {
+        "uri": "/openoapi/resmgr/v1/networks",
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+        },
+        "json": {
+            "id": "12345678",
+            "name": "name1",
+            "tenantId": "111111",
+            "status": "active",
+            "vimId": "123",
+            "vimName": "vimName",
+            "physicalNetwork": "physnet1",
+            "networkType": "vlan",
+            "segmentationId": "26"
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "msg": "org.openo.nfvo.resmanage.common.add.success"
+        }
+    }
+}

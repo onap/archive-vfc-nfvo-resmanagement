@@ -1,0 +1,30 @@
+{
+    "request": {
+        "uri": "/openoapi/resmgr/v1/datacenters",
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+        },
+        "json": {
+            "country": "china",
+            "id": "12345678",
+            "location": "shanghai",
+            "name": "shanghai",
+            "status": "active",
+            "totalCPU": "100",
+            "totalDisk": "100",
+            "totalMemory": "100",
+            "usedCPU": "0",
+            "usedDisk": "0",
+            "usedMemory": "0",
+            "vimId": "123",
+            "vimName": "vimName"
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "msg": "org.openo.nfvo.resmanage.common.add.success"
+        }
+    }
+}

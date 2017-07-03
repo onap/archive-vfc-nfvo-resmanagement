@@ -1,0 +1,31 @@
+{
+    "request": {
+        "uri": "/openoapi/umcres/v1/resinfo",
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+        },
+        "json": {
+            "operationType": "create",
+            "resourceType": "HOST",
+            "label": "09c025b0efc64211bd23fc50fa974cdf",
+            "data": [{
+                "cpu": "1",
+                "disk": "1028",
+                "id": "12345678",
+                "memory": "8192",
+                "name": "09c025b0efc64211bd23fc50fa974cdf",
+                "vimId": "123",
+                "vimName": "vim"
+            }]
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "result": "SUCCESS",
+            "info": "resource monitor info add ok",
+            "oid": ["12345678"]
+        }
+    }
+}

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright 2016 Huawei Technologies Co., Ltd.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.openo.nfvo.resmanagement.service.mapper.SitesMapper">
+    <resultMap id="BaseResultMap"
+        type="org.openo.nfvo.resmanagement.service.entity.SitesEntity">
+        <id column="ID" property="id" jdbcType="VARCHAR" />
+        <result column="NAME" property="name" jdbcType="VARCHAR" />
+        <result column="LOCATION" property="location" jdbcType="VARCHAR" />
+        <result column="COUNTRY" property="country" jdbcType="VARCHAR" />
+        <result column="VIM_ID" property="vimId" jdbcType="VARCHAR" />
+        <result column="VIM_NAME" property="vimName" jdbcType="VARCHAR" />
+        <result column="STATUS" property="status" jdbcType="VARCHAR" />
+        <result column="TOTAL_CPU" property="totalCPU" jdbcType="VARCHAR" />
+        <result column="TOTAL_MEMORY" property="totalMemory" jdbcType="VARCHAR" />
+        <result column="TOTAL_DISK" property="totalDisk" jdbcType="VARCHAR" />
+        <result column="USED_CPU" property="usedCPU" jdbcType="VARCHAR" />
+        <result column="USED_MEMORY" property="usedMemory" jdbcType="VARCHAR" />
+        <result column="USED_DISK" property="usedDisk" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        ID, NAME, LOCATION, COUNTRY, VIM_ID, VIM_NAME, STATUS,
+        TOTAL_CPU,
+        TOTAL_MEMORY, TOTAL_DISK,
+        USED_CPU, USED_MEMORY, USED_DISK
+    </sql>
+    <select id="getSite" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from site
+        where ID = #{id,jdbcType=VARCHAR}
+    </select>
+    <select id="getSites" resultMap="BaseResultMap" parameterType="java.util.Map">
+        select
+        <include refid="Base_Column_List" />
+        from site
+        <where>
+            <if test="id != null">
+                AND ID = #{id,jdbcType=VARCHAR}
+            </if>
+            <if test="name != null">
+                AND NAME = #{name,jdbcType=VARCHAR}
+            </if>
+            <if test="location != null">
+                AND LOCATION = #{location,jdbcType=VARCHAR}
+            </if>
+            <if test="vimId != null">
+                AND VIM_ID = #{vimId,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+    <delete id="deleteSite" parameterType="java.lang.String">
+        delete from site
+        where ID =
+        #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="addSite"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.SitesEntity">
+        insert into site (ID, NAME, LOCATION,
+        COUNTRY, VIM_ID,
+        VIM_NAME, STATUS,TOTAL_CPU, TOTAL_MEMORY, TOTAL_DISK,
+        USED_CPU,
+        USED_MEMORY, USED_DISK)
+        values (#{id,jdbcType=VARCHAR},
+        #{name,jdbcType=VARCHAR},
+        #{location,jdbcType=VARCHAR},
+        #{country,jdbcType=VARCHAR}, #{vimId,jdbcType=VARCHAR},
+        #{vimName,jdbcType=VARCHAR},
+        #{status,jdbcType=VARCHAR},
+        #{totalCPU,jdbcType=VARCHAR}, #{totalMemory,jdbcType=VARCHAR},
+        #{totalDisk,jdbcType=VARCHAR},
+        #{usedCPU,jdbcType=VARCHAR},
+        #{usedMemory,jdbcType=VARCHAR},
+        #{usedDisk,jdbcType=VARCHAR})
+    </insert>
+    <insert id="addSiteSelective"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.SitesEntity">
+        insert into site
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="name != null">
+                NAME,
+            </if>
+            <if test="location != null">
+                LOCATION,
+            </if>
+            <if test="country != null">
+                COUNTRY,
+            </if>
+            <if test="vimId != null">
+                VIM_ID,
+            </if>
+            <if test="vimName != null">
+                VIM_NAME,
+            </if>
+            <if test="status != null">
+                STATUS,
+            </if>
+            <if test="totalCPU != null">
+                TOTAL_CPU,
+            </if>
+            <if test="totalMemory != null">
+                TOTAL_MEMORY,
+            </if>
+            <if test="totalDisk != null">
+                TOTAL_DISK,
+            </if>
+            <if test="usedCPU != null">
+                USED_CPU,
+            </if>
+            <if test="usedMemory != null">
+                USED_MEMORY,
+            </if>
+            <if test="usedDisk != null">
+                USED_DISK,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="location != null">
+                #{location,jdbcType=VARCHAR},
+            </if>
+            <if test="country != null">
+                #{country,jdbcType=VARCHAR},
+            </if>
+            <if test="vimId != null">
+                #{vimId,jdbcType=VARCHAR},
+            </if>
+            <if test="vimName != null">
+                #{vimName,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="totalCPU != null">
+                #{totalCPU,jdbcType=VARCHAR},
+            </if>
+            <if test="totalMemory != null">
+                #{totalMemory,jdbcType=VARCHAR},
+            </if>
+            <if test="totalDisk != null">
+                #{totalDisk,jdbcType=VARCHAR},
+            </if>
+            <if test="usedCPU != null">
+                #{usedCPU,jdbcType=VARCHAR},
+            </if>
+            <if test="usedMemory != null">
+                #{usedMemory,jdbcType=VARCHAR},
+            </if>
+            <if test="usedDisk != null">
+                #{usedDisk,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateSiteSelective"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.SitesEntity">
+        update site
+        <set>
+            <if test="name != null">
+                NAME = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="location != null">
+                LOCATION = #{location,jdbcType=VARCHAR},
+            </if>
+            <if test="country != null">
+                COUNTRY = #{country,jdbcType=VARCHAR},
+            </if>
+            <if test="vimId != null">
+                VIM_ID = #{vimId,jdbcType=VARCHAR},
+            </if>
+            <if test="vimName != null">
+                VIM_NAME = #{vimName,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                STATUS = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="totalCPU != null">
+                TOTAL_CPU = #{totalCPU,jdbcType=VARCHAR},
+            </if>
+            <if test="totalMemory != null">
+                TOTAL_MEMORY = #{totalMemory,jdbcType=VARCHAR},
+            </if>
+            <if test="totalDisk != null">
+                TOTAL_DISK = #{totalDisk,jdbcType=VARCHAR},
+            </if>
+            <if test="usedCPU != null">
+                USED_CPU = #{usedCPU,jdbcType=VARCHAR},
+            </if>
+            <if test="usedMemory != null">
+                USED_MEMORY = #{usedMemory,jdbcType=VARCHAR},
+            </if>
+            <if test="usedDisk != null">
+                USED_DISK = #{usedDisk,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateSite"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.SitesEntity">
+        update site
+        set NAME = #{name,jdbcType=VARCHAR},
+        LOCATION
+        = #{location,jdbcType=VARCHAR},
+        COUNTRY = #{country,jdbcType=VARCHAR},
+        VIM_ID = #{vimId,jdbcType=VARCHAR},
+        VIM_NAME =
+        #{vimName,jdbcType=VARCHAR},
+        STATUS = #{status,jdbcType=VARCHAR},
+        TOTAL_CPU = #{totalCPU,jdbcType=VARCHAR},
+        TOTAL_MEMORY =
+        #{totalMemory,jdbcType=VARCHAR},
+        TOTAL_DISK =
+        #{totalDisk,jdbcType=VARCHAR},
+        USED_CPU = #{usedCPU,jdbcType=VARCHAR},
+        USED_MEMORY = #{usedMemory,jdbcType=VARCHAR},
+        USED_DISK =
+        #{usedDisk,jdbcType=VARCHAR}
+        where ID = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateSiteByVimId"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.SitesEntity">
+        update site
+        <set>
+            <if test="id != null">
+                ID = #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                NAME = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="location != null">
+                LOCATION = #{location,jdbcType=VARCHAR},
+            </if>
+            <if test="country != null">
+                COUNTRY = #{country,jdbcType=VARCHAR},
+            </if>
+            <if test="vimName != null">
+                VIM_NAME = #{vimName,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                STATUS = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="totalCPU != null">
+                TOTAL_CPU = #{totalCPU,jdbcType=VARCHAR},
+            </if>
+            <if test="totalMemory != null">
+                TOTAL_MEMORY = #{totalMemory,jdbcType=VARCHAR},
+            </if>
+            <if test="totalDisk != null">
+                TOTAL_DISK = #{totalDisk,jdbcType=VARCHAR},
+            </if>
+            <if test="usedCPU != null">
+                USED_CPU = #{usedCPU,jdbcType=VARCHAR},
+            </if>
+            <if test="usedMemory != null">
+                USED_MEMORY = #{usedMemory,jdbcType=VARCHAR},
+            </if>
+            <if test="usedDisk != null">
+                USED_DISK = #{usedDisk,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where VIM_ID = #{vimId,jdbcType=VARCHAR}
+    </update>
+
+</mapper>

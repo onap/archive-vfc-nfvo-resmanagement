@@ -1,0 +1,30 @@
+{
+    "request": {
+        "uri": "/openoapi/resmgr/v1/datacenters",
+        "method": "put",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+        },
+        "json": {
+            "country": "china",
+            "id": "aaaa",
+            "location": "shanghai",
+            "name": "newName",
+            "status": "active",
+            "totalCPU": "100",
+            "totalDisk": "100",
+            "totalMemory": "100",
+            "usedCPU": "0",
+            "usedDisk": "0",
+            "usedMemory": "0",
+            "vimId": "123",
+            "vimName": "vimName"
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "msg": "org.openo.nfvo.resmanage.common.update.error"
+        }
+    }
+}

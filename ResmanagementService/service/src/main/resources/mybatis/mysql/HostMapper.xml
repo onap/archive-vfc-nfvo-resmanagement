@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright 2016 Huawei Technologies Co., Ltd.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.openo.nfvo.resmanagement.service.mapper.HostMapper">
+    <resultMap id="BaseResultMap"
+        type="org.openo.nfvo.resmanagement.service.entity.HostEntity">
+        <id column="ID" property="id" jdbcType="VARCHAR" />
+        <result column="NAME" property="name" jdbcType="VARCHAR" />
+        <result column="CPU" property="cpu" jdbcType="VARCHAR" />
+        <result column="MEMORY" property="memory" jdbcType="VARCHAR" />
+        <result column="DISK" property="disk" jdbcType="VARCHAR" />
+        <result column="VIM_ID" property="vimId" jdbcType="VARCHAR" />
+        <result column="VIM_NAME" property="vimName" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        ID, NAME, CPU, MEMORY, DISK, VIM_ID, VIM_NAME
+    </sql>
+    <select id="getHost" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from host
+        where ID = #{id,jdbcType=VARCHAR}
+    </select>
+    <select id="getHosts" resultMap="BaseResultMap" parameterType="java.util.Map">
+        select
+        <include refid="Base_Column_List" />
+        from host
+        <where>
+            <if test="id != null">
+                AND ID = #{id,jdbcType=VARCHAR}
+            </if>
+            <if test="vimId != null">
+                AND VIM_ID = #{vimId,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+    <delete id="deleteHost" parameterType="java.lang.String">
+        delete from host
+        where ID = #{id,jdbcType=VARCHAR}
+    </delete>
+    <delete id="deleteHostByVimId" parameterType="java.lang.String">
+        delete from host
+        where VIM_ID = #{vimId,jdbcType=VARCHAR}
+    </delete>
+    <insert id="addHost"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.HostEntity">
+        insert into host (ID, NAME, CPU, MEMORY, DISK, VIM_ID, VIM_NAME)
+        values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+        #{cpu,jdbcType=VARCHAR},
+        #{memory,jdbcType=VARCHAR}, #{disk,jdbcType=VARCHAR}, #{vimId,jdbcType=VARCHAR}
+        , #{vimName,jdbcType=VARCHAR})
+    </insert>
+    <insert id="addHostSelective"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.HostEntity">
+        insert into host
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="name != null">
+                NAME,
+            </if>
+            <if test="cpu != null">
+                CPU,
+            </if>
+            <if test="memory != null">
+                MEMORY,
+            </if>
+            <if test="disk != null">
+                DISK,
+            </if>
+            <if test="vimId != null">
+                VIM_ID,
+            </if>
+            <if test="vimName != null">
+                VIM_NAME,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="cpu != null">
+                #{cpu,jdbcType=VARCHAR},
+            </if>
+            <if test="memory != null">
+                #{memory,jdbcType=VARCHAR},
+            </if>
+            <if test="disk != null">
+                #{disk,jdbcType=VARCHAR},
+            </if>
+            <if test="vimId != null">
+                #{vimId,jdbcType=VARCHAR},
+            </if>
+            <if test="vimName != null">
+                #{vimName,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateHostSelective"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.HostEntity">
+        update host
+        <set>
+            <if test="name != null">
+                NAME = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="cpu != null">
+                CPU = #{cpu,jdbcType=VARCHAR},
+            </if>
+            <if test="memory != null">
+                MEMORY = #{memory,jdbcType=VARCHAR},
+            </if>
+            <if test="disk != null">
+                DISK = #{disk,jdbcType=VARCHAR},
+            </if>
+            <if test="vimId != null">
+                VIM_ID = #{vimId,jdbcType=VARCHAR},
+            </if>
+            <if test="vimName != null">
+                VIM_NAME = #{vimName,jdbcType=VARCHAR},
+            </if>
+        </set>
+        <where>
+            <if test="name != null">
+                NAME = #{name,jdbcType=VARCHAR}
+            </if>            
+            <if test="vimId != null">
+                AND VIM_ID = #{vimId,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </update>
+    <update id="updateHost"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.HostEntity">
+        update host
+        set NAME = #{name,jdbcType=VARCHAR},
+        CPU = #{cpu,jdbcType=VARCHAR},
+        MEMORY = #{memory,jdbcType=VARCHAR},
+        DISK = #{disk,jdbcType=VARCHAR},
+        VIM_ID = #{vimId,jdbcType=VARCHAR},
+        VIM_NAME = #{vimName,jdbcType=VARCHAR}
+        where ID = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateHostByVimId"
+        parameterType="org.openo.nfvo.resmanagement.service.entity.HostEntity">
+        update host
+        <set>
+            <if test="id != null">
+                ID = #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                NAME = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="cpu != null">
+                CPU = #{cpu,jdbcType=VARCHAR},
+            </if>
+            <if test="memory != null">
+                MEMORY = #{memory,jdbcType=VARCHAR},
+            </if>
+            <if test="disk != null">
+                DISK = #{disk,jdbcType=VARCHAR},
+            </if>
+            <if test="vimId != null">
+                VIM_ID = #{vimId,jdbcType=VARCHAR},
+            </if>
+            <if test="vimName != null">
+                VIM_NAME = #{vimName,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where VIM_ID = #{vimId,jdbcType=VARCHAR}
+    </update>
+</mapper>

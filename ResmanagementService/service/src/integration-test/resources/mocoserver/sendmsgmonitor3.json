@@ -1,0 +1,23 @@
+{
+    "request": {
+        "uri": "/openoapi/umcres/v1/resinfo",
+        "method": "delete",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+        },
+        "json": {
+            "operationType": "delete",
+            "resourceType": "HOST",
+            "label": "09c025b0efc64211bd23fc50fa974cdf",
+            "deleteIds": ["12345678"]
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "result":"SUCCESS",
+            "info":"resource monitor info delete ok",
+            "oid":["12345678"]
+        }
+    }
+}

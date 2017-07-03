@@ -1,0 +1,23 @@
+{
+    "request": {
+        "uri": "/openoapi/resmgr/v1/locations",
+        "method": "put",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+        },
+        "json": {
+            "id": "aaaa",
+            "country": "china",
+            "location": "shenzhen",
+            "latitude": "11.1",
+            "longitude": "22.2",
+            "description": ""
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "msg": "org.openo.nfvo.resmanage.service.base.location.update.modified.check"
+        }
+    }
+}

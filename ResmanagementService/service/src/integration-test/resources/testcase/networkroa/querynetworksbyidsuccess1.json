@@ -1,0 +1,25 @@
+{
+    "request": {
+        "uri": "/openoapi/resmgr/v1/networks/12345678",
+        "method": "get",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "networks": [{
+            "id": "12345678",
+            "name": "name1",
+            "tenant_id": "111111",
+            "status": "active",
+            "vimId": "123",
+            "vimName": "vimName",
+            "provider:physical_network": "physnet1",
+            "provider:network_type": "vlan",
+            "provider:segmentation_id": "26"
+        }]
+        }
+    }
+}
