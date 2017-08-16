@@ -26,12 +26,12 @@
     <name>vfc/resmanagement/ResmanagementService/service</name>
     <packaging>war</packaging>
 <repositories>
-	    <repository>
-	        <id>open-o</id>
-	        <name>OPEN-O repository</name>
-	        <url>https://nexus.open-o.org/content/repositories/public/</url>
-	    </repository>
-	</repositories>
+        <repository>
+            <id>open-o</id>
+            <name>OPEN-O repository</name>
+            <url>https://nexus.open-o.org/content/repositories/public/</url>
+        </repository>
+    </repositories>
     <dependencies>
         <dependency>
             <groupId>mysql</groupId>
