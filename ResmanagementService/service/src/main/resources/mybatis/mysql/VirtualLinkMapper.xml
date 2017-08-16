@@ -15,8 +15,8 @@
     limitations under the License.
  -->
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.openo.nfvo.resmanagement.service.mapper.VirtualLinkMapper" >
-  <resultMap id="BaseResultMap" type="org.openo.nfvo.resmanagement.service.entity.VirtualLinkEntity" >
+<mapper namespace="org.onap.vfc.nfvo.res.service.mapper.VirtualLinkMapper" >
+  <resultMap id="BaseResultMap" type="org.onap.vfc.nfvo.res.service.entity.VirtualLinkEntity" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="backend_id" property="backendId" jdbcType="VARCHAR" />
@@ -61,7 +61,7 @@
     delete from vl
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="org.openo.nfvo.resmanagement.service.entity.VirtualLinkEntity" >
+  <insert id="insert" parameterType="org.onap.vfc.nfvo.res.service.entity.VirtualLinkEntity" >
     insert into vl (id, name, backend_id, 
       is_public, dc_name, vim_id, 
       vim_name, physicial_net, ns_id, 
@@ -77,7 +77,7 @@
       #{routerExternal,jdbcType=VARCHAR}, #{resourceProviderType,jdbcType=VARCHAR}, #{resourceProviderId,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="org.openo.nfvo.resmanagement.service.entity.VirtualLinkEntity" >
+  <insert id="insertSelective" parameterType="org.onap.vfc.nfvo.res.service.entity.VirtualLinkEntity" >
     insert into vl
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -192,7 +192,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.openo.nfvo.resmanagement.service.entity.VirtualLinkEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="org.onap.vfc.nfvo.res.service.entity.VirtualLinkEntity" >
     update vl
     <set >
       <if test="name != null" >
@@ -249,7 +249,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.openo.nfvo.resmanagement.service.entity.VirtualLinkEntity" >
+  <update id="updateByPrimaryKey" parameterType="org.onap.vfc.nfvo.res.service.entity.VirtualLinkEntity" >
     update vl
     set name = #{name,jdbcType=VARCHAR},
       backend_id = #{backendId,jdbcType=VARCHAR},

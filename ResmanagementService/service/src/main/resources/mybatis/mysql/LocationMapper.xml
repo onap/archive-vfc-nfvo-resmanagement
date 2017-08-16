@@ -16,9 +16,9 @@ limitations under the License.
 -->
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.openo.nfvo.resmanagement.service.mapper.LocationMapper">
+<mapper namespace="org.onap.vfc.nfvo.res.service.mapper.LocationMapper">
     <resultMap id="BaseResultMap"
-        type="org.openo.nfvo.resmanagement.service.entity.LocationEntity">
+        type="org.onap.vfc.nfvo.res.service.entity.LocationEntity">
 
         <id column="ID" property="id" jdbcType="VARCHAR" />
         <result column="COUNTRY" property="country" jdbcType="VARCHAR" />
@@ -68,7 +68,7 @@ limitations under the License.
         where ID = #{id,jdbcType=VARCHAR}
     </delete>
     <insert id="addLocation"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.LocationEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.LocationEntity">
 
         insert into location (ID, COUNTRY, LOCATION,
         LATITUDE, LONGITUDE, DESCRIPTION)
@@ -77,7 +77,7 @@ limitations under the License.
         #{latitude,jdbcType=VARCHAR}, #{longitude,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR})
     </insert>
     <insert id="addLocationSelective"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.LocationEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.LocationEntity">
 
         insert into location
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -122,7 +122,7 @@ limitations under the License.
         </trim>
     </insert>
     <update id="updateLocationSelective"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.LocationEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.LocationEntity">
 
         update location
         <set>
@@ -145,7 +145,7 @@ limitations under the License.
         where ID = #{id,jdbcType=VARCHAR}
     </update>
     <update id="updateLocation"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.LocationEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.LocationEntity">
 
         update location
         set COUNTRY = #{country,jdbcType=VARCHAR},

@@ -16,9 +16,9 @@ limitations under the License.
 -->
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.openo.nfvo.resmanagement.service.mapper.HostMapper">
+<mapper namespace="org.onap.vfc.nfvo.res.service.mapper.HostMapper">
     <resultMap id="BaseResultMap"
-        type="org.openo.nfvo.resmanagement.service.entity.HostEntity">
+        type="org.onap.vfc.nfvo.res.service.entity.HostEntity">
         <id column="ID" property="id" jdbcType="VARCHAR" />
         <result column="NAME" property="name" jdbcType="VARCHAR" />
         <result column="CPU" property="cpu" jdbcType="VARCHAR" />
@@ -58,7 +58,7 @@ limitations under the License.
         where VIM_ID = #{vimId,jdbcType=VARCHAR}
     </delete>
     <insert id="addHost"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.HostEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.HostEntity">
         insert into host (ID, NAME, CPU, MEMORY, DISK, VIM_ID, VIM_NAME)
         values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
         #{cpu,jdbcType=VARCHAR},
@@ -66,7 +66,7 @@ limitations under the License.
         , #{vimName,jdbcType=VARCHAR})
     </insert>
     <insert id="addHostSelective"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.HostEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.HostEntity">
         insert into host
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -116,7 +116,7 @@ limitations under the License.
         </trim>
     </insert>
     <update id="updateHostSelective"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.HostEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.HostEntity">
         update host
         <set>
             <if test="name != null">
@@ -148,7 +148,7 @@ limitations under the License.
         </where>
     </update>
     <update id="updateHost"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.HostEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.HostEntity">
         update host
         set NAME = #{name,jdbcType=VARCHAR},
         CPU = #{cpu,jdbcType=VARCHAR},
@@ -159,7 +159,7 @@ limitations under the License.
         where ID = #{id,jdbcType=VARCHAR}
     </update>
     <update id="updateHostByVimId"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.HostEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.HostEntity">
         update host
         <set>
             <if test="id != null">

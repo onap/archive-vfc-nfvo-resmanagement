@@ -15,8 +15,8 @@
     limitations under the License.
  -->
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.openo.nfvo.resmanagement.service.mapper.VnfMapper" >
-  <resultMap id="BaseResultMap" type="org.openo.nfvo.resmanagement.service.entity.VnfEntity" >
+<mapper namespace="org.onap.vfc.nfvo.res.service.mapper.VnfMapper" >
+  <resultMap id="BaseResultMap" type="org.onap.vfc.nfvo.res.service.entity.VnfEntity" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="vnf_instance_id" property="vnfInstanceId" jdbcType="VARCHAR" />
     <result column="vnf_instance_name" property="vnfInstanceName" jdbcType="VARCHAR" />
@@ -65,7 +65,7 @@
     delete from vnf
     where vnf_instance_id = #{vnfInstanceId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="org.openo.nfvo.resmanagement.service.entity.VnfEntity" >
+  <insert id="insert" parameterType="org.onap.vfc.nfvo.res.service.entity.VnfEntity" >
     insert into vnf (id, vnf_instance_id, vnf_instance_name, 
       ns_id, ns_name, vnfm_id, 
       vnfm_name, vnf_package_name, vnf_descriptor_name, 
@@ -83,7 +83,7 @@
       #{maxRam,jdbcType=INTEGER}, #{maxShd,jdbcType=INTEGER}, #{maxNet,jdbcType=INTEGER}, 
       #{name,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="org.openo.nfvo.resmanagement.service.entity.VnfEntity" >
+  <insert id="insertSelective" parameterType="org.onap.vfc.nfvo.res.service.entity.VnfEntity" >
     insert into vnf
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -222,7 +222,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.openo.nfvo.resmanagement.service.entity.VnfEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="org.onap.vfc.nfvo.res.service.entity.VnfEntity" >
     update vnf
     <set >
       <if test="vnfInstanceId != null" >
@@ -291,7 +291,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.openo.nfvo.resmanagement.service.entity.VnfEntity" >
+  <update id="updateByPrimaryKey" parameterType="org.onap.vfc.nfvo.res.service.entity.VnfEntity" >
     update vnf
     set vnf_instance_id = #{vnfInstanceId,jdbcType=VARCHAR},
       vnf_instance_name = #{vnfInstanceName,jdbcType=VARCHAR},

@@ -16,9 +16,9 @@ limitations under the License.
 -->
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.openo.nfvo.resmanagement.service.mapper.SitesMapper">
+<mapper namespace="org.onap.vfc.nfvo.res.service.mapper.SitesMapper">
     <resultMap id="BaseResultMap"
-        type="org.openo.nfvo.resmanagement.service.entity.SitesEntity">
+        type="org.onap.vfc.nfvo.res.service.entity.SitesEntity">
         <id column="ID" property="id" jdbcType="VARCHAR" />
         <result column="NAME" property="name" jdbcType="VARCHAR" />
         <result column="LOCATION" property="location" jdbcType="VARCHAR" />
@@ -70,7 +70,7 @@ limitations under the License.
         #{id,jdbcType=VARCHAR}
     </delete>
     <insert id="addSite"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.SitesEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.SitesEntity">
         insert into site (ID, NAME, LOCATION,
         COUNTRY, VIM_ID,
         VIM_NAME, STATUS,TOTAL_CPU, TOTAL_MEMORY, TOTAL_DISK,
@@ -89,7 +89,7 @@ limitations under the License.
         #{usedDisk,jdbcType=VARCHAR})
     </insert>
     <insert id="addSiteSelective"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.SitesEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.SitesEntity">
         insert into site
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -175,7 +175,7 @@ limitations under the License.
         </trim>
     </insert>
     <update id="updateSiteSelective"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.SitesEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.SitesEntity">
         update site
         <set>
             <if test="name != null">
@@ -218,7 +218,7 @@ limitations under the License.
         where ID = #{id,jdbcType=VARCHAR}
     </update>
     <update id="updateSite"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.SitesEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.SitesEntity">
         update site
         set NAME = #{name,jdbcType=VARCHAR},
         LOCATION
@@ -240,7 +240,7 @@ limitations under the License.
         where ID = #{id,jdbcType=VARCHAR}
     </update>
     <update id="updateSiteByVimId"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.SitesEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.SitesEntity">
         update site
         <set>
             <if test="id != null">

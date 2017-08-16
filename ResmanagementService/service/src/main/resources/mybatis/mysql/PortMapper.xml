@@ -16,9 +16,9 @@ limitations under the License.
 -->
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.openo.nfvo.resmanagement.service.mapper.PortMapper">
+<mapper namespace="org.onap.vfc.nfvo.res.service.mapper.PortMapper">
     <resultMap id="BaseResultMap"
-        type="org.openo.nfvo.resmanagement.service.entity.PortEntity">
+        type="org.onap.vfc.nfvo.res.service.entity.PortEntity">
         <id column="ID" property="id" jdbcType="VARCHAR" />
         <result column="NAME" property="name" jdbcType="VARCHAR" />
         <result column="NWTWORK_ID" property="networkId" jdbcType="VARCHAR" />
@@ -55,7 +55,7 @@ limitations under the License.
     where VIM_ID = #{vimId,jdbcType=VARCHAR}
     </delete>
     <insert id="addPort"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.PortEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.PortEntity">
         insert into port (ID, NAME, NWTWORK_ID, STATUS, TENANT_ID, VIM_ID,
         VIM_NAME)
         values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
@@ -64,7 +64,7 @@ limitations under the License.
         , #{vimName,jdbcType=VARCHAR})
     </insert>
     <insert id="addPortSelective"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.PortEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.PortEntity">
         insert into port
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -114,7 +114,7 @@ limitations under the License.
         </trim>
     </insert>
     <update id="updatePortSelective"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.PortEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.PortEntity">
         update port
         <set>
             <if test="name != null">
@@ -139,7 +139,7 @@ limitations under the License.
         where ID = #{id,jdbcType=VARCHAR}
     </update>
     <update id="updatePort"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.PortEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.PortEntity">
         update port
         set NAME = #{name,jdbcType=VARCHAR},
         NWTWORK_ID = #{networkId,jdbcType=VARCHAR},
@@ -150,7 +150,7 @@ limitations under the License.
         where ID = #{id,jdbcType=VARCHAR}
     </update>
     <update id="updatePortByVimId"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.PortEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.PortEntity">
         update port
         <set>
             <if test="id != null">

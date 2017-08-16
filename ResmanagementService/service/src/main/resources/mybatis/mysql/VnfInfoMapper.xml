@@ -15,8 +15,8 @@
     limitations under the License.
  -->
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.openo.nfvo.resmanagement.service.mapper.VnfInfoMapper" >
-  <resultMap id="BaseResultMap" type="org.openo.nfvo.resmanagement.service.entity.VnfInfoEntity" >
+<mapper namespace="org.onap.vfc.nfvo.res.service.mapper.VnfInfoMapper" >
+  <resultMap id="BaseResultMap" type="org.onap.vfc.nfvo.res.service.entity.VnfInfoEntity" >
     <id column="vnf_instance_id" property="vnfInstanceId" jdbcType="VARCHAR" />
     <result column="ns_id" property="nsId" jdbcType="VARCHAR" />
     <result column="vnfm_id" property="vnfmId" jdbcType="VARCHAR" />
@@ -44,13 +44,13 @@
     delete from vnfinfo
     where vnf_instance_id = #{vnfInstanceId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="org.openo.nfvo.resmanagement.service.entity.VnfInfoEntity" >
+  <insert id="insert" parameterType="org.onap.vfc.nfvo.res.service.entity.VnfInfoEntity" >
     insert into vnfinfo (vnf_instance_id, ns_id, vnfm_id
       )
     values (#{vnfInstanceId,jdbcType=VARCHAR}, #{nsId,jdbcType=VARCHAR}, #{vnfmId,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="org.openo.nfvo.resmanagement.service.entity.VnfInfoEntity" >
+  <insert id="insertSelective" parameterType="org.onap.vfc.nfvo.res.service.entity.VnfInfoEntity" >
     insert into vnfinfo
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="vnfInstanceId != null" >
@@ -75,7 +75,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.openo.nfvo.resmanagement.service.entity.VnfInfoEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="org.onap.vfc.nfvo.res.service.entity.VnfInfoEntity" >
     update vnfinfo
     <set >
       <if test="nsId != null" >
@@ -87,7 +87,7 @@
     </set>
     where vnf_instance_id = #{vnfInstanceId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.openo.nfvo.resmanagement.service.entity.VnfInfoEntity" >
+  <update id="updateByPrimaryKey" parameterType="org.onap.vfc.nfvo.res.service.entity.VnfInfoEntity" >
     update vnfinfo
     set ns_id = #{nsId,jdbcType=VARCHAR},
       vnfm_id = #{vnfmId,jdbcType=VARCHAR}

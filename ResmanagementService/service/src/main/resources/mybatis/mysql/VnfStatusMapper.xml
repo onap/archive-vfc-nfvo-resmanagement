@@ -15,8 +15,8 @@
     limitations under the License.
  -->
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.openo.nfvo.resmanagement.service.mapper.VnfStatusMapper" >
-  <resultMap id="BaseResultMap" type="org.openo.nfvo.resmanagement.service.entity.VnfStatusEntity" >
+<mapper namespace="org.onap.vfc.nfvo.res.service.mapper.VnfStatusMapper" >
+  <resultMap id="BaseResultMap" type="org.onap.vfc.nfvo.res.service.entity.VnfStatusEntity" >
     <id column="vnf_instance_id" property="vnfInstanceId" jdbcType="VARCHAR" />
     <result column="job_id" property="jobId" jdbcType="VARCHAR" />
     <result column="ns_id" property="nsId" jdbcType="VARCHAR" />
@@ -55,7 +55,7 @@
     delete from vnfstatus
     where vnf_instance_id = #{vnfInstanceId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="org.openo.nfvo.resmanagement.service.entity.VnfStatusEntity" >
+  <insert id="insert" parameterType="org.onap.vfc.nfvo.res.service.entity.VnfStatusEntity" >
     insert into vnfstatus (vnf_instance_id, job_id, ns_id, 
       vnfm_id, response_descriptor, status, 
       progress, status_description, error_code, 
@@ -67,7 +67,7 @@
       #{responseId,jdbcType=VARCHAR}, #{responseHistoryList,jdbcType=VARCHAR}, #{addVm,jdbcType=VARCHAR}, 
       #{delVm,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="org.openo.nfvo.resmanagement.service.entity.VnfStatusEntity" >
+  <insert id="insertSelective" parameterType="org.onap.vfc.nfvo.res.service.entity.VnfStatusEntity" >
     insert into vnfstatus
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="vnfInstanceId != null" >
@@ -152,7 +152,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.openo.nfvo.resmanagement.service.entity.VnfStatusEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="org.onap.vfc.nfvo.res.service.entity.VnfStatusEntity" >
     update vnfstatus
     <set >
       <if test="jobId != null" >
@@ -194,7 +194,7 @@
     </set>
     where vnf_instance_id = #{vnfInstanceId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.openo.nfvo.resmanagement.service.entity.VnfStatusEntity" >
+  <update id="updateByPrimaryKey" parameterType="org.onap.vfc.nfvo.res.service.entity.VnfStatusEntity" >
     update vnfstatus
     set job_id = #{jobId,jdbcType=VARCHAR},
       ns_id = #{nsId,jdbcType=VARCHAR},

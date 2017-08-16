@@ -16,9 +16,9 @@ limitations under the License.
 -->
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.openo.nfvo.resmanagement.service.mapper.NetworkMapper">
+<mapper namespace="org.onap.vfc.nfvo.res.service.mapper.NetworkMapper">
     <resultMap id="BaseResultMap"
-        type="org.openo.nfvo.resmanagement.service.entity.NetworkEntity">
+        type="org.onap.vfc.nfvo.res.service.entity.NetworkEntity">
         <id column="ID" property="id" jdbcType="VARCHAR" />
         <result column="NAME" property="name" jdbcType="VARCHAR" />
         <result column="TENANT_ID" property="tenantId" jdbcType="VARCHAR" />
@@ -64,7 +64,7 @@ limitations under the License.
         where VIM_ID = #{vimId,jdbcType=VARCHAR}
     </delete>
     <insert id="addNetwork"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.NetworkEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.NetworkEntity">
         insert into network (ID, NAME, TENANT_ID,
         VIM_ID, VIM_NAME, STATUS,
         PHYSICAL_NETWORK, NETWORK_TYPE, SEGMENTATION_ID
@@ -77,7 +77,7 @@ limitations under the License.
         )
     </insert>
     <insert id="addNetworkSelective"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.NetworkEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.NetworkEntity">
         insert into network
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -139,7 +139,7 @@ limitations under the License.
         </trim>
     </insert>
     <update id="updateNetworkSelective"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.NetworkEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.NetworkEntity">
         update network
         <set>
             <if test="name != null">
@@ -170,7 +170,7 @@ limitations under the License.
         where ID = #{id,jdbcType=VARCHAR}
     </update>
     <update id="updateNetwork"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.NetworkEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.NetworkEntity">
         update network
         set NAME = #{name,jdbcType=VARCHAR},
         TENANT_ID = #{tenantId,jdbcType=VARCHAR},
@@ -183,7 +183,7 @@ limitations under the License.
         where ID = #{id,jdbcType=VARCHAR}
     </update>
     <update id="updateNetworkByVimId"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.NetworkEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.NetworkEntity">
         update network
         <set>
             <if test="id != null">

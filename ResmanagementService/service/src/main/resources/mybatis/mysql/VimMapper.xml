@@ -16,9 +16,9 @@ limitations under the License.
 -->
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.openo.nfvo.resmanagement.service.mapper.VimMapper">
+<mapper namespace="org.onap.vfc.nfvo.res.service.mapper.VimMapper">
     <resultMap id="BaseResultMap"
-        type="org.openo.nfvo.resmanagement.service.entity.VimEntity">
+        type="org.onap.vfc.nfvo.res.service.entity.VimEntity">
         <id column="ID" property="id" jdbcType="VARCHAR" />
     </resultMap>
     <sql id="Base_Column_List">
@@ -45,7 +45,7 @@ limitations under the License.
         where ID = #{id,jdbcType=VARCHAR}
     </delete>
     <insert id="addVim"
-        parameterType="org.openo.nfvo.resmanagement.service.entity.VimEntity">
+        parameterType="org.onap.vfc.nfvo.res.service.entity.VimEntity">
         insert into vim (ID)
         values (#{id,jdbcType=VARCHAR})
     </insert>
