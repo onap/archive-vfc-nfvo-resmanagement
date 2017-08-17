@@ -66,217 +66,217 @@
 
     <!--location -->
     <bean id="locationDao"
-        class="org.onap.vfc.nfvo.res.service.dao.impl.LocationDaoImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.dao.impl.LocationDaoImpl">
         <property name="session" ref="session"></property>
     </bean>
 
     <bean id="locationBusiness"
-        class="org.onap.vfc.nfvo.res.service.business.impl.LocationBusinessImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.business.impl.LocationBusinessImpl">
         <property name="locationDao" ref="locationDao"></property>
     </bean>
 
     <bean id="location"
-        class="org.onap.vfc.nfvo.res.service.base.openstack.impl.LocationImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.base.openstack.impl.LocationImpl">
         <property name="locationBusiness" ref="locationBusiness"></property>
     </bean>
 
-    <bean id="locationRoa" class="org.onap.vfc.nfvo.res.service.rest.LocationRoa">
+    <bean id="locationRoa" class="org.onap.vfc.nfvo.resmanagement.service.rest.LocationRoa">
         <property name="location" ref="location"></property>
         <property name="sites" ref="sites"></property>
     </bean>
 
     <!--port -->
     <bean id="portDao"
-        class="org.onap.vfc.nfvo.res.service.dao.impl.PortDaoImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.dao.impl.PortDaoImpl">
         <property name="session" ref="session"></property>
     </bean>
 
     <bean id="portBusiness"
-        class="org.onap.vfc.nfvo.res.service.business.impl.PortBusinessImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.business.impl.PortBusinessImpl">
         <property name="portDao" ref="portDao"></property>
     </bean>
 
     <bean id="port"
-        class="org.onap.vfc.nfvo.res.service.base.openstack.impl.PortImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.base.openstack.impl.PortImpl">
         <property name="portBusiness" ref="portBusiness"></property>
     </bean>
 
-    <bean id="portRoa" class="org.onap.vfc.nfvo.res.service.rest.PortRoa">
+    <bean id="portRoa" class="org.onap.vfc.nfvo.resmanagement.service.rest.PortRoa">
         <property name="port" ref="port"></property>
     </bean>
 
     <!--host -->
     <bean id="hostDao"
-        class="org.onap.vfc.nfvo.res.service.dao.impl.HostDaoImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.dao.impl.HostDaoImpl">
         <property name="session" ref="session"></property>
     </bean>
 
     <bean id="hostBusiness"
-        class="org.onap.vfc.nfvo.res.service.business.impl.HostBusinessImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.business.impl.HostBusinessImpl">
         <property name="hostDao" ref="hostDao"></property>
     </bean>
 
     <bean id="host"
-        class="org.onap.vfc.nfvo.res.service.base.openstack.impl.HostImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.base.openstack.impl.HostImpl">
         <property name="hostBusiness" ref="hostBusiness"></property>
     </bean>
 
-    <bean id="hostRoa" class="org.onap.vfc.nfvo.res.service.rest.HostRoa">
+    <bean id="hostRoa" class="org.onap.vfc.nfvo.resmanagement.service.rest.HostRoa">
         <property name="host" ref="host"></property>
     </bean>
 
     <!--network -->
     <bean id="networkDao"
-        class="org.onap.vfc.nfvo.res.service.dao.impl.NetworkDaoImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.dao.impl.NetworkDaoImpl">
         <property name="session" ref="session"></property>
     </bean>
 
     <bean id="networkBusiness"
-        class="org.onap.vfc.nfvo.res.service.business.impl.NetworkBusinessImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.business.impl.NetworkBusinessImpl">
         <property name="networkDao" ref="networkDao"></property>
     </bean>
 
     <bean id="network"
-        class="org.onap.vfc.nfvo.res.service.base.openstack.impl.NetworkImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.base.openstack.impl.NetworkImpl">
         <property name="networkBusiness" ref="networkBusiness"></property>
     </bean>
 
-    <bean id="networkRoa" class="org.onap.vfc.nfvo.res.service.rest.NetworkRoa">
+    <bean id="networkRoa" class="org.onap.vfc.nfvo.resmanagement.service.rest.NetworkRoa">
         <property name="network" ref="network"></property>
     </bean>
 
     <!--sites -->
     <bean id="sitesDao"
-        class="org.onap.vfc.nfvo.res.service.dao.impl.SitesDaoImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.dao.impl.SitesDaoImpl">
         <property name="session" ref="session"></property>
     </bean>
 
     <bean id="sitesBusiness"
-        class="org.onap.vfc.nfvo.res.service.business.impl.SitesBusinessImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.business.impl.SitesBusinessImpl">
         <property name="sitesDao" ref="sitesDao"></property>
     </bean>
 
     <bean id="sites"
-        class="org.onap.vfc.nfvo.res.service.base.openstack.impl.SitesImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.base.openstack.impl.SitesImpl">
         <property name="sitesBusiness" ref="sitesBusiness"></property>
         <property name="limitsBusiness" ref="limitsBusiness"></property>
         <property name="resOperateService" ref="resOperateService"></property>
     </bean>
 
-    <bean id="sitesRoa" class="org.onap.vfc.nfvo.res.service.rest.SitesRoa">
+    <bean id="sitesRoa" class="org.onap.vfc.nfvo.resmanagement.service.rest.SitesRoa">
         <property name="sites" ref="sites"></property>
     </bean>
 
     <!--vim -->
     <bean id="vimDao"
-        class="org.onap.vfc.nfvo.res.service.dao.impl.VimDaoImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.dao.impl.VimDaoImpl">
         <property name="session" ref="session"></property>
     </bean>
 
     <bean id="vimBusiness"
-        class="org.onap.vfc.nfvo.res.service.business.impl.VimBusinessImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.business.impl.VimBusinessImpl">
         <property name="vimDao" ref="vimDao"></property>
     </bean>
 
     <bean id="vim"
-        class="org.onap.vfc.nfvo.res.service.base.openstack.impl.VimImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.base.openstack.impl.VimImpl">
         <property name="vimBusiness" ref="vimBusiness"></property>
     </bean>
 
     <!-- limits -->
     <bean id="limitsBusiness"
-        class="org.onap.vfc.nfvo.res.service.business.impl.LimitsBusinessImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.business.impl.LimitsBusinessImpl">
     </bean>
 
-     <bean id="limitsRoa" class="org.onap.vfc.nfvo.res.service.rest.LimitsRoa">
+     <bean id="limitsRoa" class="org.onap.vfc.nfvo.resmanagement.service.rest.LimitsRoa">
         <property name="limitsBusiness" ref="limitsBusiness"></property>
     </bean>
     
     <!-- vl -->
     <bean id="virtualLinkDao"
-        class="org.onap.vfc.nfvo.res.service.dao.impl.VirtualLinkDaoImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.dao.impl.VirtualLinkDaoImpl">
         <property name="session" ref="session"></property>
     </bean>
     
     <bean id="virtualLink"
-        class="org.onap.vfc.nfvo.res.service.group.impl.VirtualLinkServiceImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.group.impl.VirtualLinkServiceImpl">
         <property name="virtualLinkDao" ref="virtualLinkDao"></property>
     </bean>
 
-     <bean id="virtualLinkRoa" class="org.onap.vfc.nfvo.res.service.rest.VirtualLinkRoa">
+     <bean id="virtualLinkRoa" class="org.onap.vfc.nfvo.resmanagement.service.rest.VirtualLinkRoa">
         <property name="virtualLink" ref="virtualLink"></property>
     </bean>
     
     <!-- vnf -->
     <bean id="vnfDao"
-        class="org.onap.vfc.nfvo.res.service.dao.impl.VnfDaoImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.dao.impl.VnfDaoImpl">
         <property name="session" ref="session"></property>
     </bean>
     
     <bean id="vnfService"
-        class="org.onap.vfc.nfvo.res.service.group.impl.VnfServiceImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.group.impl.VnfServiceImpl">
         <property name="vnfDao" ref="vnfDao"></property>
         <property name="vnfInfoService" ref="vnfInfoService"></property>
     </bean>
 
-    <bean id="vnfRoa" class="org.onap.vfc.nfvo.res.service.rest.VnfRoa">
+    <bean id="vnfRoa" class="org.onap.vfc.nfvo.resmanagement.service.rest.VnfRoa">
         <property name="vnfService" ref="vnfService"></property>
     </bean>
     
     <!-- vm -->
-    <bean id="vmDao" class="org.onap.vfc.nfvo.res.service.dao.impl.VmDaoImpl">
+    <bean id="vmDao" class="org.onap.vfc.nfvo.resmanagement.service.dao.impl.VmDaoImpl">
         <property name="session" ref="session"></property>
     </bean>
     
-    <bean id="vmService" class="org.onap.vfc.nfvo.res.service.group.impl.VmServiceImpl">
+    <bean id="vmService" class="org.onap.vfc.nfvo.resmanagement.service.group.impl.VmServiceImpl">
         <property name="vmDao" ref="vmDao"></property>
     </bean>
     
-    <bean id="vmRoa" class="org.onap.vfc.nfvo.res.service.rest.VmRoa">
+    <bean id="vmRoa" class="org.onap.vfc.nfvo.resmanagement.service.rest.VmRoa">
         <property name="vmService" ref="vmService"></property>
     </bean>
     
     <!-- vnfInfo -->
     <bean id="vnfInfoDao"
-        class="org.onap.vfc.nfvo.res.service.dao.impl.VnfInfoDaoImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.dao.impl.VnfInfoDaoImpl">
         <property name="session" ref="session"></property>
     </bean>
     
     <bean id="vnfInfoService"
-        class="org.onap.vfc.nfvo.res.service.group.impl.VnfInfoServiceImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.group.impl.VnfInfoServiceImpl">
         <property name="vnfInfoDao" ref="vnfInfoDao"></property>
         <property name="vmService" ref="vmService"></property>
     </bean>
 
-    <bean id="vnfInfoRoa" class="org.onap.vfc.nfvo.res.service.rest.VnfInfoRoa">
+    <bean id="vnfInfoRoa" class="org.onap.vfc.nfvo.resmanagement.service.rest.VnfInfoRoa">
         <property name="vnfInfoService" ref="vnfInfoService"></property>
     </bean>
     
     <!-- vnfstatus -->
-    <bean id="vnfStatusDao" class="org.onap.vfc.nfvo.res.service.dao.impl.VnfStatusDaoImpl">
+    <bean id="vnfStatusDao" class="org.onap.vfc.nfvo.resmanagement.service.dao.impl.VnfStatusDaoImpl">
         <property name="session" ref="session"></property>
     </bean>
     
-    <bean id="vnfStatusService" class="org.onap.vfc.nfvo.res.service.group.impl.VnfStatusServiceImpl">
+    <bean id="vnfStatusService" class="org.onap.vfc.nfvo.resmanagement.service.group.impl.VnfStatusServiceImpl">
         <property name="vnfStatusDao" ref="vnfStatusDao"></property>
     </bean>
     
-    <bean id="vnfStatusRoa" class="org.onap.vfc.nfvo.res.service.rest.VnfStatusRoa">
+    <bean id="vnfStatusRoa" class="org.onap.vfc.nfvo.resmanagement.service.rest.VnfStatusRoa">
         <property name="vnfStatusService" ref="vnfStatusService"></property>
     </bean>
     
     <!-- grantResource -->
-    <bean id="grantResService" class="org.onap.vfc.nfvo.res.service.group.impl.GrantResServiceImpl">
+    <bean id="grantResService" class="org.onap.vfc.nfvo.resmanagement.service.group.impl.GrantResServiceImpl">
         <property name="sites" ref="sites"></property>
     </bean>
     
-    <bean id="grantResourseRoa" class="org.onap.vfc.nfvo.res.service.rest.GrantResourseRoa">
+    <bean id="grantResourseRoa" class="org.onap.vfc.nfvo.resmanagement.service.rest.GrantResourseRoa">
         <property name="grantResService" ref="grantResService"></property>
     </bean>
     
     <!--group_resoperate -->
     <bean id="resOperateService"
-        class="org.onap.vfc.nfvo.res.service.group.impl.ResOperateServiceImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.group.impl.ResOperateServiceImpl">
         <property name="host" ref="host"></property>
         <property name="port" ref="port"></property>
         <property name="sites" ref="sites"></property>
@@ -288,22 +288,22 @@
     </bean>
 
     <bean id="iResourceUpdateServiceImpl"
-        class="org.onap.vfc.nfvo.res.service.group.impl.IResourceUpdateServiceImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.group.impl.IResourceUpdateServiceImpl">
     </bean>
 
     <bean id="iResourceAddServiceImpl"
-        class="org.onap.vfc.nfvo.res.service.group.impl.IResourceAddServiceImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.group.impl.IResourceAddServiceImpl">
     </bean>
 
     <bean id="iResourceDelServiceImpl"
-        class="org.onap.vfc.nfvo.res.service.group.impl.IResourceDelServiceImpl">
+        class="org.onap.vfc.nfvo.resmanagement.service.group.impl.IResourceDelServiceImpl">
     </bean>
 
-    <bean id="resOperateRoa" class="org.onap.vfc.nfvo.res.service.rest.ResOperateRoa">
+    <bean id="resOperateRoa" class="org.onap.vfc.nfvo.resmanagement.service.rest.ResOperateRoa">
         <property name="resOperateService" ref="resOperateService"></property>
     </bean>
 
-    <bean id="SwaggerRoa" class="org.onap.vfc.nfvo.res.service.rest.SwaggerRoa"></bean>
+    <bean id="SwaggerRoa" class="org.onap.vfc.nfvo.resmanagement.service.rest.SwaggerRoa"></bean>
 
     <jaxrs:server id="restContainer" address="/">
         <jaxrs:serviceBeans>
@@ -324,8 +324,8 @@
      </jaxrs:serviceBeans>
         <jaxrs:providers>
             <ref bean="jsonProvider" />
-            <bean class="org.onap.vfc.nfvo.res.service.rest.exceptionmapper.ServiceExceptionMapper" />
-            <bean class="org.onap.vfc.nfvo.res.service.rest.exceptionmapper.GenericExceptionMapper" />
+            <bean class="org.onap.vfc.nfvo.resmanagement.service.rest.exceptionmapper.ServiceExceptionMapper" />
+            <bean class="org.onap.vfc.nfvo.resmanagement.service.rest.exceptionmapper.GenericExceptionMapper" />
         </jaxrs:providers>
     </jaxrs:server>
 </beans>

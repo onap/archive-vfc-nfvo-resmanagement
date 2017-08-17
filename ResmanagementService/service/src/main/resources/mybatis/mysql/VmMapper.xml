@@ -15,8 +15,8 @@
     limitations under the License.
  -->
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.onap.vfc.nfvo.res.service.mapper.VmMapper" >
-  <resultMap id="BaseResultMap" type="org.onap.vfc.nfvo.res.service.entity.VmEntity" >
+<mapper namespace="org.onap.vfc.nfvo.resmanagement.service.mapper.VmMapper" >
+  <resultMap id="BaseResultMap" type="org.onap.vfc.nfvo.resmanagement.service.entity.VmEntity" >
     <id column="vm_id" property="vmId" jdbcType="VARCHAR" />
     <result column="vm_name" property="vmName" jdbcType="VARCHAR" />
     <result column="vm_status" property="vmStatus" jdbcType="VARCHAR" />
@@ -52,13 +52,13 @@
     delete from vm
     where vnf_instance_id = #{vnfInstanceId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="org.onap.vfc.nfvo.res.service.entity.VmEntity" >
+  <insert id="insert" parameterType="org.onap.vfc.nfvo.resmanagement.service.entity.VmEntity" >
     insert into vm (vm_id, vm_name, vm_status, 
       vnf_instance_id)
     values (#{vmId,jdbcType=VARCHAR}, #{vmName,jdbcType=VARCHAR}, #{vmStatus,jdbcType=VARCHAR}, 
       #{vnfInstanceId,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="org.onap.vfc.nfvo.res.service.entity.VmEntity" >
+  <insert id="insertSelective" parameterType="org.onap.vfc.nfvo.resmanagement.service.entity.VmEntity" >
     insert into vm
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="vmId != null" >
@@ -89,7 +89,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.onap.vfc.nfvo.res.service.entity.VmEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="org.onap.vfc.nfvo.resmanagement.service.entity.VmEntity" >
     update vm
     <set >
       <if test="vmName != null" >
@@ -104,7 +104,7 @@
     </set>
     where vm_id = #{vmId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.onap.vfc.nfvo.res.service.entity.VmEntity" >
+  <update id="updateByPrimaryKey" parameterType="org.onap.vfc.nfvo.resmanagement.service.entity.VmEntity" >
     update vm
     set vm_name = #{vmName,jdbcType=VARCHAR},
       vm_status = #{vmStatus,jdbcType=VARCHAR},
