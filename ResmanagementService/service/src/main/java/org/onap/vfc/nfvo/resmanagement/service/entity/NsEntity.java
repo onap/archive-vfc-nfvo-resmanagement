@@ -1,0 +1,139 @@
+/*
+ * Copyright 2017 Huawei Technologies Co., Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.onap.vfc.nfvo.resmanagement.service.entity;
+
+import java.io.Serializable;
+
+import org.apache.commons.lang3.StringUtils;
+import org.onap.vfc.nfvo.resmanagement.common.util.JsonUtil;
+
+import net.sf.json.JSONObject;
+
+/**
+ * <br>
+ * <p>
+ * </p>
+ * 
+ * @author
+ * @version VFC 1.0 Sep 1, 2017
+ */
+public class NsEntity implements Serializable {
+
+    /**  */
+    private String id;
+
+    /**  */
+    private String name;
+
+    /**  */
+    private String nsdId;
+
+    /**  */
+    private String description;
+
+    /**  */
+    private String status;
+
+    /**  */
+    private String cteateTime;
+
+    /**  */
+    private String lastUpdate;
+
+    private static final long serialVersionUID = 1L;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getNsdId() {
+        return nsdId;
+    }
+
+    public void setNsdId(String nsdId) {
+        this.nsdId = nsdId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getCteateTime() {
+        return cteateTime;
+    }
+
+    public void setCteateTime(String cteateTime) {
+        this.cteateTime = cteateTime;
+    }
+
+    public String getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public void setLastUpdate(String lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
+    public static NsEntity toEntity(JSONObject jsonObject) {
+        NsEntity nsEntity = new NsEntity();
+        nsEntity.setId(JsonUtil.getJsonFieldStr(jsonObject, "id"));
+        nsEntity.setName(JsonUtil.getJsonFieldStr(jsonObject, "name"));
+        nsEntity.setNsdId(JsonUtil.getJsonFieldStr(jsonObject, "nsdId"));
+        nsEntity.setDescription(JsonUtil.getJsonFieldStr(jsonObject, "description"));
+        nsEntity.setStatus(JsonUtil.getJsonFieldStr(jsonObject, "status"));
+        nsEntity.setCteateTime(JsonUtil.getJsonFieldStr(jsonObject, "cteateTime"));
+        nsEntity.setLastUpdate(JsonUtil.getJsonFieldStr(jsonObject, "lastUpdate"));
+        return nsEntity;
+    }
+
+    @Override
+    public String toString() {
+        JSONObject nsResJson = new JSONObject();
+        nsResJson.put("id", StringUtils.trimToEmpty(this.getId()));
+        nsResJson.put("name", StringUtils.trimToEmpty(this.getName()));
+        nsResJson.put("nsdId", StringUtils.trimToEmpty(this.getNsdId()));
+        nsResJson.put("description", StringUtils.trimToEmpty(this.getDescription()));
+        nsResJson.put("status", StringUtils.trimToEmpty(this.getStatus()));
+        nsResJson.put("cteateTime", StringUtils.trimToEmpty(this.getCteateTime()));
+        nsResJson.put("lastUpdate", StringUtils.trimToEmpty(this.getLastUpdate()));
+        return nsResJson.toString();
+    }
+}

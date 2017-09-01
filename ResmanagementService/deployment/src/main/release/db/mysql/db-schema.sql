@@ -1,5 +1,5 @@
 #*******************************************************************************
-# Copyright 2016 Huawei Technologies Co., Ltd.
+# Copyright 2016-2017 Huawei Technologies Co., Ltd.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -173,6 +173,18 @@ CREATE TABLE vnfinfo (
   NS_ID VARCHAR(256) NULL,
   VNFM_ID VARCHAR(256) NULL,
   CONSTRAINT vnfinfo PRIMARY KEY (VNF_INSTANCE_ID)
+);
+
+DROP TABLE IF EXISTS ns;
+CREATE TABLE ns (
+  ID VARCHAR(256) NOT NULL,
+  NAME VARCHAR(256) NULL,
+  NSD_ID VARCHAR(256) NULL,
+  DESCRIPTION VARCHAR(1024) NULL,
+  STATUS VARCHAR(256) NULL,
+  CTEATE_TIME VARCHAR(256) NULL,
+  LAST_UPDATE VARCHAR(256) NULL,
+  CONSTRAINT ns PRIMARY KEY (ID)
 );
   
 DROP TABLE IF EXISTS vnfstatus;
