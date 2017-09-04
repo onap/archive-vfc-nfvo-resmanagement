@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    Copyright 2016, Huawei Technologies Co., Ltd.
+    Copyright 2016-2017, Huawei Technologies Co., Ltd.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -47,7 +47,7 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://127.0.0.1:3306/resmanagementdb"/>
         <property name="username" value="root"/>
-        <property name="password" value="rootpass"/>
+        <property name="password" value="123456"/>
     </bean>
 
     <bean id="sessionFactory"  class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -207,6 +207,21 @@
         <property name="virtualLink" ref="virtualLink"></property>
     </bean>
     
+    <!-- ns -->
+    <bean id="nsDao"
+        class="org.onap.vfc.nfvo.resmanagement.service.dao.impl.NsDaoImpl">
+        <property name="session" ref="session"></property>
+    </bean>
+    
+    <bean id="nsService"
+        class="org.onap.vfc.nfvo.resmanagement.service.group.impl.NsServiceImpl">
+        <property name="nsDao" ref="nsDao"></property>
+    </bean>
+
+    <bean id="nsRoa" class="org.onap.vfc.nfvo.resmanagement.service.rest.NsRoa">
+        <property name="nsService" ref="nsService"></property>
+    </bean>
+    
     <!-- vnf -->
     <bean id="vnfDao"
         class="org.onap.vfc.nfvo.resmanagement.service.dao.impl.VnfDaoImpl">
@@ -315,6 +330,7 @@
         <ref bean="resOperateRoa" />
         <ref bean="limitsRoa" />
         <ref bean="virtualLinkRoa" />
+        <ref bean="nsRoa" />
         <ref bean="vnfRoa" />
         <ref bean="vmRoa" />
         <ref bean="vnfInfoRoa" />
