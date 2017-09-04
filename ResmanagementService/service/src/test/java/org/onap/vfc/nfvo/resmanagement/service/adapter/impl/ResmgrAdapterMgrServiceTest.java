@@ -40,7 +40,7 @@ public class ResmgrAdapterMgrServiceTest {
 
             @Mock
             public String readVimAdapterInfoFromJson() throws IOException {
-                return "{\"serviceName\": \"resmgr\",\"version\": \"v1\",\"url\": \"/openoapi/resmgr/v1\",\"protocol\": \"REST\",\"visualRange\": \"1\",\"nodes\": [{\"ip\": \"127.0.0.1\",\"port\": \"8080\",\"ttl\": 0}]}";
+                return "{\"serviceName\": \"resmgr\",\"version\": \"v1\",\"url\": \"/api/resmgr/v1\",\"protocol\": \"REST\",\"visualRange\": \"1\",\"nodes\": [{\"ip\": \"127.0.0.1\",\"port\": \"8080\",\"ttl\": 0}]}";
             }
         };
 

@@ -1,6 +1,6 @@
 {
     "request": {
-        "uri": "/openoapi/resmgr/v1/hosts?id=12345678",
+        "uri": "/api/resmgr/v1/hosts?id=12345678",
         "method": "delete",
         "headers": {
             "Content-Type": "application/json;charset=UTF-8"

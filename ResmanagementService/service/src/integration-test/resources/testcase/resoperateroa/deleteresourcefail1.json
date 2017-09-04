@@ -1,6 +1,6 @@
 {
     "request": {
-        "uri": "/openoapi/resmgr/v1/resoperate",
+        "uri": "/api/resmgr/v1/resoperate",
         "method": "delete",
         "headers": {
             "Content-Type": "application/json;charset=UTF-8"

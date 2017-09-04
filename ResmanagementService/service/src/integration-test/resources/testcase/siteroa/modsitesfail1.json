@@ -1,6 +1,6 @@
 {
     "request": {
-        "uri": "/openoapi/resmgr/v1/datacenters",
+        "uri": "/api/resmgr/v1/datacenters",
         "method": "put",
         "headers": {
             "Content-Type": "application/json;charset=UTF-8"

@@ -1,6 +1,6 @@
 {
     "request": {
-        "uri": "/openoapi/vimdriver/v1/limits/1234/disk",
+        "uri": "/api/vimdriver/v1/limits/1234/disk",
         "method": "get",
         "headers": {
             "Content-Type": "application/json;charset=UTF-8"

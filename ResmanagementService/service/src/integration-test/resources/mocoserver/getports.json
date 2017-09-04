@@ -1,6 +1,6 @@
 {
     "request": {
-        "uri": "/openoapi/vimdriver/v1/ports",
+        "uri": "/api/vimdriver/v1/ports",
         "method": "get",
         "headers": {
             "Content-Type": "application/json;charset=UTF-8"

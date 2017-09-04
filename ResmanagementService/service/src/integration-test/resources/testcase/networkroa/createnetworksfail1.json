@@ -1,6 +1,6 @@
 {
     "request": {
-        "uri": "/openoapi/resmgr/v1/networks",
+        "uri": "/api/resmgr/v1/networks",
         "method": "post",
         "headers": {
             "Content-Type": "application/json;charset=UTF-8"

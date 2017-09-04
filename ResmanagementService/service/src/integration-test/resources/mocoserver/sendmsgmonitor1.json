@@ -1,6 +1,6 @@
 {
     "request": {
-        "uri": "/openoapi/umcres/v1/resinfo",
+        "uri": "/api/umcres/v1/resinfo",
         "method": "post",
         "headers": {
             "Content-Type": "application/json;charset=UTF-8"

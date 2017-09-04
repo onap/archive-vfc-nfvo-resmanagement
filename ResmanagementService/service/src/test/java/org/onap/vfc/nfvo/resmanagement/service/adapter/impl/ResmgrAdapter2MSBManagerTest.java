@@ -234,7 +234,7 @@ public class ResmgrAdapter2MSBManagerTest {
 
     private Map<String, String> getHashMap() {
         Map<String, String> paramsMap = new HashMap<>();
-        paramsMap.put("url", "/openoapi/microservices/v1/services");
+        paramsMap.put("url", "/api/microservices/v1/services");
         paramsMap.put("methodType", "post");
         return paramsMap;
     }

@@ -35,16 +35,16 @@ public class UrlConstant {
     /**
      * MSB register url.
      */
-    public static final String REST_MSB_REGISTER = "/openoapi/microservices/v1/services";
+    public static final String REST_MSB_REGISTER = "/api/microservices/v1/services";
 
-    public static final String ESR_GET_VIM_URL = "/openoapi/extsys/v1/vims/%s";
+    public static final String ESR_GET_VIM_URL = "/api/extsys/v1/vims/%s";
 
-    public static final String ESR_GET_VIMS_URL = "/openoapi/extsys/v1/vims";
+    public static final String ESR_GET_VIMS_URL = "/api/extsys/v1/vims";
 
     /**
      * send resource info to monitor url
      */
-    public static final String SEND_MSG_MONITOR = "/openoapi/umc/v1/resinfo";
+    public static final String SEND_MSG_MONITOR = "/api/umc/v1/resinfo";
 
     /**
      * networks url.
@@ -149,32 +149,32 @@ public class UrlConstant {
     /**
      * getNetworkURL.
      */
-    public static final String GET_NETWORK_URL = "/openoapi/multivim/v1/%s/%s/networks";
+    public static final String GET_NETWORK_URL = "/api/multivim/v1/%s/%s/networks";
 
     /**
      * getTenantURL.
      */
-    public static final String GET_TENANT_URL = "/openoapi/multivim/v1/%s/tenants";
+    public static final String GET_TENANT_URL = "/api/multivim/v1/%s/tenants";
 
     /**
      * getHostURL.
      */
-    public static final String GET_HOST_URL = "/openoapi/multivim/v1/%s/%s/hosts";
+    public static final String GET_HOST_URL = "/api/multivim/v1/%s/%s/hosts";
 
     /**
      * getHostDetailURL.
      */
-    public static final String GET_HOSTDETAIL_URL = "/openoapi/multivim/v1/%s/%s/hosts/%s";
+    public static final String GET_HOSTDETAIL_URL = "/api/multivim/v1/%s/%s/hosts/%s";
 
     /**
      * getNetworkURL.
      */
-    public static final String GET_PORT_URL = "/openoapi/multivim/v1/%s/%s/ports";
+    public static final String GET_PORT_URL = "/api/multivim/v1/%s/%s/ports";
 
     /**
      * getLimitsURL.
      */
-    public static final String GET_LIMITS_URL = "/openoapi/multivim/v1/%s/%s/limits";
+    public static final String GET_LIMITS_URL = "/api/multivim/v1/%s/%s/limits";
 
     /**
      * template notify M url.

@@ -1,6 +1,6 @@
 {
     "request": {
-        "uri": "/openoapi/resmgr/v1/limits/1234/cpu?vimId=123",
+        "uri": "/api/resmgr/v1/limits/1234/cpu?vimId=123",
         "method": "get",
         "headers": {
             "Content-Type": "application/json;charset=UTF-8"

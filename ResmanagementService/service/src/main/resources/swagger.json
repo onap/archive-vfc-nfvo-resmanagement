@@ -10,7 +10,7 @@
             "name": "Resource Management services"
         }
     ],
-    "basePath": "/openoapi/resmgr/v1",
+    "basePath": "/api/resmgr/v1",
     "paths": {
         "/limits": {
             "get": {
