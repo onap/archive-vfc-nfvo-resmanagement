@@ -22,12 +22,12 @@
     <result column="NSD_ID" property="nsdId" jdbcType="VARCHAR" />
     <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
     <result column="STATUS" property="status" jdbcType="VARCHAR" />
-    <result column="CTEATE_TIME" property="cteateTime" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
     <result column="LAST_UPDATE" property="lastUpdate" jdbcType="VARCHAR" />
   </resultMap>
   
   <sql id="Base_Column_List" >
-    ID, NAME, NSD_ID, DESCRIPTION, STATUS, CTEATE_TIME, LAST_UPDATE
+    ID, NAME, NSD_ID, DESCRIPTION, STATUS, CREATE_TIME, LAST_UPDATE
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -38,7 +38,7 @@
   <select id="getAllNs" resultMap="BaseResultMap" parameterType="java.util.Map">
         select
         <include refid="Base_Column_List" />
-        from vnf
+        from ns
         <where>
             <if test="id != null">
                 AND ID = #{id,jdbcType=VARCHAR}
@@ -51,10 +51,10 @@
   </delete>
   <insert id="insert" parameterType="org.onap.vfc.nfvo.resmanagement.service.entity.NsEntity" >
     insert into ns (ID, NAME, NSD_ID, 
-      DESCRIPTION, STATUS, CTEATE_TIME, 
+      DESCRIPTION, STATUS, CREATE_TIME, 
       LAST_UPDATE)
     values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{nsdId,jdbcType=VARCHAR}, 
-      #{description,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{cteateTime,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, 
       #{lastUpdate,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="org.onap.vfc.nfvo.resmanagement.service.entity.NsEntity" >
@@ -75,8 +75,8 @@
       <if test="status != null" >
         STATUS,
       </if>
-      <if test="cteateTime != null" >
-        CTEATE_TIME,
+      <if test="createTime != null" >
+        CREATE_TIME,
       </if>
       <if test="lastUpdate != null" >
         LAST_UPDATE,
@@ -98,8 +98,8 @@
       <if test="status != null" >
         #{status,jdbcType=VARCHAR},
       </if>
-      <if test="cteateTime != null" >
-        #{cteateTime,jdbcType=VARCHAR},
+      <if test="createTime != null" >
+        #{createTime,jdbcType=VARCHAR},
       </if>
       <if test="lastUpdate != null" >
         #{lastUpdate,jdbcType=VARCHAR},
@@ -121,8 +121,8 @@
       <if test="status != null" >
         STATUS = #{status,jdbcType=VARCHAR},
       </if>
-      <if test="cteateTime != null" >
-        CTEATE_TIME = #{cteateTime,jdbcType=VARCHAR},
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=VARCHAR},
       </if>
       <if test="lastUpdate != null" >
         LAST_UPDATE = #{lastUpdate,jdbcType=VARCHAR},
@@ -136,7 +136,7 @@
       NSD_ID = #{nsdId,jdbcType=VARCHAR},
       DESCRIPTION = #{description,jdbcType=VARCHAR},
       STATUS = #{status,jdbcType=VARCHAR},
-      CTEATE_TIME = #{cteateTime,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=VARCHAR},
       LAST_UPDATE = #{lastUpdate,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=VARCHAR}
   </update>

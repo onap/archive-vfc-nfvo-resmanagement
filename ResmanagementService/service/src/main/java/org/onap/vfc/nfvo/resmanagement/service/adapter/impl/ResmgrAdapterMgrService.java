@@ -34,7 +34,6 @@ import org.onap.vfc.nfvo.resmanagement.service.adapter.inf.IResmgrAdapterMgrServ
 import org.openo.baseservice.util.impl.SystemEnvVariablesFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
 
 import net.sf.json.JSONObject;
 
@@ -46,7 +45,6 @@ import net.sf.json.JSONObject;
  * @author
  * @version NFVO 0.5 Sep 22, 2016
  */
-@Service
 public class ResmgrAdapterMgrService implements IResmgrAdapterMgrService {
 
     private static final Logger LOG = LoggerFactory.getLogger(ResmgrAdapterMgrService.class);

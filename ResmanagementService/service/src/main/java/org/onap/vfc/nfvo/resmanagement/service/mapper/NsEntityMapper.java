@@ -21,6 +21,14 @@ import java.util.Map;
 
 import org.onap.vfc.nfvo.resmanagement.service.entity.NsEntity;
 
+/**
+ * <br>
+ * <p>
+ * </p>
+ * 
+ * @author
+ * @version VFC 1.0 Sep 4, 2017
+ */
 public interface NsEntityMapper {
 
     int deleteByPrimaryKey(String id);

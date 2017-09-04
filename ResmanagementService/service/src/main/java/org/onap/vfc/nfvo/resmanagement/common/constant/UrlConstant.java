@@ -72,6 +72,11 @@ public class UrlConstant {
     public static final String VNF_URL = "/v1/vnf";
 
     /**
+     * ns url
+     */
+    public static final String NS_URL = "/v1/ns";
+
+    /**
      * vnfinfo url.
      */
     public static final String VNFINFO_URL = "/v1/vnfinfo";

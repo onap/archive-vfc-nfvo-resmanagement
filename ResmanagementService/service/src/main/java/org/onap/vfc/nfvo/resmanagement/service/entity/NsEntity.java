@@ -49,7 +49,7 @@ public class NsEntity implements Serializable {
     private String status;
 
     /**  */
-    private String cteateTime;
+    private String createTime;
 
     /**  */
     private String lastUpdate;
@@ -96,12 +96,12 @@ public class NsEntity implements Serializable {
         this.status = status;
     }
 
-    public String getCteateTime() {
-        return cteateTime;
+    public String getCreateTime() {
+        return createTime;
     }
 
-    public void setCteateTime(String cteateTime) {
-        this.cteateTime = cteateTime;
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 
     public String getLastUpdate() {
@@ -119,7 +119,7 @@ public class NsEntity implements Serializable {
         nsEntity.setNsdId(JsonUtil.getJsonFieldStr(jsonObject, "nsdId"));
         nsEntity.setDescription(JsonUtil.getJsonFieldStr(jsonObject, "description"));
         nsEntity.setStatus(JsonUtil.getJsonFieldStr(jsonObject, "status"));
-        nsEntity.setCteateTime(JsonUtil.getJsonFieldStr(jsonObject, "cteateTime"));
+        nsEntity.setCreateTime(JsonUtil.getJsonFieldStr(jsonObject, "createTime"));
         nsEntity.setLastUpdate(JsonUtil.getJsonFieldStr(jsonObject, "lastUpdate"));
         return nsEntity;
     }
@@ -132,7 +132,7 @@ public class NsEntity implements Serializable {
         nsResJson.put("nsdId", StringUtils.trimToEmpty(this.getNsdId()));
         nsResJson.put("description", StringUtils.trimToEmpty(this.getDescription()));
         nsResJson.put("status", StringUtils.trimToEmpty(this.getStatus()));
-        nsResJson.put("cteateTime", StringUtils.trimToEmpty(this.getCteateTime()));
+        nsResJson.put("createTime", StringUtils.trimToEmpty(this.getCreateTime()));
         nsResJson.put("lastUpdate", StringUtils.trimToEmpty(this.getLastUpdate()));
         return nsResJson.toString();
     }
