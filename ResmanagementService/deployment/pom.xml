@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    Copyright (c) 2016, Huawei Technologies Co., Ltd.
+    Copyright (c) 2016-2017, Huawei Technologies Co., Ltd.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -113,4 +113,4 @@
 
         </plugins>
     </build>
-<name>nfvo/resmanagement/ResmanagementService/deployment</name></project>
+<name>vfc/nfvo/resmanagement/ResmanagementService/deployment</name></project>

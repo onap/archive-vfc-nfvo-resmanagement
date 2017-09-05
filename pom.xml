@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    Copyright (c) 2016, Huawei Technologies Co., Ltd.
+    Copyright (c) 2016-2017, Huawei Technologies Co., Ltd.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -25,8 +25,8 @@
     <artifactId>resmanagement</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>vfc/resmanagement</name>
-    <description>vfc resmanagement</description>
+    <name>vfc/nfvo/resmanagement</name>
+    <description>vfc nfvo resmanagement</description>
     <modules>
         <module>ResmanagementService</module>
     </modules>
