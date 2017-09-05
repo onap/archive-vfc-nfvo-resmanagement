@@ -28,23 +28,21 @@ import org.onap.vfc.nfvo.resmanagement.common.ResourceUtil;
  */
 public class ResponseConstant {
 
-    public static final String ADD_SUCESS_MSG = ResourceUtil.getMessage("org.openo.nfvo.resmanage.common.add.success");
+    public static final String ADD_SUCESS_MSG = ResourceUtil.getMessage("add success");
 
-    public static final String ADD_FAIL_MSG = ResourceUtil.getMessage("org.openo.nfvo.resmanage.common.add.error");
+    public static final String ADD_FAIL_MSG = ResourceUtil.getMessage("add error");
 
-    public static final String DEL_SUCESS_MSG = ResourceUtil.getMessage("org.openo.nfvo.resmanage.common.del.success");
+    public static final String DEL_SUCESS_MSG = ResourceUtil.getMessage("delete success");
 
-    public static final String DEL_FAIL_MSG = ResourceUtil.getMessage("org.openo.nfvo.resmanage.common.del.error");
+    public static final String DEL_FAIL_MSG = ResourceUtil.getMessage("delete error");
 
-    public static final String MOD_SUCESS_MSG =
-            ResourceUtil.getMessage("org.openo.nfvo.resmanage.common.update.success");
+    public static final String MOD_SUCESS_MSG = ResourceUtil.getMessage("update success");
 
-    public static final String MOD_FAIL_MSG = ResourceUtil.getMessage("org.openo.nfvo.resmanage.common.update.error");
+    public static final String MOD_FAIL_MSG = ResourceUtil.getMessage("update error");
 
-    public static final String QUERY_SUCESS_MSG =
-            ResourceUtil.getMessage("org.openo.nfvo.resmanage.common.query.success");
+    public static final String QUERY_SUCESS_MSG = ResourceUtil.getMessage("query success");
 
-    public static final String QUERY_FAIL_MSG = ResourceUtil.getMessage("org.openo.nfvo.resmanage.common.query.error");
+    public static final String QUERY_FAIL_MSG = ResourceUtil.getMessage("query error");
 
     public static final String DELSODORES_FAIL_MSG = "delete sodores error";
 
