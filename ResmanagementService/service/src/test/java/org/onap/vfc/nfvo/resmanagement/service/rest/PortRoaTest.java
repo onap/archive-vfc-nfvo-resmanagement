@@ -31,7 +31,7 @@ import org.onap.vfc.nfvo.resmanagement.service.base.openstack.impl.PortImpl;
 import org.onap.vfc.nfvo.resmanagement.service.base.openstack.inf.Port;
 import org.onap.vfc.nfvo.resmanagement.service.entity.PortEntity;
 import org.onap.vfc.nfvo.resmanagement.service.rest.PortRoa;
-import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.springframework.mock.web.MockHttpServletRequest;
 
 import mockit.Mock;

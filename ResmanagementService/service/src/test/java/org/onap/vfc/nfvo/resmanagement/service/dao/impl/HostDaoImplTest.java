@@ -24,7 +24,7 @@ import org.onap.vfc.nfvo.resmanagement.service.entity.HostEntity;
 import org.onap.vfc.nfvo.resmanagement.service.entity.NetworkEntity;
 import org.onap.vfc.nfvo.resmanagement.service.mapper.HostMapper;
 import org.onap.vfc.nfvo.resmanagement.service.mapper.NetworkMapper;
-import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 
 import mockit.Expectations;
 import mockit.Mock;

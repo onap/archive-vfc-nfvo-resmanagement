@@ -16,7 +16,7 @@
 
 package org.onap.vfc.nfvo.resmanagement.service.entity;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.onap.vfc.nfvo.resmanagement.common.util.JsonUtil;
 
 import net.sf.json.JSONObject;

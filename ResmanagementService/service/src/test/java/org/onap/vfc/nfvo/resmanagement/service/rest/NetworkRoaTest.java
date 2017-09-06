@@ -31,7 +31,7 @@ import org.onap.vfc.nfvo.resmanagement.service.base.openstack.impl.NetworkImpl;
 import org.onap.vfc.nfvo.resmanagement.service.base.openstack.inf.Network;
 import org.onap.vfc.nfvo.resmanagement.service.entity.NetworkEntity;
 import org.onap.vfc.nfvo.resmanagement.service.rest.NetworkRoa;
-import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.springframework.mock.web.MockHttpServletRequest;
 
 import mockit.Mock;

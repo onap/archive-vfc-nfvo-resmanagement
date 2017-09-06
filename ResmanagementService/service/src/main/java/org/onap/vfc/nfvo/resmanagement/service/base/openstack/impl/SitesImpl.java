@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.onap.vfc.nfvo.resmanagement.common.VimUtil;
 import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
 import org.onap.vfc.nfvo.resmanagement.common.util.JsonUtil;
@@ -31,7 +31,7 @@ import org.onap.vfc.nfvo.resmanagement.service.business.inf.LimitsBusiness;
 import org.onap.vfc.nfvo.resmanagement.service.business.inf.SitesBusiness;
 import org.onap.vfc.nfvo.resmanagement.service.entity.SitesEntity;
 import org.onap.vfc.nfvo.resmanagement.service.group.inf.ResOperateService;
-import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

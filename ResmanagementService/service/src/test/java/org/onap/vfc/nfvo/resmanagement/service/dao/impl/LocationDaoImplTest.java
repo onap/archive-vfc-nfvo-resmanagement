@@ -25,7 +25,7 @@ import org.onap.vfc.nfvo.resmanagement.service.dao.impl.NetworkDaoImpl;
 import org.onap.vfc.nfvo.resmanagement.service.entity.LocationEntity;
 import org.onap.vfc.nfvo.resmanagement.service.entity.NetworkEntity;
 import org.onap.vfc.nfvo.resmanagement.service.mapper.LocationMapper;
-import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 
 import mockit.Mock;
 import mockit.MockUp;

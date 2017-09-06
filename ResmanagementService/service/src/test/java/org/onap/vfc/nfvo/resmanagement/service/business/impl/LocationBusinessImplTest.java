@@ -23,7 +23,7 @@ import org.junit.Test;
 import org.onap.vfc.nfvo.resmanagement.service.business.impl.LocationBusinessImpl;
 import org.onap.vfc.nfvo.resmanagement.service.dao.impl.LocationDaoImpl;
 import org.onap.vfc.nfvo.resmanagement.service.entity.LocationEntity;
-import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 
 import mockit.Mock;
 import mockit.MockUp;

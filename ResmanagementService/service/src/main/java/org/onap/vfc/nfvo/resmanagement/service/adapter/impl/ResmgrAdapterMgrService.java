@@ -29,9 +29,9 @@ import org.onap.vfc.nfvo.resmanagement.common.constant.Constant;
 import org.onap.vfc.nfvo.resmanagement.common.constant.HttpConstant;
 import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
 import org.onap.vfc.nfvo.resmanagement.common.constant.UrlConstant;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.SystemEnvVariablesFactory;
 import org.onap.vfc.nfvo.resmanagement.service.adapter.inf.IResmgrAdapter2MSBManager;
 import org.onap.vfc.nfvo.resmanagement.service.adapter.inf.IResmgrAdapterMgrService;
-import org.openo.baseservice.util.impl.SystemEnvVariablesFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

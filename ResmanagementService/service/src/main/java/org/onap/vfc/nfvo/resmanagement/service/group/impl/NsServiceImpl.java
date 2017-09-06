@@ -20,11 +20,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.onap.vfc.nfvo.resmanagement.service.dao.inf.NsDao;
 import org.onap.vfc.nfvo.resmanagement.service.entity.NsEntity;
 import org.onap.vfc.nfvo.resmanagement.service.group.inf.NsService;
-import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
