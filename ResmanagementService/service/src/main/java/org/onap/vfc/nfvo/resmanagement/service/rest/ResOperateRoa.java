@@ -35,7 +35,7 @@ import org.onap.vfc.nfvo.resmanagement.common.util.request.RequestUtil;
 import org.onap.vfc.nfvo.resmanagement.common.util.response.ResponseUtil;
 import org.onap.vfc.nfvo.resmanagement.common.util.response.RoaResponseUtil;
 import org.onap.vfc.nfvo.resmanagement.service.group.inf.ResOperateService;
-import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

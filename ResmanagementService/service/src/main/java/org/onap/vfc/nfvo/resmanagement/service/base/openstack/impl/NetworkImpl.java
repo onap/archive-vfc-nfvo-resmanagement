@@ -23,7 +23,7 @@ import org.onap.vfc.nfvo.resmanagement.common.util.JsonUtil;
 import org.onap.vfc.nfvo.resmanagement.service.base.openstack.inf.Network;
 import org.onap.vfc.nfvo.resmanagement.service.business.inf.NetworkBusiness;
 import org.onap.vfc.nfvo.resmanagement.service.entity.NetworkEntity;
-import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

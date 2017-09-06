@@ -19,11 +19,11 @@ package org.onap.vfc.nfvo.resmanagement.service.business.impl;
 import org.junit.Before;
 import org.junit.Test;
 import org.onap.vfc.nfvo.resmanagement.service.business.impl.LimitsBusinessImpl;
-import org.openo.baseservice.remoteservice.exception.ServiceException;
-import org.openo.baseservice.roa.util.restclient.HttpRest;
-import org.openo.baseservice.roa.util.restclient.RestfulOptions;
-import org.openo.baseservice.roa.util.restclient.RestfulParametes;
-import org.openo.baseservice.roa.util.restclient.RestfulResponse;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.HttpRest;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulOptions;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulParametes;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulResponse;
 
 import mockit.Mock;
 import mockit.MockUp;

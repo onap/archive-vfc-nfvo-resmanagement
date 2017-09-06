@@ -29,7 +29,7 @@ import org.onap.vfc.nfvo.resmanagement.service.base.openstack.inf.Sites;
 import org.onap.vfc.nfvo.resmanagement.service.business.inf.LocationBusiness;
 import org.onap.vfc.nfvo.resmanagement.service.entity.LocationEntity;
 import org.onap.vfc.nfvo.resmanagement.service.entity.SitesEntity;
-import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -23,7 +23,7 @@ import org.onap.vfc.nfvo.resmanagement.service.dao.impl.VmDaoImpl;
 import org.onap.vfc.nfvo.resmanagement.service.entity.VmEntity;
 import org.onap.vfc.nfvo.resmanagement.service.mapper.SitesMapper;
 import org.onap.vfc.nfvo.resmanagement.service.mapper.VmMapper;
-import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 
 import mockit.Mock;
 import mockit.MockUp;
