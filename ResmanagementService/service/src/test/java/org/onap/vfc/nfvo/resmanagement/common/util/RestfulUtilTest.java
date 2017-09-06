@@ -25,10 +25,10 @@ import java.util.Map;
 import org.junit.Test;
 import org.onap.vfc.nfvo.resmanagement.common.constant.Constant;
 import org.onap.vfc.nfvo.resmanagement.common.util.RestfulUtil;
-import org.openo.baseservice.remoteservice.exception.ServiceException;
-import org.openo.baseservice.roa.util.restclient.RestfulOptions;
-import org.openo.baseservice.roa.util.restclient.RestfulParametes;
-import org.openo.baseservice.roa.util.restclient.RestfulResponse;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulOptions;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulParametes;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulResponse;
 
 import mockit.Mock;
 import mockit.MockUp;

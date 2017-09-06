@@ -19,7 +19,7 @@ package org.onap.vfc.nfvo.resmanagement.common;
 import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
 import org.onap.vfc.nfvo.resmanagement.common.constant.UrlConstant;
 import org.onap.vfc.nfvo.resmanagement.common.util.RestfulUtil;
-import org.openo.baseservice.roa.util.restclient.RestfulParametes;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulParametes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

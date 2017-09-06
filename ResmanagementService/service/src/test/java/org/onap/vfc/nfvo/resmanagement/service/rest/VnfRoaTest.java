@@ -31,7 +31,7 @@ import org.onap.vfc.nfvo.resmanagement.service.entity.VnfEntity;
 import org.onap.vfc.nfvo.resmanagement.service.group.impl.VnfServiceImpl;
 import org.onap.vfc.nfvo.resmanagement.service.group.inf.VnfService;
 import org.onap.vfc.nfvo.resmanagement.service.rest.VnfRoa;
-import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.springframework.mock.web.MockHttpServletRequest;
 
 import mockit.Mock;

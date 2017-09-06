@@ -24,7 +24,7 @@ import org.onap.vfc.nfvo.resmanagement.service.entity.NetworkEntity;
 import org.onap.vfc.nfvo.resmanagement.service.entity.VirtualLinkEntity;
 import org.onap.vfc.nfvo.resmanagement.service.mapper.SitesMapper;
 import org.onap.vfc.nfvo.resmanagement.service.mapper.VirtualLinkMapper;
-import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 
 import mockit.Mock;
 import mockit.MockUp;

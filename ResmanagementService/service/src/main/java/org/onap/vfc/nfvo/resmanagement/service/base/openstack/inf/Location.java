@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.onap.vfc.nfvo.resmanagement.service.entity.LocationEntity;
-import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 
 import net.sf.json.JSONObject;
 

@@ -34,7 +34,7 @@ import org.onap.vfc.nfvo.resmanagement.service.base.openstack.inf.Sites;
 import org.onap.vfc.nfvo.resmanagement.service.entity.LocationEntity;
 import org.onap.vfc.nfvo.resmanagement.service.entity.SitesEntity;
 import org.onap.vfc.nfvo.resmanagement.service.rest.LocationRoa;
-import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.springframework.mock.web.MockHttpServletRequest;
 
 import mockit.Mock;

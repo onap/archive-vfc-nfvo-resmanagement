@@ -16,7 +16,7 @@
 
 package org.onap.vfc.nfvo.resmanagement.service.business.inf;
 
-import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 
 import net.sf.json.JSONObject;
 

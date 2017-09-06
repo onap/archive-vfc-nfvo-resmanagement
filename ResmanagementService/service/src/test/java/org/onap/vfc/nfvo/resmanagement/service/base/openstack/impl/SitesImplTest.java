@@ -27,7 +27,7 @@ import org.junit.Test;
 import org.onap.vfc.nfvo.resmanagement.service.base.openstack.impl.SitesImpl;
 import org.onap.vfc.nfvo.resmanagement.service.business.impl.SitesBusinessImpl;
 import org.onap.vfc.nfvo.resmanagement.service.entity.SitesEntity;
-import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 
 import mockit.Mock;
 import mockit.MockUp;
