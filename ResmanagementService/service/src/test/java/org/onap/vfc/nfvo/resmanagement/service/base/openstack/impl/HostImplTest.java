@@ -26,7 +26,7 @@ import org.onap.vfc.nfvo.resmanagement.service.base.openstack.impl.HostImpl;
 import org.onap.vfc.nfvo.resmanagement.service.business.impl.HostBusinessImpl;
 import org.onap.vfc.nfvo.resmanagement.service.dao.impl.HostDaoImpl;
 import org.onap.vfc.nfvo.resmanagement.service.entity.HostEntity;
-import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 
 import mockit.Mock;
 import mockit.MockUp;

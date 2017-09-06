@@ -24,7 +24,7 @@ import org.onap.vfc.nfvo.resmanagement.service.base.openstack.impl.PortImpl;
 import org.onap.vfc.nfvo.resmanagement.service.business.impl.PortBusinessImpl;
 import org.onap.vfc.nfvo.resmanagement.service.dao.impl.PortDaoImpl;
 import org.onap.vfc.nfvo.resmanagement.service.entity.PortEntity;
-import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 
 import mockit.Mock;
 import mockit.MockUp;

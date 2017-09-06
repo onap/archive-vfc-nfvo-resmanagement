@@ -24,7 +24,7 @@ import java.util.Map;
 import org.junit.Test;
 import org.onap.vfc.nfvo.resmanagement.common.util.RestfulUtil;
 import org.onap.vfc.nfvo.resmanagement.service.adapter.impl.ResmgrAdapter2MSBManager;
-import org.openo.baseservice.roa.util.restclient.RestfulResponse;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulResponse;
 
 import mockit.Mock;
 import mockit.MockUp;

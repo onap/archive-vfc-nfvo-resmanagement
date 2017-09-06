@@ -23,17 +23,17 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.onap.vfc.nfvo.resmanagement.common.ResourceUtil;
 import org.onap.vfc.nfvo.resmanagement.common.constant.Constant;
 import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
-import org.openo.baseservice.remoteservice.exception.ServiceException;
-import org.openo.baseservice.roa.util.restclient.Restful;
-import org.openo.baseservice.roa.util.restclient.RestfulAsyncCallback;
-import org.openo.baseservice.roa.util.restclient.RestfulFactory;
-import org.openo.baseservice.roa.util.restclient.RestfulOptions;
-import org.openo.baseservice.roa.util.restclient.RestfulParametes;
-import org.openo.baseservice.roa.util.restclient.RestfulResponse;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.Restful;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulAsyncCallback;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulFactory;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulOptions;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulParametes;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulResponse;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
