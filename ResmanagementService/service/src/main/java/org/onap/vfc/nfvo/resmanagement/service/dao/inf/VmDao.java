@@ -27,7 +27,7 @@ import org.onap.vfc.nfvo.resmanagement.service.entity.VmEntity;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Oct 28, 2016
+ * @version VFC 1.0 Oct 28, 2016
  */
 public interface VmDao {
 

@@ -23,7 +23,7 @@ package org.onap.vfc.nfvo.resmanagement.common.constant;
  * </p>
  *
  * @author
- * @version NFVO 0.5 2016-3-17
+ * @version VFC 1.0 2016-3-17
  */
 public class UrlConstant {
 

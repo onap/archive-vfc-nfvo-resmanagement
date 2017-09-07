@@ -27,7 +27,7 @@ import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Aug 24, 2016
+ * @version VFC 1.0 Aug 24, 2016
  */
 public interface VimBusiness {
 
@@ -36,7 +36,7 @@ public interface VimBusiness {
      *
      * @param id
      * @return The get result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     VimEntity getVim(String id);
 
@@ -45,7 +45,7 @@ public interface VimBusiness {
      *
      * @param id
      * @return The get result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     List<VimEntity> getVims();
 
@@ -55,7 +55,7 @@ public interface VimBusiness {
      * @param id
      * @return the delete result
      * @throws ServiceException When delete failed.
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int deleteVim(String id) throws ServiceException;
 
@@ -65,7 +65,7 @@ public interface VimBusiness {
      * @param id
      * @return the add result
      * @throws ServiceException When add failed.
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int addVim(String id) throws ServiceException;
 

@@ -39,7 +39,7 @@ import org.slf4j.LoggerFactory;
  * </p>
  *
  * @author
- * @version     NFVO 0.5  Sep 10, 2016
+ * @version     VFC 1.0  Sep 10, 2016
  */
 public class LocationBusinessImpl implements LocationBusiness {
 
@@ -54,7 +54,7 @@ public class LocationBusinessImpl implements LocationBusiness {
      * @param locationEntity
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public boolean checkLocation(LocationEntity locationEntity) throws ServiceException {
         String location = locationEntity.getLocation();
@@ -74,7 +74,7 @@ public class LocationBusinessImpl implements LocationBusiness {
      * @param locationEntity
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public boolean checkLatitude(LocationEntity locationEntity) throws ServiceException {
         String latitu = locationEntity.getLatitude();

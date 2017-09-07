@@ -28,7 +28,7 @@ import org.openo.nfvo.resmanagement.util.MyTestManager;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Sep 27, 2016
+ * @version VFC 1.0 Sep 27, 2016
  */
 public class ITSitesRoaFail extends MyTestManager {
 

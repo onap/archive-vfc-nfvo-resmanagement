@@ -28,7 +28,7 @@ import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Aug 31, 2016
+ * @version VFC 1.0 Aug 31, 2016
  */
 public interface HostBusiness {
 
@@ -38,7 +38,7 @@ public interface HostBusiness {
      *
      * @param id
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     HostEntity getHost(String id);
 
@@ -48,7 +48,7 @@ public interface HostBusiness {
      *
      * @param condition
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     List<HostEntity> getHosts(Map<String, Object> condition);
 
@@ -59,7 +59,7 @@ public interface HostBusiness {
      * @param id
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int deleteHost(String id) throws ServiceException;
 
@@ -70,7 +70,7 @@ public interface HostBusiness {
      * @param vimId
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int deleteHostByVimId(String vimId) throws ServiceException;
 
@@ -81,7 +81,7 @@ public interface HostBusiness {
      * @param hostEntity
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int addHost(HostEntity hostEntity) throws ServiceException;
 
@@ -92,7 +92,7 @@ public interface HostBusiness {
      * @param hostEntity
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int addHostSelective(HostEntity hostEntity) throws ServiceException;
 
@@ -103,7 +103,7 @@ public interface HostBusiness {
      * @param hostEntity
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int updateHostSelective(HostEntity hostEntity) throws ServiceException;
 
@@ -114,7 +114,7 @@ public interface HostBusiness {
      * @param hostEntity
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int updateHost(HostEntity hostEntity) throws ServiceException;
 
@@ -125,7 +125,7 @@ public interface HostBusiness {
      * @param hostEntity
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int updateHostByVimId(HostEntity hostEntity) throws ServiceException;
 }

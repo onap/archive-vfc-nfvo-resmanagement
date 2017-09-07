@@ -27,7 +27,7 @@ import org.onap.vfc.nfvo.resmanagement.service.entity.SitesEntity;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Aug 24, 2016
+ * @version VFC 1.0 Aug 24, 2016
  */
 public interface SitesDao {
 
@@ -36,7 +36,7 @@ public interface SitesDao {
      *
      * @param id
      * @return The get result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     SitesEntity getSite(String id);
 
@@ -45,7 +45,7 @@ public interface SitesDao {
      *
      * @param condition
      * @return The get result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     List<SitesEntity> getSites(Map<String, Object> condition);
 
@@ -54,7 +54,7 @@ public interface SitesDao {
      *
      * @param id
      * @return The get result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int deleteSite(String id);
 
@@ -63,7 +63,7 @@ public interface SitesDao {
      *
      * @param sitesEntity
      * @return The delete result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int addSite(SitesEntity sitesEntity);
 
@@ -72,7 +72,7 @@ public interface SitesDao {
      *
      * @param sitesEntity
      * @return The add result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int addSiteSelective(SitesEntity sitesEntity);
 
@@ -81,7 +81,7 @@ public interface SitesDao {
      *
      * @param sitesEntity
      * @return The add result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int updateSiteSelective(SitesEntity sitesEntity);
 
@@ -90,7 +90,7 @@ public interface SitesDao {
      *
      * @param sitesEntity
      * @return The update result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int updateSite(SitesEntity sitesEntity);
 
@@ -99,7 +99,7 @@ public interface SitesDao {
      *
      * @param sitesEntity
      * @return The update result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int updateSiteByVimId(SitesEntity sitesEntity);
 }

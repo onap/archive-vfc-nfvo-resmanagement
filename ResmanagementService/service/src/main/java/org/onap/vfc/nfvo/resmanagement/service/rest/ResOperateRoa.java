@@ -47,7 +47,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Sep 10, 2016
+ * @version VFC 1.0 Sep 10, 2016
  */
 @Path(UrlConstant.RESOPERATE_URL)
 @Consumes(MediaType.APPLICATION_JSON)
@@ -66,7 +66,7 @@ public class ResOperateRoa {
      * @param vimId
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @PUT
     @Path(UrlConstant.MODRES_URL)
@@ -97,7 +97,7 @@ public class ResOperateRoa {
      * @param vimId
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @POST
     @Path(UrlConstant.ADDRES_URL)
@@ -126,7 +126,7 @@ public class ResOperateRoa {
      * @param vimId
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON)

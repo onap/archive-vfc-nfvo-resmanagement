@@ -30,7 +30,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Aug 25, 2016
+ * @version VFC 1.0 Aug 25, 2016
  */
 public interface Vim extends ResManagement {
 
@@ -40,7 +40,7 @@ public interface Vim extends ResManagement {
      * @param id
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     VimEntity getVim(String id) throws ServiceException;
 
@@ -49,7 +49,7 @@ public interface Vim extends ResManagement {
      *
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     List<VimEntity> getList() throws ServiceException;
 
@@ -60,7 +60,7 @@ public interface Vim extends ResManagement {
      * @param condition
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     List<JSONObject> getVimInfo(Map<String, Object> condition) throws ServiceException;
 
@@ -70,7 +70,7 @@ public interface Vim extends ResManagement {
      * @param vimId
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int add(String vimId) throws ServiceException;
 }

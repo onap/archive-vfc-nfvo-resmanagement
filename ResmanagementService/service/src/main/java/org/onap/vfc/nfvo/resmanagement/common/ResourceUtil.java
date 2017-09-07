@@ -22,7 +22,7 @@ package org.onap.vfc.nfvo.resmanagement.common;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Aug 25, 2016
+ * @version VFC 1.0 Aug 25, 2016
  */
 public class ResourceUtil {
 
@@ -35,7 +35,7 @@ public class ResourceUtil {
      *
      * @param key
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static String getMessage(String key) {
         return key;

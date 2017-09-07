@@ -31,7 +31,7 @@ import org.onap.vfc.nfvo.resmanagement.service.mapper.PortMapper;
  * </p>
  *
  * @author
- * @version     NFVO 0.5  Sep 10, 2016
+ * @version     VFC 1.0  Sep 10, 2016
  */
 public class PortDaoImpl extends AbstractDao implements PortDao {
 

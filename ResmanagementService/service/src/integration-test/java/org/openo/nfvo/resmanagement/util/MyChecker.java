@@ -25,7 +25,7 @@ import org.openo.sdno.testframework.http.model.HttpResponse;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Sep 21, 2016
+ * @version VFC 1.0 Sep 21, 2016
  */
 public class MyChecker extends DefaultChecker {
 
@@ -37,7 +37,7 @@ public class MyChecker extends DefaultChecker {
      * </p>
      * 
      * @param expectedResponse
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public MyChecker(HttpResponse expectedResponse) {
         super(expectedResponse);
@@ -49,7 +49,7 @@ public class MyChecker extends DefaultChecker {
      * 
      * @param response
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public boolean check(HttpResponse response) {

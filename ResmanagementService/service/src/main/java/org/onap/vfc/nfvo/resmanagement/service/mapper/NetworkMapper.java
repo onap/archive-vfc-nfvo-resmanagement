@@ -28,7 +28,7 @@ import org.onap.vfc.nfvo.resmanagement.service.entity.NetworkEntity;
  * </p>
  *
  * @author
- * @version     NFVO 0.5  Sep 10, 2016
+ * @version     VFC 1.0  Sep 10, 2016
  */
 public interface NetworkMapper {
 
@@ -38,7 +38,7 @@ public interface NetworkMapper {
      *
      * @param id
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     NetworkEntity getNetwork(String id);
 
@@ -48,7 +48,7 @@ public interface NetworkMapper {
      *
      * @param condition
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     List<NetworkEntity> getNetworks(Map<String, Object> condition);
 
@@ -58,7 +58,7 @@ public interface NetworkMapper {
      *
      * @param id
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int deleteNetwork(String id);
 
@@ -68,7 +68,7 @@ public interface NetworkMapper {
      *
      * @param vimId
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int deleteNetworkByVimId(String vimId);
 
@@ -78,7 +78,7 @@ public interface NetworkMapper {
      *
      * @param networkEntity
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int addNetwork(NetworkEntity networkEntity);
 
@@ -88,7 +88,7 @@ public interface NetworkMapper {
      *
      * @param networkEntity
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int addNetworkSelective(NetworkEntity networkEntity);
 
@@ -98,7 +98,7 @@ public interface NetworkMapper {
      *
      * @param networkEntity
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int updateNetworkSelective(NetworkEntity networkEntity);
 
@@ -108,7 +108,7 @@ public interface NetworkMapper {
      *
      * @param networkEntity
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int updateNetwork(NetworkEntity networkEntity);
 
@@ -118,7 +118,7 @@ public interface NetworkMapper {
      *
      * @param networkEntity
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int updateNetworkByVimId(NetworkEntity networkEntity);
 

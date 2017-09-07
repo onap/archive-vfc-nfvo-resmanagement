@@ -28,7 +28,7 @@ import org.onap.vfc.nfvo.resmanagement.service.entity.LocationEntity;
  * </p>
  *
  * @author
- * @version     NFVO 0.5  Sep 10, 2016
+ * @version     VFC 1.0  Sep 10, 2016
  */
 public interface LocationMapper {
 
@@ -38,7 +38,7 @@ public interface LocationMapper {
      *
      * @param id
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     LocationEntity getLocation(String id);
 
@@ -47,7 +47,7 @@ public interface LocationMapper {
      * Get Country.<br>
      *
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     List<String> getCountry();
 
@@ -57,7 +57,7 @@ public interface LocationMapper {
      *
      * @param condition
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     List<String> getLocationByCountry(Map<String, Object> condition);
 
@@ -67,7 +67,7 @@ public interface LocationMapper {
      *
      * @param condition
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     List<LocationEntity> getLocations(Map<String, Object> condition);
 
@@ -77,7 +77,7 @@ public interface LocationMapper {
      *
      * @param location
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int deleteLocation(String location);
 
@@ -87,7 +87,7 @@ public interface LocationMapper {
      *
      * @param locationEntity
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int addLocation(LocationEntity locationEntity);
 
@@ -97,7 +97,7 @@ public interface LocationMapper {
      *
      * @param locationEntity
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int addLocationSelective(LocationEntity locationEntity);
 
@@ -107,7 +107,7 @@ public interface LocationMapper {
      *
      * @param locationEntity
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int updateLocationSelective(LocationEntity locationEntity);
 
@@ -117,7 +117,7 @@ public interface LocationMapper {
      *
      * @param locationEntity
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int updateLocation(LocationEntity locationEntity);
 }

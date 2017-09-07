@@ -28,7 +28,7 @@ import org.onap.vfc.nfvo.resmanagement.service.rest.exceptionmapper.ExceptionMes
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Feb 9, 2017
+ * @version VFC 1.0 Feb 9, 2017
  */
 public class ExceptionMessageTest {
 

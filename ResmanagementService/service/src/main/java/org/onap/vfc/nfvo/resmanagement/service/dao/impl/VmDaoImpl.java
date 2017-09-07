@@ -29,7 +29,7 @@ import org.onap.vfc.nfvo.resmanagement.service.mapper.VmMapper;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Oct 28, 2016
+ * @version VFC 1.0 Oct 28, 2016
  */
 public class VmDaoImpl extends AbstractDao implements VmDao {
 
@@ -38,7 +38,7 @@ public class VmDaoImpl extends AbstractDao implements VmDao {
      * 
      * @param id
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public VmEntity getVm(String id) {
@@ -50,7 +50,7 @@ public class VmDaoImpl extends AbstractDao implements VmDao {
      * 
      * @param condition
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public List<VmEntity> getVms(Map<String, Object> condition) {
@@ -62,7 +62,7 @@ public class VmDaoImpl extends AbstractDao implements VmDao {
      * 
      * @param vmEntity
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public int addVm(VmEntity vmEntity) {
@@ -74,7 +74,7 @@ public class VmDaoImpl extends AbstractDao implements VmDao {
      * 
      * @param id
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public int deleteVmById(String id) {
@@ -86,7 +86,7 @@ public class VmDaoImpl extends AbstractDao implements VmDao {
      * 
      * @param vmEntity
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public int updateVm(VmEntity vmEntity) {
@@ -98,7 +98,7 @@ public class VmDaoImpl extends AbstractDao implements VmDao {
      * 
      * @param vnfInstanceId
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public int deleteVmByVnfId(String vnfInstanceId) {

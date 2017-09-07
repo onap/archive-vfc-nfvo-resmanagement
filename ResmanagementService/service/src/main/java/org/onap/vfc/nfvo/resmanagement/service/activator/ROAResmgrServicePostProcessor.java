@@ -28,7 +28,7 @@ import org.springframework.beans.factory.config.DestructionAwareBeanPostProcesso
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Sep 22, 2016
+ * @version VFC 1.0 Sep 22, 2016
  */
 public class ROAResmgrServicePostProcessor implements DestructionAwareBeanPostProcessor {
 

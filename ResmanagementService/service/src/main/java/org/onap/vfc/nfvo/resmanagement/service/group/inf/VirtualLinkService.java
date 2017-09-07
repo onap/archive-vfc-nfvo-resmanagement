@@ -30,7 +30,7 @@ import net.sf.json.JSONObject;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Oct 27, 2016
+ * @version VFC 1.0 Oct 27, 2016
  */
 public interface VirtualLinkService {
 
@@ -40,7 +40,7 @@ public interface VirtualLinkService {
      * @param virtualLinkEntity
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     JSONObject addVl(VirtualLinkEntity virtualLinkEntity) throws ServiceException;
 
@@ -49,7 +49,7 @@ public interface VirtualLinkService {
      * 
      * @param map
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     List<VirtualLinkEntity> getList(Map<String, Object> map) throws ServiceException;
 
@@ -58,7 +58,7 @@ public interface VirtualLinkService {
      * 
      * @param id
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int delete(String id) throws ServiceException;
 }

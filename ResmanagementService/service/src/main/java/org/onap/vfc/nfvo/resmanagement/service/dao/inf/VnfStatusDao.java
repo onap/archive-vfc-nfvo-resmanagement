@@ -27,7 +27,7 @@ import org.onap.vfc.nfvo.resmanagement.service.entity.VnfStatusEntity;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Oct 29, 2016
+ * @version VFC 1.0 Oct 29, 2016
  */
 public interface VnfStatusDao {
 

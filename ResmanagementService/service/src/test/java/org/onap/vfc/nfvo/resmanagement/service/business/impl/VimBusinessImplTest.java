@@ -36,7 +36,7 @@ import mockit.MockUp;
  * </p>
  *
  * @author
- * @version NFVO 0.5 2016年8月18日
+ * @version VFC 1.0 2016年8月18日
  */
 public class VimBusinessImplTest {
 

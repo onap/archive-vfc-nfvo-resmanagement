@@ -26,7 +26,7 @@ import net.sf.json.JSONObject;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Oct 29, 2016
+ * @version VFC 1.0 Oct 29, 2016
  */
 public interface GrantResService {
 
@@ -35,7 +35,7 @@ public interface GrantResService {
      * 
      * @param object
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     JSONObject grantResource(JSONObject object) throws ServiceException;
 

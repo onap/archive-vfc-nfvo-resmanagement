@@ -26,7 +26,7 @@ import net.sf.json.JSONObject;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Sep 22, 2016
+ * @version VFC 1.0 Sep 22, 2016
  */
 public interface IResmgrAdapter2MSBManager {
 
@@ -36,7 +36,7 @@ public interface IResmgrAdapter2MSBManager {
      * @param paramsMap
      * @param driverInfo
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     JSONObject registerResmgr(Map<String, String> paramsMap, JSONObject driverInfo);
 
@@ -45,7 +45,7 @@ public interface IResmgrAdapter2MSBManager {
      * 
      * @param paramsMap
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     JSONObject unregisterResmgr(Map<String, String> paramsMap);
 

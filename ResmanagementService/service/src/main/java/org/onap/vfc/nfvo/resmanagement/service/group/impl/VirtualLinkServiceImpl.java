@@ -37,7 +37,7 @@ import net.sf.json.JSONObject;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Oct 27, 2016
+ * @version VFC 1.0 Oct 27, 2016
  */
 public class VirtualLinkServiceImpl implements VirtualLinkService {
 
@@ -51,7 +51,7 @@ public class VirtualLinkServiceImpl implements VirtualLinkService {
      * @param virtualLinkEntity
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public JSONObject addVl(VirtualLinkEntity virtualLinkEntity) throws ServiceException {
@@ -81,7 +81,7 @@ public class VirtualLinkServiceImpl implements VirtualLinkService {
      * 
      * @param id
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     private boolean checkId(String id) {
         VirtualLinkEntity vl = virtualLinkDao.getVl(id);
@@ -97,7 +97,7 @@ public class VirtualLinkServiceImpl implements VirtualLinkService {
      * @param map
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public List<VirtualLinkEntity> getList(Map<String, Object> map) throws ServiceException {
@@ -110,7 +110,7 @@ public class VirtualLinkServiceImpl implements VirtualLinkService {
      * @param id
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public int delete(String id) throws ServiceException {

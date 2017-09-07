@@ -29,7 +29,7 @@ import org.onap.vfc.nfvo.resmanagement.service.mapper.VirtualLinkMapper;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Oct 28, 2016
+ * @version VFC 1.0 Oct 28, 2016
  */
 public class VirtualLinkDaoImpl extends AbstractDao implements VirtualLinkDao {
 
@@ -38,7 +38,7 @@ public class VirtualLinkDaoImpl extends AbstractDao implements VirtualLinkDao {
      * 
      * @param id
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public VirtualLinkEntity getVl(String id) {
@@ -50,7 +50,7 @@ public class VirtualLinkDaoImpl extends AbstractDao implements VirtualLinkDao {
      * 
      * @param condition
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public List<VirtualLinkEntity> getVls(Map<String, Object> condition) {
@@ -62,7 +62,7 @@ public class VirtualLinkDaoImpl extends AbstractDao implements VirtualLinkDao {
      * 
      * @param virtualLinkEntity
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public int addVl(VirtualLinkEntity virtualLinkEntity) {
@@ -74,7 +74,7 @@ public class VirtualLinkDaoImpl extends AbstractDao implements VirtualLinkDao {
      * 
      * @param id
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public int deleteVlById(String id) {

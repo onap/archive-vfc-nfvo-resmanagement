@@ -278,7 +278,7 @@ public class VnfEntity implements Serializable {
      * 
      * @param jsonObject
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static VnfEntity toEntity(JSONObject jsonObject) {
         VnfEntity vnfEntity = new VnfEntity();

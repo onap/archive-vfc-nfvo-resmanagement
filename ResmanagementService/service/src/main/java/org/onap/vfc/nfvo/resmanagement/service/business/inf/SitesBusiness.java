@@ -28,7 +28,7 @@ import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Aug 24, 2016
+ * @version VFC 1.0 Aug 24, 2016
  */
 public interface SitesBusiness {
 
@@ -38,7 +38,7 @@ public interface SitesBusiness {
      * @param id
      * @return The get result
      * @throws ServiceException When get failed.
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     SitesEntity getSite(String id) throws ServiceException;
 
@@ -47,7 +47,7 @@ public interface SitesBusiness {
      *
      * @param condition
      * @return The get result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     List<SitesEntity> getSites(Map<String, Object> condition);
 
@@ -57,7 +57,7 @@ public interface SitesBusiness {
      * @param id
      * @return The delete result
      * @throws ServiceException When delete failed.
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int deleteSite(String id) throws ServiceException;
 
@@ -67,7 +67,7 @@ public interface SitesBusiness {
      * @param sitesEntity
      * @return The add result
      * @throws ServiceException When add failed.
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int addSite(SitesEntity sitesEntity) throws ServiceException;
 
@@ -77,7 +77,7 @@ public interface SitesBusiness {
      * @param sitesEntity
      * @return The add result
      * @throws ServiceException When add failed.
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int addSiteSelective(SitesEntity sitesEntity) throws ServiceException;
 
@@ -87,7 +87,7 @@ public interface SitesBusiness {
      * @param sitesEntity
      * @return The update result
      * @throws ServiceException When update failed.
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int updateSiteSelective(SitesEntity sitesEntity) throws ServiceException;
 
@@ -97,7 +97,7 @@ public interface SitesBusiness {
      * @param sitesEntity
      * @return The update result
      * @throws ServiceException When update failed.
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int updateSite(SitesEntity sitesEntity) throws ServiceException;
 
@@ -107,7 +107,7 @@ public interface SitesBusiness {
      * @param sitesEntity
      * @return The update result
      * @throws ServiceException When update failed.
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int updateSiteByVimId(SitesEntity sitesEntity) throws ServiceException;
 
@@ -117,7 +117,7 @@ public interface SitesBusiness {
      * @param sitesEntity
      * @return The update result
      * @throws ServiceException When update failed.
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int updateSiteResource(SitesEntity sitesEntity) throws ServiceException;
 

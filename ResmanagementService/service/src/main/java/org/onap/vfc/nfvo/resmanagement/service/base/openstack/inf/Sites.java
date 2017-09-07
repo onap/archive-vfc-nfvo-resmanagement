@@ -30,7 +30,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Aug 25, 2016
+ * @version VFC 1.0 Aug 25, 2016
  */
 public interface Sites extends InterfaceResManagement {
 
@@ -40,7 +40,7 @@ public interface Sites extends InterfaceResManagement {
      * @param jsonObject
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int updateStatusByVimId(JSONObject jsonObject) throws ServiceException;
 
@@ -50,7 +50,7 @@ public interface Sites extends InterfaceResManagement {
      * @param condition
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     List<SitesEntity> getList(Map<String, Object> condition) throws ServiceException;
 
@@ -60,7 +60,7 @@ public interface Sites extends InterfaceResManagement {
      * @param condition
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     SitesEntity get(Map<String, Object> condition) throws ServiceException;
 
@@ -70,7 +70,7 @@ public interface Sites extends InterfaceResManagement {
      * @param jsonObject
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int updateResource(JSONObject jsonObject) throws ServiceException;
 
@@ -80,7 +80,7 @@ public interface Sites extends InterfaceResManagement {
      * @param sitesEntity
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int update(SitesEntity sitesEntity) throws ServiceException;
 
@@ -89,7 +89,7 @@ public interface Sites extends InterfaceResManagement {
      * 
      * @param json
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     void sendToMonitor(JSONObject json) throws ServiceException;
 }

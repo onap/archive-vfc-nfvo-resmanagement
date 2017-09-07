@@ -27,7 +27,7 @@ import org.onap.vfc.nfvo.resmanagement.service.entity.HostEntity;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Aug 24, 2016
+ * @version VFC 1.0 Aug 24, 2016
  */
 public interface HostDao {
 
@@ -36,7 +36,7 @@ public interface HostDao {
      *
      * @param id
      * @return The get result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     HostEntity getHost(String id);
 
@@ -45,7 +45,7 @@ public interface HostDao {
      *
      * @param condition
      * @return The get result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     List<HostEntity> getHosts(Map<String, Object> condition);
 
@@ -54,7 +54,7 @@ public interface HostDao {
      *
      * @param id
      * @return The delete result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int deleteHost(String id);
 
@@ -63,7 +63,7 @@ public interface HostDao {
      *
      * @param vimId
      * @return The delete result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int deleteHostByVimId(String vimId);
 
@@ -72,7 +72,7 @@ public interface HostDao {
      *
      * @param hostEntity
      * @return The add result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int addHost(HostEntity hostEntity);
 
@@ -81,7 +81,7 @@ public interface HostDao {
      *
      * @param hostEntity
      * @return The add result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int addHostSelective(HostEntity hostEntity);
 
@@ -90,7 +90,7 @@ public interface HostDao {
      *
      * @param hostEntity
      * @return The update result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int updateHostSelective(HostEntity hostEntity);
 
@@ -99,7 +99,7 @@ public interface HostDao {
      *
      * @param hostEntity
      * @return The update result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int updateHost(HostEntity hostEntity);
 
@@ -108,7 +108,7 @@ public interface HostDao {
      *
      * @param hostEntity
      * @return The update result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int updateHostByVimId(HostEntity hostEntity);
 }

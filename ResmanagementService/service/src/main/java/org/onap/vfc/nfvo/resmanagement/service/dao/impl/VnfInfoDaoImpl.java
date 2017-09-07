@@ -29,7 +29,7 @@ import org.onap.vfc.nfvo.resmanagement.service.mapper.VnfInfoMapper;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Oct 28, 2016
+ * @version VFC 1.0 Oct 28, 2016
  */
 public class VnfInfoDaoImpl extends AbstractDao implements VnfInfoDao {
 
@@ -38,7 +38,7 @@ public class VnfInfoDaoImpl extends AbstractDao implements VnfInfoDao {
      * 
      * @param id
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public VnfInfoEntity getVnfInfo(String id) {
@@ -50,7 +50,7 @@ public class VnfInfoDaoImpl extends AbstractDao implements VnfInfoDao {
      * 
      * @param condition
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public List<VnfInfoEntity> getVnfInfos(Map<String, Object> condition) {
@@ -62,7 +62,7 @@ public class VnfInfoDaoImpl extends AbstractDao implements VnfInfoDao {
      * 
      * @param vmEntity
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public int addVnfInfo(VnfInfoEntity vnfInfoEntity) {
@@ -74,7 +74,7 @@ public class VnfInfoDaoImpl extends AbstractDao implements VnfInfoDao {
      * 
      * @param id
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public int deleteVnfInfoById(String id) {
@@ -86,7 +86,7 @@ public class VnfInfoDaoImpl extends AbstractDao implements VnfInfoDao {
      * 
      * @param vnfInfoEntity
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public int updateVnfInfo(VnfInfoEntity vnfInfoEntity) {

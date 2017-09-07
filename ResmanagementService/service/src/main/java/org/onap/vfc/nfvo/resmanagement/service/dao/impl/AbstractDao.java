@@ -25,7 +25,7 @@ import org.apache.ibatis.session.SqlSession;
  * </p>
  *
  * @author
- * @version NFVO 0.5 2016-3-17
+ * @version VFC 1.0 2016-3-17
  */
 public class AbstractDao {
 
@@ -49,7 +49,7 @@ public class AbstractDao {
      * @param type
      * The type of Class
      * @return Mapper
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public <T> T getMapperManager(Class<T> type) {
         return (T)getSession().getMapper(type);

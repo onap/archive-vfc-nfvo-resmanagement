@@ -42,7 +42,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Sep 10, 2016
+ * @version VFC 1.0 Sep 10, 2016
  */
 public class LocationImpl implements Location {
 
@@ -151,7 +151,7 @@ public class LocationImpl implements Location {
      * @param total
      * @param used
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public JSONObject computingSite(JSONObject total, JSONObject used) {
         String vcpus = JsonUtil.getJsonFieldStr(total, ParamConstant.PARAM_VCPUS);

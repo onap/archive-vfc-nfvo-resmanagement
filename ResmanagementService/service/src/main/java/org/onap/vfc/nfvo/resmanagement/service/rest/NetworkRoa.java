@@ -54,7 +54,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version     NFVO 0.5  Sep 10, 2016
+ * @version     VFC 1.0  Sep 10, 2016
  */
 @Path(UrlConstant.NETWORKS_URL)
 @Consumes({MediaType.APPLICATION_JSON})
@@ -72,7 +72,7 @@ public class NetworkRoa {
      * @param context
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     @GET
     public JSONObject getNetworks(@Context HttpServletRequest context) throws ServiceException {
@@ -92,7 +92,7 @@ public class NetworkRoa {
      * @param id
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     @GET
     @Path("/{networkId}")
@@ -115,7 +115,7 @@ public class NetworkRoa {
      * @param context
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
@@ -141,7 +141,7 @@ public class NetworkRoa {
      * @param id
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     @DELETE
     @Consumes({MediaType.APPLICATION_JSON})
@@ -165,7 +165,7 @@ public class NetworkRoa {
      * @param context
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     @PUT
     @Consumes({MediaType.APPLICATION_JSON})

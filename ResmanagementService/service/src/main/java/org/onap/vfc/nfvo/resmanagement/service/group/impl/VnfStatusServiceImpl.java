@@ -34,7 +34,7 @@ import net.sf.json.JSONObject;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Oct 29, 2016
+ * @version VFC 1.0 Oct 29, 2016
  */
 public class VnfStatusServiceImpl implements VnfStatusService {
 
@@ -48,7 +48,7 @@ public class VnfStatusServiceImpl implements VnfStatusService {
      * @param object
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public JSONObject addVnfStatus(JSONObject object) throws ServiceException {
@@ -75,7 +75,7 @@ public class VnfStatusServiceImpl implements VnfStatusService {
      * 
      * @param vnfInstanceId
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     private boolean checkId(String vnfInstanceId) {
         VnfStatusEntity vnfStatus = vnfStatusDao.getVnfStatus(vnfInstanceId);
@@ -91,7 +91,7 @@ public class VnfStatusServiceImpl implements VnfStatusService {
      * @param map
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public List<VnfStatusEntity> getList(Map<String, Object> map) throws ServiceException {
@@ -104,7 +104,7 @@ public class VnfStatusServiceImpl implements VnfStatusService {
      * @param id
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public int delete(String id) throws ServiceException {

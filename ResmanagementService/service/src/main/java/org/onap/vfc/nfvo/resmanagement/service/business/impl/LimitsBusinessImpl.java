@@ -33,7 +33,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Sep 10, 2016
+ * @version VFC 1.0 Sep 10, 2016
  */
 public class LimitsBusinessImpl implements LimitsBusiness {
 
@@ -45,7 +45,7 @@ public class LimitsBusinessImpl implements LimitsBusiness {
      * @param vimId
      * @param tenantId
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     private JSONObject getResponse(String vimId, String tenantId) {
         LOGGER.info("function=getResponse; vimId={}, tenantId={}", vimId, tenantId);

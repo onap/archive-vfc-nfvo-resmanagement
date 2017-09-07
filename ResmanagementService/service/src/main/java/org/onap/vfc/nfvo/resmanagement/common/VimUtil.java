@@ -32,7 +32,7 @@ import net.sf.json.JSONObject;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Oct 30, 2016
+ * @version VFC 1.0 Oct 30, 2016
  */
 public class VimUtil {
 
@@ -123,7 +123,7 @@ public class VimUtil {
      * @param tenant
      * @param vimId
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static String getTenantIdByName(String tenant, String vimId) {
         JSONArray tenants = VimUtil.getTenants(vimId);

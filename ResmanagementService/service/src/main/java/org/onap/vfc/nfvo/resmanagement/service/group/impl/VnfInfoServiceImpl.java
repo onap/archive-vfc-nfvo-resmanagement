@@ -37,7 +37,7 @@ import net.sf.json.JSONObject;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Oct 28, 2016
+ * @version VFC 1.0 Oct 28, 2016
  */
 public class VnfInfoServiceImpl implements VnfInfoService {
 
@@ -53,7 +53,7 @@ public class VnfInfoServiceImpl implements VnfInfoService {
      * @param object
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public JSONObject addVnfInfo(JSONObject object) throws ServiceException {
@@ -85,7 +85,7 @@ public class VnfInfoServiceImpl implements VnfInfoService {
      * 
      * @param vnfInstanceId
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     private boolean checkId(String vnfInstanceId) {
         VnfInfoEntity vnf = vnfInfoDao.getVnfInfo(vnfInstanceId);
@@ -100,7 +100,7 @@ public class VnfInfoServiceImpl implements VnfInfoService {
      * 
      * @param object
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     private void saveVm(JSONObject object) throws ServiceException {
         String vnfInstanceId = object.getString("vnfInstanceId");
@@ -119,7 +119,7 @@ public class VnfInfoServiceImpl implements VnfInfoService {
      * @param map
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public List<VnfInfoEntity> getList(Map<String, Object> map) throws ServiceException {
@@ -132,7 +132,7 @@ public class VnfInfoServiceImpl implements VnfInfoService {
      * @param id
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public int delete(String id) throws ServiceException {

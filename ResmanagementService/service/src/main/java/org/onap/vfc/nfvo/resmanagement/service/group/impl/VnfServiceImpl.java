@@ -38,7 +38,7 @@ import net.sf.json.JSONObject;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Oct 28, 2016
+ * @version VFC 1.0 Oct 28, 2016
  */
 public class VnfServiceImpl implements VnfService {
 
@@ -54,7 +54,7 @@ public class VnfServiceImpl implements VnfService {
      * @param vnfEntity
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public JSONObject addVnf(VnfEntity vnfEntity) throws ServiceException {
@@ -83,7 +83,7 @@ public class VnfServiceImpl implements VnfService {
      * 
      * @param id
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     private boolean checkId(String id) {
         VnfEntity vnf = vnfDao.getVnf(id);
@@ -99,7 +99,7 @@ public class VnfServiceImpl implements VnfService {
      * @param map
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public List<VnfEntity> getList(Map<String, Object> map) throws ServiceException {
@@ -112,7 +112,7 @@ public class VnfServiceImpl implements VnfService {
      * @param id
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public int delete(String id) throws ServiceException {
@@ -125,7 +125,7 @@ public class VnfServiceImpl implements VnfService {
      * 
      * @param id
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     private void deleteVnfInfo(String vnfInstanceId) throws ServiceException {
         vnfInfoService.delete(vnfInstanceId);

@@ -30,7 +30,7 @@ import org.slf4j.LoggerFactory;
  * </p>
  *
  * @author
- * @version     NFVO 0.5  Sep 10, 2016
+ * @version     VFC 1.0  Sep 10, 2016
  */
 public final class StringUtil {
 
@@ -45,7 +45,7 @@ public final class StringUtil {
      *
      * @param str
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static boolean isValidString(String str) {
         if(null == str || str.isEmpty()) {
@@ -60,7 +60,7 @@ public final class StringUtil {
      *
      * @param strs
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static boolean isAnyLargeThanZero(String... strs) {
         for(String str : strs) {
@@ -78,7 +78,7 @@ public final class StringUtil {
      *
      * @param strs
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static boolean isInteger(String... strs) {
         try {
@@ -102,7 +102,7 @@ public final class StringUtil {
      *
      * @param strs
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static boolean isNumeric(String... strs) {
         try {
@@ -128,7 +128,7 @@ public final class StringUtil {
      * @param used
      * @param drTotal
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static boolean compareZeroByFloat(String tatol, String used, String drTotal) {
         Float ftotal = (float)0;
@@ -158,7 +158,7 @@ public final class StringUtil {
      * @param used
      * @param drTotal
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static boolean compareZeroByInteger(String tatol, String used, String drTotal) {
         Integer ftotal = (int)0;
@@ -185,7 +185,7 @@ public final class StringUtil {
      *
      * @param data
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static String numFormat(String data) {
         if(null != data && !("".equals(data))) {
@@ -206,7 +206,7 @@ public final class StringUtil {
      *
      * @param inputStr
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static boolean checkXss(String inputStr) {
         return inputStr.matches("[A-Za-z0-9_.']+");
