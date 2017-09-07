@@ -28,7 +28,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version     NFVO 0.5  Sep 10, 2016
+ * @version     VFC 1.0  Sep 10, 2016
  */
 public class LocationEntity {
 
@@ -209,7 +209,7 @@ public class LocationEntity {
      *
      * @param jsonObject
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static LocationEntity toEntity(JSONObject jsonObject) {
         LocationEntity sodoresesEntity = new LocationEntity();

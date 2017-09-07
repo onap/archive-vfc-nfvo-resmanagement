@@ -52,7 +52,7 @@ import net.sf.json.JSONObject;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Oct 28, 2016
+ * @version VFC 1.0 Oct 28, 2016
  */
 @Path(UrlConstant.VNFINFO_URL)
 @Produces(MediaType.APPLICATION_JSON)

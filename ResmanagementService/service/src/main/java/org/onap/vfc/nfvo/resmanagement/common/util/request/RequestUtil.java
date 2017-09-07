@@ -38,7 +38,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version NFVO 0.5 2016-3-17
+ * @version VFC 1.0 2016-3-17
  */
 public final class RequestUtil {
 
@@ -49,7 +49,7 @@ public final class RequestUtil {
      * <p>
      * </p>
      *
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     private RequestUtil() {
     }
@@ -94,7 +94,7 @@ public final class RequestUtil {
      * @param context
      *         The http context
      * @return JSONObject The body of all request in json format
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static JSONObject getAllJsonRequestBody(HttpServletRequest context) {
         JSONObject requestBody = getJsonRequestBody(context);
@@ -113,7 +113,7 @@ public final class RequestUtil {
      * @param context
      *         The http context
      * @return Map context header
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @SuppressWarnings("unchecked")
     private static Map<String, String> getContextHeader(HttpServletRequest context) {

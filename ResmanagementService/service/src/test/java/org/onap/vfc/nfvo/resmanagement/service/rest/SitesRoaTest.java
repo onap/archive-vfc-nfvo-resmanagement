@@ -29,10 +29,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.onap.vfc.nfvo.resmanagement.common.VimUtil;
 import org.onap.vfc.nfvo.resmanagement.common.util.request.RequestUtil;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.onap.vfc.nfvo.resmanagement.service.base.openstack.impl.SitesImpl;
 import org.onap.vfc.nfvo.resmanagement.service.entity.SitesEntity;
-import org.onap.vfc.nfvo.resmanagement.service.rest.SitesRoa;
-import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.springframework.mock.web.MockHttpServletRequest;
 
 import mockit.Mock;
@@ -46,7 +45,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version NFVO 0.5 2016年8月16日
+ * @version VFC 1.0 2016年8月16日
  */
 public class SitesRoaTest {
 
@@ -145,7 +144,7 @@ public class SitesRoaTest {
         };
         JSONObject result = sitesRoa.deleteSites(null, "123");
         JSONObject expectedResult = new JSONObject();
-        expectedResult.put("msg", "org.openo.nfvo.resmanage.common.del.success");
+        expectedResult.put("msg", "delete success");
         assertEquals(expectedResult.toString(), result.toString());
     }
 
@@ -182,7 +181,7 @@ public class SitesRoaTest {
         };
         JSONObject result = sitesRoa.updateSites(null);
         JSONObject expectedResult = new JSONObject();
-        expectedResult.put("msg", "org.openo.nfvo.resmanage.common.update.success");
+        expectedResult.put("msg", "update success");
         assertEquals(expectedResult.toString(), result.toString());
     }
 

@@ -42,7 +42,7 @@ import net.sf.json.JSONObject;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Oct 29, 2016
+ * @version VFC 1.0 Oct 29, 2016
  */
 public class VmServiceImpl implements VmService {
 
@@ -56,7 +56,7 @@ public class VmServiceImpl implements VmService {
      * @param vmEntity
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public JSONObject addVm(VmEntity vmEntity) throws ServiceException {
@@ -87,7 +87,7 @@ public class VmServiceImpl implements VmService {
      * 
      * @param vmId
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     private boolean checkId(String vmId) {
         VmEntity vm = vmDao.getVm(vmId);
@@ -132,7 +132,7 @@ public class VmServiceImpl implements VmService {
      * @param map
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public List<VmEntity> getList(Map<String, Object> map) throws ServiceException {
@@ -145,7 +145,7 @@ public class VmServiceImpl implements VmService {
      * @param id
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public int delete(String id) throws ServiceException {
@@ -161,7 +161,7 @@ public class VmServiceImpl implements VmService {
      * 
      * @param vnfInstanceId
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public int deleteByVnfId(String vnfInstanceId) throws ServiceException {

@@ -27,7 +27,7 @@ import org.onap.vfc.nfvo.resmanagement.service.entity.PortEntity;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Aug 24, 2016
+ * @version VFC 1.0 Aug 24, 2016
  */
 public interface PortMapper {
 
@@ -36,7 +36,7 @@ public interface PortMapper {
      *
      * @param id
      * @return The get result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     PortEntity getPort(String id);
 
@@ -45,7 +45,7 @@ public interface PortMapper {
      *
      * @param condition
      * @return The get result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     List<PortEntity> getPorts(Map<String, Object> condition);
 
@@ -54,7 +54,7 @@ public interface PortMapper {
      *
      * @param id
      * @return The delete result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int deletePort(String id);
 
@@ -63,7 +63,7 @@ public interface PortMapper {
      *
      * @param vimId
      * @return The delete result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int deletePortByVimId(String vimId);
 
@@ -72,7 +72,7 @@ public interface PortMapper {
      *
      * @param portEntity
      * @return The add result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int addPort(PortEntity portEntity);
 
@@ -81,7 +81,7 @@ public interface PortMapper {
      *
      * @param portEntity
      * @return The add result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int addPortSelective(PortEntity portEntity);
 
@@ -90,7 +90,7 @@ public interface PortMapper {
      *
      * @param portEntity
      * @return The update result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int updatePortSelective(PortEntity portEntity);
 
@@ -99,7 +99,7 @@ public interface PortMapper {
      *
      * @param portEntity
      * @return The update result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int updatePort(PortEntity portEntity);
 
@@ -108,7 +108,7 @@ public interface PortMapper {
      *
      * @param portEntity
      * @return The update result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int updatePortByVimId(PortEntity portEntity);
 }

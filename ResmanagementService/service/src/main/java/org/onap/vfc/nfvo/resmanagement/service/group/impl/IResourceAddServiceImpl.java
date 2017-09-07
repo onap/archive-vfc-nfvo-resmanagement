@@ -39,7 +39,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Sep 10, 2016
+ * @version VFC 1.0 Sep 10, 2016
  */
 public class IResourceAddServiceImpl {
 
@@ -51,7 +51,7 @@ public class IResourceAddServiceImpl {
      * @param restParametes
      * @param iResMap
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Transactional(rollbackFor = ServiceException.class)
     public void addIRes(RestfulParametes restParametes, Map<String, InterfaceResManagement> iResMap)
@@ -88,7 +88,7 @@ public class IResourceAddServiceImpl {
      * @param url
      * @param iResName
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static void addHostResource(Map<String, InterfaceResManagement> iResMap, RestfulParametes restParametes,
             String url, String iResName) throws ServiceException {
@@ -125,7 +125,7 @@ public class IResourceAddServiceImpl {
      * @param hostObj
      * @param hostName
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static JSONObject hostDataParse(JSONObject hostObj, String hostName) {
         LOGGER.warn("function=hostDataParse; hostObj={}, hostName={}", hostObj, hostName);

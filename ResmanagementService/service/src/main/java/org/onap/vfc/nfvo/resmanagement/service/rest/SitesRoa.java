@@ -54,7 +54,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Aug 24, 2016
+ * @version VFC 1.0 Aug 24, 2016
  */
 @Path(UrlConstant.SITES_URL)
 @Consumes(MediaType.APPLICATION_JSON)
@@ -71,7 +71,7 @@ public class SitesRoa {
      * @param context
      * @return the get result
      * @throws ServiceException When get failed.
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @GET
     public JSONObject getSites(@Context HttpServletRequest context) throws ServiceException {
@@ -90,7 +90,7 @@ public class SitesRoa {
      * @param id
      * @return the get result
      * @throws ServiceException When get failed.
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @GET
     @Path("/{datacenterId}")
@@ -113,7 +113,7 @@ public class SitesRoa {
      * @param id
      * @return the add result
      * @throws ServiceException When add failed.
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @POST
     public JSONObject addSites(@Context HttpServletRequest context) throws ServiceException {
@@ -137,7 +137,7 @@ public class SitesRoa {
      * @param id
      * @return the delete result
      * @throws ServiceException When delete failed.
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @DELETE
     @Path("/{datacenterId}")
@@ -160,7 +160,7 @@ public class SitesRoa {
      * @param id
      * @return the update result
      * @throws ServiceException When update failed.
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @PUT
     public JSONObject updateSites(@Context HttpServletRequest context) throws ServiceException {
@@ -183,7 +183,7 @@ public class SitesRoa {
      * @param context
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @PUT
     @Path("/grant")

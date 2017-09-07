@@ -58,7 +58,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Sep 10, 2016
+ * @version VFC 1.0 Sep 10, 2016
  */
 @Path(UrlConstant.LOCATION_URL)
 @Produces(MediaType.APPLICATION_JSON)
@@ -77,7 +77,7 @@ public class LocationRoa {
      * @param context
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @GET
     public JSONObject getLocationsbase(@Context HttpServletRequest context) throws ServiceException {
@@ -96,7 +96,7 @@ public class LocationRoa {
      * @param id
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @GET
     @Path("/{locationId}")
@@ -118,7 +118,7 @@ public class LocationRoa {
      * @param context
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @GET
     @Path("/country")
@@ -135,7 +135,7 @@ public class LocationRoa {
      * @param country
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @GET
     @Path("/locationbycountry")
@@ -155,7 +155,7 @@ public class LocationRoa {
      * @param context
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @GET
     @Path("/cloudservice")
@@ -172,7 +172,7 @@ public class LocationRoa {
      * @param locations
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @GET
     @Path("/site")
@@ -195,7 +195,7 @@ public class LocationRoa {
      * @param context
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -220,7 +220,7 @@ public class LocationRoa {
      * @param locations
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @DELETE
     @Path("/{location}")
@@ -244,7 +244,7 @@ public class LocationRoa {
      * @param context
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON)
@@ -278,7 +278,7 @@ public class LocationRoa {
      * @param context
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)

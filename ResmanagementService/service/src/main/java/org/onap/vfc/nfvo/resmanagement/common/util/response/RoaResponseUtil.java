@@ -35,7 +35,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version NFVO 0.5 2016-3-17
+ * @version VFC 1.0 2016-3-17
  */
 public final class RoaResponseUtil {
 
@@ -51,7 +51,7 @@ public final class RoaResponseUtil {
      * @param list
      *            The basic response for get method
      * @return JSONObject The response for http request
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static <T> JSONObject get(List<T> list) {
         Map<String, Object> map = new HashMap<String, Object>(10);
@@ -66,7 +66,7 @@ public final class RoaResponseUtil {
      * @param result
      *            The result
      * @return JSONObject
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static JSONObject add(int result) {
         LOGGER.info("function=add; msg=add result{}", result);
@@ -83,7 +83,7 @@ public final class RoaResponseUtil {
      * @param result
      *            The result
      * @return JSONObject The response for http request
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static JSONObject update(int result) {
         LOGGER.info("function=update; msg=update result{}", result);
@@ -100,7 +100,7 @@ public final class RoaResponseUtil {
      * @param result
      *            The result
      * @return delete JSONObject of the response for http request
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static JSONObject delete(int result) {
         LOGGER.info("function=delete; msg=delete result{}", result);

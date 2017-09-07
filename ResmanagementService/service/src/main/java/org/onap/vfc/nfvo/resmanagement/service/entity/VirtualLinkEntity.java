@@ -234,7 +234,7 @@ public class VirtualLinkEntity implements Serializable {
      * 
      * @param jsonObject
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static VirtualLinkEntity toEntity(JSONObject jsonObject) {
         VirtualLinkEntity virtualLinkEntity = new VirtualLinkEntity();

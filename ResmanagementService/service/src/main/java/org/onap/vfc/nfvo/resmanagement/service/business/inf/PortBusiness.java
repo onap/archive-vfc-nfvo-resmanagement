@@ -28,7 +28,7 @@ import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Aug 31, 2016
+ * @version VFC 1.0 Aug 31, 2016
  */
 public interface PortBusiness {
 
@@ -38,7 +38,7 @@ public interface PortBusiness {
      *
      * @param id
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     PortEntity getPort(String id);
 
@@ -48,7 +48,7 @@ public interface PortBusiness {
      *
      * @param condition
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     List<PortEntity> getPorts(Map<String, Object> condition);
 
@@ -59,7 +59,7 @@ public interface PortBusiness {
      * @param id
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int deletePort(String id) throws ServiceException;
 
@@ -70,7 +70,7 @@ public interface PortBusiness {
      * @param vimId
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int deletePortByVimId(String vimId) throws ServiceException;
 
@@ -81,7 +81,7 @@ public interface PortBusiness {
      * @param portEntity
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int addPort(PortEntity portEntity) throws ServiceException;
 
@@ -92,7 +92,7 @@ public interface PortBusiness {
      * @param portEntity
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int addPortSelective(PortEntity portEntity) throws ServiceException;
 
@@ -103,7 +103,7 @@ public interface PortBusiness {
      * @param portEntity
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int updatePortSelective(PortEntity portEntity) throws ServiceException;
 
@@ -114,7 +114,7 @@ public interface PortBusiness {
      * @param portEntity
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int updatePort(PortEntity portEntity) throws ServiceException;
 
@@ -125,7 +125,7 @@ public interface PortBusiness {
      * @param portEntity
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int updatePortByVimId(PortEntity portEntity) throws ServiceException;
 }

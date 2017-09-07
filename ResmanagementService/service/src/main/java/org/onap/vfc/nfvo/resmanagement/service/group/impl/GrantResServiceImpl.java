@@ -32,7 +32,7 @@ import net.sf.json.JSONObject;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Oct 29, 2016
+ * @version VFC 1.0 Oct 29, 2016
  */
 public class GrantResServiceImpl implements GrantResService {
 
@@ -46,7 +46,7 @@ public class GrantResServiceImpl implements GrantResService {
      * @param object
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public JSONObject grantResource(JSONObject object) throws ServiceException {
@@ -118,7 +118,7 @@ public class GrantResServiceImpl implements GrantResService {
      * 
      * @param addResource
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     private JSONObject getGrantResource(JSONArray resource) {
         int cpuNum = 0;
@@ -150,7 +150,7 @@ public class GrantResServiceImpl implements GrantResService {
      * 
      * @param object
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     private JSONArray parseResource(JSONObject object, String key) {
         JSONArray newResources = new JSONArray();
@@ -175,7 +175,7 @@ public class GrantResServiceImpl implements GrantResService {
      * 
      * @param vimJson
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     private JSONObject parseVim(JSONObject vimJson) {
         LOGGER.info("function=grantResource; vimJson: {}", vimJson.toString());

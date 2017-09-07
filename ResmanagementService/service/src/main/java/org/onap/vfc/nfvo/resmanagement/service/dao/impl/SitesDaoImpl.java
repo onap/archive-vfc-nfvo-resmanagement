@@ -30,7 +30,7 @@ import org.onap.vfc.nfvo.resmanagement.service.mapper.SitesMapper;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Aug 25, 2016
+ * @version VFC 1.0 Aug 25, 2016
  */
 public class SitesDaoImpl extends AbstractDao implements SitesDao {
 

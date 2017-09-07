@@ -43,7 +43,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Aug 24, 2016
+ * @version VFC 1.0 Aug 24, 2016
  */
 public class SitesImpl implements Sites {
 
@@ -84,7 +84,7 @@ public class SitesImpl implements Sites {
      * 
      * @param json
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public void sendToMonitor(JSONObject jsonObject) throws ServiceException {

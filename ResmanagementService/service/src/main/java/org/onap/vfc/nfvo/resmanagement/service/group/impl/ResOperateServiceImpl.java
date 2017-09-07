@@ -52,7 +52,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Sep 10, 2016
+ * @version VFC 1.0 Sep 10, 2016
  */
 public class ResOperateServiceImpl implements ResOperateService {
 
@@ -187,7 +187,7 @@ public class ResOperateServiceImpl implements ResOperateService {
      * Set iResource Add service implemtation.<br>
      *
      * @param iResourceAddServiceImpl
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public void setiResourceAddServiceImpl(IResourceAddServiceImpl iResourceAddServiceImpl) {
         this.iResourceAddServiceImpl = iResourceAddServiceImpl;
@@ -197,7 +197,7 @@ public class ResOperateServiceImpl implements ResOperateService {
      * Set iResource update service implementation.<br>
      *
      * @param iResourceUpdateServiceImpl
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public void setiResourceUpdateServiceImpl(IResourceUpdateServiceImpl iResourceUpdateServiceImpl) {
         this.iResourceUpdateServiceImpl = iResourceUpdateServiceImpl;
@@ -207,7 +207,7 @@ public class ResOperateServiceImpl implements ResOperateService {
      * Set iresource delete service implementation.<br>
      *
      * @param iResourceDelServiceImpl
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public void setiResourceDelServiceImpl(IResourceDelServiceImpl iResourceDelServiceImpl) {
         this.iResourceDelServiceImpl = iResourceDelServiceImpl;
@@ -218,7 +218,7 @@ public class ResOperateServiceImpl implements ResOperateService {
      * 
      * @param string
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public void sendMsgMonitor(String operateType, String vimId) throws ServiceException {

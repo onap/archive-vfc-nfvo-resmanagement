@@ -30,7 +30,7 @@ import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Feb 9, 2017
+ * @version VFC 1.0 Feb 9, 2017
  */
 public class ServiceExceptionMapperTest {
 

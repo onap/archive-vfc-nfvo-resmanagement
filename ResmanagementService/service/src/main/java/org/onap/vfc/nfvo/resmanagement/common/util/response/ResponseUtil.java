@@ -32,7 +32,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version     NFVO 0.5  Sep 10, 2016
+ * @version     VFC 1.0  Sep 10, 2016
  */
 public final class ResponseUtil {
 
@@ -47,7 +47,7 @@ public final class ResponseUtil {
      * @param msg
      *         The request message
      * @return JSONObject The response for http request
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static JSONObject genHttpResponse(int retCode, String msg) {
         return genHttpResponse(null, createCodeMap(-1, retCode), msg, null);
@@ -63,7 +63,7 @@ public final class ResponseUtil {
      * @param map
      *         Other request info of this request
      * @return JSONObject The response for http request
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static JSONObject genHttpResponse(int retCode, String msg, Map<String, Object> map) {
         return genHttpResponse(null, createCodeMap(-1, retCode), msg, map);
@@ -81,7 +81,7 @@ public final class ResponseUtil {
      * @param msg
      *         The message of request
      * @return JSONObject The response for http request
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static JSONObject genHttpResponse(HttpServletRequest context, int httpStatusCode, int retCode, String msg) {
         return genHttpResponse(context, createCodeMap(httpStatusCode, retCode), msg, null);
@@ -96,7 +96,7 @@ public final class ResponseUtil {
      * @param msg, The message of request
      * @param map, Other message of request
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static JSONObject genHttpResponse(HttpServletRequest context, Map<String, Integer> codeMap, String msg,
             Map<String, Object> map) {
@@ -122,7 +122,7 @@ public final class ResponseUtil {
      * @param retCode
      *         The http request return code
      * @return Map
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     private static Map<String, Integer> createCodeMap(int httpStatusCode, int retCode) {
         Map<String, Integer> codeMap = new HashMap<>(5);

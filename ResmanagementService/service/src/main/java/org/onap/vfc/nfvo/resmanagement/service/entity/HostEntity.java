@@ -27,7 +27,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Aug 31, 2016
+ * @version VFC 1.0 Aug 31, 2016
  */
 public class HostEntity {
 
@@ -149,7 +149,7 @@ public class HostEntity {
      *
      * @param jsonObject
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static HostEntity toEntity(JSONObject jsonObject) {
         HostEntity hostEntity = new HostEntity();

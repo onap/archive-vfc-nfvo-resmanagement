@@ -27,7 +27,7 @@ import org.onap.vfc.nfvo.resmanagement.service.entity.SitesEntity;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Aug 24, 2016
+ * @version VFC 1.0 Aug 24, 2016
  */
 public interface SitesMapper {
 
@@ -36,7 +36,7 @@ public interface SitesMapper {
      *
      * @param id
      * @return The get result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     SitesEntity getSite(String id);
 
@@ -46,7 +46,7 @@ public interface SitesMapper {
      *
      * @param map
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     List<SitesEntity> getSites(Map<String, Object> map);
 
@@ -55,7 +55,7 @@ public interface SitesMapper {
      *
      * @param id
      * @return The get result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int deleteSite(String id);
 
@@ -65,7 +65,7 @@ public interface SitesMapper {
      *
      * @param entity
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int addSite(SitesEntity entity);
 
@@ -75,7 +75,7 @@ public interface SitesMapper {
      *
      * @param entity
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int addSiteSelective(SitesEntity entity);
 
@@ -85,7 +85,7 @@ public interface SitesMapper {
      *
      * @param entity
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int updateSiteSelective(SitesEntity entity);
 
@@ -95,7 +95,7 @@ public interface SitesMapper {
      *
      * @param entity
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int updateSite(SitesEntity entity);
 
@@ -105,7 +105,7 @@ public interface SitesMapper {
      *
      * @param entity
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int updateSiteByVimId(SitesEntity entity);
 }

@@ -27,7 +27,7 @@ import org.onap.vfc.nfvo.resmanagement.service.entity.VirtualLinkEntity;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Oct 28, 2016
+ * @version VFC 1.0 Oct 28, 2016
  */
 public interface VirtualLinkDao {
 
@@ -36,7 +36,7 @@ public interface VirtualLinkDao {
      * 
      * @param id
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     VirtualLinkEntity getVl(String id);
 
@@ -45,7 +45,7 @@ public interface VirtualLinkDao {
      * 
      * @param condition
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     List<VirtualLinkEntity> getVls(Map<String, Object> condition);
 
@@ -54,7 +54,7 @@ public interface VirtualLinkDao {
      * 
      * @param virtualLinkEntity
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int addVl(VirtualLinkEntity virtualLinkEntity);
 
@@ -63,7 +63,7 @@ public interface VirtualLinkDao {
      * 
      * @param id
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int deleteVlById(String id);
 }

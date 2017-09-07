@@ -40,7 +40,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Sep 10, 2016
+ * @version VFC 1.0 Sep 10, 2016
  */
 @Path(UrlConstant.LIMITS_URL)
 @Consumes(MediaType.APPLICATION_JSON)
@@ -58,7 +58,7 @@ public class LimitsRoa {
      * @param vimId
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @GET
     public JSONObject getLimits(@Context HttpServletRequest context,

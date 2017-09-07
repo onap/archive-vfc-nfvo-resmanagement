@@ -30,7 +30,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Aug 25, 2016
+ * @version VFC 1.0 Aug 25, 2016
  */
 public interface Host extends InterfaceResManagement {
 
@@ -40,7 +40,7 @@ public interface Host extends InterfaceResManagement {
      * @param jsonObject
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int updateStatusByVimId(JSONObject jsonObject) throws ServiceException;
 
@@ -50,7 +50,7 @@ public interface Host extends InterfaceResManagement {
      * @param condition
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     List<HostEntity> getList(Map<String, Object> condition) throws ServiceException;
 
@@ -60,7 +60,7 @@ public interface Host extends InterfaceResManagement {
      * @param resPoolEntity
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int update(HostEntity resPoolEntity) throws ServiceException;
 }

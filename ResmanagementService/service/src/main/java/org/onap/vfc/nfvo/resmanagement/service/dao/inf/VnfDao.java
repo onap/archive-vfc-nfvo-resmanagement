@@ -27,7 +27,7 @@ import org.onap.vfc.nfvo.resmanagement.service.entity.VnfEntity;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Oct 28, 2016
+ * @version VFC 1.0 Oct 28, 2016
  */
 public interface VnfDao {
 
@@ -36,7 +36,7 @@ public interface VnfDao {
      * 
      * @param id
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     VnfEntity getVnf(String id);
 
@@ -45,7 +45,7 @@ public interface VnfDao {
      * 
      * @param condition
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     List<VnfEntity> getVnfs(Map<String, Object> condition);
 
@@ -54,7 +54,7 @@ public interface VnfDao {
      * 
      * @param vnfEntity
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int addVnf(VnfEntity vnfEntity);
 
@@ -63,7 +63,7 @@ public interface VnfDao {
      * 
      * @param id
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int deleteVnfById(String id);
 }

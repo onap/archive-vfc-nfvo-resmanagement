@@ -29,7 +29,7 @@ import org.onap.vfc.nfvo.resmanagement.service.mapper.VimMapper;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Aug 25, 2016
+ * @version VFC 1.0 Aug 25, 2016
  */
 public class VimDaoImpl extends AbstractDao implements VimDao {
 

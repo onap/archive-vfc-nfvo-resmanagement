@@ -34,7 +34,7 @@ import org.slf4j.LoggerFactory;
  * </p>
  *
  * @author
- * @version     NFVO 0.5  Sep 10, 2016
+ * @version     VFC 1.0  Sep 10, 2016
  */
 public class IResourceDelServiceImpl {
 
@@ -49,7 +49,7 @@ public class IResourceDelServiceImpl {
      * @param vim
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public int deleteIRes(String vimId, Map<String, InterfaceResManagement> iResMap, Vim vim) throws ServiceException {
         Map<String, Object> map = new HashMap<>(10);

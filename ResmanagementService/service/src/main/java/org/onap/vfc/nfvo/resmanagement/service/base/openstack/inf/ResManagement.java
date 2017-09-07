@@ -26,7 +26,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Aug 25, 2016
+ * @version VFC 1.0 Aug 25, 2016
  */
 public interface ResManagement {
 
@@ -36,7 +36,7 @@ public interface ResManagement {
      * @param jsonObject
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int add(JSONObject jsonObject) throws ServiceException;
 
@@ -46,7 +46,7 @@ public interface ResManagement {
      * @param jsonObject
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int update(JSONObject jsonObject) throws ServiceException;
 
@@ -59,7 +59,7 @@ public interface ResManagement {
      * @param id
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int delete(String id) throws ServiceException;
 

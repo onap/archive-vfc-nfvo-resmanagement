@@ -34,7 +34,7 @@ import net.sf.json.JSONObject;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Sep 22, 2016
+ * @version VFC 1.0 Sep 22, 2016
  */
 public class ResmgrAdapter2MSBManager implements IResmgrAdapter2MSBManager {
 

@@ -29,7 +29,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version     NFVO 0.5  Sep 10, 2016
+ * @version     VFC 1.0  Sep 10, 2016
  */
 public class SitesEntity {
 
@@ -205,7 +205,7 @@ public class SitesEntity {
      *
      * @param jsonObject
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static SitesEntity toEntity(JSONObject jsonObject) {
         SitesEntity sitesEntity = new SitesEntity();
@@ -251,7 +251,7 @@ public class SitesEntity {
      *
      * @param siteEntity
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static boolean checkResourceIsZero(SitesEntity siteEntity) {
 
@@ -269,7 +269,7 @@ public class SitesEntity {
      *
      * @param siteEntity
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static boolean checkResource(SitesEntity siteEntity) {
         String cpu = siteEntity.getTotalCPU();
@@ -294,7 +294,7 @@ public class SitesEntity {
      * Format data.<br>
      *
      * @param siteEntity
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static void dataFramat(SitesEntity siteEntity) {
         siteEntity.setTotalCPU(StringUtil.numFormat(siteEntity.getTotalCPU()));

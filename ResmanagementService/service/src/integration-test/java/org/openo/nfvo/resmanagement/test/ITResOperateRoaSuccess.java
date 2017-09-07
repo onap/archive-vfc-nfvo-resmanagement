@@ -31,7 +31,7 @@ import org.openo.nfvo.resmanagement.util.MyTestManager;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Oct 15, 2016
+ * @version VFC 1.0 Oct 15, 2016
  */
 public class ITResOperateRoaSuccess extends MyTestManager {
 

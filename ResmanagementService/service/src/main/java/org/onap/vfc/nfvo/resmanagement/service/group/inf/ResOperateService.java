@@ -26,7 +26,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Sep 10, 2016
+ * @version VFC 1.0 Sep 10, 2016
  */
 public interface ResOperateService {
 
@@ -37,7 +37,7 @@ public interface ResOperateService {
      * @param vimId
      * @param header
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     void updateIRes(String tenantId, String vimId, JSONObject header) throws ServiceException;
 
@@ -45,7 +45,7 @@ public interface ResOperateService {
      * Update all iResource.<br>
      *
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     void updateAllIRes() throws ServiceException;
 
@@ -56,7 +56,7 @@ public interface ResOperateService {
      * @param vimId
      * @param header
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     void addIRes(String tenantId, String vimId, JSONObject header) throws ServiceException;
 
@@ -66,7 +66,7 @@ public interface ResOperateService {
      * @param vimId
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int deleteIRes(String vimId) throws ServiceException;
 
@@ -76,7 +76,7 @@ public interface ResOperateService {
      * @param operateType
      * @param vimId
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     void sendMsgMonitor(String operateType, String vimId) throws ServiceException;
 }

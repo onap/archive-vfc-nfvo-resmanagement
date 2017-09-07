@@ -34,7 +34,7 @@ import mockit.MockUp;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Feb 9, 2017
+ * @version VFC 1.0 Feb 9, 2017
  */
 public class SwaggerRoaTest {
 

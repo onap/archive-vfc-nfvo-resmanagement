@@ -47,7 +47,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Sep 10, 2016
+ * @version VFC 1.0 Sep 10, 2016
  */
 public class RestfulUtil {
 
@@ -76,7 +76,7 @@ public class RestfulUtil {
      * @param url
      * @param type
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static JSONObject getResponseObj(String url, String type) {
         return getResponseObj(url, new RestfulParametes(), type);
@@ -89,7 +89,7 @@ public class RestfulUtil {
      * @param parametes
      * @param type
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static JSONObject getResponseObj(String url, RestfulParametes parametes, String type) {
         try {
@@ -112,7 +112,7 @@ public class RestfulUtil {
      * @param restParametes
      * @param type
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static String getResponseContent(String url, RestfulParametes restParametes, String type) {
         return getResponseContent(url, restParametes, null, type);
@@ -126,7 +126,7 @@ public class RestfulUtil {
      * @param opt
      * @param type
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static Map<String, Object> getResponseMap(String url, RestfulParametes restParametes, RestfulOptions opt,
             String type) {
@@ -140,7 +140,7 @@ public class RestfulUtil {
      * @param url
      * @param type
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static Map<String, Object> getResponseContentMap(String url, String type) {
         RestfulResponse response = restfulResponse(url, new RestfulParametes(), null, type);
@@ -164,7 +164,7 @@ public class RestfulUtil {
      * @param opt
      * @param type
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static String getResponseContent(String url, RestfulParametes restParametes, RestfulOptions opt,
             String type) {
@@ -189,7 +189,7 @@ public class RestfulUtil {
      * @param restParametes
      * @param type
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static RestfulResponse getRestfulResponse(String url, RestfulParametes restParametes, String type) {
         return restfulResponse(url, restParametes, null, type);
@@ -224,7 +224,7 @@ public class RestfulUtil {
      * @param methodName, Restful's method.
      * @param objects, method param array.
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static RestfulResponse getRestRes(String methodName, Object... objects) {
         try {
@@ -270,7 +270,7 @@ public class RestfulUtil {
      * @param url
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static JSONArray getResponseRes(RestfulParametes restParametes, String url) throws ServiceException {
         String result = getResponseContent(url, restParametes, RestfulUtil.TYPE_GET);
@@ -300,7 +300,7 @@ public class RestfulUtil {
      * @param iResName
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static JSONArray getResponseRes(RestfulParametes restParametes, String url, String iResName)
             throws ServiceException {
@@ -336,7 +336,7 @@ public class RestfulUtil {
      * @param paramsMap
      * @param params
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     public static RestfulResponse getRemoteResponse(Map<String, String> paramsMap, String params) {
         String url = paramsMap.get("url");

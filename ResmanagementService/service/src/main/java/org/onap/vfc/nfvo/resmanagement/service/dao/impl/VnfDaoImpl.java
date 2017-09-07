@@ -29,7 +29,7 @@ import org.onap.vfc.nfvo.resmanagement.service.mapper.VnfMapper;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Oct 28, 2016
+ * @version VFC 1.0 Oct 28, 2016
  */
 public class VnfDaoImpl extends AbstractDao implements VnfDao {
 
@@ -38,7 +38,7 @@ public class VnfDaoImpl extends AbstractDao implements VnfDao {
      * 
      * @param id
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public VnfEntity getVnf(String id) {
@@ -50,7 +50,7 @@ public class VnfDaoImpl extends AbstractDao implements VnfDao {
      * 
      * @param condition
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public List<VnfEntity> getVnfs(Map<String, Object> condition) {
@@ -62,7 +62,7 @@ public class VnfDaoImpl extends AbstractDao implements VnfDao {
      * 
      * @param vnfEntity
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public int addVnf(VnfEntity vnfEntity) {
@@ -74,7 +74,7 @@ public class VnfDaoImpl extends AbstractDao implements VnfDao {
      * 
      * @param id
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public int deleteVnfById(String id) {

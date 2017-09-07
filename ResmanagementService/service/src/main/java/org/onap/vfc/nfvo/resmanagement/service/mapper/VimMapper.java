@@ -26,7 +26,7 @@ import org.onap.vfc.nfvo.resmanagement.service.entity.VimEntity;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Aug 24, 2016
+ * @version VFC 1.0 Aug 24, 2016
  */
 public interface VimMapper {
 
@@ -35,7 +35,7 @@ public interface VimMapper {
      *
      * @param id
      * @return The get result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     VimEntity getVim(String id);
 
@@ -43,7 +43,7 @@ public interface VimMapper {
      * It is used to get Vims info.<br/>
      *
      * @return The get result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     List<VimEntity> getVims();
 
@@ -52,7 +52,7 @@ public interface VimMapper {
      *
      * @param id
      * @return The delete result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int deleteVim(String id);
 
@@ -61,7 +61,7 @@ public interface VimMapper {
      *
      * @param vimEntity
      * @return The add result
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int addVim(VimEntity vimEntity);
 

@@ -29,7 +29,7 @@ import org.onap.vfc.nfvo.resmanagement.service.mapper.VnfStatusMapper;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Oct 29, 2016
+ * @version VFC 1.0 Oct 29, 2016
  */
 public class VnfStatusDaoImpl extends AbstractDao implements VnfStatusDao {
 
@@ -38,7 +38,7 @@ public class VnfStatusDaoImpl extends AbstractDao implements VnfStatusDao {
      * 
      * @param id
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public VnfStatusEntity getVnfStatus(String id) {
@@ -50,7 +50,7 @@ public class VnfStatusDaoImpl extends AbstractDao implements VnfStatusDao {
      * 
      * @param condition
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public List<VnfStatusEntity> getVnfStatuss(Map<String, Object> condition) {
@@ -62,7 +62,7 @@ public class VnfStatusDaoImpl extends AbstractDao implements VnfStatusDao {
      * 
      * @param vnfStatusEntity
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public int addVnfStatus(VnfStatusEntity vnfStatusEntity) {
@@ -74,7 +74,7 @@ public class VnfStatusDaoImpl extends AbstractDao implements VnfStatusDao {
      * 
      * @param id
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public int deleteVnfStatusById(String id) {
@@ -86,7 +86,7 @@ public class VnfStatusDaoImpl extends AbstractDao implements VnfStatusDao {
      * 
      * @param vnfStatusEntity
      * @return
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     @Override
     public int updateVnfStatus(VnfStatusEntity vnfStatusEntity) {

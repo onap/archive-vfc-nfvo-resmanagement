@@ -29,7 +29,7 @@ import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
  * </p>
  *
  * @author
- * @version     NFVO 0.5  Sep 10, 2016
+ * @version     VFC 1.0  Sep 10, 2016
  */
 public interface LocationBusiness {
 
@@ -40,7 +40,7 @@ public interface LocationBusiness {
      * @param location
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     LocationEntity getLocation(String location) throws ServiceException;
 
@@ -51,7 +51,7 @@ public interface LocationBusiness {
      * @param condition
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     List<LocationEntity> getLocations(Map<String, Object> condition) throws ServiceException;
 
@@ -62,7 +62,7 @@ public interface LocationBusiness {
      * @param location
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int deleteLocation(String location) throws ServiceException;
 
@@ -73,7 +73,7 @@ public interface LocationBusiness {
      * @param locationEntity
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int addLocation(LocationEntity locationEntity) throws ServiceException;
 
@@ -84,7 +84,7 @@ public interface LocationBusiness {
      * @param locationEntity
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int addLocationSelective(LocationEntity locationEntity) throws ServiceException;
 
@@ -95,7 +95,7 @@ public interface LocationBusiness {
      * @param locationEntity
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int updateLocationSelective(LocationEntity locationEntity) throws ServiceException;
 
@@ -106,7 +106,7 @@ public interface LocationBusiness {
      * @param locationEntity
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int updateLocation(LocationEntity locationEntity) throws ServiceException;
 
@@ -116,7 +116,7 @@ public interface LocationBusiness {
      *
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     List<String> getCountry() throws ServiceException;
 
@@ -127,7 +127,7 @@ public interface LocationBusiness {
      * @param condition
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     List<String> getLocationByCountry(Map<String, Object> condition) throws ServiceException;
 

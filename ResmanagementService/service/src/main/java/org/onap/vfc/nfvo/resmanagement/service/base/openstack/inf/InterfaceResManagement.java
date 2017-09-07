@@ -24,7 +24,7 @@ import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Aug 25, 2016
+ * @version VFC 1.0 Aug 25, 2016
  */
 public interface InterfaceResManagement extends ResManagement {
 
@@ -34,7 +34,7 @@ public interface InterfaceResManagement extends ResManagement {
      * @param vimId
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     int deleteResByVimId(String vimId) throws ServiceException;
 }

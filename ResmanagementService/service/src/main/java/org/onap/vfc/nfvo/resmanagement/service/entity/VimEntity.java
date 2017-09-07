@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,13 +22,12 @@ import org.onap.vfc.nfvo.resmanagement.common.util.JsonUtil;
 import net.sf.json.JSONObject;
 
 /**
- *
  * Virtualised infrastructure manager entity class.<br>
  * <p>
  * </p>
  *
  * @author
- * @version     NFVO 0.5  Sep 10, 2016
+ * @version VFC 1.0 Sep 10, 2016
  */
 public class VimEntity {
 
@@ -61,7 +60,7 @@ public class VimEntity {
      * value of the database column vim.ID
      *
      * @param id
-     * the value for vim.ID
+     *            the value for vim.ID
      */
     public void setId(String id) {
         this.id = id == null ? null : id.trim();
@@ -76,12 +75,11 @@ public class VimEntity {
     }
 
     /**
-     *
      * To Entity.<br>
      *
      * @param jsonObject
      * @return
-     * @since  NFVO 0.5
+     * @since VFC 1.0
      */
     public static VimEntity toEntity(JSONObject jsonObject) {
         VimEntity vimEntity = new VimEntity();
@@ -91,12 +89,12 @@ public class VimEntity {
     }
 
     /**
-     *
      * To String.<br>
      *
      * @return
-     * @since   NFVO 0.5
+     * @since VFC 1.0
      */
+    @Override
     public String toString() {
         JSONObject resJson = new JSONObject();
         resJson.put("id", StringUtils.trimToEmpty(this.getId()));

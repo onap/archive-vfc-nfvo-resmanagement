@@ -54,7 +54,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version     NFVO 0.5  Sep 10, 2016
+ * @version     VFC 1.0  Sep 10, 2016
  */
 @Path(UrlConstant.HOST_URL)
 @Produces(MediaType.APPLICATION_JSON)
@@ -72,7 +72,7 @@ public class HostRoa {
      * @param context
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     @GET
     public JSONObject getHosts(@Context HttpServletRequest context) throws ServiceException {
@@ -92,7 +92,7 @@ public class HostRoa {
      * @param id
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     @GET
     @Path("/{hostId}")
@@ -115,7 +115,7 @@ public class HostRoa {
      * @param context
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     @POST
     public JSONObject addHost(@Context HttpServletRequest context) throws ServiceException {
@@ -139,7 +139,7 @@ public class HostRoa {
      * @param id
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     @DELETE
     public JSONObject deleteHost(@Context HttpServletRequest context, @QueryParam(ParamConstant.PARAM_ID) String id)
@@ -161,7 +161,7 @@ public class HostRoa {
      * @param context
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     @PUT
     public JSONObject updateHost(@Context HttpServletRequest context) throws ServiceException {

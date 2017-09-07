@@ -30,7 +30,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version NFVO 0.5 Sep 10, 2016
+ * @version VFC 1.0 Sep 10, 2016
  */
 public interface Location extends ResManagement {
 
@@ -40,7 +40,7 @@ public interface Location extends ResManagement {
      * @param id
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     Map<String, Object> get(String id) throws ServiceException;
 
@@ -50,7 +50,7 @@ public interface Location extends ResManagement {
      * @param condition
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     List<LocationEntity> get(Map<String, Object> condition) throws ServiceException;
 
@@ -60,7 +60,7 @@ public interface Location extends ResManagement {
      * @param condition
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     LocationEntity getLocation(Map<String, Object> condition) throws ServiceException;
 
@@ -70,7 +70,7 @@ public interface Location extends ResManagement {
      * @param locationInfo
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     List<JSONObject> getLocationInfo(List<LocationEntity> locationInfo) throws ServiceException;
 
@@ -79,7 +79,7 @@ public interface Location extends ResManagement {
      *
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     List<String> getCountry() throws ServiceException;
 
@@ -89,7 +89,7 @@ public interface Location extends ResManagement {
      * @param condition
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     List<String> getLocationByCountry(Map<String, Object> condition) throws ServiceException;
 
@@ -98,7 +98,7 @@ public interface Location extends ResManagement {
      *
      * @return
      * @throws ServiceException
-     * @since NFVO 0.5
+     * @since VFC 1.0
      */
     List<String> getCloudservice() throws ServiceException;
 }

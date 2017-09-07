@@ -28,7 +28,7 @@ import org.onap.vfc.nfvo.resmanagement.service.entity.LocationEntity;
  * </p>
  *
  * @author
- * @version     NFVO 0.5  Sep 10, 2016
+ * @version     VFC 1.0  Sep 10, 2016
  */
 public interface LocationDao {
 
@@ -38,7 +38,7 @@ public interface LocationDao {
      *
      * @param id
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     LocationEntity getLocation(String id);
 
@@ -48,7 +48,7 @@ public interface LocationDao {
      *
      * @param condition
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     List<LocationEntity> getLocations(Map<String, Object> condition);
 
@@ -58,7 +58,7 @@ public interface LocationDao {
      *
      * @param location
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int deleteLocation(String location);
 
@@ -68,7 +68,7 @@ public interface LocationDao {
      *
      * @param sodoResEntity
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int addLocation(LocationEntity sodoResEntity);
 
@@ -78,7 +78,7 @@ public interface LocationDao {
      *
      * @param sodoResEntity
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int addLocationSelective(LocationEntity sodoResEntity);
 
@@ -88,7 +88,7 @@ public interface LocationDao {
      *
      * @param sodoResEntity
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int updateLocationSelective(LocationEntity sodoResEntity);
 
@@ -98,7 +98,7 @@ public interface LocationDao {
      *
      * @param sodoResEntity
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int updateLocation(LocationEntity sodoResEntity);
 
@@ -107,7 +107,7 @@ public interface LocationDao {
      * Get Country.<br>
      *
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     List<String> getCountry();
 
@@ -117,7 +117,7 @@ public interface LocationDao {
      *
      * @param condition
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     List<String> getLocationByCountry(Map<String, Object> condition);
 }

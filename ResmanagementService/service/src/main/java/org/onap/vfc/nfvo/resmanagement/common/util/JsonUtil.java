@@ -31,7 +31,7 @@ import net.sf.json.JSONObject;
  * </p>
  *
  * @author
- * @version     NFVO 0.5  Sep 10, 2016
+ * @version     VFC 1.0  Sep 10, 2016
  */
 public final class JsonUtil {
 
@@ -57,7 +57,7 @@ public final class JsonUtil {
      * @param jsonObj
      * @param fieldName
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static String getJsonFieldStr(JSONObject jsonObj, String fieldName) {
         return (String)getJsonFieldObject(jsonObj, fieldName, TYPE_STRING);
@@ -70,7 +70,7 @@ public final class JsonUtil {
      * @param jsonObj
      * @param fieldName
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static Integer getJsonFieldInt(JSONObject jsonObj, String fieldName) {
         return (Integer)getJsonFieldObject(jsonObj, fieldName, TYPE_INT);
@@ -83,7 +83,7 @@ public final class JsonUtil {
      * @param jsonObj
      * @param fieldName
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static JSONArray getJsonFieldArr(JSONObject jsonObj, String fieldName) {
         return (JSONArray)getJsonFieldObject(jsonObj, fieldName, TYPE_JSONA);
@@ -96,7 +96,7 @@ public final class JsonUtil {
      * @param jsonObj
      * @param fieldName
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static JSONObject getJsonFieldJson(JSONObject jsonObj, String fieldName) {
         return (JSONObject)getJsonFieldObject(jsonObj, fieldName, TYPE_JSONO);
@@ -109,7 +109,7 @@ public final class JsonUtil {
      * @param jsonObj
      * @param fieldName
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static Long getJsonFieldLong(JSONObject jsonObj, String fieldName) {
         return (Long)getJsonFieldObject(jsonObj, fieldName, TYPE_LONG);
@@ -123,7 +123,7 @@ public final class JsonUtil {
      * @param fieldName
      * @param classType
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     private static Object getJsonFieldObject(JSONObject jsonObj, String fieldName, int classType) {
         try {
@@ -164,7 +164,7 @@ public final class JsonUtil {
      *
      * @param jsonObject
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static boolean isNullJson(JSONObject jsonObject) {
         if(null == jsonObject || jsonObject.isEmpty()) {
@@ -180,7 +180,7 @@ public final class JsonUtil {
      * @param json
      * @param key
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static String getStrValueByjson(JSONObject json, String key) {
         JSONArray names = json.names();
@@ -221,7 +221,7 @@ public final class JsonUtil {
      * @param json
      * @param key
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static JSONObject getJsonValueByjson(JSONObject json, String key) {
         JSONObject resultJson = new JSONObject();
@@ -242,7 +242,7 @@ public final class JsonUtil {
      * @param parentKey
      * @param key
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static String getStrValueByJson(JSONObject json, String parentKey, String key) {
         if(parentKey.isEmpty()) {
@@ -262,7 +262,7 @@ public final class JsonUtil {
      *
      * @param obj
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     public static JSONObject getResponseData(JSONObject obj) {
         JSONObject result = new JSONObject();

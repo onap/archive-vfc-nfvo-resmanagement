@@ -29,7 +29,7 @@ import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
  * </p>
  *
  * @author
- * @version     NFVO 0.5  Sep 10, 2016
+ * @version     VFC 1.0  Sep 10, 2016
  */
 public interface NetworkBusiness {
 
@@ -39,7 +39,7 @@ public interface NetworkBusiness {
      *
      * @param id
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     NetworkEntity getNetwork(String id);
 
@@ -49,7 +49,7 @@ public interface NetworkBusiness {
      *
      * @param condition
      * @return
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     List<NetworkEntity> getNetworks(Map<String, Object> condition);
 
@@ -60,7 +60,7 @@ public interface NetworkBusiness {
      * @param id
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int deleteNetwork(String id) throws ServiceException;
 
@@ -71,7 +71,7 @@ public interface NetworkBusiness {
      * @param vimId
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int deleteNetworkByVimId(String vimId) throws ServiceException;
 
@@ -82,7 +82,7 @@ public interface NetworkBusiness {
      * @param networkEntity
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int addNetwork(NetworkEntity networkEntity) throws ServiceException;
 
@@ -93,7 +93,7 @@ public interface NetworkBusiness {
      * @param networkEntity
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int addNetworkSelective(NetworkEntity networkEntity) throws ServiceException;
 
@@ -104,7 +104,7 @@ public interface NetworkBusiness {
      * @param networkEntity
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int updateNetworkSelective(NetworkEntity networkEntity) throws ServiceException;
 
@@ -115,7 +115,7 @@ public interface NetworkBusiness {
      * @param networkEntity
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int updateNetwork(NetworkEntity networkEntity) throws ServiceException;
 
@@ -126,7 +126,7 @@ public interface NetworkBusiness {
      * @param networkEntity
      * @return
      * @throws ServiceException
-     * @since  NFVO 0.5
+     * @since  VFC 1.0
      */
     int updateNetworkByVimId(NetworkEntity networkEntity) throws ServiceException;
 

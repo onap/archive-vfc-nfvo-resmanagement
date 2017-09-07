@@ -24,7 +24,7 @@ import org.openo.sdno.testframework.moco.MocoHttpServer;
  * </p>
  * 
  * @author
- * @version NFVO 0.5 Sep 28, 2016
+ * @version VFC 1.0 Sep 28, 2016
  */
 public class VimDriverSuccessServer extends MocoHttpServer {
 
