@@ -54,7 +54,7 @@ public final class RoaResponseUtil {
      * @since VFC 1.0
      */
     public static <T> JSONObject get(List<T> list) {
-        Map<String, Object> map = new HashMap<String, Object>(10);
+        Map<String, Object> map = new HashMap<>(10);
         map.put(ParamConstant.PARAM_DATA, list);
         LOGGER.info("function=get; msg=get map:{}", map.toString());
         return ResponseUtil.genHttpResponse(HttpConstant.OK_CODE, ResponseConstant.QUERY_SUCESS_MSG, map);

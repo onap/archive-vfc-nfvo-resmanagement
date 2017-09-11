@@ -57,7 +57,7 @@ public class ResponseUtilTest {
         int httpStatusCode = -1;
         int retCode1 = -1;
         String msg1 = "123";
-        JSONObject result = ResponseUtil.genHttpResponse(null, httpStatusCode, retCode1, msg1);
+        JSONObject result = ResponseUtil.genHttpResponse(httpStatusCode, retCode1, msg1);
         JSONObject expectedResult = new JSONObject();
         expectedResult.put("msg", "123");
         assertEquals(result.toString(), expectedResult.toString());
@@ -73,7 +73,7 @@ public class ResponseUtilTest {
         map.put("a", -1);
         map.put("b", 1);
         String msg1 = "123";
-        JSONObject result = ResponseUtil.genHttpResponse(null, codeMap, msg1, map);
+        JSONObject result = ResponseUtil.genHttpResponse(codeMap, msg1, map);
         JSONObject expectedResult = new JSONObject();
         expectedResult.put("msg", "123");
         expectedResult.put("a", "-1");

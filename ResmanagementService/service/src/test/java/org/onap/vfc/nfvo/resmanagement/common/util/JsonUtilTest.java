@@ -24,7 +24,6 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
 
 import org.junit.Test;
-import org.onap.vfc.nfvo.resmanagement.common.util.JsonUtil;
 
 import mockit.Mock;
 import mockit.MockUp;
@@ -299,7 +298,7 @@ public class JsonUtilTest {
         jsonObj.put("a", "1");
         jsonObj.put("b", "2");
         String parentKey = "";
-        String result = JsonUtil.getStrValueByJson(jsonObj, parentKey, key);
+        String result = JsonUtil.getStrValueByParentJson(jsonObj, parentKey, key);
         String expectedResult = "1";
         assertEquals(expectedResult, result);
     }
@@ -318,7 +317,7 @@ public class JsonUtilTest {
                 return new JSONObject();
             }
         };
-        String result = JsonUtil.getStrValueByJson(jsonObj, parentKey, key);
+        String result = JsonUtil.getStrValueByParentJson(jsonObj, parentKey, key);
         String expectedResult = null;
         assertEquals(expectedResult, result);
     }
@@ -330,7 +329,7 @@ public class JsonUtilTest {
         jsonObj.put("a", "1");
         jsonObj.put("b", "2");
         String parentKey = "b";
-        String result = JsonUtil.getStrValueByJson(jsonObj, parentKey, key);
+        String result = JsonUtil.getStrValueByParentJson(jsonObj, parentKey, key);
         String expectedResult = null;
         assertEquals(expectedResult, result);
     }

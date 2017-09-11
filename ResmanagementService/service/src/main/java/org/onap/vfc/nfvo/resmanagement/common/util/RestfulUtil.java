@@ -63,6 +63,9 @@ public class RestfulUtil {
 
     public static final String APPLICATION = "application/json";
 
+    public static final String NO_RESULT_EXCEPTION =
+            "org.openo.nfvo.resmanage.service.group.resoperate.add.res.no.result";
+
     private static final Logger LOGGER = LoggerFactory.getLogger(RestfulUtil.class);
 
     private static final Restful REST_CLIENT = RestfulFactory.getRestInstance(RestfulFactory.PROTO_HTTP);
@@ -277,7 +280,7 @@ public class RestfulUtil {
         if(null == result || result.isEmpty()) {
             LOGGER.error("result from  url:" + url + " result:" + result);
             throw new ServiceException(
-                    ResourceUtil.getMessage("org.openo.nfvo.resmanage.service.group.resoperate.add.res.no.result"));
+                    ResourceUtil.getMessage(NO_RESULT_EXCEPTION));
         }
 
         JSONArray rsArray = null;
@@ -287,7 +290,7 @@ public class RestfulUtil {
         } catch(JSONException e) {
             LOGGER.error("getResources error:" + e);
             throw new ServiceException(
-                    ResourceUtil.getMessage("org.openo.nfvo.resmanage.service.group.resoperate.add.res.no.result"));
+                    ResourceUtil.getMessage(NO_RESULT_EXCEPTION));
         }
         return rsArray;
     }
@@ -308,7 +311,7 @@ public class RestfulUtil {
         if(null == result || result.isEmpty()) {
             LOGGER.error("result from  url:" + url + " result:" + result);
             throw new ServiceException(
-                    ResourceUtil.getMessage("org.openo.nfvo.resmanage.service.group.resoperate.add.res.no.result"));
+                    ResourceUtil.getMessage(NO_RESULT_EXCEPTION));
         }
 
         JSONArray rsArray = null;
@@ -325,7 +328,7 @@ public class RestfulUtil {
         } catch(JSONException e) {
             LOGGER.error("getResources error:" + e);
             throw new ServiceException(
-                    ResourceUtil.getMessage("org.openo.nfvo.resmanage.service.group.resoperate.add.res.no.result"));
+                    ResourceUtil.getMessage(NO_RESULT_EXCEPTION));
         }
         return rsArray;
     }

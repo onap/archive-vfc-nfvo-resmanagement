@@ -83,11 +83,8 @@ public final class StringUtil {
     public static boolean isInteger(String... strs) {
         try {
             for(String str : strs) {
-                if(!StringUtils.isEmpty(str)) {
-                    int value = Integer.parseInt(str);
-                    if(value < 0) {
-                        return false;
-                    }
+                if(!StringUtils.isEmpty(str) && Integer.parseInt(str) < 0) {
+                    return false;
                 }
             }
         } catch(NumberFormatException e) {
@@ -107,11 +104,8 @@ public final class StringUtil {
     public static boolean isNumeric(String... strs) {
         try {
             for(String str : strs) {
-                if(!StringUtils.isEmpty(str)) {
-                    float value = Float.parseFloat(str);
-                    if(value < 0) {
-                        return false;
-                    }
+                if(!StringUtils.isEmpty(str) && Float.parseFloat(str) < 0) {
+                    return false;
                 }
             }
         } catch(NumberFormatException e) {
@@ -161,9 +155,9 @@ public final class StringUtil {
      * @since  VFC 1.0
      */
     public static boolean compareZeroByInteger(String tatol, String used, String drTotal) {
-        Integer ftotal = (int)0;
-        Integer fused = (int)0;
-        Integer fdrTotal = (int)0;
+        Integer ftotal = 0;
+        Integer fused = 0;
+        Integer fdrTotal = 0;
         if(!StringUtils.isEmpty(tatol)) {
             ftotal = Integer.valueOf(tatol);
         }

@@ -50,7 +50,7 @@ public final class ResponseUtil {
      * @since VFC 1.0
      */
     public static JSONObject genHttpResponse(int retCode, String msg) {
-        return genHttpResponse(null, createCodeMap(-1, retCode), msg, null);
+        return genHttpResponse(createCodeMap(-1, retCode), msg, null);
     }
 
     /**
@@ -66,14 +66,12 @@ public final class ResponseUtil {
      * @since VFC 1.0
      */
     public static JSONObject genHttpResponse(int retCode, String msg, Map<String, Object> map) {
-        return genHttpResponse(null, createCodeMap(-1, retCode), msg, map);
+        return genHttpResponse(createCodeMap(-1, retCode), msg, map);
     }
 
     /**
      * Roa request common return method <br/>
      *
-     * @param context
-     *         The http request context
      * @param httpStatusCode
      *         The http response code
      * @param retCode
@@ -83,22 +81,21 @@ public final class ResponseUtil {
      * @return JSONObject The response for http request
      * @since VFC 1.0
      */
-    public static JSONObject genHttpResponse(HttpServletRequest context, int httpStatusCode, int retCode, String msg) {
-        return genHttpResponse(context, createCodeMap(httpStatusCode, retCode), msg, null);
+    public static JSONObject genHttpResponse(int httpStatusCode, int retCode, String msg) {
+        return genHttpResponse(createCodeMap(httpStatusCode, retCode), msg, null);
     }
 
     /**
      *
      * Roa request common return method.<br>
      *
-     * @param context, The http request context
      * @param codeMap
      * @param msg, The message of request
      * @param map, Other message of request
      * @return
      * @since  VFC 1.0
      */
-    public static JSONObject genHttpResponse(HttpServletRequest context, Map<String, Integer> codeMap, String msg,
+    public static JSONObject genHttpResponse(Map<String, Integer> codeMap, String msg,
             Map<String, Object> map) {
         JSONObject object = new JSONObject();
 

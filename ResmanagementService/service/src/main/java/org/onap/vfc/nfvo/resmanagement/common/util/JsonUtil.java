@@ -128,7 +128,7 @@ public final class JsonUtil {
     private static Object getJsonFieldObject(JSONObject jsonObj, String fieldName, int classType) {
         try {
             if(null != jsonObj && jsonObj.has(fieldName)) {
-                Object result = new Object();
+                Object result;
                 switch(classType) {
                     case TYPE_STRING:
                         result = "null".equals(jsonObj.getString(fieldName)) ? "" : jsonObj.getString(fieldName);
@@ -244,7 +244,7 @@ public final class JsonUtil {
      * @return
      * @since  VFC 1.0
      */
-    public static String getStrValueByJson(JSONObject json, String parentKey, String key) {
+    public static String getStrValueByParentJson(JSONObject json, String parentKey, String key) {
         if(parentKey.isEmpty()) {
             return getStrValueByjson(json, key);
         }

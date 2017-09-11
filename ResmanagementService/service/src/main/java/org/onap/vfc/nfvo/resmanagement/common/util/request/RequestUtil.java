@@ -117,7 +117,7 @@ public final class RequestUtil {
      */
     @SuppressWarnings("unchecked")
     private static Map<String, String> getContextHeader(HttpServletRequest context) {
-        Map<String, String> header = new HashMap<String, String>();
+        Map<String, String> header = new HashMap<>();
         Enumeration<String> headerNames = context.getHeaderNames();
         while(headerNames.hasMoreElements()) {
             String headerName = headerNames.nextElement();
