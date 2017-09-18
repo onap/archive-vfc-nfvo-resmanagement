@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,13 +47,11 @@ public class ROAResmgrServicePostProcessor implements DestructionAwareBeanPostPr
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String name) throws BeansException {
-        // TODO Auto-generated method stub
         return bean;
     }
 
     @Override
     public void postProcessBeforeDestruction(Object bean, String name) throws BeansException {
-        // TODO Auto-generated method stub
 
     }
 

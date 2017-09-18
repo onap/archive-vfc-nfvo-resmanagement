@@ -63,6 +63,8 @@ public class RestfulUtil {
 
     public static final String APPLICATION = "application/json";
 
+    public static final String NO_RESULT = "add.res.no.result";
+
     private static final Logger LOGGER = LoggerFactory.getLogger(RestfulUtil.class);
 
     private static final Restful REST_CLIENT = RestfulFactory.getRestInstance(RestfulFactory.PROTO_HTTP);
@@ -276,8 +278,7 @@ public class RestfulUtil {
         String result = getResponseContent(url, restParametes, RestfulUtil.TYPE_GET);
         if(null == result || result.isEmpty()) {
             LOGGER.error("result from  url:" + url + " result:" + result);
-            throw new ServiceException(
-                    ResourceUtil.getMessage("org.openo.nfvo.resmanage.service.group.resoperate.add.res.no.result"));
+            throw new ServiceException(ResourceUtil.getMessage(NO_RESULT));
         }
 
         JSONArray rsArray = null;
@@ -286,8 +287,7 @@ public class RestfulUtil {
             rsArray = rsJson.getJSONArray(ParamConstant.PARAM_DATA);
         } catch(JSONException e) {
             LOGGER.error("getResources error:" + e);
-            throw new ServiceException(
-                    ResourceUtil.getMessage("org.openo.nfvo.resmanage.service.group.resoperate.add.res.no.result"));
+            throw new ServiceException(ResourceUtil.getMessage(NO_RESULT));
         }
         return rsArray;
     }
@@ -307,8 +307,7 @@ public class RestfulUtil {
         String result = getResponseContent(url, restParametes, RestfulUtil.TYPE_GET);
         if(null == result || result.isEmpty()) {
             LOGGER.error("result from  url:" + url + " result:" + result);
-            throw new ServiceException(
-                    ResourceUtil.getMessage("org.openo.nfvo.resmanage.service.group.resoperate.add.res.no.result"));
+            throw new ServiceException(ResourceUtil.getMessage(NO_RESULT));
         }
 
         JSONArray rsArray = null;
@@ -324,8 +323,7 @@ public class RestfulUtil {
             }
         } catch(JSONException e) {
             LOGGER.error("getResources error:" + e);
-            throw new ServiceException(
-                    ResourceUtil.getMessage("org.openo.nfvo.resmanage.service.group.resoperate.add.res.no.result"));
+            throw new ServiceException(ResourceUtil.getMessage(NO_RESULT));
         }
         return rsArray;
     }
