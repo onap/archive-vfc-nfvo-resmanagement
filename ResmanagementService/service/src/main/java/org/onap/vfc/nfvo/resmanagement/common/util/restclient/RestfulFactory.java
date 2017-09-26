@@ -67,12 +67,23 @@ public class RestfulFactory {
             rest = createHttpRest();
             INSTANCES.put(protocol, rest);
         }
+
+        if (PROTO_HTTPS.equals(protocol)) {
+            rest = createHttpsRest();
+            INSTANCES.put(protocol, rest);
+        }
         return rest;
     }
 
     private static Restful createHttpRest() {
         final HttpRest rest = new HttpRest();
         setRestOption(rest, null);
+        return rest;
+    }
+
+    private static Restful createHttpsRest() {
+        final HttpsRest rest = new HttpsRest();
+        rest.initHttpsRest();
         return rest;
     }
 

@@ -18,6 +18,8 @@ package org.onap.vfc.nfvo.resmanagement.common.util.request;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,6 +27,9 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.IOUtils;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulClientConst;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulParametes;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -125,5 +130,45 @@ public final class RequestUtil {
             header.put(headerName, value);
         }
         return header;
+    }
+
+    public static String encodeParams(final RestfulParametes restParametes) throws ServiceException {
+        final Map<String, String> parm = restParametes.getParamMap();
+        String value = null;
+        boolean bHasParma = false;
+        final StringBuilder builder = new StringBuilder();
+        try {
+            for(final String key : parm.keySet()) {
+                value = parm.get(key);
+                if(value == null) {
+                    value = "";
+                }
+                String str;
+                if(bHasParma) {
+                    str = String.format("&%s=%s", URLEncoder.encode(key, RestfulClientConst.ENCODING),
+                            URLEncoder.encode(value, RestfulClientConst.ENCODING));
+                } else {
+                    bHasParma = true;
+                    str = String.format("%s=%s", URLEncoder.encode(key, RestfulClientConst.ENCODING),
+                            URLEncoder.encode(value, RestfulClientConst.ENCODING));
+                }
+                builder.append(str);
+            }
+        } catch(final UnsupportedEncodingException ex) {
+            LOGGER.error("unsupported encoding: ", ex);
+            throw new ServiceException("Broken VM does not support UTF-8");
+        }
+        return builder.toString();
+    }
+
+    public static Map<String, String> getAAIHeaderMap() {
+        HashMap<String, String> headerMap = new HashMap<>();
+        headerMap.put("X-TransactionId", "9999");
+        headerMap.put("X-FromAppId", "jimmy");
+        headerMap.put("Real-Time", "true");
+        headerMap.put("Authorization", "Basic QUFJOkFBSQ==");
+        headerMap.put("Accept", "application/json");
+        headerMap.put("Content-Type", "application/json");
+        return headerMap;
     }
 }

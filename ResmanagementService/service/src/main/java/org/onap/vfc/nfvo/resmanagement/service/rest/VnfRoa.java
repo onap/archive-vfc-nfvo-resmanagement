@@ -90,7 +90,7 @@ public class VnfRoa {
     @POST
     public JSONObject addVnf(@Context HttpServletRequest context) throws ServiceException {
         JSONObject object = RequestUtil.getJsonRequestBody(context);
-        if(null == object) {
+        if (null == object) {
             LOGGER.error("function=addVnf; msg=add error, because vnf is null.");
             throw new ServiceException(ResourceUtil.getMessage("org.openo.nfvo.resmanage.service.vnf.add.null"));
         }
@@ -98,7 +98,7 @@ public class VnfRoa {
         LOGGER.info("VnfRoa::addVnf:{}", object.toString());
         try {
             return vnfService.addVnf(VnfEntity.toEntity(object));
-        } catch(ServiceException se) {
+        } catch (ServiceException se) {
             LOGGER.error("VnfRoa::addVnf error:{}" + se);
             return ResponseUtil.genHttpResponse(HttpConstant.ERROR_CODE, se.getMessage());
         }
@@ -108,7 +108,7 @@ public class VnfRoa {
     @Path("/{id}")
     public JSONObject deleteVnf(@Context HttpServletRequest context, @PathParam(ParamConstant.PARAM_ID) String id)
             throws ServiceException {
-        if(id == null) {
+        if (id == null) {
             LOGGER.error("function=deleteVnf; msg=delete error, because id is null.");
             throw new ServiceException(ResourceUtil.getMessage("org.openo.nfvo.resmanage.service.vnf.delete.id.null"));
         }
