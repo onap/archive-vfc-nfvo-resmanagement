@@ -95,6 +95,11 @@ public class VnfEntity implements Serializable {
     /**  */
     private String name;
 
+    /**  */
+    private String relationshiplist;
+
+    private String resourceVersion;
+
     private static final long serialVersionUID = 1L;
 
     public String getId() {
@@ -304,7 +309,39 @@ public class VnfEntity implements Serializable {
         vnfEntity.setMaxRam(JsonUtil.getJsonFieldInt(jsonObject, "maxRam"));
         vnfEntity.setMaxShd(JsonUtil.getJsonFieldInt(jsonObject, "maxShd"));
         vnfEntity.setMaxNet(JsonUtil.getJsonFieldInt(jsonObject, "maxNet"));
+        vnfEntity.setResourceVersion(JsonUtil.getJsonFieldStr(jsonObject, "resource-version"));
         return vnfEntity;
+    }
+
+    public static VnfEntity toEntityFromAai(JSONObject jsonObject) {
+        VnfEntity vnfEntity = new VnfEntity();
+        vnfEntity.setVnfInstanceId(JsonUtil.getJsonFieldStr(jsonObject, "vnf-id"));
+        vnfEntity.setVnfInstanceName(JsonUtil.getJsonFieldStr(jsonObject, "vnf-name"));
+        vnfEntity.setName(JsonUtil.getJsonFieldStr(jsonObject, "vnf-name2"));
+        vnfEntity.setNsId(JsonUtil.getJsonFieldStr(jsonObject, "service-id"));
+        vnfEntity.setVnfStatus(JsonUtil.getJsonFieldStr(jsonObject, "orchestration-status"));
+        vnfEntity.setVnfType(JsonUtil.getJsonFieldStr(jsonObject, "vnf-type"));
+        vnfEntity.setMaxCpu(JsonUtil.getJsonFieldInt(jsonObject, "vcpu"));
+        vnfEntity.setMaxDisk(JsonUtil.getJsonFieldInt(jsonObject, "vdisk"));
+        vnfEntity.setMaxRam(JsonUtil.getJsonFieldInt(jsonObject, "vmemory"));
+        vnfEntity.setMaxShd(JsonUtil.getJsonFieldInt(jsonObject, "vdisk-units"));
+        vnfEntity.setResourceVersion(JsonUtil.getJsonFieldStr(jsonObject, "resource-version"));
+        return vnfEntity;
+    }
+
+    public String toStringForAai() {
+
+        JSONObject vnfResJson = new JSONObject();
+        vnfResJson.put("vnf-id", StringUtils.trimToEmpty(this.getVnfInstanceId()));
+        vnfResJson.put("vnf-name", StringUtils.trimToEmpty(this.getVnfInstanceName()));
+        vnfResJson.put("vnf-name2", StringUtils.trimToEmpty(this.getName()));
+        vnfResJson.put("service-id", StringUtils.trimToEmpty(this.getNsId()));
+        vnfResJson.put("vnf-type", StringUtils.trimToEmpty(this.getVnfType()));
+        vnfResJson.put("vcpu", this.getMaxCpu());
+        vnfResJson.put("vdisk", this.getMaxDisk());
+        vnfResJson.put("vmemory", this.getMaxRam());
+        vnfResJson.put("vdisk-units", this.getMaxShd());
+        return vnfResJson.toString();
     }
 
     @Override
@@ -333,5 +370,13 @@ public class VnfEntity implements Serializable {
         vnfResJson.put("maxShd", StringUtils.trimToEmpty(this.getName()));
         vnfResJson.put("maxNet", StringUtils.trimToEmpty(this.getName()));
         return vnfResJson.toString();
+    }
+
+    public String getResourceVersion() {
+        return resourceVersion;
+    }
+
+    public void setResourceVersion(String resourceVersion) {
+        this.resourceVersion = resourceVersion;
     }
 }

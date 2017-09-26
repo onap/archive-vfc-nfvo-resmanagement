@@ -68,7 +68,9 @@ public class RestfulUtil {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RestfulUtil.class);
 
-    private static final Restful REST_CLIENT = RestfulFactory.getRestInstance(RestfulFactory.PROTO_HTTP);
+    private static final Restful REST_CLIENT_HTTP = RestfulFactory.getRestInstance(RestfulFactory.PROTO_HTTP);
+
+    private static final Restful REST_CLIENT_HTTPS = RestfulFactory.getRestInstance(RestfulFactory.PROTO_HTTPS);
 
     private RestfulUtil() {
     }
@@ -202,16 +204,17 @@ public class RestfulUtil {
             String type) {
         RestfulResponse rsp = new RestfulResponse();
         try {
+            Restful restClient = url.startsWith("https") ? REST_CLIENT_HTTPS : REST_CLIENT_HTTP;
 
-            if(REST_CLIENT != null) {
+            if(restClient != null) {
                 if(TYPE_GET.equals(type)) {
-                    rsp = REST_CLIENT.get(url, restParametes, opt);
+                    rsp = restClient.get(url, restParametes, opt);
                 } else if(TYPE_POST.equals(type)) {
-                    rsp = REST_CLIENT.post(url, restParametes, opt);
+                    rsp = restClient.post(url, restParametes, opt);
                 } else if(TYPE_PUT.equals(type)) {
-                    rsp = REST_CLIENT.put(url, restParametes, opt);
+                    rsp = restClient.put(url, restParametes, opt);
                 } else if(TYPE_DEL.equals(type)) {
-                    rsp = REST_CLIENT.delete(url, restParametes, opt);
+                    rsp = restClient.delete(url, restParametes, opt);
                 }
             }
         } catch(ServiceException e) {
@@ -231,7 +234,7 @@ public class RestfulUtil {
      */
     public static RestfulResponse getRestRes(String methodName, Object... objects) {
         try {
-            if(objects == null || REST_CLIENT == null) {
+            if(objects == null || REST_CLIENT_HTTP == null) {
                 return null;
             }
 
@@ -245,8 +248,8 @@ public class RestfulUtil {
 
             Class<?> rtType = methodName.startsWith("async") ? void.class : RestfulResponse.class;
             MethodType mt = MethodType.methodType(rtType, classes);
-            Object result = MethodHandles.lookup().findVirtual(REST_CLIENT.getClass(), methodName, mt)
-                    .bindTo(REST_CLIENT).invokeWithArguments(objects);
+            Object result = MethodHandles.lookup().findVirtual(REST_CLIENT_HTTP.getClass(), methodName, mt)
+                    .bindTo(REST_CLIENT_HTTP).invokeWithArguments(objects);
             if(result != null) {
                 return (RestfulResponse)result;
             }
@@ -279,8 +282,7 @@ public class RestfulUtil {
         String result = getResponseContent(url, restParametes, RestfulUtil.TYPE_GET);
         if(null == result || result.isEmpty()) {
             LOGGER.error("result from  url:" + url + " result:" + result);
-            throw new ServiceException(
-                    ResourceUtil.getMessage(NO_RESULT_EXCEPTION));
+            throw new ServiceException(ResourceUtil.getMessage(NO_RESULT_EXCEPTION));
         }
 
         JSONArray rsArray = null;
@@ -289,8 +291,7 @@ public class RestfulUtil {
             rsArray = rsJson.getJSONArray(ParamConstant.PARAM_DATA);
         } catch(JSONException e) {
             LOGGER.error("getResources error:" + e);
-            throw new ServiceException(
-                    ResourceUtil.getMessage(NO_RESULT_EXCEPTION));
+            throw new ServiceException(ResourceUtil.getMessage(NO_RESULT_EXCEPTION));
         }
         return rsArray;
     }
@@ -310,8 +311,7 @@ public class RestfulUtil {
         String result = getResponseContent(url, restParametes, RestfulUtil.TYPE_GET);
         if(null == result || result.isEmpty()) {
             LOGGER.error("result from  url:" + url + " result:" + result);
-            throw new ServiceException(
-                    ResourceUtil.getMessage(NO_RESULT_EXCEPTION));
+            throw new ServiceException(ResourceUtil.getMessage(NO_RESULT_EXCEPTION));
         }
 
         JSONArray rsArray = null;
@@ -327,8 +327,7 @@ public class RestfulUtil {
             }
         } catch(JSONException e) {
             LOGGER.error("getResources error:" + e);
-            throw new ServiceException(
-                    ResourceUtil.getMessage(NO_RESULT_EXCEPTION));
+            throw new ServiceException(ResourceUtil.getMessage(NO_RESULT_EXCEPTION));
         }
         return rsArray;
     }

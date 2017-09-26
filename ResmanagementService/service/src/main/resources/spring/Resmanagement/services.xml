@@ -224,13 +224,18 @@
     
     <!-- vnf -->
     <bean id="vnfDao"
-        class="org.onap.vfc.nfvo.resmanagement.service.dao.impl.VnfDaoImpl">
+          class="org.onap.vfc.nfvo.resmanagement.service.dao.impl.VnfDaoImpl">
         <property name="session" ref="session"></property>
+    </bean>
+
+    <!-- vnfAai -->
+    <bean id="vnfAaiDao"
+          class="org.onap.vfc.nfvo.resmanagement.service.dao.impl.aai.VnfAaiDaoImpl">
     </bean>
     
     <bean id="vnfService"
         class="org.onap.vfc.nfvo.resmanagement.service.group.impl.VnfServiceImpl">
-        <property name="vnfDao" ref="vnfDao"></property>
+        <property name="vnfDao" ref="vnfAaiDao"></property>
         <property name="vnfInfoService" ref="vnfInfoService"></property>
     </bean>
 

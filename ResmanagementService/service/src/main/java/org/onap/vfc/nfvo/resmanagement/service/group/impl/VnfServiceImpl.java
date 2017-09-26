@@ -22,11 +22,11 @@ import java.util.UUID;
 
 import org.apache.commons.lang.StringUtils;
 import org.onap.vfc.nfvo.resmanagement.common.ResourceUtil;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.onap.vfc.nfvo.resmanagement.service.dao.inf.VnfDao;
 import org.onap.vfc.nfvo.resmanagement.service.entity.VnfEntity;
 import org.onap.vfc.nfvo.resmanagement.service.group.inf.VnfInfoService;
 import org.onap.vfc.nfvo.resmanagement.service.group.inf.VnfService;
-import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -72,8 +72,8 @@ public class VnfServiceImpl implements VnfService {
             restJson.put("id", vnfEntity.getId());
             restJson.put("name", vnfEntity.getName());
         } else {
-            LOGGER.error("function=addVnf; msg=add vnf into DB error.");
-            restJson.put("message", "Add vnf into DB error.");
+            LOGGER.error("function=addVnf; msg=add vnf into AAI error.");
+            restJson.put("message", "Add vnf into AAI error.");
         }
         return restJson;
     }
@@ -123,7 +123,7 @@ public class VnfServiceImpl implements VnfService {
     /**
      * <br>
      * 
-     * @param id
+     * @param vnfInstanceId
      * @throws ServiceException
      * @since VFC 1.0
      */
