@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_de7ecdae",
+        "filename": "ResmanagementService/service/src/main/java/org/onap/vfc/nfvo/resmanagement/service/dao/impl/aai/VnfAaiDaoImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 879
+      },
+      "writtenOn": "2017-09-26T11:04:01Z",
+      "side": 1,
+      "message": "I will replace it with aai domain name.",
+      "range": {
+        "startLine": 50,
+        "startChar": 21,
+        "endLine": 50,
+        "endChar": 47
+      },
+      "revId": "e0da15cdc65919632a2334fcf5d51659d4c4fa13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
