@@ -87,6 +87,10 @@ public class Constant {
 
     public static final int REPEAT_REG_TIME = 60 * 1000;
 
+    public static String VFC_CUSTOMER_ID = "vfc";
+
+    public static String VFC_SERVICE_SUBSCRIPTION_ID = "vfc-subsription";
+
     private Constant() {
         // private constants
     }

@@ -16,6 +16,8 @@
 
 package org.onap.vfc.nfvo.resmanagement.common.util.restclient;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 import org.eclipse.jetty.client.ContentExchange;
 import org.eclipse.jetty.client.HttpClient;
@@ -23,24 +25,9 @@ import org.eclipse.jetty.client.HttpExchange;
 import org.eclipse.jetty.io.ByteArrayBuffer;
 import org.eclipse.jetty.util.ssl.SslContextFactory;
 import org.eclipse.jetty.util.thread.QueuedThreadPool;
-import org.onap.vfc.nfvo.resmanagement.common.util.RestfulUtil;
 import org.onap.vfc.nfvo.resmanagement.common.util.request.RequestUtil;
-import org.onap.vfc.nfvo.resmanagement.common.util.restclient.HttpBaseRest;
-import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestHttpContentExchange;
-import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulAsyncCallback;
-import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulOptions;
-import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulParametes;
-import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulResponse;
-import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import javax.ws.rs.core.Request;
-import javax.ws.rs.core.UriBuilder;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.Map;
 
 public class HttpsRest extends HttpBaseRest {
 
@@ -55,7 +42,7 @@ public class HttpsRest extends HttpBaseRest {
         client.setTimeout(30000); // 30 seconds timeout; if no server reply, the request expires
         try {
             client.start();
-        } catch (Exception e) {
+        } catch(Exception e) {
             e.printStackTrace();
         }
     }
@@ -66,7 +53,8 @@ public class HttpsRest extends HttpBaseRest {
     }
 
     @Override
-    public RestfulResponse head(String servicePath, RestfulParametes restParametes, RestfulOptions options) throws ServiceException {
+    public RestfulResponse head(String servicePath, RestfulParametes restParametes, RestfulOptions options)
+            throws ServiceException {
         return null;
     }
 
@@ -76,12 +64,14 @@ public class HttpsRest extends HttpBaseRest {
     }
 
     @Override
-    public void asyncGet(String servicePath, RestfulParametes restParametes, RestfulAsyncCallback callback) throws ServiceException {
+    public void asyncGet(String servicePath, RestfulParametes restParametes, RestfulAsyncCallback callback)
+            throws ServiceException {
 
     }
 
     @Override
-    public void asyncGet(String servicePath, RestfulParametes restParametes, RestfulOptions options, RestfulAsyncCallback callback) throws ServiceException {
+    public void asyncGet(String servicePath, RestfulParametes restParametes, RestfulOptions options,
+            RestfulAsyncCallback callback) throws ServiceException {
 
     }
 
@@ -91,12 +81,14 @@ public class HttpsRest extends HttpBaseRest {
     }
 
     @Override
-    public void asyncPut(String servicePath, RestfulParametes restParametes, RestfulAsyncCallback callback) throws ServiceException {
+    public void asyncPut(String servicePath, RestfulParametes restParametes, RestfulAsyncCallback callback)
+            throws ServiceException {
 
     }
 
     @Override
-    public void asyncPut(String servicePath, RestfulParametes restParametes, RestfulOptions options, RestfulAsyncCallback callback) throws ServiceException {
+    public void asyncPut(String servicePath, RestfulParametes restParametes, RestfulOptions options,
+            RestfulAsyncCallback callback) throws ServiceException {
 
     }
 
@@ -106,17 +98,20 @@ public class HttpsRest extends HttpBaseRest {
     }
 
     @Override
-    public RestfulResponse post(String servicePath, RestfulParametes restParametes, RestfulOptions options) throws ServiceException {
+    public RestfulResponse post(String servicePath, RestfulParametes restParametes, RestfulOptions options)
+            throws ServiceException {
         return null;
     }
 
     @Override
-    public void asyncPost(String servicePath, RestfulParametes restParametes, RestfulAsyncCallback callback) throws ServiceException {
+    public void asyncPost(String servicePath, RestfulParametes restParametes, RestfulAsyncCallback callback)
+            throws ServiceException {
 
     }
 
     @Override
-    public void asyncPost(String servicePath, RestfulParametes restParametes, RestfulOptions options, RestfulAsyncCallback callback) throws ServiceException {
+    public void asyncPost(String servicePath, RestfulParametes restParametes, RestfulOptions options,
+            RestfulAsyncCallback callback) throws ServiceException {
 
     }
 
@@ -126,12 +121,14 @@ public class HttpsRest extends HttpBaseRest {
     }
 
     @Override
-    public void asyncDelete(String servicePath, RestfulParametes restParametes, RestfulAsyncCallback callback) throws ServiceException {
+    public void asyncDelete(String servicePath, RestfulParametes restParametes, RestfulAsyncCallback callback)
+            throws ServiceException {
 
     }
 
     @Override
-    public void asyncDelete(String servicePath, RestfulParametes restParametes, RestfulOptions options, RestfulAsyncCallback callback) throws ServiceException {
+    public void asyncDelete(String servicePath, RestfulParametes restParametes, RestfulOptions options,
+            RestfulAsyncCallback callback) throws ServiceException {
 
     }
 
@@ -141,41 +138,46 @@ public class HttpsRest extends HttpBaseRest {
     }
 
     @Override
-    public RestfulResponse patch(String servicePath, RestfulParametes restParametes, RestfulOptions options) throws ServiceException {
+    public RestfulResponse patch(String servicePath, RestfulParametes restParametes, RestfulOptions options)
+            throws ServiceException {
         return null;
     }
 
     @Override
-    public void asyncPatch(String servicePath, RestfulParametes restParametes, RestfulAsyncCallback callback) throws ServiceException {
+    public void asyncPatch(String servicePath, RestfulParametes restParametes, RestfulAsyncCallback callback)
+            throws ServiceException {
 
     }
 
     @Override
-    public void asyncPatch(String servicePath, RestfulParametes restParametes, RestfulOptions options, RestfulAsyncCallback callback) throws ServiceException {
+    public void asyncPatch(String servicePath, RestfulParametes restParametes, RestfulOptions options,
+            RestfulAsyncCallback callback) throws ServiceException {
 
     }
 
     @Override
-    public RestfulResponse get(String servicePath, RestfulParametes restParametes, RestfulOptions option) throws ServiceException {
+    public RestfulResponse get(String servicePath, RestfulParametes restParametes, RestfulOptions option)
+            throws ServiceException {
         ContentExchange exchange = new ContentExchange(true);
         exchange.setURL(servicePath);
         exchange.setMethod("GET");
-        restParametes.getHeaderMap().entrySet().stream().forEach(entry -> exchange.setRequestHeader(entry.getKey(), entry.getValue()));
+        restParametes.getHeaderMap().entrySet().stream()
+                .forEach(entry -> exchange.setRequestHeader(entry.getKey(), entry.getValue()));
 
         try {
             client.send(exchange);
-        } catch (IOException e) {
+        } catch(IOException e) {
             e.printStackTrace();
         }
         try {
             int exchangeState = exchange.waitForDone();
-            if (exchangeState == HttpExchange.STATUS_COMPLETED) {
+            if(exchangeState == HttpExchange.STATUS_COMPLETED) {
                 String res = exchange.getResponseContent();
                 LOG.info(res);
 
                 RestfulResponse restfulResponse = new RestfulResponse();
                 restfulResponse.setResponseJson(exchange.getResponseContent());
-                restfulResponse.setStatus(exchange.getStatus());
+                restfulResponse.setStatus(exchange.getResponseStatus());
                 return restfulResponse;
             } else if(exchangeState == HttpExchange.STATUS_EXCEPTED) {
                 throw new ServiceException(
@@ -184,38 +186,40 @@ public class HttpsRest extends HttpBaseRest {
                 throw new ServiceException(
                         "request is expierd: " + RestHttpContentExchange.toState(HttpExchange.STATUS_EXPIRED));
             }
-        } catch (InterruptedException e) {
+        } catch(InterruptedException e) {
             e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
+        } catch(UnsupportedEncodingException e) {
             e.printStackTrace();
         }
         return null;
     }
 
     @Override
-    public RestfulResponse put(String servicePath, RestfulParametes restParametes, RestfulOptions options) throws ServiceException {
+    public RestfulResponse put(String servicePath, RestfulParametes restParametes, RestfulOptions options)
+            throws ServiceException {
         ContentExchange exchange = new ContentExchange(true);
         exchange.setURL(servicePath);
         exchange.setMethod("PUT");
         exchange.setRequestContent(new ByteArrayBuffer(restParametes.getRawData()));
 
-        restParametes.getHeaderMap().entrySet().stream().forEach(entry -> exchange.setRequestHeader(entry.getKey(), entry.getValue()));
+        restParametes.getHeaderMap().entrySet().stream()
+                .forEach(entry -> exchange.setRequestHeader(entry.getKey(), entry.getValue()));
 
         try {
             client.send(exchange);
-        } catch (IOException e) {
+        } catch(IOException e) {
             e.printStackTrace();
         }
 
         try {
             int exchangeState = exchange.waitForDone();
-            if (exchangeState == HttpExchange.STATUS_COMPLETED) {
+            if(exchangeState == HttpExchange.STATUS_COMPLETED) {
                 String res = exchange.getResponseContent();
                 LOG.info(res);
 
                 RestfulResponse restfulResponse = new RestfulResponse();
                 restfulResponse.setResponseJson(exchange.getResponseContent());
-                restfulResponse.setStatus(exchange.getStatus());
+                restfulResponse.setStatus(exchange.getResponseStatus());
                 return restfulResponse;
             } else if(exchangeState == HttpExchange.STATUS_EXCEPTED) {
                 throw new ServiceException(
@@ -224,46 +228,48 @@ public class HttpsRest extends HttpBaseRest {
                 throw new ServiceException(
                         "request is expierd: " + RestHttpContentExchange.toState(HttpExchange.STATUS_EXPIRED));
             }
-        } catch (InterruptedException e) {
+        } catch(InterruptedException e) {
             e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
+        } catch(UnsupportedEncodingException e) {
             e.printStackTrace();
         }
         return null;
     }
 
     @Override
-    public RestfulResponse delete(String servicePath, RestfulParametes restParametes, RestfulOptions options) throws ServiceException {
+    public RestfulResponse delete(String servicePath, RestfulParametes restParametes, RestfulOptions options)
+            throws ServiceException {
         ContentExchange exchange = new ContentExchange(true);
 
         String encodeParams = RequestUtil.encodeParams(restParametes);
-        if (encodeParams.isEmpty()) {
+        if(encodeParams.isEmpty()) {
             exchange.setURL(servicePath);
         } else {
             exchange.setURL(servicePath + "?" + encodeParams);
         }
         exchange.setMethod("DELETE");
-        if (restParametes.getRawData() != null) {
+        if(restParametes.getRawData() != null) {
             exchange.setRequestContent(new ByteArrayBuffer(restParametes.getRawData()));
         }
 
-        restParametes.getHeaderMap().entrySet().stream().forEach(entry -> exchange.setRequestHeader(entry.getKey(), entry.getValue()));
+        restParametes.getHeaderMap().entrySet().stream()
+                .forEach(entry -> exchange.setRequestHeader(entry.getKey(), entry.getValue()));
 
         try {
             client.send(exchange);
-        } catch (IOException e) {
+        } catch(IOException e) {
             e.printStackTrace();
         }
 
         try {
             int exchangeState = exchange.waitForDone();
-            if (exchangeState == HttpExchange.STATUS_COMPLETED) {
+            if(exchangeState == HttpExchange.STATUS_COMPLETED) {
                 String res = exchange.getResponseContent();
                 LOG.info(res);
 
                 RestfulResponse restfulResponse = new RestfulResponse();
                 restfulResponse.setResponseJson(exchange.getResponseContent());
-                restfulResponse.setStatus(exchange.getStatus());
+                restfulResponse.setStatus(exchange.getResponseStatus());
                 return restfulResponse;
             } else if(exchangeState == HttpExchange.STATUS_EXCEPTED) {
                 throw new ServiceException(
@@ -272,9 +278,9 @@ public class HttpsRest extends HttpBaseRest {
                 throw new ServiceException(
                         "request is expierd: " + RestHttpContentExchange.toState(HttpExchange.STATUS_EXPIRED));
             }
-        } catch (InterruptedException e) {
+        } catch(InterruptedException e) {
             e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
+        } catch(UnsupportedEncodingException e) {
             e.printStackTrace();
         }
         return null;
