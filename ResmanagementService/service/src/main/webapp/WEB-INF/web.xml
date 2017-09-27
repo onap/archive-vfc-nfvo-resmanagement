@@ -20,7 +20,14 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
         http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+        <listener-class>
+        org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+    <listener>
+        <listener-class>
+        org.onap.vfc.nfvo.resmanagement.service.listener.AaiNamespaceInitializer
+        </listener-class>
     </listener>
     <servlet>
         <servlet-name>CXFServlet</servlet-name>
