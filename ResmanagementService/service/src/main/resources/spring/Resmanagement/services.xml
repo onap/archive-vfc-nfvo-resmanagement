@@ -212,10 +212,13 @@
         class="org.onap.vfc.nfvo.resmanagement.service.dao.impl.NsDaoImpl">
         <property name="session" ref="session"></property>
     </bean>
+
+    <bean id="nsAaiDao" class="org.onap.vfc.nfvo.resmanagement.service.dao.impl.aai.NsAaiDaoImpl">
+    </bean>
     
     <bean id="nsService"
         class="org.onap.vfc.nfvo.resmanagement.service.group.impl.NsServiceImpl">
-        <property name="nsDao" ref="nsDao"></property>
+        <property name="nsDao" ref="nsAaiDao"></property>
     </bean>
 
     <bean id="nsRoa" class="org.onap.vfc.nfvo.resmanagement.service.rest.NsRoa">
