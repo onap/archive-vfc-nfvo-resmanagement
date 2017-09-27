@@ -52,7 +52,17 @@ public interface NsService {
      * @since VFC 1.0
      */
     List<NsEntity> getList(Map<String, Object> map) throws ServiceException;
-
+    
+    /**
+     * <br>
+     * 
+     * @param map
+     * @return
+     * @throws ServiceException
+     * @since VFC 1.0
+     */
+    NsEntity getNs(String id) throws ServiceException;
+    
     /**
      * <br>
      * 
