@@ -24,7 +24,7 @@
     </parent>
 
     <artifactId>vfc-nfvo-resmanagement-service</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+     <version>1.0.0-SNAPSHOT</version>
     <name>vfc/nfvo/resmanagement/ResmanagementService/service</name>
     <packaging>war</packaging>
     <dependencies>

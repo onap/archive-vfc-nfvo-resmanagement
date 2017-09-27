@@ -28,7 +28,7 @@ import net.sf.json.JSONObject;
  * <br>
  * <p>
  * </p>
- * 
+ *
  * @author
  * @version VFC 1.0 Sep 4, 2017
  */
@@ -36,7 +36,7 @@ public interface NsService {
 
     /**
      * <br>
-     * 
+     *
      * @param object
      * @return
      * @since VFC 1.0
@@ -45,7 +45,7 @@ public interface NsService {
 
     /**
      * <br>
-     * 
+     *
      * @param map
      * @return
      * @throws ServiceException
@@ -55,7 +55,7 @@ public interface NsService {
 
     /**
      * <br>
-     * 
+     *
      * @param id
      * @return
      * @throws ServiceException
