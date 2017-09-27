@@ -21,10 +21,10 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.apache.commons.lang.StringUtils;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.onap.vfc.nfvo.resmanagement.service.dao.inf.NsDao;
 import org.onap.vfc.nfvo.resmanagement.service.entity.NsEntity;
 import org.onap.vfc.nfvo.resmanagement.service.group.inf.NsService;
-import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,7 +34,7 @@ import net.sf.json.JSONObject;
  * <br>
  * <p>
  * </p>
- * 
+ *
  * @author
  * @version VFC 1.0 Sep 4, 2017
  */
@@ -50,7 +50,7 @@ public class NsServiceImpl implements NsService {
         JSONObject restJson = new JSONObject();
 
         if(!checkId(nsEntity.getId())) {
-            LOGGER.error("function=addVnf; msg=add error, because id is already exist.");
+            LOGGER.error("function=addNs; msg=add error, because id is already exist.");
             restJson.put("message", "Ns id is already exist.");
             return restJson;
         }
@@ -61,8 +61,7 @@ public class NsServiceImpl implements NsService {
         int result = nsDao.addNs(nsEntity);
 
         if(result > 0) {
-            restJson.put("id", nsEntity.getId());
-            restJson.put("name", nsEntity.getName());
+            restJson.put("ns", nsEntity);
         } else {
             LOGGER.error("function=addNs; msg=add ns into DB error.");
             restJson.put("message", "Add ns into DB error.");
@@ -72,7 +71,7 @@ public class NsServiceImpl implements NsService {
 
     private boolean checkId(String id) {
         NsEntity nsEntity = nsDao.getNs(id);
-        if(null == nsEntity) {
+        if(nsEntity.getId() == null) {
             return true;
         }
         return false;

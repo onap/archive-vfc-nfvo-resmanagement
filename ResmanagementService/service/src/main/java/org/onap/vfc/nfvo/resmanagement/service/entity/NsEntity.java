@@ -27,32 +27,35 @@ import net.sf.json.JSONObject;
  * <br>
  * <p>
  * </p>
- * 
+ *
  * @author
  * @version VFC 1.0 Sep 1, 2017
  */
 public class NsEntity implements Serializable {
 
-    /**  */
     private String id;
 
-    /**  */
     private String name;
 
-    /**  */
     private String nsdId;
 
-    /**  */
     private String description;
 
-    /**  */
     private String status;
 
-    /**  */
     private String createTime;
 
-    /**  */
     private String lastUpdate;
+
+    private String resourceVersion;
+
+    public String getResourceVersion() {
+        return resourceVersion;
+    }
+
+    public void setResourceVersion(String resourceVersion) {
+        this.resourceVersion = resourceVersion;
+    }
 
     private static final long serialVersionUID = 1L;
 
@@ -115,8 +118,8 @@ public class NsEntity implements Serializable {
     public static NsEntity toEntity(JSONObject jsonObject) {
         NsEntity nsEntity = new NsEntity();
         nsEntity.setId(JsonUtil.getJsonFieldStr(jsonObject, "id"));
-        nsEntity.setName(JsonUtil.getJsonFieldStr(jsonObject, "name"));
         nsEntity.setNsdId(JsonUtil.getJsonFieldStr(jsonObject, "nsdId"));
+        nsEntity.setName(JsonUtil.getJsonFieldStr(jsonObject, "name"));
         nsEntity.setDescription(JsonUtil.getJsonFieldStr(jsonObject, "description"));
         nsEntity.setStatus(JsonUtil.getJsonFieldStr(jsonObject, "status"));
         nsEntity.setCreateTime(JsonUtil.getJsonFieldStr(jsonObject, "createTime"));
@@ -128,12 +131,38 @@ public class NsEntity implements Serializable {
     public String toString() {
         JSONObject nsResJson = new JSONObject();
         nsResJson.put("id", StringUtils.trimToEmpty(this.getId()));
-        nsResJson.put("name", StringUtils.trimToEmpty(this.getName()));
         nsResJson.put("nsdId", StringUtils.trimToEmpty(this.getNsdId()));
+        nsResJson.put("name", StringUtils.trimToEmpty(this.getName()));
         nsResJson.put("description", StringUtils.trimToEmpty(this.getDescription()));
         nsResJson.put("status", StringUtils.trimToEmpty(this.getStatus()));
         nsResJson.put("createTime", StringUtils.trimToEmpty(this.getCreateTime()));
         nsResJson.put("lastUpdate", StringUtils.trimToEmpty(this.getLastUpdate()));
         return nsResJson.toString();
     }
+
+    public String toStringForAai() {
+        JSONObject nsResJson = new JSONObject();
+        nsResJson.put("service-instnace-id", StringUtils.trimToEmpty(this.getId()));
+        nsResJson.put("service-instance-name", StringUtils.trimToEmpty(this.getName()));
+        nsResJson.put("description", StringUtils.trimToEmpty(this.getDescription()));
+        nsResJson.put("orchestration-status", StringUtils.trimToEmpty(this.getStatus()));
+        nsResJson.put("created-at", StringUtils.trimToEmpty(this.getCreateTime()));
+        nsResJson.put("updated-at", StringUtils.trimToEmpty(this.getLastUpdate()));
+        nsResJson.put("resource-version", StringUtils.trimToEmpty(this.getResourceVersion()));
+        return nsResJson.toString();
+    }
+
+    public static NsEntity toEntityFromAai(JSONObject jsonObject) {
+        NsEntity nsEntity = new NsEntity();
+        nsEntity.setId(JsonUtil.getJsonFieldStr(jsonObject, "service-instance-id"));
+        nsEntity.setNsdId(JsonUtil.getJsonFieldStr(jsonObject, "service-instance-id"));
+        nsEntity.setName(JsonUtil.getJsonFieldStr(jsonObject, "service-instance-name"));
+        nsEntity.setDescription(JsonUtil.getJsonFieldStr(jsonObject, "description"));
+        nsEntity.setStatus(JsonUtil.getJsonFieldStr(jsonObject, "orchestration-status"));
+        nsEntity.setCreateTime(JsonUtil.getJsonFieldStr(jsonObject, "created-at"));
+        nsEntity.setLastUpdate(JsonUtil.getJsonFieldStr(jsonObject, "updated-at"));
+        nsEntity.setResourceVersion(JsonUtil.getJsonFieldStr(jsonObject, "resource-version"));
+        return nsEntity;
+    }
+
 }

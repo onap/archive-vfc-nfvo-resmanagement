@@ -38,9 +38,9 @@ import org.onap.vfc.nfvo.resmanagement.common.constant.UrlConstant;
 import org.onap.vfc.nfvo.resmanagement.common.util.request.RequestUtil;
 import org.onap.vfc.nfvo.resmanagement.common.util.response.ResponseUtil;
 import org.onap.vfc.nfvo.resmanagement.common.util.response.RoaResponseUtil;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.onap.vfc.nfvo.resmanagement.service.entity.NsEntity;
 import org.onap.vfc.nfvo.resmanagement.service.group.inf.NsService;
-import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -57,13 +57,14 @@ public class NsRoa {
 
     /**
      * <br>
-     * 
+     *
      * @param context
      * @param resp
      * @return
      * @throws ServiceException
      * @since VFC 1.0
      */
+
     @POST
     public JSONObject addNs(@Context HttpServletRequest context, @Context HttpServletResponse resp)
             throws ServiceException {
@@ -82,7 +83,7 @@ public class NsRoa {
 
     /**
      * <br>
-     * 
+     *
      * @param context
      * @return
      * @throws ServiceException
@@ -100,7 +101,7 @@ public class NsRoa {
 
     /**
      * <br>
-     * 
+     *
      * @param context
      * @param id
      * @return
@@ -113,12 +114,22 @@ public class NsRoa {
         LOGGER.info("NsRoa::getNs id:{}", id);
         Map<String, Object> map = new HashMap<>(10);
         map.put(ParamConstant.PARAM_ID, id);
-        List<NsEntity> ns = nsService.getList(map);
-        LOGGER.info("NsRoa::getNs:{}", ns.toString());
+        List<NsEntity> allNs = nsService.getList(map);
+        LOGGER.info("NsRoa::getNs:{}", allNs.toString());
         JSONObject result = new JSONObject();
-        result.put("ns", ns.get(0));
+        result.put("ns", allNs);
         return result;
     }
+
+    /**
+     * <br>
+     *
+     * @param context
+     * @param id
+     * @return
+     * @throws ServiceException
+     * @since VFC 1.0
+     */
 
     @DELETE
     @Path("/{id}")

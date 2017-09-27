@@ -16,12 +16,11 @@
 
 package org.onap.vfc.nfvo.resmanagement.service.listener;
 
-import static org.onap.vfc.nfvo.resmanagement.common.constant.Constant.VFC_CUSTOMER_ID;
-import static org.onap.vfc.nfvo.resmanagement.common.constant.Constant.VFC_SERVICE_SUBSCRIPTION_ID;
-
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import org.onap.vfc.nfvo.resmanagement.common.conf.Config;
+import org.onap.vfc.nfvo.resmanagement.common.constant.UrlConstant;
 import org.onap.vfc.nfvo.resmanagement.common.util.RestfulUtil;
 import org.onap.vfc.nfvo.resmanagement.common.util.request.RequestUtil;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulParametes;
@@ -42,11 +41,11 @@ public class AaiNamespaceInitializer implements ServletContextListener {
     private int createCustomer() {
         RestfulParametes restfulParametes = new RestfulParametes();
         restfulParametes.setHeaderMap(RequestUtil.getAAIHeaderMap());
-        restfulParametes.setRawData("{\"global-customer-id\": \"" + VFC_CUSTOMER_ID + "\"," + "\"subscriber-name\": \""
-                + VFC_CUSTOMER_ID + "\"," + "\"subscriber-type\": \"" + VFC_CUSTOMER_ID + "\"}");
+        restfulParametes.setRawData("{\"global-customer-id\": \"" + Config.getGlobalCustomerId() + "\"," + "\"subscriber-name\": \""
+                + Config.getGlobalCustomerId() + "\"," + "\"subscriber-type\": \"" + Config.getGlobalCustomerId() + "\"}");
 
         RestfulResponse response = RestfulUtil.getRestfulResponse(
-                "https://192.168.17.24:8443/aai/v11/business/customers/customer/" + VFC_CUSTOMER_ID, restfulParametes,
+                Config.getHost() + ":" + Config.getPort() + UrlConstant.CUSTOMER_URL + Config.getGlobalCustomerId(), restfulParametes,
                 "put");
         return response.getStatus();
     }
@@ -54,11 +53,11 @@ public class AaiNamespaceInitializer implements ServletContextListener {
     private int createServiceSubscription() {
         RestfulParametes restfulParametes = new RestfulParametes();
         restfulParametes.setHeaderMap(RequestUtil.getAAIHeaderMap());
-        restfulParametes.setRawData("{\"service-type\": \"" + VFC_SERVICE_SUBSCRIPTION_ID + "\"}");
+        restfulParametes.setRawData("{\"service-type\": \"" + Config.getServiceType() + "\"}");
 
         RestfulResponse response = RestfulUtil.getRestfulResponse(
-                "https://192.168.17.24:8443/aai/v11/business/customers/customer/" + VFC_CUSTOMER_ID
-                        + "/service-subscriptions/service-subscription/" + VFC_SERVICE_SUBSCRIPTION_ID,
+                Config.getHost() + ":" + Config.getPort() + UrlConstant.CUSTOMER_URL + Config.getGlobalCustomerId()
+                        + UrlConstant.SERVICE_SUBSCRIPTION_URL + Config.getServiceType(),
                 restfulParametes, "put");
         return response.getStatus();
     }
