@@ -248,8 +248,10 @@
         <property name="session" ref="session"></property>
     </bean>
     
+    <bean id="vmAaiDao" class="org.onap.vfc.nfvo.resmanagement.service.dao.impl.aai.VmAaiDaoImpl" /> 
+    
     <bean id="vmService" class="org.onap.vfc.nfvo.resmanagement.service.group.impl.VmServiceImpl">
-        <property name="vmDao" ref="vmDao"></property>
+        <property name="vmDao" ref="vmAaiDao"></property>
     </bean>
     
     <bean id="vmRoa" class="org.onap.vfc.nfvo.resmanagement.service.rest.VmRoa">
