@@ -21,6 +21,7 @@ import java.io.Serializable;
 import org.apache.commons.lang.StringUtils;
 import org.onap.vfc.nfvo.resmanagement.common.util.JsonUtil;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 /**
@@ -40,6 +41,8 @@ public class VmEntity implements Serializable {
 
     /**  */
     private String vnfInstanceId;
+
+    private String resourceVersion;
 
     private static final long serialVersionUID = 1L;
 
@@ -75,6 +78,14 @@ public class VmEntity implements Serializable {
         this.vnfInstanceId = vnfInstanceId;
     }
 
+    public String getResourceVersion() {
+        return resourceVersion;
+    }
+
+    public void setResourceVersion(String resourceVersion) {
+        this.resourceVersion = resourceVersion;
+    }
+
     public static VmEntity toEntity(JSONObject jsonObject) {
         VmEntity vmEntity = new VmEntity();
         vmEntity.setVmId(JsonUtil.getJsonFieldStr(jsonObject, "vmId"));
@@ -92,5 +103,44 @@ public class VmEntity implements Serializable {
         vmResJson.put("vmStatus", StringUtils.trimToEmpty(this.getVmStatus()));
         vmResJson.put("vnfInstanceId", StringUtils.trimToEmpty(this.getVnfInstanceId()));
         return vmResJson.toString();
+    }
+
+    public String toStringForAai() {
+        JSONObject vmResJson = new JSONObject();
+        vmResJson.put("vserver-id", StringUtils.trimToEmpty(this.getVmId()));
+        vmResJson.put("vserver-name", StringUtils.trimToEmpty(this.getVmName()));
+        vmResJson.put("prov-status", StringUtils.trimToEmpty(this.getVmStatus()));
+        vmResJson.put("vserver-selflink", "");
+        vmResJson.put("resource-version", StringUtils.trimToEmpty(this.getResourceVersion()));
+
+        if(!StringUtils.isEmpty(this.getVnfInstanceId())) {
+            JSONArray relationshipData = new JSONArray();
+            JSONObject relationshipDataEntry = new JSONObject();
+            relationshipDataEntry.put("relationship-key", "generic-vnf.vnf-id");
+            relationshipDataEntry.put("relationship-value", this.getVnfInstanceId());
+            relationshipData.add(relationshipDataEntry);
+
+            JSONArray relationship = new JSONArray();
+            JSONObject relationshipEntry = new JSONObject();
+            relationshipEntry.put("related-to", "generic-vnf");
+            relationshipEntry.put("relationship-data", relationshipData);
+            relationship.add(relationshipEntry);
+
+            JSONObject relation = new JSONObject();
+            relation.put("relationship", relationship);
+
+            vmResJson.put("relationship-list", relation);
+        }
+        return vmResJson.toString();
+    }
+
+    public static VmEntity toEntityFromAai(JSONObject jsonObject) {
+        VmEntity vmEntity = new VmEntity();
+        vmEntity.setVmId(JsonUtil.getJsonFieldStr(jsonObject, "vserver-id"));
+        vmEntity.setVmName(JsonUtil.getJsonFieldStr(jsonObject, "vserver-name"));
+        vmEntity.setVmStatus(JsonUtil.getJsonFieldStr(jsonObject, "prov-status"));
+        vmEntity.setResourceVersion(JsonUtil.getJsonFieldStr(jsonObject, "resource-version"));
+        return vmEntity;
+
     }
 }
