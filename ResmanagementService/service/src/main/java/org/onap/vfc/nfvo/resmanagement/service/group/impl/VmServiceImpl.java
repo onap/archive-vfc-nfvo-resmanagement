@@ -25,11 +25,11 @@ import org.apache.commons.lang.StringUtils;
 import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
 import org.onap.vfc.nfvo.resmanagement.common.constant.UrlConstant;
 import org.onap.vfc.nfvo.resmanagement.common.util.RestfulUtil;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulParametes;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.onap.vfc.nfvo.resmanagement.service.dao.inf.VmDao;
 import org.onap.vfc.nfvo.resmanagement.service.entity.VmEntity;
 import org.onap.vfc.nfvo.resmanagement.service.group.inf.VmService;
-import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
-import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulParametes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,7 +40,7 @@ import net.sf.json.JSONObject;
  * <br>
  * <p>
  * </p>
- * 
+ *
  * @author
  * @version VFC 1.0 Oct 29, 2016
  */
@@ -52,7 +52,7 @@ public class VmServiceImpl implements VmService {
 
     /**
      * <br>
-     * 
+     *
      * @param vmEntity
      * @return
      * @throws ServiceException
@@ -76,15 +76,15 @@ public class VmServiceImpl implements VmService {
             restJson.put("id", vmEntity.getVmId());
             restJson.put("name", vmEntity.getVmName());
         } else {
-            LOGGER.error("function=addVm; msg=add vm into DB error.");
-            restJson.put("message", "Add vm into DB error.");
+            LOGGER.error("function=addVm; msg=add vm into AAI error.");
+            restJson.put("message", "Add vm into AAI error.");
         }
         return restJson;
     }
 
     /**
      * <br>
-     * 
+     *
      * @param vmId
      * @return
      * @since VFC 1.0
@@ -128,7 +128,7 @@ public class VmServiceImpl implements VmService {
 
     /**
      * <br>
-     * 
+     *
      * @param map
      * @return
      * @throws ServiceException
@@ -141,7 +141,7 @@ public class VmServiceImpl implements VmService {
 
     /**
      * <br>
-     * 
+     *
      * @param id
      * @return
      * @throws ServiceException
@@ -158,7 +158,7 @@ public class VmServiceImpl implements VmService {
 
     /**
      * <br>
-     * 
+     *
      * @param vnfInstanceId
      * @throws ServiceException
      * @since VFC 1.0

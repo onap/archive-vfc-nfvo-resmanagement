@@ -22,7 +22,7 @@ import java.util.Map;
  * Response for RestFul requests.<br/>
  * <p>
  * </p>
- * 
+ *
  * @author
  * @version 28-May-2016
  */
@@ -36,7 +36,7 @@ public class RestfulResponse {
 
     /**
      * <br/>
-     * 
+     *
      * @return
      * @since
      */
@@ -46,7 +46,7 @@ public class RestfulResponse {
 
     /**
      * <br/>
-     * 
+     *
      * @param status
      * @since
      */
@@ -56,7 +56,7 @@ public class RestfulResponse {
 
     /**
      * <br/>
-     * 
+     *
      * @return
      * @since
      */
@@ -66,7 +66,7 @@ public class RestfulResponse {
 
     /**
      * <br/>
-     * 
+     *
      * @param header
      * @since
      */
@@ -76,7 +76,7 @@ public class RestfulResponse {
 
     /**
      * Get response header value as integer.<br/>
-     * 
+     *
      * @param key header param name.
      * @return header param value as integer. (-1 if error)
      * @since
@@ -93,7 +93,7 @@ public class RestfulResponse {
 
     /**
      * Get response header value as long.<br/>
-     * 
+     *
      * @param key header param name.
      * @return value as long. -1 if no value.
      * @since
@@ -110,7 +110,7 @@ public class RestfulResponse {
 
     /**
      * Get http header as string.<br/>
-     * 
+     *
      * @param key header name.
      * @return header value.
      * @since
@@ -124,7 +124,7 @@ public class RestfulResponse {
 
     /**
      * <br/>
-     * 
+     *
      * @return
      * @since
      */
@@ -134,7 +134,7 @@ public class RestfulResponse {
 
     /**
      * <br/>
-     * 
+     *
      * @param responseString
      * @since
      */

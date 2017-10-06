@@ -256,6 +256,51 @@ public class UrlConstant {
      */
     public static final String LIMITS_URL = "/v1/limits";
 
+    /**
+     * esr-vnfm url
+     */
+    public static final String ESR_VNFM_URL = "/aai/v11/external-system/esr-vnfm-list/esr-vnfm/";
+
+    /**
+     * generic-vnf url
+     */
+    public static final String GENERIC_VNF_URL = "/aai/v11/network/generic-vnfs/generic-vnf/";
+
+    /**
+     * generic-vnf url
+     */
+    public static final String GENERIC_VNFS_URL = "/aai/v11/network/generic-vnfs";
+
+    /**
+     * customer url
+     */
+    public static final String CUSTOMER_URL = "/aai/v11/business/customers/customer/";
+
+    /**
+     * service-subscription url
+     */
+    public static final String SERVICE_SUBSCRIPTION_URL = "/service-subscriptions/service-subscription/";
+
+    /**
+     * service-instance url
+     */
+    public static final String SERVICE_INSTANCE_URL = "/service-instances/service-instance/";
+
+    /**
+     * cloud-region url
+     */
+    public static final String CLOUD_REGION_URL = "/aai/v11/cloud-infrastructure/cloud-regions/cloud-region/";
+
+    /**
+     * tenant url
+     */
+    public static final String CLOUD_TENANT_URL = "/tenants/tenant/";
+
+    /**
+     * vserver url
+     */
+    public static final String VSERVER_URL = "/vservers/vserver/";
+
     private UrlConstant() {
         // private constructor
     }
