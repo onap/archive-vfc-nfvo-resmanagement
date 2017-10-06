@@ -59,4 +59,13 @@ public class Config {
     public static String getTenantId() {
         return prps.getProperty(Constant.TENANT_ID);
     }
+
+    public static String getGlobalCustomerId() {
+        return prps.getProperty(Constant.GLOBAL_CUSTOMER_ID);
+    }
+
+    public static String getServiceType() {
+        return prps.getProperty(Constant.SERVICE_TYPE);
+    }
+
 }

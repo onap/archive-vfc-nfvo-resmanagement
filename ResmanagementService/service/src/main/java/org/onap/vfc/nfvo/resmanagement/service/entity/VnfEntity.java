@@ -19,6 +19,8 @@ package org.onap.vfc.nfvo.resmanagement.service.entity;
 import java.io.Serializable;
 
 import org.apache.commons.lang.StringUtils;
+import org.onap.vfc.nfvo.resmanagement.common.conf.Config;
+import org.onap.vfc.nfvo.resmanagement.common.constant.UrlConstant;
 import org.onap.vfc.nfvo.resmanagement.common.util.JsonUtil;
 import org.onap.vfc.nfvo.resmanagement.common.util.RestfulUtil;
 import org.onap.vfc.nfvo.resmanagement.common.util.request.RequestUtil;
@@ -341,24 +343,32 @@ public class VnfEntity implements Serializable {
     }
 
     public static void updateEntityWithVnfmInfo(VnfEntity vnfEntity, JSONObject jsonObject) {
-        vnfEntity.setVnfmId(JsonUtil.getJsonFieldStr(jsonObject, "vnfm-id"));
+         vnfEntity.setVnfmId(JsonUtil.getJsonFieldStr(jsonObject, "vnfm-id"));
         vnfEntity.setVnfmName(JsonUtil.getJsonFieldStr(jsonObject, "vnfm-name"));
         vnfEntity.setVnfmResourceVersion(JsonUtil.getJsonFieldStr(jsonObject, "resource-version"));
+        vnfEntity.setVimId(JsonUtil.getJsonFieldStr(jsonObject, "vim-id"));
 
         // vim id stores the info as vim-id: <cloud-region-owner>_<cloud-region-id>
-        // and esr-sysstem-info contains vim info.
-        String str = JsonUtil.getJsonFieldStr(jsonObject, "vim-id");
+        // and esr-system-info contains vim info.
+        String str = vnfEntity.getVimId();
+
+        if (!(str == null) && str.contains("_")){
         String[] result = str.split("_");
         RestfulParametes restfulParametes = new RestfulParametes();
         restfulParametes.setHeaderMap(RequestUtil.getAAIHeaderMap());
         RestfulResponse restfulResponse = RestfulUtil
-                .getRestfulResponse("https://192.168.17.24:8443/aai/v11/cloud-infrastructure/cloud-regions/cloud-region/"
+                .getRestfulResponse(Config.getHost() +":" + Config.getPort() + UrlConstant.CLOUD_REGION_URL
         + result[0] + "/" + result[1] + "/esr-system-info-list/esr-system-info", restfulParametes, "get");
 
         if(restfulResponse.isSuccess()) {
-            vnfEntity.setVimId(JsonUtil.getJsonFieldStr(jsonObject, "esr-system-info-id"));
-            vnfEntity.setVimName(JsonUtil.getJsonFieldStr(jsonObject, "system-name"));
-            vnfEntity.setVimTenant(JsonUtil.getJsonFieldStr(jsonObject, "default-tenant"));
+            vnfEntity.setVimId(JsonUtil.getJsonFieldStr(JSONObject.fromObject(restfulResponse.getResponseContent()), "esr-system-info-id"));
+            vnfEntity.setVimName(JsonUtil.getJsonFieldStr(JSONObject.fromObject(restfulResponse.getResponseContent()), "system-name"));
+            vnfEntity.setVimTenant(JsonUtil.getJsonFieldStr(JSONObject.fromObject(restfulResponse.getResponseContent()), "default-tenant"));
+        }
+        }
+        else{
+
+            //do nothing
         }
     }
 
@@ -392,10 +402,10 @@ public class VnfEntity implements Serializable {
         JSONArray relationshipData1 = new JSONArray();
         JSONObject customer = new JSONObject();
         customer.put("relationship-key", "customer.global-customer-id");
-        customer.put("relationship-value", "ResManagement-Customer-id");
+        customer.put("relationship-value", Config.getGlobalCustomerId());
         JSONObject service = new JSONObject();
         service.put("relationship-key", "service-subscription.service-type");
-        service.put("relationship-value", "ResManagement-NSID-Service-Type");
+        service.put("relationship-value", Config.getServiceType());
         JSONObject serviceInstance = new JSONObject();
         serviceInstance.put("relationship-key", "service-instance.service-instance-id");
         serviceInstance.put("relationship-value", this.getNsId());

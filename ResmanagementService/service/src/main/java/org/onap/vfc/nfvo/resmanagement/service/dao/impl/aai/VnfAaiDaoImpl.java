@@ -21,6 +21,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
+import org.onap.vfc.nfvo.resmanagement.common.conf.Config;
+import org.onap.vfc.nfvo.resmanagement.common.constant.UrlConstant;
 import org.onap.vfc.nfvo.resmanagement.common.util.RestfulUtil;
 import org.onap.vfc.nfvo.resmanagement.common.util.request.RequestUtil;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulParametes;
@@ -51,7 +53,7 @@ public class VnfAaiDaoImpl implements VnfDao {
             restfulParametes.setHeaderMap(RequestUtil.getAAIHeaderMap());
 
             RestfulResponse response = RestfulUtil.getRestfulResponse(
-                    "https://192.168.17.24:8443/aai/v11/network/generic-vnfs", restfulParametes, "get");
+                    Config.getHost() +":" + Config.getPort() + UrlConstant.GENERIC_VNFS_URL, restfulParametes, "get");
 
             if(response.isSuccess()) {
                 JSONObject jsonObject = JSONObject.fromObject(response.getResponseContent());
@@ -68,7 +70,7 @@ public class VnfAaiDaoImpl implements VnfDao {
     }
 
     private VnfEntity updateVnfInfo(VnfEntity vnfEntity, JSONObject jsonObject) {
-        updateVnfInfo(vnfEntity, jsonObject);
+        updateVnfmInfo(vnfEntity, jsonObject);
         updateNsInfo(vnfEntity, jsonObject);
         return vnfEntity;
     }
@@ -87,7 +89,7 @@ public class VnfAaiDaoImpl implements VnfDao {
                 RestfulParametes restfulParametes = new RestfulParametes();
                 restfulParametes.setHeaderMap(RequestUtil.getAAIHeaderMap());
                 RestfulResponse restfulResponse = RestfulUtil
-                        .getRestfulResponse("https://192.168.17.24:8443" + relatedLink, restfulParametes, "get");
+                        .getRestfulResponse(Config.getHost() +":" + Config.getPort() + relatedLink, restfulParametes, "get");
 
                 if(restfulResponse.isSuccess()) {
                     VnfEntity.updateEntityWithVnfmInfo(vnfEntity,
@@ -113,7 +115,7 @@ public class VnfAaiDaoImpl implements VnfDao {
                 RestfulParametes restfulParametes = new RestfulParametes();
                 restfulParametes.setHeaderMap(RequestUtil.getAAIHeaderMap());
                 RestfulResponse restfulResponse = RestfulUtil
-                        .getRestfulResponse("https://192.168.17.24:8443" + relatedLink, restfulParametes, "get");
+                        .getRestfulResponse(Config.getHost() +":" + Config.getPort() + relatedLink, restfulParametes, "get");
 
                 if(restfulResponse.isSuccess()) {
                     VnfEntity.updateEntityWithNsInfo(vnfEntity,
@@ -132,7 +134,7 @@ public class VnfAaiDaoImpl implements VnfDao {
         restfulParametes.setHeaderMap(RequestUtil.getAAIHeaderMap());
 
         RestfulResponse response = RestfulUtil.getRestfulResponse(
-                "https://192.168.17.24:8443/aai/v11/network/generic-vnfs/generic-vnf/" + id, restfulParametes, "get");
+                Config.getHost() +":" + Config.getPort() + UrlConstant.GENERIC_VNF_URL + id, restfulParametes, "get");
 
         if(response.isSuccess()) {
             JSONObject jsonObject = JSONObject.fromObject(response.getResponseContent());
@@ -148,7 +150,7 @@ public class VnfAaiDaoImpl implements VnfDao {
         restfulParametes.setHeaderMap(RequestUtil.getAAIHeaderMap());
         // restfulParametes.setRawData(vnfEntity.toEsrVnfmStringForAai());
         RestfulResponse response = RestfulUtil.getRestfulResponse(
-                "https://192.168.17.24:8443/aai/v11/external-system/esr-vnfm-list/esr-vnfm/" + vnfEntity.getVnfmId(),
+                Config.getHost() +":" + Config.getPort() + UrlConstant.ESR_VNFM_URL + vnfEntity.getVnfmId(),
                 restfulParametes, "get");
         return response == null || !response.isSuccess() ? VNF_AAI_DAO_FAIL : VNF_AAI_DAO_SUCCESS;
     }
@@ -158,8 +160,8 @@ public class VnfAaiDaoImpl implements VnfDao {
 
         restfulParametes.setHeaderMap(RequestUtil.getAAIHeaderMap());
         RestfulResponse response = RestfulUtil.getRestfulResponse(
-                "https://192.168.17.24:8443/aai/v11/business/customers/customer/vfc/service-subscriptions/service-subscription"
-                + "/vfc-service/service-instances/service-instance/" + vnfEntity.getNsId(), restfulParametes, "get");
+                Config.getHost() +":" + Config.getPort() + UrlConstant.CUSTOMER_URL + Config.getGlobalCustomerId() + UrlConstant.SERVICE_SUBSCRIPTION_URL
+                + Config.getServiceType() + UrlConstant.SERVICE_INSTANCE_URL + vnfEntity.getNsId(), restfulParametes, "get");
         return response == null || !response.isSuccess() ? VNF_AAI_DAO_FAIL : VNF_AAI_DAO_SUCCESS;
     }
 
@@ -171,7 +173,7 @@ public class VnfAaiDaoImpl implements VnfDao {
         restfulParametes.setRawData(vnfEntity.toStringForAai());
 
         RestfulResponse response = RestfulUtil.getRestfulResponse(
-                "https://192.168.17.24:8443/aai/v11/network/generic-vnfs/generic-vnf/" + vnfEntity.getId(),
+                Config.getHost() +":" + Config.getPort() + UrlConstant.GENERIC_VNF_URL + vnfEntity.getId(),
                 restfulParametes, "put");
         return response == null || !response.isSuccess() ? VNF_AAI_DAO_FAIL : VNF_AAI_DAO_SUCCESS;
     }
@@ -198,7 +200,7 @@ public class VnfAaiDaoImpl implements VnfDao {
             restfulParametes.put("resource-version", vnfEntity.getVnfmResourceVersion());
 
             RestfulResponse response = RestfulUtil
-                    .getRestfulResponse("https://192.168.17.24:8443/aai/v11/external-system/esr-vnfm-list/esr-vnfm/"
+                    .getRestfulResponse(Config.getHost() +":" + Config.getPort() + UrlConstant.ESR_VNFM_URL
                             + vnfEntity.getVnfmId(), restfulParametes, "delete");
             return response == null || !response.isSuccess() ? VNF_AAI_DAO_FAIL : VNF_AAI_DAO_SUCCESS;
         }
@@ -214,7 +216,7 @@ public class VnfAaiDaoImpl implements VnfDao {
             restfulParametes.setHeaderMap(RequestUtil.getAAIHeaderMap());
             restfulParametes.put("resource-version", vnfEntity.getVnfResourceVersion());
             RestfulResponse response = RestfulUtil
-                    .getRestfulResponse("https://192.168.17.24:8443/aai/v11/network/generic-vnfs/generic-vnf/"
+                    .getRestfulResponse(Config.getHost() +":" + Config.getPort() + UrlConstant.GENERIC_VNF_URL
                             + vnfEntity.getVnfInstanceId(), restfulParametes, "delete");
 
             if(response.isSuccess()) {

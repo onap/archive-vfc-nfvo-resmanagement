@@ -103,6 +103,10 @@ public class Constant {
 
     public static final String TENANT_ID = "tenant-id";
 
+    public static final String GLOBAL_CUSTOMER_ID = "global-customer-id";
+
+    public static final String SERVICE_TYPE = "service-type";
+
     private Constant() {
         // private constants
     }
