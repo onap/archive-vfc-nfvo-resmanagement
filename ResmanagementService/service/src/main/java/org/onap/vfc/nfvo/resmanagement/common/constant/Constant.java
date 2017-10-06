@@ -91,6 +91,18 @@ public class Constant {
 
     public static String VFC_SERVICE_SUBSCRIPTION_ID = "vfc-subsription";
 
+    public static final String CONF = "config.properties";
+
+    public static final String HOST = "host_url";
+
+    public static final String PORT = "port";
+
+    public static final String CLOUD_OWNER = "cloud-owner";
+
+    public static final String CLOUD_REGION_ID = "cloud-region-id";
+
+    public static final String TENANT_ID = "tenant-id";
+
     private Constant() {
         // private constants
     }
