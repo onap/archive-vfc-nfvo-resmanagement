@@ -36,7 +36,7 @@ import net.sf.json.JSONObject;
  * <br>
  * <p>
  * </p>
- * 
+ *
  * @author
  * @version VFC 1.0 Oct 28, 2016
  */
@@ -50,7 +50,7 @@ public class VnfServiceImpl implements VnfService {
 
     /**
      * <br>
-     * 
+     *
      * @param vnfEntity
      * @return
      * @throws ServiceException
@@ -80,14 +80,14 @@ public class VnfServiceImpl implements VnfService {
 
     /**
      * <br>
-     * 
+     *
      * @param id
      * @return
      * @since VFC 1.0
      */
     private boolean checkId(String id) {
         VnfEntity vnf = vnfDao.getVnf(id);
-        if(null == vnf) {
+        if(null == vnf || StringUtils.isEmpty(vnf.getId())) {
             return true;
         }
         return false;
@@ -95,7 +95,7 @@ public class VnfServiceImpl implements VnfService {
 
     /**
      * <br>
-     * 
+     *
      * @param map
      * @return
      * @throws ServiceException
@@ -108,7 +108,7 @@ public class VnfServiceImpl implements VnfService {
 
     /**
      * <br>
-     * 
+     *
      * @param id
      * @return
      * @throws ServiceException
@@ -122,7 +122,7 @@ public class VnfServiceImpl implements VnfService {
 
     /**
      * <br>
-     * 
+     *
      * @param vnfInstanceId
      * @throws ServiceException
      * @since VFC 1.0
