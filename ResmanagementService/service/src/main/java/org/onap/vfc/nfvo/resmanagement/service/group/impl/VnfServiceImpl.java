@@ -87,7 +87,7 @@ public class VnfServiceImpl implements VnfService {
      */
     private boolean checkId(String id) {
         VnfEntity vnf = vnfDao.getVnf(id);
-        if(null == vnf) {
+        if(null == vnf || StringUtils.isEmpty(vnf.getId())) {
             return true;
         }
         return false;
@@ -116,7 +116,7 @@ public class VnfServiceImpl implements VnfService {
      */
     @Override
     public int delete(String id) throws ServiceException {
-        deleteVnfInfo(id);
+        // deleteVnfInfo(id);
         return vnfDao.deleteVnfById(id);
     }
 

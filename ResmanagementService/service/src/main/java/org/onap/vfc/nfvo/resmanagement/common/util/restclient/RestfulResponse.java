@@ -141,4 +141,8 @@ public class RestfulResponse {
     public void setResponseJson(final String responseString) {
         this.responseContent = responseString;
     }
+
+    public boolean isSuccess() {
+        return this.getStatus() / 100 == 2;
+    }
 }

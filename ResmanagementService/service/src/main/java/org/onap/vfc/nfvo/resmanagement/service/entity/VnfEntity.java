@@ -21,6 +21,7 @@ import java.io.Serializable;
 import org.apache.commons.lang.StringUtils;
 import org.onap.vfc.nfvo.resmanagement.common.util.JsonUtil;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 /**
@@ -96,7 +97,9 @@ public class VnfEntity implements Serializable {
     private String name;
 
     /**  */
-    private String resourceVersion;
+    private String vnfResourceVersion;
+
+    private String vnfmResourceVersion;
 
     private static final long serialVersionUID = 1L;
 
@@ -307,30 +310,42 @@ public class VnfEntity implements Serializable {
         vnfEntity.setMaxRam(JsonUtil.getJsonFieldInt(jsonObject, "maxRam"));
         vnfEntity.setMaxShd(JsonUtil.getJsonFieldInt(jsonObject, "maxShd"));
         vnfEntity.setMaxNet(JsonUtil.getJsonFieldInt(jsonObject, "maxNet"));
-        vnfEntity.setResourceVersion(JsonUtil.getJsonFieldStr(jsonObject, "resource-version"));
+        vnfEntity.setVnfResourceVersion(JsonUtil.getJsonFieldStr(jsonObject, "resource-version"));
         return vnfEntity;
     }
 
     public static VnfEntity toEntityFromAai(JSONObject jsonObject) {
         VnfEntity vnfEntity = new VnfEntity();
+        vnfEntity.setId(JsonUtil.getJsonFieldStr(jsonObject, "vnf-id"));
         vnfEntity.setVnfInstanceId(JsonUtil.getJsonFieldStr(jsonObject, "vnf-id"));
         vnfEntity.setVnfInstanceName(JsonUtil.getJsonFieldStr(jsonObject, "vnf-name"));
         vnfEntity.setName(JsonUtil.getJsonFieldStr(jsonObject, "vnf-name2"));
         vnfEntity.setNsId(JsonUtil.getJsonFieldStr(jsonObject, "service-id"));
         vnfEntity.setVnfStatus(JsonUtil.getJsonFieldStr(jsonObject, "orchestration-status"));
         vnfEntity.setVnfType(JsonUtil.getJsonFieldStr(jsonObject, "vnf-type"));
+        vnfEntity.setVnfPackageName(JsonUtil.getJsonFieldStr(jsonObject, "vnf-package-name"));
+        vnfEntity.setVnfDescriptorName(JsonUtil.getJsonFieldStr(jsonObject, "vnf-discriptor-name"));
+        vnfEntity.setJobId(JsonUtil.getJsonFieldStr(jsonObject, "job-id"));
         vnfEntity.setMaxCpu(JsonUtil.getJsonFieldInt(jsonObject, "vcpu"));
         vnfEntity.setMaxDisk(JsonUtil.getJsonFieldInt(jsonObject, "vdisk"));
         vnfEntity.setMaxRam(JsonUtil.getJsonFieldInt(jsonObject, "vmemory"));
-        vnfEntity.setMaxShd(JsonUtil.getJsonFieldInt(jsonObject, "vdisk-units"));
-        vnfEntity.setResourceVersion(JsonUtil.getJsonFieldStr(jsonObject, "resource-version"));
+        vnfEntity.setMaxNet(JsonUtil.getJsonFieldInt(jsonObject, "vnet"));
+        vnfEntity.setMaxShd(JsonUtil.getJsonFieldInt(jsonObject, "nshd"));
+        vnfEntity.setMaxVm(JsonUtil.getJsonFieldInt(jsonObject, "nvm"));
+        vnfEntity.setVnfResourceVersion(JsonUtil.getJsonFieldStr(jsonObject, "resource-version"));
         return vnfEntity;
     }
 
-    public String toStringForAai() {
+    public static void updateEntityWithVnfmInfo(VnfEntity vnfEntity, JSONObject jsonObject) {
+        vnfEntity.setVnfmId(JsonUtil.getJsonFieldStr(jsonObject, "vnfm-id"));
+        vnfEntity.setVimId(JsonUtil.getJsonFieldStr(jsonObject, "vim-id"));
+        vnfEntity.setVnfmName(JsonUtil.getJsonFieldStr(jsonObject, "vnfm-name"));
+        vnfEntity.setVnfmResourceVersion(JsonUtil.getJsonFieldStr(jsonObject, "resource-version"));
+    }
 
+    public String toStringForAai() {
         JSONObject vnfResJson = new JSONObject();
-        vnfResJson.put("vnf-id", StringUtils.trimToEmpty(this.getVnfInstanceId()));
+        vnfResJson.put("vnf-id", StringUtils.trimToEmpty(this.getId()));
         vnfResJson.put("vnf-name", StringUtils.trimToEmpty(this.getVnfInstanceName()));
         vnfResJson.put("vnf-name2", StringUtils.trimToEmpty(this.getName()));
         vnfResJson.put("service-id", StringUtils.trimToEmpty(this.getNsId()));
@@ -338,8 +353,38 @@ public class VnfEntity implements Serializable {
         vnfResJson.put("vcpu", this.getMaxCpu());
         vnfResJson.put("vdisk", this.getMaxDisk());
         vnfResJson.put("vmemory", this.getMaxRam());
-        vnfResJson.put("vdisk-units", this.getMaxShd());
+        vnfResJson.put("nshd", this.getMaxShd());
+        vnfResJson.put("nvm", this.getMaxVm());
+        vnfResJson.put("nnet", this.getMaxNet());
+        vnfResJson.put("vnf-package-name", StringUtils.trimToEmpty(this.getVnfPackageName()));
+        vnfResJson.put("vnf-discriptor-name", StringUtils.trimToEmpty(this.getVnfDescriptorName()));
+        vnfResJson.put("job-id", StringUtils.trimToEmpty(this.getJobId()));
+        vnfResJson.put("orchestration-status", StringUtils.trimToEmpty(this.getVnfStatus()));
+
+        JSONArray relationshipData = new JSONArray();
+        JSONObject relationshipDataEntry = new JSONObject();
+        relationshipDataEntry.put("relationship-key", "esr-vnfm.vnfm-id");
+        relationshipDataEntry.put("relationship-value", this.getVnfmId());
+        relationshipData.add(relationshipDataEntry);
+
+        JSONArray relationship = new JSONArray();
+        JSONObject relationshipEntry = new JSONObject();
+        relationshipEntry.put("related-to", "esr-vnfm");
+        relationshipEntry.put("relationship-data", relationshipData);
+        relationship.add(relationshipEntry);
+
+        JSONObject relation = new JSONObject();
+        relation.put("relationship", relationship);
+
+        vnfResJson.put("relationship-list", relation);
         return vnfResJson.toString();
+    }
+
+    public String toEsrVnfmStringForAai() {
+        JSONObject esrVnfm = new JSONObject();
+        esrVnfm.put("vnfm-id", StringUtils.trimToEmpty(this.getVnfmId()));
+        esrVnfm.put("vim-id", StringUtils.trimToEmpty(this.getVimId()));
+        return esrVnfm.toString();
     }
 
     @Override
@@ -370,11 +415,19 @@ public class VnfEntity implements Serializable {
         return vnfResJson.toString();
     }
 
-    public String getResourceVersion() {
-        return resourceVersion;
+    public String getVnfmResourceVersion() {
+        return vnfmResourceVersion;
     }
 
-    public void setResourceVersion(String resourceVersion) {
-        this.resourceVersion = resourceVersion;
+    public void setVnfmResourceVersion(String vnfmResourceVersion) {
+        this.vnfmResourceVersion = vnfmResourceVersion;
+    }
+
+    public String getVnfResourceVersion() {
+        return vnfResourceVersion;
+    }
+
+    public void setVnfResourceVersion(String vnfResourceVersion) {
+        this.vnfResourceVersion = vnfResourceVersion;
     }
 }

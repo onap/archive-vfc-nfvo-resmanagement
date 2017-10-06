@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
 import org.onap.vfc.nfvo.resmanagement.common.util.RestfulUtil;
 import org.onap.vfc.nfvo.resmanagement.common.util.request.RequestUtil;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulParametes;
@@ -41,7 +42,10 @@ public class VnfAaiDaoImpl implements VnfDao {
         ArrayList<VnfEntity> vnfList = new ArrayList<>();
 
         if(condition.containsKey("id")) {
-            vnfList.add(getVnf((String)condition.get("id")));
+            VnfEntity vnf = getVnf((String)condition.get("id"));
+            if(vnf != null) {
+                vnfList.add(vnf);
+            }
         } else {
             RestfulParametes restfulParametes = new RestfulParametes();
             restfulParametes.setHeaderMap(RequestUtil.getAAIHeaderMap());
@@ -49,38 +53,107 @@ public class VnfAaiDaoImpl implements VnfDao {
             RestfulResponse response = RestfulUtil.getRestfulResponse(
                     "https://192.168.17.24:8443/aai/v11/network/generic-vnfs", restfulParametes, "get");
 
-            JSONObject jsonObject = JSONObject.fromObject(response.getResponseContent());
-            JSONArray jsonArray = jsonObject.getJSONArray("generic-vnf");
+            if(response.isSuccess()) {
+                JSONObject jsonObject = JSONObject.fromObject(response.getResponseContent());
+                JSONArray jsonArray = jsonObject.getJSONArray("generic-vnf");
 
-            jsonArray.forEach(genericVnf -> vnfList.add(VnfEntity.toEntityFromAai((JSONObject)genericVnf)));
+                for(int i = 0; i < jsonArray.size(); i++) {
+                    JSONObject genericVnf = jsonArray.getJSONObject(i);
+                    vnfList.add(updateVnfmInfo(VnfEntity.toEntityFromAai(genericVnf), genericVnf));
+                }
+            }
         }
         return vnfList;
     }
 
+    private VnfEntity updateVnfmInfo(VnfEntity vnfEntity, JSONObject jsonObject) {
+        if(!jsonObject.has("relationship-list")) {
+            return vnfEntity;
+        }
+
+        JSONArray relList = (JSONArray)((JSONObject)jsonObject.get("relationship-list")).get("relationship");
+        for(int i = 0; i < relList.size(); i++) {
+            JSONObject obj = relList.getJSONObject(i);
+            if("esr-vnfm".equals(obj.getString("related-to"))) {
+                String relatedLink = obj.getString("related-link");
+
+                RestfulParametes restfulParametes = new RestfulParametes();
+                restfulParametes.setHeaderMap(RequestUtil.getAAIHeaderMap());
+                RestfulResponse restfulResponse = RestfulUtil
+                        .getRestfulResponse("https://192.168.17.24:8443" + relatedLink, restfulParametes, "get");
+
+                if(restfulResponse.isSuccess()) {
+                    VnfEntity.updateEntityWithVnfmInfo(vnfEntity,
+                            JSONObject.fromObject(restfulResponse.getResponseContent()));
+                    break;
+                }
+            }
+        }
+        return vnfEntity;
+    }
+
     @Override
     public VnfEntity getVnf(String id) {
+        VnfEntity vnfEntity = null;
         RestfulParametes restfulParametes = new RestfulParametes();
         restfulParametes.setHeaderMap(RequestUtil.getAAIHeaderMap());
 
         RestfulResponse response = RestfulUtil.getRestfulResponse(
                 "https://192.168.17.24:8443/aai/v11/network/generic-vnfs/generic-vnf/" + id, restfulParametes, "get");
 
-        JSONObject jsonObject = JSONObject.fromObject(response.getResponseContent());
-        VnfEntity vnfEntity = VnfEntity.toEntityFromAai(jsonObject);
+        if(response.isSuccess()) {
+            JSONObject jsonObject = JSONObject.fromObject(response.getResponseContent());
+            vnfEntity = VnfEntity.toEntityFromAai(jsonObject);
+            updateVnfmInfo(vnfEntity, jsonObject);
+        }
         return vnfEntity;
     }
 
-    @Override
-    public int addVnf(VnfEntity vnfEntity) {
+    private int checkVnfmEntity(VnfEntity vnfEntity) {
         RestfulParametes restfulParametes = new RestfulParametes();
+
+        restfulParametes.setHeaderMap(RequestUtil.getAAIHeaderMap());
+        // restfulParametes.setRawData(vnfEntity.toEsrVnfmStringForAai());
+        RestfulResponse response = RestfulUtil.getRestfulResponse(
+                "https://192.168.17.24:8443/aai/v11/external-system/esr-vnfm-list/esr-vnfm/" + vnfEntity.getVnfmId(),
+                restfulParametes, "get");
+        return response == null || !response.isSuccess() ? VNF_AAI_DAO_FAIL : VNF_AAI_DAO_SUCCESS;
+    }
+
+    private int addVnfToAAI(VnfEntity vnfEntity) {
+        RestfulParametes restfulParametes = new RestfulParametes();
+
         restfulParametes.setHeaderMap(RequestUtil.getAAIHeaderMap());
         restfulParametes.setRawData(vnfEntity.toStringForAai());
 
         RestfulResponse response = RestfulUtil.getRestfulResponse(
-                "https://192.168.17.24:8443/aai/v11/network/generic-vnfs/generic-vnf/" + vnfEntity.getVnfInstanceId(),
+                "https://192.168.17.24:8443/aai/v11/network/generic-vnfs/generic-vnf/" + vnfEntity.getId(),
                 restfulParametes, "put");
+        return response == null || !response.isSuccess() ? VNF_AAI_DAO_FAIL : VNF_AAI_DAO_SUCCESS;
+    }
 
-        return response == null || response.getStatus() == -1 ? VNF_AAI_DAO_FAIL : VNF_AAI_DAO_SUCCESS;
+    @Override
+    public int addVnf(VnfEntity vnfEntity) {
+        if(checkVnfmEntity(vnfEntity) == VNF_AAI_DAO_SUCCESS) {
+            if(addVnfToAAI(vnfEntity) == VNF_AAI_DAO_SUCCESS) {
+                return VNF_AAI_DAO_SUCCESS;
+            }
+        }
+        return VNF_AAI_DAO_FAIL;
+    }
+
+    private int deteletVnfm(VnfEntity vnfEntity) {
+        if(!StringUtils.isEmpty(vnfEntity.getVnfmResourceVersion())) {
+            RestfulParametes restfulParametes = new RestfulParametes();
+            restfulParametes.setHeaderMap(RequestUtil.getAAIHeaderMap());
+            restfulParametes.put("resource-version", vnfEntity.getVnfmResourceVersion());
+
+            RestfulResponse response = RestfulUtil
+                    .getRestfulResponse("https://192.168.17.24:8443/aai/v11/external-system/esr-vnfm-list/esr-vnfm/"
+                            + vnfEntity.getVnfmId(), restfulParametes, "delete");
+            return response == null || !response.isSuccess() ? VNF_AAI_DAO_FAIL : VNF_AAI_DAO_SUCCESS;
+        }
+        return VNF_AAI_DAO_FAIL;
     }
 
     @Override
@@ -90,12 +163,16 @@ public class VnfAaiDaoImpl implements VnfDao {
         if(vnfEntity != null) {
             RestfulParametes restfulParametes = new RestfulParametes();
             restfulParametes.setHeaderMap(RequestUtil.getAAIHeaderMap());
-            restfulParametes.put("resource-version", vnfEntity.getResourceVersion());
-
+            restfulParametes.put("resource-version", vnfEntity.getVnfResourceVersion());
             RestfulResponse response = RestfulUtil
                     .getRestfulResponse("https://192.168.17.24:8443/aai/v11/network/generic-vnfs/generic-vnf/"
                             + vnfEntity.getVnfInstanceId(), restfulParametes, "delete");
+
+            if(response.isSuccess()) {
+                deteletVnfm(vnfEntity);
+                return VNF_AAI_DAO_SUCCESS;
+            }
         }
-        return 1;
+        return VNF_AAI_DAO_FAIL;
     }
 }
