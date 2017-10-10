@@ -22,7 +22,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.onap.vfc.nfvo.resmanagement</groupId>
-    <artifactId>resmanagement</artifactId>
+    <artifactId>vfc-nfvo-resmanagement</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>vfc-nfvo-resmanagement</name>
