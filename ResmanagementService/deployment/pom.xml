@@ -21,7 +21,7 @@
         <artifactId>resmanagement-service-root</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-
+    <version>1.0.0-SNAPSHOT</version>
     <artifactId>resmanagement-deployment</artifactId>
     <packaging>pom</packaging>
 
