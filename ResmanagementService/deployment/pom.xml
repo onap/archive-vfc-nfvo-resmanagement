@@ -18,12 +18,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.onap.vfc.nfvo.resmanagement</groupId>
-        <artifactId>resmanagement-service-root</artifactId>
+        <artifactId>vfc-nfvo-resmanagement-service-root</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <version>1.0.0-SNAPSHOT</version>
-    <artifactId>resmanagement-deployment</artifactId>
+    <artifactId>vfc-nfvo-resmanagement-deployment</artifactId>
     <packaging>pom</packaging>
 
     <properties>
