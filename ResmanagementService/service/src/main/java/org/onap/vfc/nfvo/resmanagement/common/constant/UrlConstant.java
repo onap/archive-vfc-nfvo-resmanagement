@@ -174,7 +174,7 @@ public class UrlConstant {
     /**
      * getLimitsURL.
      */
-    public static final String GET_LIMITS_URL = "/api/multivim/v1/%s/%s/limits";
+    public static final String GET_LIMITS_URL = "/api/multicloud/v0/%s/%s/limits";
 
     /**
      * template notify M url.

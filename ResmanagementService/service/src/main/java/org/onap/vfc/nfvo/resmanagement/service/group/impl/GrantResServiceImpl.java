@@ -17,9 +17,11 @@
 package org.onap.vfc.nfvo.resmanagement.service.group.impl;
 
 import org.onap.vfc.nfvo.resmanagement.common.VimUtil;
-import org.onap.vfc.nfvo.resmanagement.service.base.openstack.inf.Sites;
-import org.onap.vfc.nfvo.resmanagement.service.group.inf.GrantResService;
+import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
+import org.onap.vfc.nfvo.resmanagement.service.business.impl.LimitsBusinessImpl;
+import org.onap.vfc.nfvo.resmanagement.service.business.inf.LimitsBusiness;
+import org.onap.vfc.nfvo.resmanagement.service.group.inf.GrantResService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,9 +38,13 @@ import net.sf.json.JSONObject;
  */
 public class GrantResServiceImpl implements GrantResService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(GrantResServiceImpl.class);
+    public static final String ADD_RESOURCE = "addResource";
 
-    private Sites sites;
+    public static final String REMOVE_RESOURCE = "removeResource";
+
+    public static final String RESOURCE_TEMPLATE = "resourceTemplate";
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(GrantResServiceImpl.class);
 
     /**
      * <br>
@@ -52,13 +58,13 @@ public class GrantResServiceImpl implements GrantResService {
     public JSONObject grantResource(JSONObject object) throws ServiceException {
         LOGGER.info("function=grantResource; object: {}", object.toString());
         JSONObject additionalparam = object.getJSONObject("additionalParam");
-        String vimId = additionalparam.getString("vimid");
+        String vimId = additionalparam.getString(ParamConstant.PARAM_VIMID);
         JSONObject vimJson = VimUtil.getVimById(vimId);
-        String tenant = vimJson.getString("tenant");
+        String tenant = vimJson.getString(ParamConstant.PARAM_TENANT);
         JSONObject accessinfo = new JSONObject();
-        accessinfo.put("tenant", tenant);
+        accessinfo.put(ParamConstant.PARAM_TENANT, tenant);
         JSONObject vim = new JSONObject();
-        vim.put("vimid", vimId);
+        vim.put(ParamConstant.PARAM_VIMID, vimId);
         vim.put("accessinfo", accessinfo);
         LOGGER.info("function=grantResource; vim: {}", vim.toString());
         JSONObject result = new JSONObject();
@@ -69,23 +75,25 @@ public class GrantResServiceImpl implements GrantResService {
     @Override
     public JSONObject grantResourceReal(JSONObject object) throws ServiceException {
         LOGGER.info("function=grantResource; object: {}", object.toString());
-        String vimId = object.getString("vimId");
+        String vimId = object.getString(ParamConstant.PARAM_VIMID);
         JSONObject vimJson = VimUtil.getVimById(vimId);
         JSONObject vim = parseVim(vimJson);
         String resType = "";
         JSONArray resArr = new JSONArray();
-        if(object.containsKey("addResource")) {
-            resType = "addResource";
+        if(object.containsKey(ADD_RESOURCE)) {
+            resType = ADD_RESOURCE;
             resArr = parseResource(object, resType);
-        } else if(object.containsKey("removeResource")) {
-            resType = "removeResource";
+        } else if(object.containsKey(REMOVE_RESOURCE)) {
+            resType = REMOVE_RESOURCE;
             resArr = parseResource(object, resType);
         }
         JSONObject resInfo = getResInfo(object, resType);
-        resInfo.put("vimId", vimId);
-        sites.update(resInfo);
-
+        boolean compareResult = queryLimitsAndCompare(vimId, resInfo);
         JSONObject result = new JSONObject();
+        if(!compareResult) {
+            result.put("message", "Resource is not enough, grant resource failed.");
+            return result;
+        }
         result.put("vim", vim);
         result.put("zone", "");
         result.put("zoneGroup", "");
@@ -98,14 +106,58 @@ public class GrantResServiceImpl implements GrantResService {
         return result;
     }
 
+    private boolean queryLimitsAndCompare(String vimId, JSONObject resInfo) throws ServiceException {
+        LimitsBusiness limitsBusiness = new LimitsBusinessImpl();
+        JSONObject limits = limitsBusiness.getLimits(vimId);
+        LOGGER.info("function=QueryLimitsAndCompare; limits: {}", limits);
+        JSONObject availableResourse = getAvailableFromLimits(limits);
+        return compareResourceWithLimits(resInfo, availableResourse);
+    }
+
+    private boolean compareResourceWithLimits(JSONObject resInfo, JSONObject availableResourse) {
+        LOGGER.info("function=compareResourceWithLimits; resInfo: {}, availableResourse: {}", resInfo,
+                availableResourse);
+        if(Float.parseFloat(resInfo.getString(ParamConstant.USED_CPU))
+                - Float.parseFloat(availableResourse.getString("availableCPU")) > 0) {
+            LOGGER.info("function=compareResourceWithLimits; CPU is not enough.");
+            return false;
+        }
+        if(Float.parseFloat(resInfo.getString(ParamConstant.USED_MEMORY))
+                - Float.parseFloat(availableResourse.getString("availableMemory")) > 0) {
+            LOGGER.info("function=compareResourceWithLimits; Memory is not enough.");
+            return false;
+        }
+        if(Float.parseFloat(resInfo.getString(ParamConstant.USED_DISK))
+                - Float.parseFloat(availableResourse.getString("availableDisk")) > 0) {
+            LOGGER.info("function=compareResourceWithLimits; Disk is not enough.");
+            return false;
+        }
+
+        return true;
+    }
+
+    private JSONObject getAvailableFromLimits(JSONObject limits) {
+        JSONObject available = new JSONObject();
+        String availableCPU = String.valueOf(Float.parseFloat(limits.getString("totalCPU"))
+                - Float.parseFloat(limits.getString(ParamConstant.USED_CPU)));
+        String availableMemory = String.valueOf(Float.parseFloat(limits.getString("totalMemory"))
+                - Float.parseFloat(limits.getString(ParamConstant.USED_MEMORY)));
+        String availableDisk = String.valueOf(Float.parseFloat(limits.getString("totalDisk"))
+                - Float.parseFloat(limits.getString(ParamConstant.USED_DISK)));
+        available.put("availableCPU", availableCPU);
+        available.put("availableMemory", availableMemory);
+        available.put("availableDisk", availableDisk);
+        return available;
+    }
+
     private JSONObject getResInfo(JSONObject object, String type) {
         JSONArray arr = object.getJSONArray(type);
         LOGGER.info("function=getResInfo; arr: {}, type: {}", arr, type);
         JSONObject resourceObj = new JSONObject();
-        if("addResource".equals(type)) {
+        if(ADD_RESOURCE.equals(type)) {
             resourceObj = getGrantResource(arr);
             resourceObj.put("action", "online");
-        } else if("removeResource".equals(type)) {
+        } else if(REMOVE_RESOURCE.equals(type)) {
             resourceObj = getGrantResource(arr);
             resourceObj.put("action", "offline");
         }
@@ -126,22 +178,22 @@ public class GrantResServiceImpl implements GrantResService {
         int diskNum = 0;
         for(int i = 0; i < resource.size(); i++) {
             JSONObject res = resource.getJSONObject(i);
-            JSONObject vCpu = res.getJSONObject("resourceTemplate").getJSONObject("virtualComputeDescriptor")
+            JSONObject vCpu = res.getJSONObject(RESOURCE_TEMPLATE).getJSONObject("virtualComputeDescriptor")
                     .getJSONObject("virtualCpu");
             int vCpuNum = vCpu.getInt("numVirtualCpu");
-            JSONObject vMem = res.getJSONObject("resourceTemplate").getJSONObject("virtualComputeDescriptor")
+            JSONObject vMem = res.getJSONObject(RESOURCE_TEMPLATE).getJSONObject("virtualComputeDescriptor")
                     .getJSONObject("virtualMemory");
             int vMemNum = vMem.getInt("virtualMemSize");
-            JSONObject vDisk = res.getJSONObject("resourceTemplate").getJSONObject("virtualStorageDescriptor");
+            JSONObject vDisk = res.getJSONObject(RESOURCE_TEMPLATE).getJSONObject("virtualStorageDescriptor");
             int vDiskNum = vDisk.getInt("sizeOfStorage");
             cpuNum = cpuNum + vCpuNum;
             memNum = memNum + vMemNum;
             diskNum = diskNum + vDiskNum;
         }
         JSONObject obj = new JSONObject();
-        obj.put("usedCPU", String.valueOf(cpuNum));
-        obj.put("usedMemory", String.valueOf(memNum));
-        obj.put("usedDisk", String.valueOf(diskNum));
+        obj.put(ParamConstant.USED_CPU, String.valueOf(cpuNum));
+        obj.put(ParamConstant.USED_MEMORY, String.valueOf(memNum));
+        obj.put(ParamConstant.USED_DISK, String.valueOf(diskNum));
         return obj;
     }
 
@@ -162,7 +214,7 @@ public class GrantResServiceImpl implements GrantResService {
             obj.put("reservationId", "");
             obj.put("resourceProviderId", "");
             obj.put("zoneId", "");
-            obj.put("vimId", object.getString("vimId"));
+            obj.put(ParamConstant.PARAM_VIMID, object.getString(ParamConstant.PARAM_VIMID));
             obj.put("resourceDefinitionId", res.getString("resourceDefinitionId"));
             newResources.add(obj);
         }
@@ -184,23 +236,16 @@ public class GrantResServiceImpl implements GrantResService {
         interfaceInfo.put("apiVersion", "v2");
         interfaceInfo.put("protocolType", "http");
         JSONObject accessInfo = new JSONObject();
-        accessInfo.put("tenant", vimJson.getString("tenant"));
+        accessInfo.put(ParamConstant.PARAM_TENANT, vimJson.getString(ParamConstant.PARAM_TENANT));
         accessInfo.put("username", vimJson.getString("userName"));
         accessInfo.put("password", vimJson.getString("password"));
         JSONObject vim = new JSONObject();
-        vim.put("vimInfoId", vimJson.getString("vimId"));
-        vim.put("vimId", vimJson.getString("vimId"));
+        vim.put("vimInfoId", vimJson.getString(ParamConstant.PARAM_VIMID));
+        vim.put(ParamConstant.PARAM_VIMID, vimJson.getString(ParamConstant.PARAM_VIMID));
         vim.put("interfaceInfo", interfaceInfo);
         vim.put("accessInfo", accessInfo);
         vim.put("interfaceEndpoint", vimJson.getString("url"));
         return vim;
-    }
-
-    /**
-     * @param sites The sites to set.
-     */
-    public void setSites(Sites sites) {
-        this.sites = sites;
     }
 
 }
