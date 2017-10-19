@@ -287,7 +287,6 @@
     
     <!-- grantResource -->
     <bean id="grantResService" class="org.onap.vfc.nfvo.resmanagement.service.group.impl.GrantResServiceImpl">
-        <property name="sites" ref="sites"></property>
     </bean>
     
     <bean id="grantResourseRoa" class="org.onap.vfc.nfvo.resmanagement.service.rest.GrantResourseRoa">
