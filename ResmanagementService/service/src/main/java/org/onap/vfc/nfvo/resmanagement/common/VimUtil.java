@@ -16,6 +16,10 @@
 
 package org.onap.vfc.nfvo.resmanagement.common;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.commons.codec.binary.Base64;
 import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
 import org.onap.vfc.nfvo.resmanagement.common.constant.UrlConstant;
 import org.onap.vfc.nfvo.resmanagement.common.util.RestfulUtil;
@@ -109,7 +113,24 @@ public class VimUtil {
             LOG.error("Get vim ERROR, VimId is null. ");
             return null;
         }
-        JSONObject esrResponse = RestfulUtil.getResponseObj(String.format(UrlConstant.ESR_GET_VIM_URL, vimId), "get");
+        Map<String, String> headerMap = new HashMap<>(5);
+        headerMap.put("Content-Type", "application/json");
+        headerMap.put("Accept", "application/json");
+        headerMap.put("X-TransactionId", "9999");
+        headerMap.put("X-FromAppId", "esr-server");
+
+        Base64 token = new Base64();
+        String authen = new String(token.encode(("AAI:AAI").getBytes()));
+        headerMap.put("Authorization", "Basic " + authen);
+        LOG.info("getVimById headerMap: {}", headerMap.toString());
+        RestfulParametes parametes = new RestfulParametes();
+        parametes.setHeaderMap(headerMap);
+        String[] cloud = vimId.trim().split("_");
+        String cloudOwner = cloud[0];
+        String cloudRegionId = cloud[1];
+
+        JSONObject esrResponse = RestfulUtil.getResponseObj(
+                String.format(UrlConstant.ESR_GET_VIMS_URL, cloudOwner, cloudRegionId), parametes, "get");
         LOG.info("Get vims from ESR! EsrResponse:{}", esrResponse);
         if(null == esrResponse) {
             LOG.error("ESR return fail.");
@@ -124,43 +145,41 @@ public class VimUtil {
      * 
      * @param vimId
      * @param esrResponse
+     *            http://172.30.3.34:80/aai/v11/cloud-infrastructure/cloud-regions/cloud-region/vmware/fake/esr-system-info-list
      *            {
-     *            "esr-system-info-id": "",
-     *            "system-name": "",
-     *            "type": "",
-     *            "vendor": "",
-     *            "version": "",
-     *            "service-url": "",
-     *            "user-name": "",
-     *            "password": "",
-     *            "system-type": "",
-     *            "protocal": "",
-     *            "ssl-cacert": "",
-     *            "ssl-insecure": "",
-     *            "ip-address": "",
-     *            "port": "",
-     *            "cloud-domain": "",
-     *            "default-tenant": "",
-     *            "resource-version": "",
-     *            "relationship-list": [
+     *            "esr-system-info": [
+     *            {
+     *            "esr-system-info-id": "f77da8eb-11c4-46e4-a10b-380c91215cfd",
+     *            "service-url": "https://172.30.2.2:5000/v3",
+     *            "user-name": "admin",
+     *            "password": "admin",
+     *            "system-type": "VIM",
+     *            "ssl-insecure": true,
+     *            "cloud-domain": "default",
+     *            "default-tenant": "admin",
+     *            "system-status": "active",
+     *            "resource-version": "1508909163786"
+     *            }
      *            ]
      *            }
      * @return
      * @since VFC 1.0
      */
-    private static JSONObject parseEsrResponse(String vimId, JSONObject esrResponse) {
+    private static JSONObject parseEsrResponse(String vimId, JSONObject esr) {
+        JSONObject esrResponse = esr.getJSONArray("esr-system-info").getJSONObject(0);
+        LOG.info("parseEsrResponse: {}", esrResponse);
         JSONObject vimInfo = new JSONObject();
         vimInfo.put("vimId", vimId);
-        vimInfo.put("name", esrResponse.getString("system-name"));
+        vimInfo.put("name", esrResponse.getString("esr-system-info-id"));
         vimInfo.put("url", esrResponse.getString("service-url"));
         vimInfo.put("userName", esrResponse.getString("user-name"));
         vimInfo.put("password", esrResponse.getString("password"));
         vimInfo.put("tenant", esrResponse.getString("default-tenant"));
-        vimInfo.put("vendor", esrResponse.getString("vendor"));
-        vimInfo.put("version", esrResponse.getString("version"));
+        vimInfo.put("vendor", "");
+        vimInfo.put("version", "");
         vimInfo.put("description", "");
         vimInfo.put("domain", esrResponse.getString("cloud-domain"));
-        vimInfo.put("type", esrResponse.getString("type"));
+        vimInfo.put("type", esrResponse.getString("system-type"));
         vimInfo.put("createTime", "");
         LOG.info("parseEsrResponse vimInfo: {}", vimInfo);
         return vimInfo;
