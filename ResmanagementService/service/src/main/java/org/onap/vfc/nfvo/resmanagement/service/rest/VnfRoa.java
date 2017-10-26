@@ -74,11 +74,20 @@ public class VnfRoa {
         return result;
     }
 
+    /**
+     * <br>
+     * 
+     * @param context
+     * @param vimId
+     * @return
+     * @throws ServiceException
+     * @since VFC 1.0
+     */
     @GET
     @Path("/{vimId}")
     public JSONObject getVimById(@Context HttpServletRequest context, @PathParam("vimId") String vimId)
             throws ServiceException {
-
+        LOGGER.info("function=deleteVnf vimId: {}", vimId);
         return VimUtil.getVimById(vimId);
     }
 
