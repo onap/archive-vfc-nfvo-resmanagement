@@ -218,7 +218,7 @@
     
     <bean id="nsService"
         class="org.onap.vfc.nfvo.resmanagement.service.group.impl.NsServiceImpl">
-        <property name="nsDao" ref="nsAaiDao"></property>
+        <property name="nsDao" ref="nsDao"></property>
     </bean>
 
     <bean id="nsRoa" class="org.onap.vfc.nfvo.resmanagement.service.rest.NsRoa">
@@ -238,7 +238,7 @@
     
     <bean id="vnfService"
         class="org.onap.vfc.nfvo.resmanagement.service.group.impl.VnfServiceImpl">
-        <property name="vnfDao" ref="vnfAaiDao"></property>
+        <property name="vnfDao" ref="vnfDao"></property>
         <property name="vnfInfoService" ref="vnfInfoService"></property>
     </bean>
 
@@ -254,7 +254,7 @@
     <bean id="vmAaiDao" class="org.onap.vfc.nfvo.resmanagement.service.dao.impl.aai.VmAaiDaoImpl" /> 
     
     <bean id="vmService" class="org.onap.vfc.nfvo.resmanagement.service.group.impl.VmServiceImpl">
-        <property name="vmDao" ref="vmAaiDao"></property>
+        <property name="vmDao" ref="vmDao"></property>
     </bean>
     
     <bean id="vmRoa" class="org.onap.vfc.nfvo.resmanagement.service.rest.VmRoa">
