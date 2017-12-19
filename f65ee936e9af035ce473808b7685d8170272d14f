@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_8add1373",
+        "filename": "ResmanagementService/deployment/version.properties",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 925
+      },
+      "writtenOn": "2017-12-19T10:13:51Z",
+      "side": 0,
+      "message": "For amsterdam branch,we should bump the patch version to 1",
+      "revId": "f65ee936e9af035ce473808b7685d8170272d14f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_eaf857e7",
+        "filename": "ResmanagementService/service/version.properties",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 925
+      },
+      "writtenOn": "2017-12-19T10:13:51Z",
+      "side": 0,
+      "message": "For amsterdam branch,we should bump the patch version to 1",
+      "revId": "f65ee936e9af035ce473808b7685d8170272d14f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_aada4f76",
+        "filename": "ResmanagementService/version.properties",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 925
+      },
+      "writtenOn": "2017-12-19T10:13:51Z",
+      "side": 0,
+      "message": "For amsterdam branch,we should bump the patch version to 1",
+      "revId": "f65ee936e9af035ce473808b7685d8170272d14f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}

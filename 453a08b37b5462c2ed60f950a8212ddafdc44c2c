@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_caca3ba1",
+        "filename": "ResmanagementService/deployment/pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 925
+      },
+      "writtenOn": "2017-12-19T10:13:51Z",
+      "side": 1,
+      "message": "The version here should be 1.0.1-SNAPSHOT",
+      "revId": "453a08b37b5462c2ed60f950a8212ddafdc44c2c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_eacff7ae",
+        "filename": "ResmanagementService/deployment/pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 925
+      },
+      "writtenOn": "2017-12-19T10:13:51Z",
+      "side": 1,
+      "message": "The version here should be 1.0.1-SNAPSHOT",
+      "revId": "453a08b37b5462c2ed60f950a8212ddafdc44c2c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_aac1ef81",
+        "filename": "ResmanagementService/docker/Dockerfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 925
+      },
+      "writtenOn": "2017-12-19T10:13:51Z",
+      "side": 1,
+      "message": "The version here should be 1.0.1",
+      "revId": "453a08b37b5462c2ed60f950a8212ddafdc44c2c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_0ad10357",
+        "filename": "ResmanagementService/pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 925
+      },
+      "writtenOn": "2017-12-19T10:13:51Z",
+      "side": 1,
+      "message": "The version here should be 1.0.1-SNAPSHOT",
+      "revId": "453a08b37b5462c2ed60f950a8212ddafdc44c2c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_2ad63f50",
+        "filename": "ResmanagementService/pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 925
+      },
+      "writtenOn": "2017-12-19T10:13:51Z",
+      "side": 1,
+      "message": "The version here should be 1.0.1-SNAPSHOT",
+      "revId": "453a08b37b5462c2ed60f950a8212ddafdc44c2c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_6ae4473b",
+        "filename": "ResmanagementService/service/pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 925
+      },
+      "writtenOn": "2017-12-19T10:13:51Z",
+      "side": 1,
+      "message": "The version here should be 1.0.1-SNAPSHOT",
+      "revId": "453a08b37b5462c2ed60f950a8212ddafdc44c2c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_4ae70b41",
+        "filename": "pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 925
+      },
+      "writtenOn": "2017-12-19T10:13:51Z",
+      "side": 1,
+      "message": "The version here should be 1.0.1-SNAPSHOT",
+      "revId": "453a08b37b5462c2ed60f950a8212ddafdc44c2c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_caf31b09",
+        "filename": "version.properties",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 925
+      },
+      "writtenOn": "2017-12-19T10:13:51Z",
+      "side": 1,
+      "message": "For amsterdam branch,we should bump the patch version to 1",
+      "revId": "453a08b37b5462c2ed60f950a8212ddafdc44c2c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
