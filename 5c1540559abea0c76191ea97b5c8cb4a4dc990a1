@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_6ac44292",
+        "filename": "ResmanagementService/docker/build_image.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 925
+      },
+      "writtenOn": "2017-12-22T06:51:48Z",
+      "side": 1,
+      "message": "This should  ${IMAGE_NAME}:${VERSION}-latest",
+      "range": {
+        "startLine": 24,
+        "startChar": 38,
+        "endLine": 24,
+        "endChar": 48
+      },
+      "revId": "5c1540559abea0c76191ea97b5c8cb4a4dc990a1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_8ac18e82",
+        "filename": "ResmanagementService/docker/build_image.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 925
+      },
+      "writtenOn": "2017-12-22T06:51:48Z",
+      "side": 1,
+      "message": "This should be ${IMAGE_NAME}:${VERSION}-latest",
+      "range": {
+        "startLine": 31,
+        "startChar": 15,
+        "endLine": 31,
+        "endChar": 34
+      },
+      "revId": "5c1540559abea0c76191ea97b5c8cb4a4dc990a1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_2abe3a00",
+        "filename": "ResmanagementService/docker/build_image.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 925
+      },
+      "writtenOn": "2017-12-22T06:51:48Z",
+      "side": 1,
+      "message": "${IMAGE_NAME}:${VERSION}-latest",
+      "range": {
+        "startLine": 37,
+        "startChar": 16,
+        "endLine": 37,
+        "endChar": 36
+      },
+      "revId": "5c1540559abea0c76191ea97b5c8cb4a4dc990a1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}

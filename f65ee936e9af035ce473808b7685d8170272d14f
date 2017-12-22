@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_0a3d7e8f",
+        "filename": "ResmanagementService/deployment/version.properties",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 925
+      },
+      "writtenOn": "2017-12-22T06:51:48Z",
+      "side": 0,
+      "message": "This should be 1",
+      "range": {
+        "startLine": 8,
+        "startChar": 6,
+        "endLine": 8,
+        "endChar": 7
+      },
+      "revId": "f65ee936e9af035ce473808b7685d8170272d14f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_4abb860e",
+        "filename": "ResmanagementService/service/version.properties",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 925
+      },
+      "writtenOn": "2017-12-22T06:51:48Z",
+      "side": 0,
+      "message": "This should be 1",
+      "range": {
+        "startLine": 8,
+        "startChar": 6,
+        "endLine": 8,
+        "endChar": 7
+      },
+      "revId": "f65ee936e9af035ce473808b7685d8170272d14f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_ca46b623",
+        "filename": "ResmanagementService/version.properties",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 925
+      },
+      "writtenOn": "2017-12-22T06:51:48Z",
+      "side": 0,
+      "message": "This should be 1",
+      "range": {
+        "startLine": 8,
+        "startChar": 6,
+        "endLine": 8,
+        "endChar": 7
+      },
+      "revId": "f65ee936e9af035ce473808b7685d8170272d14f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
