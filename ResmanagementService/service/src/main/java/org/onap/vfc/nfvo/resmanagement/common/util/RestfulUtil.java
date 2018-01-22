@@ -220,7 +220,8 @@ public class RestfulUtil {
         } catch(ServiceException e) {
             LOGGER.error("function=restfulResponse, get restful response catch exception {} ", e);
         }
-        LOGGER.warn("function=restfulResponse, response status is {} ", rsp.getStatus());
+        LOGGER.warn("function=restfulResponse, response status is {}, context is {} ", rsp.getStatus(),
+                rsp.getResponseContent());
         return rsp;
     }
 
