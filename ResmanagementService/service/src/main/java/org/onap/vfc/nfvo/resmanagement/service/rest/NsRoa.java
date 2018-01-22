@@ -77,7 +77,7 @@ public class NsRoa {
             return restJson;
         }
 
-        LOGGER.info("VnfRoa::addVnf:{}", object.toString());
+        LOGGER.info("NsRoa::addNs:{}", object.toString());
         return nsService.addNs(object);
     }
 
