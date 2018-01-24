@@ -47,14 +47,13 @@ public class ROAResmgrServicePostProcessor implements DestructionAwareBeanPostPr
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String name) throws BeansException {
-        // TODO Auto-generated method stub
+        LOG.info("postProcessBeforeInitialization");
         return bean;
     }
 
     @Override
     public void postProcessBeforeDestruction(Object bean, String name) throws BeansException {
-        // TODO Auto-generated method stub
-
+        LOG.info("postProcessBeforeDestruction");
     }
 
 }
