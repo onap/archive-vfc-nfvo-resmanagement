@@ -42,6 +42,8 @@ public class ParamConstant {
      */
     public static final String PARAM_TENANTID = "tenantId";
 
+    public static final String VNF_INSTANCEID = "vnfInstanceId";
+
     public static final String TOTAL_CPU = "totalCPU";
 
     public static final String USED_CPU = "usedCPU";

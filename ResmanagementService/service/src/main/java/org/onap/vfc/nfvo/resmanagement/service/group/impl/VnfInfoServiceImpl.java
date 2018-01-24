@@ -19,12 +19,13 @@ package org.onap.vfc.nfvo.resmanagement.service.group.impl;
 import java.util.List;
 import java.util.Map;
 
+import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.onap.vfc.nfvo.resmanagement.service.dao.inf.VnfInfoDao;
 import org.onap.vfc.nfvo.resmanagement.service.entity.VmEntity;
 import org.onap.vfc.nfvo.resmanagement.service.entity.VnfInfoEntity;
 import org.onap.vfc.nfvo.resmanagement.service.group.inf.VmService;
 import org.onap.vfc.nfvo.resmanagement.service.group.inf.VnfInfoService;
-import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -60,7 +61,7 @@ public class VnfInfoServiceImpl implements VnfInfoService {
         LOGGER.info("function=addVnfInfo; object: {}", object);
         saveVm(object);
         JSONObject vnf = new JSONObject();
-        vnf.put("vnfInstanceId", object.get("vnfInstanceId"));
+        vnf.put(ParamConstant.VNF_INSTANCEID, object.get(ParamConstant.VNF_INSTANCEID));
         vnf.put("nsId", object.get("nsId"));
         vnf.put("vnfmId", object.get("vnfmId"));
         VnfInfoEntity vnfInfoEntity = VnfInfoEntity.toEntity(vnf);
@@ -72,7 +73,7 @@ public class VnfInfoServiceImpl implements VnfInfoService {
         }
         JSONObject resultObj = new JSONObject();
         if(result > 0) {
-            resultObj.put("vnfInstanceId", object.get("vnfInstanceId"));
+            resultObj.put(ParamConstant.VNF_INSTANCEID, object.get(ParamConstant.VNF_INSTANCEID));
         } else {
             LOGGER.error("function=addVnfInfo; msg=add vnfInfo into DB error.");
             resultObj.put("message", "Add vnfInfo into DB error.");
@@ -103,11 +104,11 @@ public class VnfInfoServiceImpl implements VnfInfoService {
      * @since VFC 1.0
      */
     private void saveVm(JSONObject object) throws ServiceException {
-        String vnfInstanceId = object.getString("vnfInstanceId");
+        String vnfInstanceId = object.getString(ParamConstant.VNF_INSTANCEID);
         JSONArray vms = object.getJSONArray("vms");
         for(int i = 0; i < vms.size(); i++) {
             JSONObject vmObj = vms.getJSONObject(i);
-            vmObj.put("vnfInstanceId", vnfInstanceId);
+            vmObj.put(ParamConstant.VNF_INSTANCEID, vnfInstanceId);
             vmService.addVm(VmEntity.toEntity(vmObj));
         }
 
