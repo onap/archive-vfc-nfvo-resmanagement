@@ -23,9 +23,9 @@ import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
 import org.onap.vfc.nfvo.resmanagement.common.constant.UrlConstant;
 import org.onap.vfc.nfvo.resmanagement.common.util.JsonUtil;
 import org.onap.vfc.nfvo.resmanagement.common.util.RestfulUtil;
-import org.onap.vfc.nfvo.resmanagement.service.base.openstack.inf.InterfaceResManagement;
-import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulParametes;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
+import org.onap.vfc.nfvo.resmanagement.service.base.openstack.inf.InterfaceResManagement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
@@ -133,7 +133,7 @@ public class IResourceAddServiceImpl {
         for(Object object : hostArray) {
             JSONObject hostObject = JSONObject.fromObject(object);
             if(hostObject.getString("project").contains("total")) {
-                String vimId = JsonUtil.getJsonFieldStr(hostObj, "vimId");
+                String vimId = JsonUtil.getJsonFieldStr(hostObj, ParamConstant.PARAM_VIMID);
                 String hostId = vimId + hostName;
                 JSONObject host = new JSONObject();
                 host.put("id", hostId);
@@ -141,7 +141,7 @@ public class IResourceAddServiceImpl {
                 host.put("cpu", JsonUtil.getJsonFieldStr(hostObject, "cpu"));
                 host.put("memory", JsonUtil.getJsonFieldStr(hostObject, "memory_mb"));
                 host.put("disk", JsonUtil.getJsonFieldStr(hostObject, "disk_gb"));
-                host.put("vimId", JsonUtil.getJsonFieldStr(hostObj, "vimId"));
+                host.put(ParamConstant.PARAM_VIMID, JsonUtil.getJsonFieldStr(hostObj, ParamConstant.PARAM_VIMID));
                 host.put("vimName", JsonUtil.getJsonFieldStr(hostObj, "vimName"));
                 return host;
             }
