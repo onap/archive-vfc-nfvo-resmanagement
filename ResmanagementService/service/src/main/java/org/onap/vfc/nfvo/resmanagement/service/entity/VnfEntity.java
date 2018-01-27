@@ -36,6 +36,14 @@ import net.sf.json.JSONObject;
  */
 public class VnfEntity implements Serializable {
 
+    private static final String RESOURCE_VERSION = "resource-version";
+
+    private static final String VNF_ID = "vnf-id";
+
+    private static final String RELATIONSHIP_KEY = "relationship-key";
+
+    private static final String RELATIONSHIP_VALUE = "relationship-value";
+
     /**  */
     private String id;
 
@@ -316,14 +324,14 @@ public class VnfEntity implements Serializable {
         vnfEntity.setMaxRam(JsonUtil.getJsonFieldInt(jsonObject, "maxRam"));
         vnfEntity.setMaxShd(JsonUtil.getJsonFieldInt(jsonObject, "maxShd"));
         vnfEntity.setMaxNet(JsonUtil.getJsonFieldInt(jsonObject, "maxNet"));
-        vnfEntity.setVnfResourceVersion(JsonUtil.getJsonFieldStr(jsonObject, "resource-version"));
+        vnfEntity.setVnfResourceVersion(JsonUtil.getJsonFieldStr(jsonObject, RESOURCE_VERSION));
         return vnfEntity;
     }
 
     public static VnfEntity toEntityFromAai(JSONObject jsonObject) {
         VnfEntity vnfEntity = new VnfEntity();
-        vnfEntity.setId(JsonUtil.getJsonFieldStr(jsonObject, "vnf-id"));
-        vnfEntity.setVnfInstanceId(JsonUtil.getJsonFieldStr(jsonObject, "vnf-id"));
+        vnfEntity.setId(JsonUtil.getJsonFieldStr(jsonObject, VNF_ID));
+        vnfEntity.setVnfInstanceId(JsonUtil.getJsonFieldStr(jsonObject, VNF_ID));
         vnfEntity.setVnfInstanceName(JsonUtil.getJsonFieldStr(jsonObject, "vnf-name"));
         vnfEntity.setName(JsonUtil.getJsonFieldStr(jsonObject, "vnf-name2"));
         vnfEntity.setNsId(JsonUtil.getJsonFieldStr(jsonObject, "service-id"));
@@ -338,37 +346,42 @@ public class VnfEntity implements Serializable {
         vnfEntity.setMaxNet(JsonUtil.getJsonFieldInt(jsonObject, "vnet"));
         vnfEntity.setMaxShd(JsonUtil.getJsonFieldInt(jsonObject, "nshd"));
         vnfEntity.setMaxVm(JsonUtil.getJsonFieldInt(jsonObject, "nvm"));
-        vnfEntity.setVnfResourceVersion(JsonUtil.getJsonFieldStr(jsonObject, "resource-version"));
+        vnfEntity.setVnfResourceVersion(JsonUtil.getJsonFieldStr(jsonObject, RESOURCE_VERSION));
         return vnfEntity;
     }
 
     public static void updateEntityWithVnfmInfo(VnfEntity vnfEntity, JSONObject jsonObject) {
-         vnfEntity.setVnfmId(JsonUtil.getJsonFieldStr(jsonObject, "vnfm-id"));
+        vnfEntity.setVnfmId(JsonUtil.getJsonFieldStr(jsonObject, "vnfm-id"));
         vnfEntity.setVnfmName(JsonUtil.getJsonFieldStr(jsonObject, "vnfm-name"));
-        vnfEntity.setVnfmResourceVersion(JsonUtil.getJsonFieldStr(jsonObject, "resource-version"));
+        vnfEntity.setVnfmResourceVersion(JsonUtil.getJsonFieldStr(jsonObject, RESOURCE_VERSION));
         vnfEntity.setVimId(JsonUtil.getJsonFieldStr(jsonObject, "vim-id"));
 
         // vim id stores the info as vim-id: <cloud-region-owner>_<cloud-region-id>
         // and esr-system-info contains vim info.
         String str = vnfEntity.getVimId();
 
-        if (!(str == null) && str.contains("_")){
-        String[] result = str.split("_");
-        RestfulParametes restfulParametes = new RestfulParametes();
-        restfulParametes.setHeaderMap(RequestUtil.getAAIHeaderMap());
-        RestfulResponse restfulResponse = RestfulUtil
-                .getRestfulResponse(Config.getHost() +":" + Config.getPort() + UrlConstant.CLOUD_REGION_URL
-        + result[0] + "/" + result[1] + "/esr-system-info-list/esr-system-info", restfulParametes, "get");
+        if(!(str == null) && str.contains("_")) {
+            String[] result = str.split("_");
+            RestfulParametes restfulParametes = new RestfulParametes();
+            restfulParametes.setHeaderMap(RequestUtil.getAAIHeaderMap());
+            RestfulResponse restfulResponse =
+                    RestfulUtil
+                            .getRestfulResponse(
+                                    Config.getHost() + ":" + Config.getPort() + UrlConstant.CLOUD_REGION_URL + result[0]
+                                            + "/" + result[1] + "/esr-system-info-list/esr-system-info",
+                                    restfulParametes, "get");
 
-        if(restfulResponse.isSuccess()) {
-            vnfEntity.setVimId(JsonUtil.getJsonFieldStr(JSONObject.fromObject(restfulResponse.getResponseContent()), "esr-system-info-id"));
-            vnfEntity.setVimName(JsonUtil.getJsonFieldStr(JSONObject.fromObject(restfulResponse.getResponseContent()), "system-name"));
-            vnfEntity.setVimTenant(JsonUtil.getJsonFieldStr(JSONObject.fromObject(restfulResponse.getResponseContent()), "default-tenant"));
-        }
-        }
-        else{
+            if(restfulResponse.isSuccess()) {
+                vnfEntity.setVimId(JsonUtil.getJsonFieldStr(JSONObject.fromObject(restfulResponse.getResponseContent()),
+                        "esr-system-info-id"));
+                vnfEntity.setVimName(JsonUtil
+                        .getJsonFieldStr(JSONObject.fromObject(restfulResponse.getResponseContent()), "system-name"));
+                vnfEntity.setVimTenant(JsonUtil.getJsonFieldStr(
+                        JSONObject.fromObject(restfulResponse.getResponseContent()), "default-tenant"));
+            }
+        } else {
 
-            //do nothing
+            // do nothing
         }
     }
 
@@ -379,7 +392,7 @@ public class VnfEntity implements Serializable {
 
     public String toStringForAai() {
         JSONObject vnfResJson = new JSONObject();
-        vnfResJson.put("vnf-id", StringUtils.trimToEmpty(this.getId()));
+        vnfResJson.put(VNF_ID, StringUtils.trimToEmpty(this.getId()));
         vnfResJson.put("vnf-name", StringUtils.trimToEmpty(this.getVnfInstanceName()));
         vnfResJson.put("vnf-name2", StringUtils.trimToEmpty(this.getName()));
         vnfResJson.put("service-id", StringUtils.trimToEmpty(this.getNsId()));
@@ -396,23 +409,22 @@ public class VnfEntity implements Serializable {
         vnfResJson.put("orchestration-status", StringUtils.trimToEmpty(this.getVnfStatus()));
 
         JSONObject relationshipDataEntry = new JSONObject();
-        relationshipDataEntry.put("relationship-key", "esr-vnfm.vnfm-id");
-        relationshipDataEntry.put("relationship-value", this.getVnfmId());
+        relationshipDataEntry.put(RELATIONSHIP_KEY, "esr-vnfm.vnfm-id");
+        relationshipDataEntry.put(RELATIONSHIP_VALUE, this.getVnfmId());
 
         JSONArray relationshipData1 = new JSONArray();
         JSONObject customer = new JSONObject();
-        customer.put("relationship-key", "customer.global-customer-id");
-        customer.put("relationship-value", Config.getGlobalCustomerId());
+        customer.put(RELATIONSHIP_KEY, "customer.global-customer-id");
+        customer.put(RELATIONSHIP_VALUE, Config.getGlobalCustomerId());
         JSONObject service = new JSONObject();
-        service.put("relationship-key", "service-subscription.service-type");
-        service.put("relationship-value", Config.getServiceType());
+        service.put(RELATIONSHIP_KEY, "service-subscription.service-type");
+        service.put(RELATIONSHIP_VALUE, Config.getServiceType());
         JSONObject serviceInstance = new JSONObject();
-        serviceInstance.put("relationship-key", "service-instance.service-instance-id");
-        serviceInstance.put("relationship-value", this.getNsId());
+        serviceInstance.put(RELATIONSHIP_KEY, "service-instance.service-instance-id");
+        serviceInstance.put(RELATIONSHIP_VALUE, this.getNsId());
         relationshipData1.add(customer);
         relationshipData1.add(service);
         relationshipData1.add(serviceInstance);
-
 
         JSONArray relationshipData = new JSONArray();
         relationshipData.add(relationshipDataEntry);
