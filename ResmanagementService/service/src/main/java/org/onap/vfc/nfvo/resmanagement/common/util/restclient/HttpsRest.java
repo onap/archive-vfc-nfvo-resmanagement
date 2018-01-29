@@ -43,6 +43,7 @@ public class HttpsRest extends HttpBaseRest {
         try {
             client.start();
         } catch(Exception e) {
+            LOG.error("Exception", e);
             e.printStackTrace();
         }
     }
@@ -167,6 +168,7 @@ public class HttpsRest extends HttpBaseRest {
         try {
             client.send(exchange);
         } catch(IOException e) {
+            LOG.error("IOException", e);
             e.printStackTrace();
         }
         try {
@@ -187,8 +189,10 @@ public class HttpsRest extends HttpBaseRest {
                         "request is expierd: " + RestHttpContentExchange.toState(HttpExchange.STATUS_EXPIRED));
             }
         } catch(InterruptedException e) {
+            LOG.error("InterruptedException", e);
             e.printStackTrace();
         } catch(UnsupportedEncodingException e) {
+            LOG.error("UnsupportedEncodingException", e);
             e.printStackTrace();
         }
         return null;
@@ -208,6 +212,7 @@ public class HttpsRest extends HttpBaseRest {
         try {
             client.send(exchange);
         } catch(IOException e) {
+            LOG.error("IOException", e);
             e.printStackTrace();
         }
 
@@ -229,8 +234,10 @@ public class HttpsRest extends HttpBaseRest {
                         "request is expierd: " + RestHttpContentExchange.toState(HttpExchange.STATUS_EXPIRED));
             }
         } catch(InterruptedException e) {
+            LOG.error("InterruptedException", e);
             e.printStackTrace();
         } catch(UnsupportedEncodingException e) {
+            LOG.error("UnsupportedEncodingException", e);
             e.printStackTrace();
         }
         return null;
@@ -258,6 +265,7 @@ public class HttpsRest extends HttpBaseRest {
         try {
             client.send(exchange);
         } catch(IOException e) {
+            LOG.error("IOException", e);
             e.printStackTrace();
         }
 
@@ -279,8 +287,10 @@ public class HttpsRest extends HttpBaseRest {
                         "request is expierd: " + RestHttpContentExchange.toState(HttpExchange.STATUS_EXPIRED));
             }
         } catch(InterruptedException e) {
+            LOG.error("InterruptedException", e);
             e.printStackTrace();
         } catch(UnsupportedEncodingException e) {
+            LOG.error("InterruptedException", e);
             e.printStackTrace();
         }
         return null;
