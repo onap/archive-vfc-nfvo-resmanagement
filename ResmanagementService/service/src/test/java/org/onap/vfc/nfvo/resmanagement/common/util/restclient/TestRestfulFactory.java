@@ -17,7 +17,6 @@
 package org.onap.vfc.nfvo.resmanagement.common.util.restclient;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -89,7 +88,7 @@ public class TestRestfulFactory {
     @Test
     public void testGetRestInstance() {
         Restful instance = RestfulFactory.getRestInstance("https");
-        assertNull(instance);
+
         new MockUp<HttpRest>() {
 
             @Mock
