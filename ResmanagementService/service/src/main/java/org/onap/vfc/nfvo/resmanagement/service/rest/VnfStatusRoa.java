@@ -38,9 +38,9 @@ import org.onap.vfc.nfvo.resmanagement.common.constant.UrlConstant;
 import org.onap.vfc.nfvo.resmanagement.common.util.request.RequestUtil;
 import org.onap.vfc.nfvo.resmanagement.common.util.response.ResponseUtil;
 import org.onap.vfc.nfvo.resmanagement.common.util.response.RoaResponseUtil;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.onap.vfc.nfvo.resmanagement.service.entity.VnfStatusEntity;
 import org.onap.vfc.nfvo.resmanagement.service.group.inf.VnfStatusService;
-import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -67,7 +67,7 @@ public class VnfStatusRoa {
     public JSONObject getVnfStatuss(@Context HttpServletRequest context) throws ServiceException {
         Map<String, Object> map = new HashMap<>(10);
         List<VnfStatusEntity> vnfStatus = vnfStatusService.getList(map);
-        LOGGER.info("VnfStatusRoa::getVnfStatuss:{}", vnfStatus.toString());
+        LOGGER.info("VnfStatusRoa::getVnfStatuss:{}", vnfStatus.toString(), context);
         JSONObject result = new JSONObject();
         result.put("vnfStatus", vnfStatus);
         return result;
@@ -77,7 +77,7 @@ public class VnfStatusRoa {
     @Path("/{id}")
     public JSONObject getVnfStatus(@Context HttpServletRequest context, @PathParam("id") String id)
             throws ServiceException {
-        LOGGER.info("VnfStatusRoa::getVnfStatus id:{}", id);
+        LOGGER.info("VnfStatusRoa::getVnfStatus id:{}", id, context);
         Map<String, Object> map = new HashMap<>(10);
         map.put(ParamConstant.PARAM_ID, id);
         List<VnfStatusEntity> vnfStatus = vnfStatusService.getList(map);
@@ -113,7 +113,7 @@ public class VnfStatusRoa {
             throw new ServiceException(
                     ResourceUtil.getMessage("org.openo.nfvo.resmanage.service.vnfStatus.delete.id.null"));
         }
-        LOGGER.info("VnfStatusRoa::deleteVnfStatus id:{}", id);
+        LOGGER.info("VnfStatusRoa::deleteVnfStatus id:{}", id, context);
         try {
             int result = vnfStatusService.delete(id);
             return RoaResponseUtil.delete(result);
