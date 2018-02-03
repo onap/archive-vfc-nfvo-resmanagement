@@ -19,6 +19,7 @@ package org.onap.vfc.nfvo.resmanagement.service.entity;
 import java.io.Serializable;
 
 import org.apache.commons.lang.StringUtils;
+import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
 import org.onap.vfc.nfvo.resmanagement.common.util.JsonUtil;
 
 import net.sf.json.JSONObject;
@@ -120,7 +121,7 @@ public class NsEntity implements Serializable {
         nsEntity.setId(JsonUtil.getJsonFieldStr(jsonObject, "id"));
         nsEntity.setNsdId(JsonUtil.getJsonFieldStr(jsonObject, "nsdId"));
         nsEntity.setName(JsonUtil.getJsonFieldStr(jsonObject, "name"));
-        nsEntity.setDescription(JsonUtil.getJsonFieldStr(jsonObject, "description"));
+        nsEntity.setDescription(JsonUtil.getJsonFieldStr(jsonObject, ParamConstant.PARAM_DESCRIPTION));
         nsEntity.setStatus(JsonUtil.getJsonFieldStr(jsonObject, "status"));
         nsEntity.setCreateTime(JsonUtil.getJsonFieldStr(jsonObject, "createTime"));
         nsEntity.setLastUpdate(JsonUtil.getJsonFieldStr(jsonObject, "lastUpdate"));
@@ -133,7 +134,7 @@ public class NsEntity implements Serializable {
         nsResJson.put("id", StringUtils.trimToEmpty(this.getId()));
         nsResJson.put("nsdId", StringUtils.trimToEmpty(this.getNsdId()));
         nsResJson.put("name", StringUtils.trimToEmpty(this.getName()));
-        nsResJson.put("description", StringUtils.trimToEmpty(this.getDescription()));
+        nsResJson.put(ParamConstant.PARAM_DESCRIPTION, StringUtils.trimToEmpty(this.getDescription()));
         nsResJson.put("status", StringUtils.trimToEmpty(this.getStatus()));
         nsResJson.put("createTime", StringUtils.trimToEmpty(this.getCreateTime()));
         nsResJson.put("lastUpdate", StringUtils.trimToEmpty(this.getLastUpdate()));
@@ -144,7 +145,7 @@ public class NsEntity implements Serializable {
         JSONObject nsResJson = new JSONObject();
         nsResJson.put("service-instnace-id", StringUtils.trimToEmpty(this.getId()));
         nsResJson.put("service-instance-name", StringUtils.trimToEmpty(this.getName()));
-        nsResJson.put("description", StringUtils.trimToEmpty(this.getDescription()));
+        nsResJson.put(ParamConstant.PARAM_DESCRIPTION, StringUtils.trimToEmpty(this.getDescription()));
         nsResJson.put("orchestration-status", StringUtils.trimToEmpty(this.getStatus()));
         nsResJson.put("created-at", StringUtils.trimToEmpty(this.getCreateTime()));
         nsResJson.put("updated-at", StringUtils.trimToEmpty(this.getLastUpdate()));
@@ -157,7 +158,7 @@ public class NsEntity implements Serializable {
         nsEntity.setId(JsonUtil.getJsonFieldStr(jsonObject, "service-instance-id"));
         nsEntity.setNsdId(JsonUtil.getJsonFieldStr(jsonObject, "service-instance-id"));
         nsEntity.setName(JsonUtil.getJsonFieldStr(jsonObject, "service-instance-name"));
-        nsEntity.setDescription(JsonUtil.getJsonFieldStr(jsonObject, "description"));
+        nsEntity.setDescription(JsonUtil.getJsonFieldStr(jsonObject, ParamConstant.PARAM_DESCRIPTION));
         nsEntity.setStatus(JsonUtil.getJsonFieldStr(jsonObject, "orchestration-status"));
         nsEntity.setCreateTime(JsonUtil.getJsonFieldStr(jsonObject, "created-at"));
         nsEntity.setLastUpdate(JsonUtil.getJsonFieldStr(jsonObject, "updated-at"));

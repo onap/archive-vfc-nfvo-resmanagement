@@ -366,6 +366,8 @@ public class ParamConstant {
      */
     public static final String PARAM_INFO = "info";
 
+    public static final String PARAM_DESCRIPTION = "description";
+
     private ParamConstant() {
         // private constructor
     }
