@@ -19,16 +19,11 @@ package org.onap.vfc.nfvo.resmanagement.common.util;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.junit.Test;
-import org.onap.vfc.nfvo.resmanagement.common.constant.Constant;
-import org.onap.vfc.nfvo.resmanagement.common.util.RestfulUtil;
-import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulOptions;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulParametes;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulResponse;
+import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 
 import mockit.Mock;
 import mockit.MockUp;
@@ -40,9 +35,32 @@ public class RestfulUtilTest {
 
     @Test
     public void testGetResponseObjWithTwoParams() {
+        mockGetResponseContent();
         JSONObject result = RestfulUtil.getResponseObj(null, null);
-        JSONObject expectedResult = null;
+        JSONObject expectedResult = new JSONObject().fromObject("{\"ResponseContent\":\"123\"}");
         assertEquals(expectedResult, result);
+    }
+
+    private void mockGetResponseContent() {
+        new MockUp<RestfulUtil>() {
+
+            @Mock
+            public String getResponseContent(String url, RestfulParametes restParametes, RestfulOptions opt,
+                    String type) {
+                return "{\"ResponseContent\":\"123\"}";
+            }
+        };
+    }
+
+    private void mockGetResponseContentReturnNull() {
+        new MockUp<RestfulUtil>() {
+
+            @Mock
+            public String getResponseContent(String url, RestfulParametes restParametes, RestfulOptions opt,
+                    String type) {
+                return null;
+            }
+        };
     }
 
     @Test
@@ -77,81 +95,8 @@ public class RestfulUtilTest {
     }
 
     @Test
-    public void testGetResponseContent() {
-        String result = RestfulUtil.getResponseContent(null, null, null);
-        String expectedResult = null;
-        assertEquals(expectedResult, result);
-    }
-
-    @Test
-    public void testGetResponseMap() {
-        Map<String, Object> result = RestfulUtil.getResponseMap(null, null, null, null);
-        Map<String, Object> expectedResult = new HashMap<String, Object>(10);
-        expectedResult.put(Constant.RESPONSE_CONTENT, null);
-        expectedResult.put(Constant.STATUS_CODE, -1);
-        assertEquals(expectedResult, result);
-    }
-
-    @Test
-    public void testGetResponseContentMap() {
-        Map<String, Object> result = RestfulUtil.getResponseContentMap(null, null);
-        Map<String, Object> expectedResult = new HashMap<String, Object>(10);
-        expectedResult.put(Constant.RESPONSE_CONTENT, null);
-        expectedResult.put(Constant.STATUS_CODE, -1);
-        assertEquals(expectedResult, result);
-    }
-
-    @Test
-    public void testGetResponseContentWithFourParams() {
-        new MockUp<RestfulResponse>() {
-
-            @Mock
-            public int getStatus() {
-                return 200;
-            }
-        };
-        String result = RestfulUtil.getResponseContent(null, null, null);
-        String expectedResult = null;
-        assertEquals(expectedResult, result);
-    }
-
-    @Test
-    public void testGetRestfulResponse() {
-        RestfulResponse result = RestfulUtil.getRestfulResponse(null, null, null);
-        RestfulResponse expectedResult = new RestfulResponse();
-        assertEquals(expectedResult.getStatus(), result.getStatus());
-    }
-
-    @Test
-    public void testRestfulResponse() {
-        RestfulResponse result = RestfulUtil.getRestfulResponse(null, null, "get");
-        RestfulResponse expectedResult = new RestfulResponse();
-        assertEquals(expectedResult.getStatus(), result.getStatus());
-    }
-
-    @Test
-    public void testRestfulResponse1() {
-        RestfulResponse result = RestfulUtil.getRestfulResponse(null, null, "add");
-        RestfulResponse expectedResult = new RestfulResponse();
-        assertEquals(expectedResult.getStatus(), result.getStatus());
-    }
-
-    @Test
-    public void testRestfulResponse2() {
-        RestfulResponse result = RestfulUtil.getRestfulResponse(null, null, "put");
-        RestfulResponse expectedResult = new RestfulResponse();
-        assertEquals(expectedResult.getStatus(), result.getStatus());
-    }
-
-    @Test
-    public void testRestfulResponse3() {
-        RestfulResponse result = RestfulUtil.getRestfulResponse(null, null, "delete");
-        RestfulResponse expectedResult = new RestfulResponse();
-        assertEquals(expectedResult.getStatus(), result.getStatus());
-    }
-
-    @Test
     public void testGetRestResObjectsIsNull() {
+        mockGetResponseContentReturnNull();
         RestfulResponse result = RestfulUtil.getRestRes(null, null);
         RestfulResponse expectedResult = null;
         assertEquals(expectedResult, result);
@@ -169,15 +114,6 @@ public class RestfulUtilTest {
         RestfulResponse result = RestfulUtil.getRestRes("async123", new RestfulResponse());
         RestfulResponse expectedResult = null;
         assertEquals(expectedResult, result);
-    }
-
-    @Test
-    public void testGetResponseResResultIsNull() throws ServiceException {
-        try {
-            RestfulUtil.getResponseRes(null, null);
-        } catch (ServiceException e) {
-            assertTrue(true);
-        }
     }
 
     @Test
@@ -205,7 +141,7 @@ public class RestfulUtilTest {
         };
         try {
             RestfulUtil.getResponseRes(null, null);
-        } catch (ServiceException e) {
+        } catch(ServiceException e) {
             assertTrue(true);
         }
     }
@@ -221,7 +157,7 @@ public class RestfulUtilTest {
         };
         try {
             RestfulUtil.getResponseRes(null, null, null);
-        } catch (ServiceException e) {
+        } catch(ServiceException e) {
             assertTrue(true);
         }
     }
@@ -237,7 +173,7 @@ public class RestfulUtilTest {
         };
         try {
             RestfulUtil.getResponseRes(null, null, null);
-        } catch (ServiceException e) {
+        } catch(ServiceException e) {
             assertTrue(true);
         }
     }
