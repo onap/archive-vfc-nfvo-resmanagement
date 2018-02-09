@@ -283,9 +283,6 @@ public class TestRestHttpContentExchange {
         };
 
         final String actual = exchange.decompressGzipToStr(binaryData);
-
-        System.out.println("actual: '" + actual + "'");
-        System.out.println("expected: '" + expected + "'");
         assertEquals(actual, expected);
     }
 
@@ -304,8 +301,6 @@ public class TestRestHttpContentExchange {
         final String expected = "";
         final String actual = exchange.decompressGzipToStr(null);
 
-        System.out.println("actual: '" + actual + "'");
-        System.out.println("expected: '" + expected + "'");
         assertEquals(actual, expected);
     }
 
