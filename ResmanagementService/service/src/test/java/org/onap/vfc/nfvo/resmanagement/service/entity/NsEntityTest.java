@@ -16,6 +16,7 @@
 
 package org.onap.vfc.nfvo.resmanagement.service.entity;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -43,7 +44,20 @@ public class NsEntityTest {
         nsEntity.setLastUpdate("lastUpdate");
         nsEntity.setResourceVersion("resourceVersion");
         assertTrue(nsEntity.toString() != null);
-        assertTrue(nsEntity.toEntity(new JSONObject()) != null);
+        assertNotNull(nsEntity.toEntity(new JSONObject()));
+        assertNotNull(nsEntity.toStringForAai());
+    }
 
+    @Test
+    public void testToStringForAai() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("service-instance-id", "service-instance-id");
+        jsonObject.put("service-instance-name", "service-instance-name");
+        jsonObject.put("description", "description");
+        jsonObject.put("orchestration-status", "orchestration-status");
+        jsonObject.put("created-at", "created-at");
+        jsonObject.put("updated-at", "updated-at");
+        jsonObject.put("resource-version", "resource-version");
+        assertNotNull(nsEntity.toEntityFromAai(jsonObject));
     }
 }
