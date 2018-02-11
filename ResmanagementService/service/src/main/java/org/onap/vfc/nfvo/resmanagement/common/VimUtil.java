@@ -73,6 +73,9 @@ public class VimUtil {
      */
     public static String getVimIdByName(String name) {
         JSONArray vims = getVims();
+        if(vims == null) {
+            return "";
+        }
         for(int i = 0; i < vims.size(); i++) {
             JSONObject vim = vims.getJSONObject(i);
             LOG.info("vimInfo: " + vim);
