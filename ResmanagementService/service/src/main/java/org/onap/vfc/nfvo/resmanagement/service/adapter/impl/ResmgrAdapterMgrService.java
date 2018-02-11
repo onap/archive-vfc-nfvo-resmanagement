@@ -166,6 +166,8 @@ public class ResmgrAdapterMgrService implements IResmgrAdapterMgrService {
                     }
                 } catch(InterruptedException e) {
                     LOG.error(e.getMessage(), e);
+                    // Restore interrupted state...
+                    Thread.currentThread().interrupt();
                 }
 
                 sendRequest(this.paramsMap, this.adapterInfo);
