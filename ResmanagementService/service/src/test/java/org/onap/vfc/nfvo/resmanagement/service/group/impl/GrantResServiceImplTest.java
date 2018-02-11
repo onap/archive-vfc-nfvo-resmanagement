@@ -102,6 +102,158 @@ public class GrantResServiceImplTest {
         assertNotNull(result);
     }
 
+    @Test
+    public void testGrantResourceRealByCpu() throws ServiceException {
+        GrantResServiceImpl impl = new GrantResServiceImpl();
+        JSONObject obj = new JSONObject();
+        JSONObject vimObj = getVimObj();
+        obj.put("additionalParam", vimObj);
+        obj.put("vimId", "vimId");
+        JSONArray addResource = new JSONArray();
+        addResource.add(getAddResObj());
+        obj.put("addResource", addResource);
+        new MockUp<VimUtil>() {
+
+            @Mock
+            public JSONObject getVimById(String vimId) {
+                return getVimObj();
+            }
+        };
+        new MockUp<LimitsBusinessImpl>() {
+
+            @Mock
+            public JSONObject getLimits(String vimId) throws ServiceException {
+                JSONObject result = new JSONObject();
+                result.put("vimId", "vimId");
+                result.put("vimName", "vimName");
+                result.put("totalCPU", "10");
+                result.put("totalMemory", "10");
+                result.put("totalDisk", "10");
+                result.put("usedCPU", "10");
+                result.put("usedMemory", "1");
+                result.put("usedDisk", "1");
+                return result;
+            }
+        };
+
+        JSONObject result = impl.grantResourceReal(obj);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testGrantResourceRealByMem() throws ServiceException {
+        GrantResServiceImpl impl = new GrantResServiceImpl();
+        JSONObject obj = new JSONObject();
+        JSONObject vimObj = getVimObj();
+        obj.put("additionalParam", vimObj);
+        obj.put("vimId", "vimId");
+        JSONArray addResource = new JSONArray();
+        addResource.add(getAddResObj());
+        obj.put("addResource", addResource);
+        new MockUp<VimUtil>() {
+
+            @Mock
+            public JSONObject getVimById(String vimId) {
+                return getVimObj();
+            }
+        };
+        new MockUp<LimitsBusinessImpl>() {
+
+            @Mock
+            public JSONObject getLimits(String vimId) throws ServiceException {
+                JSONObject result = new JSONObject();
+                result.put("vimId", "vimId");
+                result.put("vimName", "vimName");
+                result.put("totalCPU", "10");
+                result.put("totalMemory", "10");
+                result.put("totalDisk", "10");
+                result.put("usedCPU", "1");
+                result.put("usedMemory", "10");
+                result.put("usedDisk", "1");
+                return result;
+            }
+        };
+
+        JSONObject result = impl.grantResourceReal(obj);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testGrantResourceRealByDisk() throws ServiceException {
+        GrantResServiceImpl impl = new GrantResServiceImpl();
+        JSONObject obj = new JSONObject();
+        JSONObject vimObj = getVimObj();
+        obj.put("additionalParam", vimObj);
+        obj.put("vimId", "vimId");
+        JSONArray addResource = new JSONArray();
+        addResource.add(getAddResObj());
+        obj.put("addResource", addResource);
+        new MockUp<VimUtil>() {
+
+            @Mock
+            public JSONObject getVimById(String vimId) {
+                return getVimObj();
+            }
+        };
+        new MockUp<LimitsBusinessImpl>() {
+
+            @Mock
+            public JSONObject getLimits(String vimId) throws ServiceException {
+                JSONObject result = new JSONObject();
+                result.put("vimId", "vimId");
+                result.put("vimName", "vimName");
+                result.put("totalCPU", "10");
+                result.put("totalMemory", "10");
+                result.put("totalDisk", "10");
+                result.put("usedCPU", "1");
+                result.put("usedMemory", "1");
+                result.put("usedDisk", "10");
+                return result;
+            }
+        };
+
+        JSONObject result = impl.grantResourceReal(obj);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testGrantResourceRealByRemoveRes() throws ServiceException {
+        GrantResServiceImpl impl = new GrantResServiceImpl();
+        JSONObject obj = new JSONObject();
+        JSONObject vimObj = getVimObj();
+        obj.put("additionalParam", vimObj);
+        obj.put("vimId", "vimId");
+        JSONArray addResource = new JSONArray();
+        addResource.add(getAddResObj());
+        obj.put("removeResource", addResource);
+        new MockUp<VimUtil>() {
+
+            @Mock
+            public JSONObject getVimById(String vimId) {
+                return getVimObj();
+            }
+        };
+        new MockUp<LimitsBusinessImpl>() {
+
+            @Mock
+            public JSONObject getLimits(String vimId) throws ServiceException {
+                JSONObject result = new JSONObject();
+                result.put("vimId", "vimId");
+                result.put("vimName", "vimName");
+                result.put("totalCPU", "10");
+                result.put("totalMemory", "10");
+                result.put("totalDisk", "10");
+                result.put("usedCPU", "1");
+                result.put("usedMemory", "1");
+                result.put("usedDisk", "1");
+                return result;
+            }
+        };
+
+        JSONObject result = impl.grantResourceReal(obj);
+        assertNotNull(result);
+    }
+
     /**
      * {
      * "vimId": "57674786-5b2e-4c92-bb68-578dbd79e2f5",
@@ -166,6 +318,27 @@ public class GrantResServiceImplTest {
      * @since VFC 1.0
      */
     private JSONObject getAddResObj() {
+        JSONObject addResObj = new JSONObject();
+        JSONObject virtualCpu = new JSONObject();
+        virtualCpu.put("numVirtualCpu", 1);
+        JSONObject virtualMemory = new JSONObject();
+        virtualMemory.put("virtualMemSize", 1);
+        JSONObject virtualComputeDescriptor = new JSONObject();
+        virtualComputeDescriptor.put("virtualCpu", virtualCpu);
+        virtualComputeDescriptor.put("virtualMemory", virtualMemory);
+        JSONObject virtualStorageDescriptor = new JSONObject();
+        virtualStorageDescriptor.put("typeOfStorage", "");
+        virtualStorageDescriptor.put("sizeOfStorage", "1");
+        JSONObject resourceTemplate = new JSONObject();
+        resourceTemplate.put("virtualComputeDescriptor", virtualComputeDescriptor);
+        resourceTemplate.put("virtualStorageDescriptor", virtualStorageDescriptor);
+        addResObj.put("resourceDefinitionId", "1");
+        addResObj.put("resourceTemplate", resourceTemplate);
+
+        return addResObj;
+    }
+
+    private JSONObject getRemoveResObj() {
         JSONObject addResObj = new JSONObject();
         JSONObject virtualCpu = new JSONObject();
         virtualCpu.put("numVirtualCpu", 1);
