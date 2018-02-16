@@ -41,7 +41,7 @@ import net.sf.json.JSONObject;
  * <br>
  * <p>
  * </p>
- * 
+ *
  * @author
  * @version VFC 1.0 Sep 22, 2016
  */
@@ -77,38 +77,28 @@ public class ResmgrAdapterMgrService implements IResmgrAdapterMgrService {
 
     /**
      * Retrieve VIM driver information.
-     * 
+     *
      * @return
      * @throws IOException
      */
     public static String readVimAdapterInfoFromJson() throws IOException {
-        InputStream ins = null;
-        BufferedInputStream bins = null;
         String fileContent = "";
 
         String fileName = SystemEnvVariablesFactory.getInstance().getAppRoot() + System.getProperty("file.separator")
                 + "etc" + System.getProperty("file.separator") + "adapterInfo" + System.getProperty("file.separator")
                 + RESMGRADAPTERINFO;
 
-        try {
-            ins = new FileInputStream(fileName);
-            bins = new BufferedInputStream(ins);
+        try (InputStream ins = new FileInputStream(fileName)) {
+            try(BufferedInputStream bins = new BufferedInputStream(ins)) {
+                byte[] contentByte = new byte[ins.available()];
+                int num = bins.read(contentByte);
 
-            byte[] contentByte = new byte[ins.available()];
-            int num = bins.read(contentByte);
-
-            if(num > 0) {
-                fileContent = new String(contentByte);
+                if(num > 0) {
+                    fileContent = new String(contentByte);
+                }
             }
         } catch(FileNotFoundException e) {
             LOG.error(fileName + "is not found!", e);
-        } finally {
-            if(ins != null) {
-                ins.close();
-            }
-            if(bins != null) {
-                bins.close();
-            }
         }
 
         return fileContent;
