@@ -16,16 +16,23 @@
 
 package org.onap.vfc.nfvo.resmanagement.common.util.restclient;
 
+import java.io.Serializable;
+
 /**
  * ROA exception handling parameters.
  * <br/>
  * <p>
  * </p>
- * 
+ *
  * @author
  * @version 28-May-2016
  */
-public class ExceptionArgs {
+public class ExceptionArgs implements Serializable{
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = -6567319637044813966L;
 
     /**
      * Exception descriptions.
@@ -51,7 +58,7 @@ public class ExceptionArgs {
      * Constructor<br/>
      * <p>
      * </p>
-     * 
+     *
      * @since
      */
     public ExceptionArgs() {
@@ -62,7 +69,7 @@ public class ExceptionArgs {
      * Constructor<br/>
      * <p>
      * </p>
-     * 
+     *
      * @since
      * @param descArgs: descriptions.
      * @param reasonArgs: reasons.

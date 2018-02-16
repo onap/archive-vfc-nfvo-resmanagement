@@ -230,6 +230,8 @@ public class HttpsRest extends HttpBaseRest {
             }
         } catch(InterruptedException e) {
             LOG.error("InterruptedException", e);
+            // Restore interrupted state...
+            Thread.currentThread().interrupt();
         } catch(UnsupportedEncodingException e) {
             LOG.error("UnsupportedEncodingException", e);
         }
@@ -280,6 +282,8 @@ public class HttpsRest extends HttpBaseRest {
             }
         } catch(InterruptedException e) {
             LOG.error("InterruptedException", e);
+            // Restore interrupted state...
+            Thread.currentThread().interrupt();
         } catch(UnsupportedEncodingException e) {
             LOG.error("InterruptedException", e);
         }
