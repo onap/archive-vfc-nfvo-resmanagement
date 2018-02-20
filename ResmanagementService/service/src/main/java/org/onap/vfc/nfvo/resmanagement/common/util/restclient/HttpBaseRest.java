@@ -37,7 +37,7 @@ import org.slf4j.LoggerFactory;
  * <br/>
  * <p>
  * </p>
- * 
+ *
  * @author
  * @version Aug 9, 2016
  */
@@ -49,7 +49,7 @@ public abstract class HttpBaseRest implements Restful {
 
     protected HttpClient client = null;
 
-    private static final String LOCAL_HOST = "127.0.0.1";
+    private static final String LOCAL_HOST = "127.0.0.1";  // NOSONAR
 
     static final String HTTP_PATCH = "PATCH";
 
@@ -65,7 +65,7 @@ public abstract class HttpBaseRest implements Restful {
      * Constructor<br/>
      * <p>
      * </p>
-     * 
+     *
      * @since
      */
     public HttpBaseRest() {
@@ -135,7 +135,7 @@ public abstract class HttpBaseRest implements Restful {
 
     /**
      * <br/>
-     * 
+     *
      * @param method
      * @param servicePath
      * @param restParametes
