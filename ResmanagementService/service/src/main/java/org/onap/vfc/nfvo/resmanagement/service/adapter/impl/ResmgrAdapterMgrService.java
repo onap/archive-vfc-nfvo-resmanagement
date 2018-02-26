@@ -82,14 +82,19 @@ public class ResmgrAdapterMgrService implements IResmgrAdapterMgrService {
      * @throws IOException
      */
     public static String readVimAdapterInfoFromJson() throws IOException {
-        String fileContent = "";
-
         String fileName = SystemEnvVariablesFactory.getInstance().getAppRoot() + System.getProperty("file.separator")
                 + "etc" + System.getProperty("file.separator") + "adapterInfo" + System.getProperty("file.separator")
                 + RESMGRADAPTERINFO;
 
-        try (InputStream ins = new FileInputStream(fileName)) {
-            try(BufferedInputStream bins = new BufferedInputStream(ins)) {
+        return readJson(fileName);
+    }
+
+    public static String readJson(String fileName) throws IOException {
+        String fileContent = "";
+
+        try (InputStream ins = new FileInputStream(fileName)){
+            try(BufferedInputStream bins = new BufferedInputStream(ins)){
+
                 byte[] contentByte = new byte[ins.available()];
                 int num = bins.read(contentByte);
 
@@ -103,6 +108,7 @@ public class ResmgrAdapterMgrService implements IResmgrAdapterMgrService {
 
         return fileContent;
     }
+
 
     private static class RegisterResmgrThread implements Runnable {
 

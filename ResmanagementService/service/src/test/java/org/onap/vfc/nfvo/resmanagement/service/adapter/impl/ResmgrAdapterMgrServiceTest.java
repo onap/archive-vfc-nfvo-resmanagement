@@ -16,11 +16,12 @@
 
 package org.onap.vfc.nfvo.resmanagement.service.adapter.impl;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.junit.Test;
-import org.onap.vfc.nfvo.resmanagement.service.adapter.impl.ResmgrAdapterMgrService;
 
+import junit.framework.Assert;
 import mockit.Mock;
 import mockit.MockUp;
 
@@ -28,7 +29,7 @@ import mockit.MockUp;
  * <br>
  * <p>
  * </p>
- * 
+ *
  * @author
  * @version VFC 1.0 Sep 24, 2016
  */
@@ -65,5 +66,20 @@ public class ResmgrAdapterMgrServiceTest {
     public void testRegisterByNoFile() {
         ResmgrAdapterMgrService resmgrService = new ResmgrAdapterMgrService();
         resmgrService.register();
+    }
+
+
+    @SuppressWarnings("deprecation")
+    @Test
+    public void testReadJson() {
+        File file = new File("./demo.json");
+        try {
+            file.createNewFile();
+            String content = ResmgrAdapterMgrService.readJson("./demo.json");
+            Assert.assertEquals(content,  "");
+            file.delete();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
