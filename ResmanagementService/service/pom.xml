@@ -14,7 +14,8 @@
     See the License for the specific language governing permissions and
     limitations under the License.
  -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.onap.vfc.nfvo.resmanagement</groupId>
@@ -24,19 +25,26 @@
     </parent>
 
     <artifactId>vfc-nfvo-resmanagement-service</artifactId>
-     <version>1.1.0-SNAPSHOT</version>
+    <version>1.1.0-SNAPSHOT</version>
     <name>vfc/nfvo/resmanagement/ResmanagementService/service</name>
     <packaging>war</packaging>
     <dependencies>
-    <dependency>
-  <groupId>org.apache.httpcomponents</groupId>
-  <artifactId>httpcore</artifactId>
-  <version>4.3</version>
-</dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.3</version>
+        </dependency>
+        <!-- security
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-jaxrs</artifactId>
             <version>1.9.12</version>
+        </dependency>
+        -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+            <artifactId>jackson-jaxrs-json-provider</artifactId>
+            <version>2.9.3</version>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
@@ -49,9 +57,9 @@
             <version>2.5.0</version>
         </dependency>
         <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>3.1</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -140,35 +148,35 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-             <groupId>org.springframework</groupId>
-             <artifactId>spring-core</artifactId>
-             <version>3.1.0.RELEASE</version>
-         </dependency>
-         <dependency>
-             <groupId>org.springframework</groupId>
-             <artifactId>spring-aop</artifactId>
-             <version>3.1.0.RELEASE</version>
-         </dependency>
-         <dependency>
-             <groupId>org.springframework</groupId>
-             <artifactId>spring-beans</artifactId>
-             <version>3.1.0.RELEASE</version>
-         </dependency>
-         <dependency>
-             <groupId>org.springframework</groupId>
-             <artifactId>spring-context</artifactId>
-             <version>3.1.0.RELEASE</version>
-         </dependency>
-         <dependency>
-             <groupId>org.springframework</groupId>
-             <artifactId>spring-jdbc</artifactId>
-             <version>3.1.0.RELEASE</version>
-         </dependency>
-         <dependency>
-             <groupId>org.springframework</groupId>
-             <artifactId>spring-web</artifactId>
-             <version>3.1.0.RELEASE</version>
-         </dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>3.1.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>3.1.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>3.1.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>3.1.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>3.1.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>3.1.0.RELEASE</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-asm</artifactId>
@@ -186,10 +194,10 @@
         </dependency>
 
         <dependency>
-             <groupId>org.apache.cxf</groupId>
-             <artifactId>cxf-rt-frontend-jaxrs</artifactId>
-             <version>3.1.6</version>
-         </dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+            <version>3.1.6</version>
+        </dependency>
         <!-- UT coverage dependency start -->
         <dependency>
             <groupId>org.jmockit</groupId>
