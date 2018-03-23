@@ -37,11 +37,17 @@ public class UrlConstant {
      */
     public static final String REST_MSB_REGISTER = "/api/microservices/v1/services";
 
-    // /api/extsys/v1/vims/%s
+    /**
+     * Query vim info url
+     * /api/extsys/v1/vims/%s
+     */
     public static final String ESR_GET_VIM_URL =
             "/aai/v11/cloud-infrastructure/cloud-regions/cloud-region/%s/%s/esr-system-info-list/esr-system-info/%s";
 
-    // /api/extsys/v1/vims
+    /**
+     * Query vims info url
+     * /api/extsys/v1/vims
+     */
     public static final String ESR_GET_VIMS_URL =
             "/aai/v11/cloud-infrastructure/cloud-regions/cloud-region/%s/%s/esr-system-info-list";
 

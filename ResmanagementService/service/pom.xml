@@ -34,18 +34,19 @@
             <artifactId>httpcore</artifactId>
             <version>4.3</version>
         </dependency>
-        <!-- security
+
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-jaxrs</artifactId>
-            <version>1.9.12</version>
+            <version>1.9.13</version>
         </dependency>
-        -->
+        <!-- security
         <dependency>
             <groupId>com.fasterxml.jackson.jaxrs</groupId>
             <artifactId>jackson-jaxrs-json-provider</artifactId>
             <version>2.9.3</version>
         </dependency>
+        -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
