@@ -72,10 +72,18 @@ public class GrantResServiceImpl implements GrantResService {
         return result;
     }
 
+    private String getVimId(JSONObject object) {
+        String vimId = "";
+        if (object.containsKey(ParamConstant.PARAM_VIMID)){
+            vimId = object.getString(ParamConstant.PARAM_VIMID);
+        }
+        // TODO: Need integrate OOF to get vimID in R3.
+        return vimId;
+    }
     @Override
     public JSONObject grantResourceReal(JSONObject object) throws ServiceException {
         LOGGER.info("function=grantResource; object: {}", object.toString());
-        String vimId = object.getString(ParamConstant.PARAM_VIMID);
+        String vimId = getVimId(object);
         JSONObject vimJson = VimUtil.getVimById(vimId);
         JSONObject vim = parseVim(vimJson);
         String resType = "";
@@ -168,7 +176,7 @@ public class GrantResServiceImpl implements GrantResService {
     /**
      * <br>
      * 
-     * @param addResource
+     * @param getGrantResource
      * @return
      * @since VFC 1.0
      */
