@@ -61,11 +61,11 @@ public class GrantResServiceImpl implements GrantResService {
         String vimId = additionalparam.getString(ParamConstant.PARAM_VIMID);
         JSONObject vimJson = VimUtil.getVimById(vimId);
         String tenant = vimJson.getString(ParamConstant.PARAM_TENANT);
-        JSONObject accessinfo = new JSONObject();
-        accessinfo.put(ParamConstant.PARAM_TENANT, tenant);
+        JSONObject accessInfo = new JSONObject();
+        accessInfo.put(ParamConstant.PARAM_TENANT, tenant);
         JSONObject vim = new JSONObject();
         vim.put(ParamConstant.PARAM_VIMID, vimId);
-        vim.put("accessinfo", accessinfo);
+        vim.put("accessInfo", accessInfo);
         LOGGER.info("function=grantResource; vim: {}", vim.toString());
         JSONObject result = new JSONObject();
         result.put("vim", vim);
