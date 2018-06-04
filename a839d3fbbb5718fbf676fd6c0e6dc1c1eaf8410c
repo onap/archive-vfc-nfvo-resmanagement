@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_2f0de337",
+        "filename": "INFO.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 481
+      },
+      "writtenOn": "2018-06-04T23:27:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a93c517_d2a6bf0e",
+      "range": {
+        "startLine": 7,
+        "startChar": 11,
+        "endLine": 7,
+        "endChar": 35
+      },
+      "revId": "a839d3fbbb5718fbf676fd6c0e6dc1c1eaf8410c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_f2841b5f",
         "filename": "INFO.yaml",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-05-05T02:44:43Z",
       "side": 1,
       "message": "Here only list part of vfc committers, in https://wiki.onap.org/display/DW/Resources+and+Repositories you will see all vfc committers",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 11
+      },
+      "revId": "a839d3fbbb5718fbf676fd6c0e6dc1c1eaf8410c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_cf11df54",
+        "filename": "INFO.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 481
+      },
+      "writtenOn": "2018-06-04T23:27:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a93c517_f2841b5f",
       "range": {
         "startLine": 24,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_0f082727",
+        "filename": "INFO.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 481
+      },
+      "writtenOn": "2018-06-04T23:27:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a93c517_92acb7ee",
+      "range": {
+        "startLine": 40,
+        "startChar": 16,
+        "endLine": 40,
+        "endChar": 31
+      },
+      "revId": "a839d3fbbb5718fbf676fd6c0e6dc1c1eaf8410c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_32b7e33b",
         "filename": "INFO.yaml",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2018-05-05T02:44:43Z",
       "side": 1,
       "message": "\u0027Asia/Shanghai\u0027",
+      "range": {
+        "startLine": 50,
+        "startChar": 15,
+        "endLine": 50,
+        "endChar": 31
+      },
+      "revId": "a839d3fbbb5718fbf676fd6c0e6dc1c1eaf8410c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_6f03eb0d",
+        "filename": "INFO.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 481
+      },
+      "writtenOn": "2018-06-04T23:27:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a93c517_32b7e33b",
       "range": {
         "startLine": 50,
         "startChar": 15,
