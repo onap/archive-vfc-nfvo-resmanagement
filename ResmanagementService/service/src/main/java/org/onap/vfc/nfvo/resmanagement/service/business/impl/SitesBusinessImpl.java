@@ -49,8 +49,6 @@ public class SitesBusinessImpl implements SitesBusiness {
 
     private static final String TYPE_UPDATE = "update";
 
-    private static final String TYPE_DELETE = "delete";
-
     @Override
     public SitesEntity getSite(String id) throws ServiceException {
         if(StringUtils.isEmpty(id)) {
