@@ -83,13 +83,6 @@ public class SitesBusinessImpl implements SitesBusiness {
             throw new ServiceException(
                     ResourceUtil.getMessage("org.openo.nfvo.resmanage.service.base.site.add.entity.null"));
         }
-        // if(!StringUtil.checkXss(sitesEntity.getName()) ||
-        // !StringUtil.checkXss(sitesEntity.getCountry())
-        // || !StringUtil.checkXss(sitesEntity.getLocation())) {
-        // LOGGER.error("function=addLocation; msg=add site error, because XSS injection.");
-        // throw new ServiceException(
-        // ResourceUtil.getMessage("org.openo.nfvo.resmanage.service.base.location.add.xss.check"));
-        // }
         LOGGER.info("sitesEntity: " + sitesEntity.toString());
         this.checkSite(sitesEntity, TYPE_ADD);
         SitesEntity.dataFramat(sitesEntity);
