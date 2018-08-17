@@ -97,7 +97,7 @@ public class SitesRoa {
     public JSONObject getSite(@Context HttpServletRequest context, @PathParam("datacenterId") String id)
             throws ServiceException {
         LOGGER.warn("SitesRoa::getSitesById id:{}", id);
-        Map<String, Object> map = new HashMap<String, Object>(10);
+        Map<String, Object> map = new HashMap<>(10);
         map.put(ParamConstant.PARAM_ID, id);
         List<SitesEntity> datacenters = sites.getList(map);
 
