@@ -182,7 +182,7 @@ public class LocationRoa {
             @QueryParam(ParamConstant.PARAM_LOCATION) String locations) throws ServiceException {
         LOGGER.info("LocationRoa::getLocation locations:{}", locations);
         Map<String, Object> condition = new HashMap<>();
-        List<LocationEntity> loca = new ArrayList<LocationEntity>();
+        List<LocationEntity> loca = new ArrayList<>();
         condition.put(ParamConstant.PARAM_LOCATION, locations);
         loca = location.get(condition);
         LOGGER.info("LocationRoa::getLocation loca:{}", loca);
