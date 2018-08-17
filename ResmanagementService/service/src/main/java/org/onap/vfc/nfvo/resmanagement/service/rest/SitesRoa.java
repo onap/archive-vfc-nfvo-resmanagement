@@ -75,7 +75,7 @@ public class SitesRoa {
      */
     @GET
     public JSONObject getSites(@Context HttpServletRequest context) throws ServiceException {
-        Map<String, Object> map = new HashMap<String, Object>(10);
+        Map<String, Object> map = new HashMap<>(10);
         List<SitesEntity> datacenters = sites.getList(map);
 
         JSONObject result = new JSONObject();
