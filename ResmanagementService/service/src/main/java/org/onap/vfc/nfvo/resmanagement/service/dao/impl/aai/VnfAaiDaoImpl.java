@@ -148,7 +148,6 @@ public class VnfAaiDaoImpl implements VnfDao {
         RestfulParametes restfulParametes = new RestfulParametes();
 
         restfulParametes.setHeaderMap(RequestUtil.getAAIHeaderMap());
-        // restfulParametes.setRawData(vnfEntity.toEsrVnfmStringForAai());
         RestfulResponse response = RestfulUtil.getRestfulResponse(
                 Config.getHost() +":" + Config.getPort() + UrlConstant.ESR_VNFM_URL + vnfEntity.getVnfmId(),
                 restfulParametes, "get");
