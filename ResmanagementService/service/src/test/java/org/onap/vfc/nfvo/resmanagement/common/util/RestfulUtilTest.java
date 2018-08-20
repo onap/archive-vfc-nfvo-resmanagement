@@ -19,6 +19,12 @@ package org.onap.vfc.nfvo.resmanagement.common.util;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.lang.invoke.MethodHandle;
+import java.lang.invoke.MethodHandles;
+import java.lang.invoke.MethodType;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.Test;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulOptions;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulParametes;
@@ -178,4 +184,209 @@ public class RestfulUtilTest {
         }
     }
 
+    @Test(expected=NullPointerException.class)
+    public void getRemoteResponseTest(){
+    	Map<String,String> paramMap = new HashMap<>();
+		paramMap.put("url", "https://127.0.0.1:80");
+		paramMap.put("methodType", "get");
+		paramMap.put("tenantId", "tenant_id_123");
+		String params = "This is Params Data";
+		RestfulResponse result = RestfulUtil.getRemoteResponse(paramMap, params);
+		assertEquals(result.getStatus(),200);
+    }
+    
+    @Test(expected=NullPointerException.class)
+    public void getRemoteResponseTestPut(){
+    	Map<String,String> paramMap = new HashMap<>();
+		paramMap.put("url", "https://127.0.0.1:80");
+		paramMap.put("methodType", "put");
+		paramMap.put("tenantId", "tenant_id_123");
+		String params = "This is Params Data";
+		RestfulResponse result = RestfulUtil.getRemoteResponse(paramMap, params);
+		assertEquals(result.getStatus(),200);
+    }
+    
+    @Test(expected=NullPointerException.class)
+    public void getRemoteResponseTestPost(){
+    	Map<String,String> paramMap = new HashMap<>();
+		paramMap.put("url", "https://127.0.0.1:80");
+		paramMap.put("methodType", "post");
+		paramMap.put("tenantId", "tenant_id_123");
+		String params = "This is Params Data";
+		RestfulResponse result = RestfulUtil.getRemoteResponse(paramMap, params);
+		assertEquals(result.getStatus(),200);
+    }
+    
+    @Test(expected=NullPointerException.class)
+    public void getRemoteResponseTestDel(){
+    	Map<String,String> paramMap = new HashMap<>();
+		paramMap.put("url", "https://127.0.0.1:80");
+		paramMap.put("methodType", "delete");
+		paramMap.put("tenantId", "tenant_id_123");
+		String params = "This is Params Data";
+		RestfulResponse result = RestfulUtil.getRemoteResponse(paramMap, params);
+		assertEquals(result.getStatus(),200);
+    }
+    
+    @Test
+    public void testRestfulResponseDel() {
+    	
+    	RestfulParametes restParametes = new RestfulParametes();
+		Map<String,String> headerMap = new HashMap<>();
+		headerMap.put("Content-type", "Application/json");
+		headerMap.put("X-FromAppId", "Postman");
+		headerMap.put("X-TransactionId", "1234");
+		restParametes.setHeaderMap(headerMap);
+		String data = "This is Raw Data";
+		restParametes.setRawData(data);
+		String url = "https://127.0.0.1:80";
+        RestfulResponse result = RestfulUtil.getRestfulResponse(url, restParametes, "delete");
+        assertEquals(result.getStatus(),-1);
+    }
+    
+    @Test
+    public void testRestfulResponsehttp() {
+    	
+    	RestfulParametes restParametes = new RestfulParametes();
+		Map<String,String> headerMap = new HashMap<>();
+		headerMap.put("Content-type", "Application/json");
+		headerMap.put("X-FromAppId", "Postman");
+		headerMap.put("X-TransactionId", "1234");
+		restParametes.setHeaderMap(headerMap);
+		Map<String,String> paramMap = new HashMap<>();
+		paramMap.put("type", "Application");
+		paramMap.put("vimId", "vim_id_123");
+		paramMap.put("tenantId", "tenant_id_123");
+		restParametes.setParamMap(paramMap);
+		String data = "This is Raw Data";
+		restParametes.setRawData(data);
+		String url = "http://127.0.0.1:80";
+        RestfulResponse result = RestfulUtil.getRestfulResponse(url, restParametes, "delete");
+        assertEquals(result.getStatus(),-1);
+    }
+    
+    @Test
+    public void testRestfulResponsenull() {
+    	
+    	RestfulParametes restParametes = new RestfulParametes();
+		Map<String,String> headerMap = new HashMap<>();
+		headerMap.put("Content-type", "Application/json");
+		headerMap.put("X-FromAppId", "Postman");
+		headerMap.put("X-TransactionId", "1234");
+		restParametes.setHeaderMap(headerMap);
+		Map<String,String> paramMap = new HashMap<>();
+		paramMap.put("type", "Application");
+		paramMap.put("vimId", "vim_id_123");
+		paramMap.put("tenantId", "tenant_id_123");
+		restParametes.setParamMap(paramMap);
+		String data = "This is Raw Data";
+		restParametes.setRawData(data);
+		String url = "ftp://127.0.0.1:80";
+        RestfulResponse result = RestfulUtil.getRestfulResponse(url, restParametes, "delete");
+        assertEquals(result.getStatus(),-1);
+    }
+    
+  
+    @Test
+    public void testRestfulResponseGet() {
+    	
+    	RestfulParametes restParametes = new RestfulParametes();
+		Map<String,String> headerMap = new HashMap<>();
+		headerMap.put("Content-type", "Application/json");
+		headerMap.put("X-FromAppId", "Postman");
+		headerMap.put("X-TransactionId", "1234");
+		restParametes.setHeaderMap(headerMap);
+		Map<String,String> paramMap = new HashMap<>();
+		paramMap.put("type", "Application");
+		paramMap.put("vimId", "vim_id_123");
+		paramMap.put("tenantId", "tenant_id_123");
+		restParametes.setParamMap(paramMap);
+		String data = "This is Raw Data";
+		restParametes.setRawData(data);
+		String url = "https://127.0.0.1:80";
+        RestfulResponse result = RestfulUtil.getRestfulResponse(url, restParametes, "get");
+        assertEquals(result.getStatus(),-1);
+    }
+    
+    @Test(expected=NullPointerException.class)
+    public void testRestfulResponsePost() {
+    	
+    	RestfulParametes restParametes = new RestfulParametes();
+		Map<String,String> headerMap = new HashMap<>();
+		headerMap.put("Content-type", "Application/json");
+		headerMap.put("X-FromAppId", "Postman");
+		headerMap.put("X-TransactionId", "1234");
+		restParametes.setHeaderMap(headerMap);
+		Map<String,String> paramMap = new HashMap<>();
+		paramMap.put("type", "Application");
+		paramMap.put("vimId", "vim_id_123");
+		paramMap.put("tenantId", "tenant_id_123");
+		restParametes.setParamMap(paramMap);
+		String data = "This is Raw Data";
+		restParametes.setRawData(data);
+		String url = "https://127.0.0.1:80";
+        RestfulResponse result = RestfulUtil.getRestfulResponse(url, restParametes, "post");
+        assertEquals(result.getStatus(),-1);
+    }
+    
+    @Test
+    public void testRestfulResponsePut() {
+    	
+    	RestfulParametes restParametes = new RestfulParametes();
+		Map<String,String> headerMap = new HashMap<>();
+		headerMap.put("Content-type", "Application/json");
+		headerMap.put("X-FromAppId", "Postman");
+		headerMap.put("X-TransactionId", "1234");
+		restParametes.setHeaderMap(headerMap);
+		Map<String,String> paramMap = new HashMap<>();
+		paramMap.put("type", "Application");
+		paramMap.put("vimId", "vim_id_123");
+		paramMap.put("tenantId", "tenant_id_123");
+		restParametes.setParamMap(paramMap);
+		String data = "This is Raw Data";
+		restParametes.setRawData(data);
+		String url = "https://127.0.0.1:80";
+        RestfulResponse result = RestfulUtil.getRestfulResponse(url, restParametes, "put");
+        assertEquals(result.getStatus(),-1);
+    }
+    
+    @Test
+    public void testGetResponseContent() {
+    	
+    	RestfulParametes restParametes = new RestfulParametes();
+		Map<String,String> headerMap = new HashMap<>();
+		headerMap.put("Content-type", "Application/json");
+		headerMap.put("X-FromAppId", "Postman");
+		headerMap.put("X-TransactionId", "1234");
+		restParametes.setHeaderMap(headerMap);
+		Map<String,String> paramMap = new HashMap<>();
+		paramMap.put("type", "Application");
+		paramMap.put("vimId", "vim_id_123");
+		paramMap.put("tenantId", "tenant_id_123");
+		restParametes.setParamMap(paramMap);
+		String data = "This is Raw Data";
+		restParametes.setRawData(data);
+		String url = "https://127.0.0.1:80";
+    	RestfulUtil.getResponseContent(url, restParametes, "GET");
+    }
+    
+    @Test
+    public void getResponseContentMapTest() {
+    	String url = "https://127.0.0.1:80";
+    	RestfulUtil.getResponseContentMap(url, "GET");
+    }
+    
+    @Test
+    public void testGetResponseObjWithNull() {
+        new MockUp<RestfulUtil>() {
+
+            @Mock
+            public String getResponseContent(String url, RestfulParametes restParametes, RestfulOptions opt,
+                    String type) {
+                return null;
+            }
+        };
+      RestfulUtil.getResponseObj(null, null, null);
+    }
+    
 }
