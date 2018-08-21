@@ -87,12 +87,16 @@ public class HttpsRest extends HttpBaseRest {
     @Override
     public void asyncPut(String servicePath, RestfulParametes restParametes, RestfulAsyncCallback callback)
             throws ServiceException {
-
+    	
+    	//This functionality has not been implemented yet
+    	
     }
 
     @Override
     public void asyncPut(String servicePath, RestfulParametes restParametes, RestfulOptions options,
             RestfulAsyncCallback callback) throws ServiceException {
+    	
+    	//This functionality has not been implemented yet
 
     }
 
@@ -110,13 +114,17 @@ public class HttpsRest extends HttpBaseRest {
     @Override
     public void asyncPost(String servicePath, RestfulParametes restParametes, RestfulAsyncCallback callback)
             throws ServiceException {
-
+    	
+    	//This functionality has not been implemented yet
+    	
     }
 
     @Override
     public void asyncPost(String servicePath, RestfulParametes restParametes, RestfulOptions options,
             RestfulAsyncCallback callback) throws ServiceException {
-
+    	
+    	//This functionality has not been implemented yet
+    	
     }
 
     @Override
@@ -127,13 +135,17 @@ public class HttpsRest extends HttpBaseRest {
     @Override
     public void asyncDelete(String servicePath, RestfulParametes restParametes, RestfulAsyncCallback callback)
             throws ServiceException {
-
+    	
+    	//This functionality has not been implemented yet
+    	
     }
 
     @Override
     public void asyncDelete(String servicePath, RestfulParametes restParametes, RestfulOptions options,
             RestfulAsyncCallback callback) throws ServiceException {
 
+    	//This functionality has not been implemented yet
+    	
     }
 
     @Override
@@ -150,13 +162,17 @@ public class HttpsRest extends HttpBaseRest {
     @Override
     public void asyncPatch(String servicePath, RestfulParametes restParametes, RestfulAsyncCallback callback)
             throws ServiceException {
-
+    	
+    	//This functionality has not been implemented yet
+    	
     }
 
     @Override
     public void asyncPatch(String servicePath, RestfulParametes restParametes, RestfulOptions options,
             RestfulAsyncCallback callback) throws ServiceException {
-
+    	
+    	//This functionality has not been implemented yet
+    	
     }
 
     @Override
