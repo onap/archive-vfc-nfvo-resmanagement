@@ -75,6 +75,8 @@ public class HttpsRest extends HttpBaseRest {
     public void asyncGet(String servicePath, RestfulParametes restParametes, RestfulOptions options,
             RestfulAsyncCallback callback) throws ServiceException {
 
+    	//This functionality has not been implemented yet
+    	
     }
 
     @Override
