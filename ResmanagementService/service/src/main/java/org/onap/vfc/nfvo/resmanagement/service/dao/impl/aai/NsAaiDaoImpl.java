@@ -50,9 +50,7 @@ public class NsAaiDaoImpl implements NsDao {
                         + UrlConstant.SERVICE_INSTANCE_URL + id, restfulParametes, "get");
 
         JSONObject jsonObject = JSONObject.fromObject(response.getResponseContent());
-        NsEntity nsEntity = NsEntity.toEntityFromAai(jsonObject);
-
-        return nsEntity;
+        return NsEntity.toEntityFromAai(jsonObject);
     }
 
     @Override
