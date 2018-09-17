@@ -32,6 +32,7 @@ import org.slf4j.LoggerFactory;
 public class HttpsRest extends HttpBaseRest {
 
     private static final Logger LOG = LoggerFactory.getLogger(HttpsRest.class);
+    public static final String IOEXCEPTION = "IOException";
 
     public void initHttpsRest() {
         SslContextFactory sslContextFactory = new SslContextFactory();
@@ -187,7 +188,7 @@ public class HttpsRest extends HttpBaseRest {
         try {
             client.send(exchange);
         } catch(IOException e) {
-            LOG.error("IOException", e);
+            LOG.error(IOEXCEPTION, e);
         }
         try {
             int exchangeState = exchange.waitForDone();
@@ -230,7 +231,7 @@ public class HttpsRest extends HttpBaseRest {
         try {
             client.send(exchange);
         } catch(IOException e) {
-            LOG.error("IOException", e);
+            LOG.error(IOEXCEPTION, e);
         }
 
         try {
@@ -282,7 +283,7 @@ public class HttpsRest extends HttpBaseRest {
         try {
             client.send(exchange);
         } catch(IOException e) {
-            LOG.error("IOException", e);
+            LOG.error(IOEXCEPTION, e);
         }
 
         try {
