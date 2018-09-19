@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_0e287a98",
+        "filename": "ResmanagementService/service/src/test/java/org/onap/vfc/nfvo/resmanagement/service/base/openstack/impl/SitesImplTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 39
+      },
+      "writtenOn": "2018-09-19T01:06:44Z",
+      "side": 1,
+      "message": "why use table replace the space?",
+      "revId": "6108e819f29fffd61fe0298a136d6338043401ed",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
