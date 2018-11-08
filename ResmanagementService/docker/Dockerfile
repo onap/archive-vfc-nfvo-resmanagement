@@ -40,7 +40,7 @@ ENV CATALINA_HOME /service
 
 # Set up microservice
 
-RUN wget -q -O nfvo-resmanagement.zip "https://nexus.onap.org/service/local/artifact/maven/redirect?r=staging&g=org.onap.vfc.nfvo.resmanagement&a=vfc-nfvo-resmanagement-deployment&v=LATEST&e=zip" && unzip -q -o -B nfvo-resmanagement.zip && rm -f nfvo-resmanagement.zip
+RUN wget -q -O nfvo-resmanagement.zip "https://nexus.onap.org/service/local/artifact/maven/redirect?r=snapshots&g=org.onap.vfc.nfvo.resmanagement&a=vfc-nfvo-resmanagement-deployment&v=LATEST&e=zip" && unzip -q -o -B nfvo-resmanagement.zip && rm -f nfvo-resmanagement.zip
 # Set permissions
 RUN find . -type d -exec chmod o-w {} \;
 RUN find . -name "*.sh" -exec chmod +x {} \;
