@@ -24,10 +24,7 @@ import org.onap.vfc.nfvo.resmanagement.common.util.JsonUtil;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-/**
- * @author l00345485
- * @date 2016-10-28
- */
+
 public class VmEntity implements Serializable {
 
     /**  */

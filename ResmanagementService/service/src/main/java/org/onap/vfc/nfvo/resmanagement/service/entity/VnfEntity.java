@@ -30,10 +30,7 @@ import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulResponse;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-/**
- * @author l00345485
- * @date 2016-10-28
- */
+
 public class VnfEntity implements Serializable {
 
     private static final String RESOURCE_VERSION = "resource-version";
