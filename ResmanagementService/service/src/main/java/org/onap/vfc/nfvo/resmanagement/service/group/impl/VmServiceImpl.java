@@ -22,6 +22,8 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
 import org.onap.vfc.nfvo.resmanagement.common.constant.UrlConstant;
 import org.onap.vfc.nfvo.resmanagement.common.util.RestfulUtil;
@@ -30,8 +32,6 @@ import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.onap.vfc.nfvo.resmanagement.service.dao.inf.VmDao;
 import org.onap.vfc.nfvo.resmanagement.service.entity.VmEntity;
 import org.onap.vfc.nfvo.resmanagement.service.group.inf.VmService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -46,7 +46,7 @@ import net.sf.json.JSONObject;
  */
 public class VmServiceImpl implements VmService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(VmServiceImpl.class);
+    private static final Logger LOGGER = LogManager.getLogger(VmServiceImpl.class);
 
     private VmDao vmDao;
 

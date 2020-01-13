@@ -26,14 +26,14 @@ import java.util.Map;
 import java.util.zip.GZIPInputStream;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.eclipse.jetty.client.ContentExchange;
 import org.eclipse.jetty.client.HttpDestination;
 import org.eclipse.jetty.http.HttpFields;
 import org.eclipse.jetty.http.HttpHeaders;
 import org.eclipse.jetty.io.Buffer;
 import org.eclipse.jetty.util.StringUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * ContentExchange implementation classe to provide access to response.
@@ -46,7 +46,7 @@ import org.slf4j.LoggerFactory;
  */
 public class RestHttpContentExchange extends ContentExchange {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(RestHttpContentExchange.class);
+    private static final Logger LOGGER = LogManager.getLogger(RestHttpContentExchange.class);
 
     private boolean gzip = false;
 

@@ -21,6 +21,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.common.VimUtil;
 import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
 import org.onap.vfc.nfvo.resmanagement.common.util.JsonUtil;
@@ -30,8 +32,6 @@ import org.onap.vfc.nfvo.resmanagement.service.business.inf.LocationBusiness;
 import org.onap.vfc.nfvo.resmanagement.service.entity.LocationEntity;
 import org.onap.vfc.nfvo.resmanagement.service.entity.SitesEntity;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -50,7 +50,7 @@ public class LocationImpl implements Location {
 
     private Sites sites;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(LocationImpl.class);
+    private static final Logger LOGGER = LogManager.getLogger(LocationImpl.class);
 
     @Override
     public int add(JSONObject jsonObject) throws ServiceException {

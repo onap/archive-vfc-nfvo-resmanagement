@@ -16,14 +16,14 @@
 
 package org.onap.vfc.nfvo.resmanagement.service.business.impl;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.common.VimUtil;
 import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
 import org.onap.vfc.nfvo.resmanagement.common.constant.UrlConstant;
 import org.onap.vfc.nfvo.resmanagement.common.util.RestfulUtil;
 import org.onap.vfc.nfvo.resmanagement.service.business.inf.LimitsBusiness;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONObject;
 
@@ -37,7 +37,7 @@ import net.sf.json.JSONObject;
  */
 public class LimitsBusinessImpl implements LimitsBusiness {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(LimitsBusinessImpl.class);
+    private static final Logger LOGGER = LogManager.getLogger(LimitsBusinessImpl.class);
 
     /**
      * <br>

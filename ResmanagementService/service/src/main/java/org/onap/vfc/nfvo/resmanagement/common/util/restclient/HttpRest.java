@@ -16,11 +16,11 @@
 
 package org.onap.vfc.nfvo.resmanagement.common.util.restclient;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.eclipse.jetty.client.HttpClient;
 import org.eclipse.jetty.http.HttpMethods;
 import org.eclipse.jetty.util.thread.QueuedThreadPool;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * <br/>
@@ -32,7 +32,7 @@ import org.slf4j.LoggerFactory;
  */
 public class HttpRest extends HttpBaseRest {
 
-    private static final Logger LOG = LoggerFactory.getLogger(HttpRest.class);
+    private static final Logger LOG = LogManager.getLogger(HttpRest.class);
 
     /**
      * Initializing Rest options.<br/>

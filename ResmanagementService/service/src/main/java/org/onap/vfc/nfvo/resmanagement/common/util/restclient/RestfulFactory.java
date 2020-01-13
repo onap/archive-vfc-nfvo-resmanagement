@@ -19,8 +19,8 @@ package org.onap.vfc.nfvo.resmanagement.common.util.restclient;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * RestFul instance factory. <br/>
@@ -42,7 +42,7 @@ public class RestfulFactory {
      */
     public static final String PROTO_HTTP = "http";
 
-    private static final Logger LOG = LoggerFactory.getLogger(RestfulFactory.class);
+    private static final Logger LOG = LogManager.getLogger(RestfulFactory.class);
 
     private static final Map<String, Restful> INSTANCES = new HashMap<>(2);
 

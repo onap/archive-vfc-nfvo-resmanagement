@@ -31,6 +31,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.common.ResourceUtil;
 import org.onap.vfc.nfvo.resmanagement.common.constant.HttpConstant;
 import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
@@ -41,8 +43,6 @@ import org.onap.vfc.nfvo.resmanagement.common.util.response.RoaResponseUtil;
 import org.onap.vfc.nfvo.resmanagement.service.entity.VirtualLinkEntity;
 import org.onap.vfc.nfvo.resmanagement.service.group.inf.VirtualLinkService;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONObject;
 
@@ -59,7 +59,7 @@ import net.sf.json.JSONObject;
 @Consumes(MediaType.APPLICATION_JSON)
 public class VirtualLinkRoa {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(VirtualLinkRoa.class);
+    private static final Logger LOGGER = LogManager.getLogger(VirtualLinkRoa.class);
 
     private VirtualLinkService virtualLink;
 

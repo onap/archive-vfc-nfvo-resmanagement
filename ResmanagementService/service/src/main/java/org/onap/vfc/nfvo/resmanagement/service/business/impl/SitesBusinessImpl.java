@@ -22,14 +22,14 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.common.ResourceUtil;
 import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
 import org.onap.vfc.nfvo.resmanagement.service.business.inf.SitesBusiness;
 import org.onap.vfc.nfvo.resmanagement.service.dao.inf.SitesDao;
 import org.onap.vfc.nfvo.resmanagement.service.entity.SitesEntity;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Sites info interface.<br/>
@@ -41,7 +41,7 @@ import org.slf4j.LoggerFactory;
  */
 public class SitesBusinessImpl implements SitesBusiness {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(SitesBusinessImpl.class);
+    private static final Logger LOGGER = LogManager.getLogger(SitesBusinessImpl.class);
 
     private SitesDao sitesDao;
 

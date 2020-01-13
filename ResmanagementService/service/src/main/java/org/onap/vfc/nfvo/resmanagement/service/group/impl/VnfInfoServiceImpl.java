@@ -19,6 +19,8 @@ package org.onap.vfc.nfvo.resmanagement.service.group.impl;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.onap.vfc.nfvo.resmanagement.service.dao.inf.VnfInfoDao;
@@ -26,8 +28,6 @@ import org.onap.vfc.nfvo.resmanagement.service.entity.VmEntity;
 import org.onap.vfc.nfvo.resmanagement.service.entity.VnfInfoEntity;
 import org.onap.vfc.nfvo.resmanagement.service.group.inf.VmService;
 import org.onap.vfc.nfvo.resmanagement.service.group.inf.VnfInfoService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -42,7 +42,7 @@ import net.sf.json.JSONObject;
  */
 public class VnfInfoServiceImpl implements VnfInfoService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(VnfInfoServiceImpl.class);
+    private static final Logger LOGGER = LogManager.getLogger(VnfInfoServiceImpl.class);
 
     private VnfInfoDao vnfInfoDao;
 

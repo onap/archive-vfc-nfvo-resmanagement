@@ -21,13 +21,13 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.common.ResourceUtil;
 import org.onap.vfc.nfvo.resmanagement.service.business.inf.HostBusiness;
 import org.onap.vfc.nfvo.resmanagement.service.dao.inf.HostDao;
 import org.onap.vfc.nfvo.resmanagement.service.entity.HostEntity;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -40,7 +40,7 @@ import org.slf4j.LoggerFactory;
  */
 public class HostBusinessImpl implements HostBusiness {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(HostBusinessImpl.class);
+    private static final Logger LOGGER = LogManager.getLogger(HostBusinessImpl.class);
 
     private HostDao hostDao;
 

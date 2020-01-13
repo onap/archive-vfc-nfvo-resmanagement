@@ -20,12 +20,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
 import org.onap.vfc.nfvo.resmanagement.common.constant.UrlConstant;
 import org.onap.vfc.nfvo.resmanagement.common.util.RestfulUtil;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulParametes;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -40,7 +40,7 @@ import net.sf.json.JSONObject;
  */
 public class VimUtil {
 
-    private static final Logger LOG = LoggerFactory.getLogger(VimUtil.class);
+    private static final Logger LOG = LogManager.getLogger(VimUtil.class);
 
     private VimUtil() {
 

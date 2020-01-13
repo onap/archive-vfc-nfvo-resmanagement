@@ -34,12 +34,16 @@
             <artifactId>httpcore</artifactId>
             <version>4.3</version>
         </dependency>
-
         <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.2</version>
+        </dependency>
+        <!--dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-jaxrs</artifactId>
             <version>1.9.13</version>
-        </dependency>
+        </dependency-->
         <!-- security
         <dependency>
             <groupId>com.fasterxml.jackson.jaxrs</groupId>
@@ -87,7 +91,16 @@
                     <groupId>commons-collections</groupId>
                     <artifactId>commons-collections</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>commons-beanutils</groupId>
+                    <artifactId>commons-beanutils</artifactId>
+                </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.9.4</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jetty.orbit</groupId>
@@ -132,10 +145,15 @@
             <artifactId>snakeyaml</artifactId>
             <version>1.15</version>
         </dependency>
-        <dependency>
+        <!--dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.6.1</version>
+        </dependency-->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.13.0</version>
         </dependency>
         <!--dependency>
             <groupId>org.apache.log4j</groupId>
@@ -239,7 +257,6 @@
             <version>1.19</version>
             <scope>test</scope>
         </dependency>
-
         <!-- UT coverage dependency end -->
 
     </dependencies>
