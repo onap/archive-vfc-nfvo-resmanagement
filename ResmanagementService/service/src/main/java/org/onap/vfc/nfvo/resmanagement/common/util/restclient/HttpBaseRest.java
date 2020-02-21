@@ -26,12 +26,12 @@ import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.eclipse.jetty.client.Address;
 import org.eclipse.jetty.client.HttpClient;
 import org.eclipse.jetty.client.HttpExchange;
 import org.eclipse.jetty.http.HttpMethods;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * <br/>
@@ -43,7 +43,7 @@ import org.eclipse.jetty.http.HttpMethods;
  */
 public abstract class HttpBaseRest implements Restful {
 
-    private static final Logger LOG = LogManager.getLogger(HttpRest.class);
+    private static final Logger LOG = LoggerFactory.getLogger(HttpRest.class);
 
     final AtomicInteger requestId = new AtomicInteger(0);
 

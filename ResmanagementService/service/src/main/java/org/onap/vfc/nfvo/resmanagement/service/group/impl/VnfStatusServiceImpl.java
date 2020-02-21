@@ -19,12 +19,12 @@ package org.onap.vfc.nfvo.resmanagement.service.group.impl;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.service.dao.inf.VnfStatusDao;
 import org.onap.vfc.nfvo.resmanagement.service.entity.VnfStatusEntity;
 import org.onap.vfc.nfvo.resmanagement.service.group.inf.VnfStatusService;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONObject;
 
@@ -38,7 +38,7 @@ import net.sf.json.JSONObject;
  */
 public class VnfStatusServiceImpl implements VnfStatusService {
 
-    private static final Logger LOGGER = LogManager.getLogger(VnfStatusServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(VnfStatusServiceImpl.class);
 
     private VnfStatusDao vnfStatusDao;
 

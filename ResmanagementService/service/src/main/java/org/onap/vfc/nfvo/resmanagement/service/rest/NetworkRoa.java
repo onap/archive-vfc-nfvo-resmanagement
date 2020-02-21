@@ -33,8 +33,6 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.common.constant.HttpConstant;
 import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
 import org.onap.vfc.nfvo.resmanagement.common.constant.UrlConstant;
@@ -44,6 +42,8 @@ import org.onap.vfc.nfvo.resmanagement.common.util.response.RoaResponseUtil;
 import org.onap.vfc.nfvo.resmanagement.service.base.openstack.inf.Network;
 import org.onap.vfc.nfvo.resmanagement.service.entity.NetworkEntity;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONObject;
 
@@ -61,7 +61,7 @@ import net.sf.json.JSONObject;
 @Produces({MediaType.APPLICATION_JSON})
 public class NetworkRoa {
 
-    private static final Logger LOGGER = LogManager.getLogger(NetworkRoa.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(NetworkRoa.class);
 
     private Network network;
 

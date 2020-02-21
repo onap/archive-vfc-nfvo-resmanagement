@@ -21,12 +21,12 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.onap.vfc.nfvo.resmanagement.service.dao.inf.NsDao;
 import org.onap.vfc.nfvo.resmanagement.service.entity.NsEntity;
 import org.onap.vfc.nfvo.resmanagement.service.group.inf.NsService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONObject;
 
@@ -40,7 +40,7 @@ import net.sf.json.JSONObject;
  */
 public class NsServiceImpl implements NsService {
 
-    private static final Logger LOGGER = LogManager.getLogger(NsServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(NsServiceImpl.class);
 
     private NsDao nsDao;
 

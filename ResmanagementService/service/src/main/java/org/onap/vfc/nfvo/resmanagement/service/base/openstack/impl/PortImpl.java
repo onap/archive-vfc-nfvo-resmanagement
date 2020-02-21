@@ -19,13 +19,13 @@ package org.onap.vfc.nfvo.resmanagement.service.base.openstack.impl;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.common.util.JsonUtil;
 import org.onap.vfc.nfvo.resmanagement.service.base.openstack.inf.Port;
 import org.onap.vfc.nfvo.resmanagement.service.business.inf.PortBusiness;
 import org.onap.vfc.nfvo.resmanagement.service.entity.PortEntity;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONObject;
 
@@ -39,7 +39,7 @@ import net.sf.json.JSONObject;
  */
 public class PortImpl implements Port {
 
-    private static final Logger LOGGER = LogManager.getLogger(PortImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(PortImpl.class);
 
     private PortBusiness portBusiness;
 

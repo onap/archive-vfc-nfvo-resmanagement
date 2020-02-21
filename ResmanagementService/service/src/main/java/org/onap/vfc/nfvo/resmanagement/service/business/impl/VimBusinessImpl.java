@@ -19,14 +19,14 @@ package org.onap.vfc.nfvo.resmanagement.service.business.impl;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.common.ResourceUtil;
 import org.onap.vfc.nfvo.resmanagement.common.util.StringUtil;
 import org.onap.vfc.nfvo.resmanagement.service.business.inf.VimBusiness;
 import org.onap.vfc.nfvo.resmanagement.service.dao.inf.VimDao;
 import org.onap.vfc.nfvo.resmanagement.service.entity.VimEntity;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Vim info interface.<br/>
@@ -38,7 +38,7 @@ import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
  */
 public class VimBusinessImpl implements VimBusiness {
 
-    private static final Logger LOGGER = LogManager.getLogger(VimBusinessImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(VimBusinessImpl.class);
 
     private VimDao vimDao;
 

@@ -24,8 +24,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.common.ResourceUtil;
 import org.onap.vfc.nfvo.resmanagement.common.constant.Constant;
 import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
@@ -36,6 +34,8 @@ import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulOptions;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulParametes;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulResponse;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONException;
@@ -66,7 +66,7 @@ public class RestfulUtil {
     public static final String NO_RESULT_EXCEPTION =
             "org.openo.nfvo.resmanage.service.group.resoperate.add.res.no.result";
 
-    private static final Logger LOGGER = LogManager.getLogger(RestfulUtil.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RestfulUtil.class);
 
     private static final Restful REST_CLIENT_HTTP = RestfulFactory.getRestInstance(RestfulFactory.PROTO_HTTP);
 

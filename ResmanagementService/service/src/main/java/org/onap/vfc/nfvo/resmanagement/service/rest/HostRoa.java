@@ -33,8 +33,6 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.common.constant.HttpConstant;
 import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
 import org.onap.vfc.nfvo.resmanagement.common.constant.UrlConstant;
@@ -44,6 +42,8 @@ import org.onap.vfc.nfvo.resmanagement.common.util.response.RoaResponseUtil;
 import org.onap.vfc.nfvo.resmanagement.service.base.openstack.inf.Host;
 import org.onap.vfc.nfvo.resmanagement.service.entity.HostEntity;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONObject;
 
@@ -61,7 +61,7 @@ import net.sf.json.JSONObject;
 @Consumes(MediaType.APPLICATION_JSON)
 public class HostRoa {
 
-    private static final Logger LOGGER = LogManager.getLogger(HostRoa.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(HostRoa.class);
 
     private Host host;
 

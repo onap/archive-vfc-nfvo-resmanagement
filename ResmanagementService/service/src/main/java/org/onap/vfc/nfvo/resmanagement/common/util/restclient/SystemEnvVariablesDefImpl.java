@@ -19,8 +19,8 @@ package org.onap.vfc.nfvo.resmanagement.common.util.restclient;
 import java.io.File;
 import java.io.IOException;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * System environment variable helper implementation.<br/>
@@ -32,7 +32,7 @@ import org.apache.logging.log4j.Logger;
  */
 public class SystemEnvVariablesDefImpl implements SystemEnvVariables {
 
-    private static final Logger LOG = LogManager.getLogger(SystemEnvVariablesDefImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SystemEnvVariablesDefImpl.class);
 
     @Override
     public String getAppRoot() {

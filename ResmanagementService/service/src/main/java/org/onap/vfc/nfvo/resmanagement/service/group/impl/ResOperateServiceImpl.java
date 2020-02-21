@@ -21,8 +21,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.common.ResourceUtil;
 import org.onap.vfc.nfvo.resmanagement.common.constant.Constant;
 import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
@@ -41,6 +39,8 @@ import org.onap.vfc.nfvo.resmanagement.service.entity.VimEntity;
 import org.onap.vfc.nfvo.resmanagement.service.group.inf.ResOperateService;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulParametes;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 
 import net.sf.json.JSONArray;
@@ -56,7 +56,7 @@ import net.sf.json.JSONObject;
  */
 public class ResOperateServiceImpl implements ResOperateService {
 
-    private static final Logger LOGGER = LogManager.getLogger(ResOperateServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ResOperateServiceImpl.class);
 
     private Sites sites;
 

@@ -16,14 +16,14 @@
 
 package org.onap.vfc.nfvo.resmanagement.service.group.impl;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.common.VimUtil;
 import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.onap.vfc.nfvo.resmanagement.service.business.impl.LimitsBusinessImpl;
 import org.onap.vfc.nfvo.resmanagement.service.business.inf.LimitsBusiness;
 import org.onap.vfc.nfvo.resmanagement.service.group.inf.GrantResService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -44,7 +44,7 @@ public class GrantResServiceImpl implements GrantResService {
 
     public static final String RESOURCE_TEMPLATE = "resourceTemplate";
 
-    private static final Logger LOGGER = LogManager.getLogger(GrantResServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(GrantResServiceImpl.class);
 
     /**
      * <br>

@@ -19,13 +19,13 @@ package org.onap.vfc.nfvo.resmanagement.service.group.impl;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.common.ResourceUtil;
 import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
 import org.onap.vfc.nfvo.resmanagement.service.base.openstack.inf.InterfaceResManagement;
 import org.onap.vfc.nfvo.resmanagement.service.base.openstack.inf.Vim;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -38,7 +38,7 @@ import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
  */
 public class IResourceDelServiceImpl {
 
-    private static final Logger LOGGER = LogManager.getLogger(IResourceDelServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(IResourceDelServiceImpl.class);
 
     /**
      *

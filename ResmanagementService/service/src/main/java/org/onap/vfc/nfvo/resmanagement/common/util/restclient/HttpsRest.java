@@ -19,8 +19,6 @@ package org.onap.vfc.nfvo.resmanagement.common.util.restclient;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.eclipse.jetty.client.ContentExchange;
 import org.eclipse.jetty.client.HttpClient;
 import org.eclipse.jetty.client.HttpExchange;
@@ -28,10 +26,12 @@ import org.eclipse.jetty.io.ByteArrayBuffer;
 import org.eclipse.jetty.util.ssl.SslContextFactory;
 import org.eclipse.jetty.util.thread.QueuedThreadPool;
 import org.onap.vfc.nfvo.resmanagement.common.util.request.RequestUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class HttpsRest extends HttpBaseRest {
 
-    private static final Logger LOG = LogManager.getLogger(HttpsRest.class);
+    private static final Logger LOG = LoggerFactory.getLogger(HttpsRest.class);
     public static final String IOEXCEPTION = "IOException";
 
     public void initHttpsRest() {

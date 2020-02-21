@@ -21,8 +21,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONObject;
 
@@ -36,7 +36,7 @@ import net.sf.json.JSONObject;
  */
 public class RestfulConfigure {
 
-    private static final Logger LOG = LogManager.getLogger(RestfulConfigure.class);
+    private static final Logger LOG = LoggerFactory.getLogger(RestfulConfigure.class);
 
     private RestfulOptions options = null;
 

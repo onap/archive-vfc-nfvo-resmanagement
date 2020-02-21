@@ -25,8 +25,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executors;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.common.constant.Constant;
 import org.onap.vfc.nfvo.resmanagement.common.constant.HttpConstant;
 import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
@@ -34,6 +32,8 @@ import org.onap.vfc.nfvo.resmanagement.common.constant.UrlConstant;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.SystemEnvVariablesFactory;
 import org.onap.vfc.nfvo.resmanagement.service.adapter.inf.IResmgrAdapter2MSBManager;
 import org.onap.vfc.nfvo.resmanagement.service.adapter.inf.IResmgrAdapterMgrService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONObject;
 
@@ -47,7 +47,7 @@ import net.sf.json.JSONObject;
  */
 public class ResmgrAdapterMgrService implements IResmgrAdapterMgrService {
 
-    private static final Logger LOG = LogManager.getLogger(ResmgrAdapterMgrService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ResmgrAdapterMgrService.class);
 
     public static final String RESMGRADAPTERINFO = "resmgradapterinfo.json";
 

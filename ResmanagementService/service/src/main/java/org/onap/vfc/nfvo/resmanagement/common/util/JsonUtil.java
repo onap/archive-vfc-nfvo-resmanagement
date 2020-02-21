@@ -16,9 +16,9 @@
 
 package org.onap.vfc.nfvo.resmanagement.common.util;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONException;
@@ -35,7 +35,7 @@ import net.sf.json.JSONObject;
  */
 public final class JsonUtil {
 
-    private static final Logger LOG = LogManager.getLogger(StringUtil.class);
+    private static final Logger LOG = LoggerFactory.getLogger(StringUtil.class);
 
     private static final int TYPE_STRING = 0;
 

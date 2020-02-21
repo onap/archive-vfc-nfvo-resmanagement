@@ -19,14 +19,14 @@ package org.onap.vfc.nfvo.resmanagement.service.group.impl;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.common.constant.ParamConstant;
 import org.onap.vfc.nfvo.resmanagement.common.constant.UrlConstant;
 import org.onap.vfc.nfvo.resmanagement.common.util.RestfulUtil;
 import org.onap.vfc.nfvo.resmanagement.service.base.openstack.inf.InterfaceResManagement;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulParametes;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 
 import net.sf.json.JSONArray;
@@ -42,7 +42,7 @@ import net.sf.json.JSONObject;
  */
 public class IResourceUpdateServiceImpl {
 
-    private static final Logger LOGGER = LogManager.getLogger(IResourceUpdateServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(IResourceUpdateServiceImpl.class);
 
     /**
      * Update iResource.<br>

@@ -21,13 +21,13 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.common.ResourceUtil;
 import org.onap.vfc.nfvo.resmanagement.service.business.inf.NetworkBusiness;
 import org.onap.vfc.nfvo.resmanagement.service.dao.inf.NetworkDao;
 import org.onap.vfc.nfvo.resmanagement.service.entity.NetworkEntity;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Network business implementation class.<br>
@@ -39,7 +39,7 @@ import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
  */
 public class NetworkBusinessImpl implements NetworkBusiness {
 
-    private static final Logger LOGGER = LogManager.getLogger(NetworkBusinessImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(NetworkBusinessImpl.class);
 
     private NetworkDao networkDao;
 

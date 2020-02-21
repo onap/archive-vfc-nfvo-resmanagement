@@ -21,14 +21,14 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.common.ResourceUtil;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
 import org.onap.vfc.nfvo.resmanagement.service.dao.inf.VnfDao;
 import org.onap.vfc.nfvo.resmanagement.service.entity.VnfEntity;
 import org.onap.vfc.nfvo.resmanagement.service.group.inf.VnfInfoService;
 import org.onap.vfc.nfvo.resmanagement.service.group.inf.VnfService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONObject;
 
@@ -42,7 +42,7 @@ import net.sf.json.JSONObject;
  */
 public class VnfServiceImpl implements VnfService {
 
-    private static final Logger LOGGER = LogManager.getLogger(VnfServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(VnfServiceImpl.class);
 
     private VnfDao vnfDao;
 

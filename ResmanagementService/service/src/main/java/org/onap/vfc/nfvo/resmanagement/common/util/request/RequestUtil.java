@@ -27,11 +27,11 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulClientConst;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.RestfulParametes;
 import org.onap.vfc.nfvo.resmanagement.common.util.restclient.ServiceException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
@@ -47,7 +47,7 @@ import net.sf.json.JSONObject;
  */
 public final class RequestUtil {
 
-    private static final Logger LOGGER = LogManager.getLogger(RequestUtil.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RequestUtil.class);
 
     /**
      * Constructor<br/>
