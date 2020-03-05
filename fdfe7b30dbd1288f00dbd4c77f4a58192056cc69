@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3645a3d3_e3cb2dfb",
+        "filename": "ResmanagementService/docker/docker-env-config.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 2319
+      },
+      "writtenOn": "2020-03-05T09:00:49Z",
+      "side": 1,
+      "message": "trailing",
+      "revId": "fdfe7b30dbd1288f00dbd4c77f4a58192056cc69",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f058c809_87d37dd2",
+        "filename": "ResmanagementService/docker/docker-env-config.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 2319
+      },
+      "writtenOn": "2020-03-05T09:00:49Z",
+      "side": 1,
+      "message": "I still don\u0027t get why you need a mysql server here",
+      "revId": "fdfe7b30dbd1288f00dbd4c77f4a58192056cc69",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92df1732_b603c097",
+        "filename": "ResmanagementService/docker/docker-env-config.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 2319
+      },
+      "writtenOn": "2020-03-05T09:00:49Z",
+      "side": 1,
+      "message": "trailing",
+      "revId": "fdfe7b30dbd1288f00dbd4c77f4a58192056cc69",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f5f1cdc_a1f66e85",
+        "filename": "ResmanagementService/docker/docker-env-config.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 2319
+      },
+      "writtenOn": "2020-03-05T09:00:49Z",
+      "side": 1,
+      "message": "trailing",
+      "revId": "fdfe7b30dbd1288f00dbd4c77f4a58192056cc69",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
