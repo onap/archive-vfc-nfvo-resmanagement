@@ -36,7 +36,7 @@ echo
 
 # Wait for MSB initialization
 echo Wait for MSB initialization
-for i in {1..10}; do
+for i in {1..5}; do
     curl -sS -m 1 $MSB_ADDR > /dev/null && break
     sleep $i
 done
@@ -47,7 +47,7 @@ echo
 ./instance-config.sh
 
 # Start mysql
-su mysql -c /usr/bin/mysqld_safe &
+/usr/bin/mysqld_safe &
 
 # Perform one-time config
 if [ ! -e init.log ]; then
