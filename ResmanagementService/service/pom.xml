@@ -20,12 +20,12 @@
     <parent>
         <groupId>org.onap.vfc.nfvo.resmanagement</groupId>
         <artifactId>vfc-nfvo-resmanagement-service-root</artifactId>
-        <version>1.3.0-SNAPSHOT</version>
+        <version>1.3.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>vfc-nfvo-resmanagement-service</artifactId>
-    <version>1.3.0-SNAPSHOT</version>
+    <version>1.3.1-SNAPSHOT</version>
     <name>vfc/nfvo/resmanagement/ResmanagementService/service</name>
     <packaging>war</packaging>
     <dependencies>
