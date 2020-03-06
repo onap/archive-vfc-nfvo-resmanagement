@@ -41,7 +41,7 @@ set_up_tomcat(){
 		mkdir -p webapps/ROOT
 	echo 'export CATALINA_OPTS="$CATALINA_OPTS -Xms64m -Xmx256m -XX:MaxPermSize=64m"' > /service/bin/setenv.sh
 	
-	#wget -q -O nfvo-resmanagement.zip "https://nexus.onap.org/service/local/artifact/maven/redirect?r=snapshots&g=org.onap.vfc.nfvo.resmanagement&a=vfc-nfvo-resmanagement-deployment&v=LATEST&e=zip" && \
+	wget -q -O nfvo-resmanagement.zip "https://nexus.onap.org/service/local/artifact/maven/redirect?r=snapshots&g=org.onap.vfc.nfvo.resmanagement&a=vfc-nfvo-resmanagement-deployment&v=LATEST&e=zip" && \
 		unzip -q -o -B nfvo-resmanagement.zip && \
 		rm -f nfvo-resmanagement.zip
 	# Set permissions
